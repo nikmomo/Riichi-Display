@@ -23,7 +23,6 @@ namespace riichi_display
             if (textbox != null)
             {
                 textbox.ReadOnly = false;
-                textbox.BackColor = Color.White;
                 textbox.SelectAll();
             }
         }
@@ -33,9 +32,37 @@ namespace riichi_display
             System.Windows.Forms.TextBox textbox = sender as System.Windows.Forms.TextBox;
             if (textbox != null)
             {
-                p1name.ReadOnly = true;
-                p1name.BackColor = Color.LightGray;
+                textbox.ReadOnly = true;
             }
         }
+
+        private bool nameLockStatus = true; // When it's false, it's unlocked, locked otherwise
+        private void namelock_Click(object sender, EventArgs e)
+        {
+            nameLockStatus = !nameLockStatus;
+            p1name.Enabled = nameLockStatus;
+            p2name.Enabled = nameLockStatus;
+            p3name.Enabled = nameLockStatus;
+            p4name.Enabled = nameLockStatus;
+            if (!nameLockStatus)
+                namelock.Text = "Unlock";
+            else
+                namelock.Text = "Lock";
+        }
+
+        private bool teamLockStatus = false; // When it's false, it's unlocked, locked otherwise
+        private void teamlock_Click(object sender, EventArgs e)
+        {
+            teamLockStatus = !teamLockStatus;
+            team1name.Enabled = teamLockStatus;
+            team2name.Enabled = teamLockStatus;
+            team3name.Enabled = teamLockStatus;
+            team4name.Enabled = teamLockStatus;
+            if (!teamLockStatus)
+                teamlock.Text = "Unlock";
+            else
+                teamlock.Text = "Lock";
+        }
+
     }
 }
