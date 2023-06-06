@@ -11,12 +11,13 @@ namespace riichi_display
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new main());
+            Application.Run(new mainForm());
         }
     }
 }

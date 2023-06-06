@@ -34,11 +34,11 @@
             // team1Name
             // 
             this.team1Name.AutoSize = true;
-            this.team1Name.Location = new System.Drawing.Point(304, 283);
+            this.team1Name.Location = new System.Drawing.Point(142, 267);
             this.team1Name.Name = "team1Name";
-            this.team1Name.Size = new System.Drawing.Size(51, 20);
+            this.team1Name.Size = new System.Drawing.Size(0, 20);
             this.team1Name.TabIndex = 0;
-            this.team1Name.Text = "label1";
+            this.team1Name.Text = "Team1";
             // 
             // display
             // 

@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace riichi_display
 {
-    public partial class main : Form
+    public partial class mainForm : Form
     {
         
-        public main()
+        public mainForm()
         {
             InitializeComponent();
+            display displayForm = new display(this);
+            displayForm.Show();
         }
         private void NameGetFocus(object sender, EventArgs e)
         {

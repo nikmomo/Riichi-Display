@@ -1,6 +1,6 @@
 ﻿namespace riichi_display
 {
-    partial class main
+    partial class mainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -57,6 +57,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pointgroup = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.draw = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.riichisticks = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.playerList = new System.Windows.Forms.ComboBox();
             this.ron4 = new System.Windows.Forms.Button();
             this.tsumo4 = new System.Windows.Forms.Button();
             this.ron3 = new System.Windows.Forms.Button();
@@ -69,15 +78,6 @@
             this.oya3 = new System.Windows.Forms.Button();
             this.oya2 = new System.Windows.Forms.Button();
             this.oya1 = new System.Windows.Forms.Button();
-            this.playerList = new System.Windows.Forms.ComboBox();
-            this.riichisticks = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.draw = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pointgroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -491,6 +491,109 @@
             this.pointgroup.TabStop = false;
             this.pointgroup.Text = "点数控制区";
             // 
+            // button7
+            // 
+            this.button7.AutoSize = true;
+            this.button7.Location = new System.Drawing.Point(535, 217);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(83, 30);
+            this.button7.TabIndex = 44;
+            this.button7.Text = "其他设置";
+            this.button7.UseMnemonic = false;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.Location = new System.Drawing.Point(705, 216);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(83, 30);
+            this.button6.TabIndex = 43;
+            this.button6.Text = "重置游戏";
+            this.button6.UseMnemonic = false;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // draw
+            // 
+            this.draw.AutoSize = true;
+            this.draw.Location = new System.Drawing.Point(624, 217);
+            this.draw.Name = "draw";
+            this.draw.Size = new System.Drawing.Size(75, 30);
+            this.draw.TabIndex = 42;
+            this.draw.Text = "流局";
+            this.draw.UseMnemonic = false;
+            this.draw.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(167, 225);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 20);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "连庄";
+            // 
+            // button5
+            // 
+            this.button5.AutoSize = true;
+            this.button5.Location = new System.Drawing.Point(257, 218);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 30);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Lock";
+            this.button5.UseMnemonic = false;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // riichisticks
+            // 
+            this.riichisticks.AutoSize = true;
+            this.riichisticks.Location = new System.Drawing.Point(29, 225);
+            this.riichisticks.Name = "riichisticks";
+            this.riichisticks.Size = new System.Drawing.Size(73, 20);
+            this.riichisticks.TabIndex = 40;
+            this.riichisticks.Text = "当前场供";
+            // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.AcceptsTab = true;
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Location = new System.Drawing.Point(214, 219);
+            this.textBox1.MaxLength = 20;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(32, 26);
+            this.textBox1.TabIndex = 34;
+            this.textBox1.Text = "0";
+            this.textBox1.WordWrap = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.AcceptsReturn = true;
+            this.textBox2.AcceptsTab = true;
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox2.Location = new System.Drawing.Point(108, 222);
+            this.textBox2.MaxLength = 20;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(36, 26);
+            this.textBox2.TabIndex = 33;
+            this.textBox2.Text = "0";
+            this.textBox2.WordWrap = false;
+            // 
+            // playerList
+            // 
+            this.playerList.FormattingEnabled = true;
+            this.playerList.Items.AddRange(new object[] {
+            "PLAYER1",
+            "PLAYER2",
+            "PLAYER3",
+            "三家"});
+            this.playerList.Location = new System.Drawing.Point(684, 123);
+            this.playerList.Name = "playerList";
+            this.playerList.Size = new System.Drawing.Size(96, 28);
+            this.playerList.TabIndex = 39;
+            // 
             // ron4
             // 
             this.ron4.AutoSize = true;
@@ -623,110 +726,7 @@
             this.oya1.UseMnemonic = false;
             this.oya1.UseVisualStyleBackColor = true;
             // 
-            // playerList
-            // 
-            this.playerList.FormattingEnabled = true;
-            this.playerList.Items.AddRange(new object[] {
-            "PLAYER1",
-            "PLAYER2",
-            "PLAYER3",
-            "三家"});
-            this.playerList.Location = new System.Drawing.Point(684, 123);
-            this.playerList.Name = "playerList";
-            this.playerList.Size = new System.Drawing.Size(96, 28);
-            this.playerList.TabIndex = 39;
-            // 
-            // riichisticks
-            // 
-            this.riichisticks.AutoSize = true;
-            this.riichisticks.Location = new System.Drawing.Point(29, 225);
-            this.riichisticks.Name = "riichisticks";
-            this.riichisticks.Size = new System.Drawing.Size(73, 20);
-            this.riichisticks.TabIndex = 40;
-            this.riichisticks.Text = "当前场供";
-            // 
-            // textBox2
-            // 
-            this.textBox2.AcceptsReturn = true;
-            this.textBox2.AcceptsTab = true;
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(108, 222);
-            this.textBox2.MaxLength = 20;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(36, 26);
-            this.textBox2.TabIndex = 33;
-            this.textBox2.Text = "0";
-            this.textBox2.WordWrap = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(167, 225);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 20);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "连庄";
-            // 
-            // button6
-            // 
-            this.button6.AutoSize = true;
-            this.button6.Location = new System.Drawing.Point(705, 216);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(83, 30);
-            this.button6.TabIndex = 43;
-            this.button6.Text = "重置游戏";
-            this.button6.UseMnemonic = false;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // draw
-            // 
-            this.draw.AutoSize = true;
-            this.draw.Location = new System.Drawing.Point(624, 217);
-            this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(75, 30);
-            this.draw.TabIndex = 42;
-            this.draw.Text = "流局";
-            this.draw.UseMnemonic = false;
-            this.draw.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(535, 217);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(83, 30);
-            this.button7.TabIndex = 44;
-            this.button7.Text = "其他设置";
-            this.button7.UseMnemonic = false;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.AutoSize = true;
-            this.button5.Location = new System.Drawing.Point(257, 218);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 30);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "Lock";
-            this.button5.UseMnemonic = false;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.AcceptsTab = true;
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(214, 219);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(32, 26);
-            this.textBox1.TabIndex = 34;
-            this.textBox1.Text = "0";
-            this.textBox1.WordWrap = false;
-            // 
-            // main
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -759,7 +759,7 @@
             this.Controls.Add(this.p2name);
             this.Controls.Add(this.p1name);
             this.Controls.Add(this.pointgroup);
-            this.Name = "main";
+            this.Name = "mainForm";
             this.Text = "洛神雀庄直播点数显示系统";
             this.pointgroup.ResumeLayout(false);
             this.pointgroup.PerformLayout();
@@ -770,24 +770,24 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox p1name;
-        private System.Windows.Forms.TextBox p2name;
-        private System.Windows.Forms.TextBox p3name;
-        private System.Windows.Forms.TextBox p4name;
+        public System.Windows.Forms.TextBox p1name;
+        public System.Windows.Forms.TextBox p2name;
+        public System.Windows.Forms.TextBox p3name;
+        public System.Windows.Forms.TextBox p4name;
         private System.Windows.Forms.Button namelock;
         private System.Windows.Forms.Button teamlock;
-        private System.Windows.Forms.TextBox team4name;
-        private System.Windows.Forms.TextBox team3name;
-        private System.Windows.Forms.TextBox team2name;
-        private System.Windows.Forms.TextBox team1name;
+        public System.Windows.Forms.TextBox team4name;
+        public System.Windows.Forms.TextBox team3name;
+        public System.Windows.Forms.TextBox team2name;
+        public System.Windows.Forms.TextBox team1name;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button pointLock;
-        private System.Windows.Forms.TextBox p4point;
-        private System.Windows.Forms.TextBox p3point;
-        private System.Windows.Forms.TextBox p2point;
-        private System.Windows.Forms.TextBox p1point;
+        public System.Windows.Forms.TextBox p4point;
+        public System.Windows.Forms.TextBox p3point;
+        public System.Windows.Forms.TextBox p2point;
+        public System.Windows.Forms.TextBox p1point;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox5;

@@ -3,9 +3,10 @@ C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\bin\Debug\riichi_display.pdb
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.csproj.AssemblyReference.cache
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.csproj.SuggestedBindingRedirects.cache
-C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.main.resources
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.Properties.Resources.resources
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.csproj.GenerateResource.cache
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.csproj.CoreCompileInputs.cache
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.exe
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.pdb
+C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.display.resources
+C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.mainForm.resources
