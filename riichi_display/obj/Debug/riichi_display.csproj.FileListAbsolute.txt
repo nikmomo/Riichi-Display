@@ -9,4 +9,5 @@ C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.exe
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.pdb
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.display.resources
+C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.setting.resources
 C:\Users\tfgmo\OneDrive\Documents\GitHub\riichi_mahjong_point_display_livestream\riichi_display\obj\Debug\riichi_display.mainForm.resources

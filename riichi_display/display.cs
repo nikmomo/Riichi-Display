@@ -12,11 +12,10 @@ namespace riichi_display
 {
     public partial class display : Form
     {
-        public display(mainForm form)
+
+        public display()
         {
             InitializeComponent();
-            this.team1Name.Text = form.team1name.Text;
-
         }
 
     }
