@@ -101,6 +101,10 @@ namespace riichi_display
                 {
                     control.Click += new EventHandler(seat_Click);
                 }
+                if (control.Tag != null && control.Tag.ToString() == "playerName")
+                {
+                    control.TextChanged += new EventHandler(name_changed);
+                }
             }
         }
 
@@ -195,6 +199,11 @@ namespace riichi_display
         {
             windControl = !windControl;
             displayForm.wind.BackgroundImage = windControl ? Properties.Resources.nan : Properties.Resources.ton;
+        }
+        
+        private void name_changed(object sender, EventArgs e)
+        {
+            // TODO: 当修改了名字后，下拉菜单也会跟随更新
         }
     }
 }

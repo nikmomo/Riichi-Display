@@ -41,6 +41,10 @@
             this.p4name = new System.Windows.Forms.Label();
             this.p4point = new System.Windows.Forms.Label();
             this.wind = new System.Windows.Forms.PictureBox();
+            this.ptDiff1 = new System.Windows.Forms.Label();
+            this.ptDiff2 = new System.Windows.Forms.Label();
+            this.ptDiff3 = new System.Windows.Forms.Label();
+            this.ptDiff4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wind)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,6 +226,62 @@
             this.wind.TabIndex = 13;
             this.wind.TabStop = false;
             // 
+            // ptDiff1
+            // 
+            this.ptDiff1.BackColor = System.Drawing.Color.Transparent;
+            this.ptDiff1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptDiff1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ptDiff1.Location = new System.Drawing.Point(116, 91);
+            this.ptDiff1.Name = "ptDiff1";
+            this.ptDiff1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ptDiff1.Size = new System.Drawing.Size(274, 79);
+            this.ptDiff1.TabIndex = 14;
+            this.ptDiff1.Text = "+0";
+            this.ptDiff1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ptDiff1.Visible = false;
+            // 
+            // ptDiff2
+            // 
+            this.ptDiff2.BackColor = System.Drawing.Color.Transparent;
+            this.ptDiff2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptDiff2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ptDiff2.Location = new System.Drawing.Point(560, 91);
+            this.ptDiff2.Name = "ptDiff2";
+            this.ptDiff2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ptDiff2.Size = new System.Drawing.Size(274, 79);
+            this.ptDiff2.TabIndex = 15;
+            this.ptDiff2.Text = "+0";
+            this.ptDiff2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ptDiff2.Visible = false;
+            // 
+            // ptDiff3
+            // 
+            this.ptDiff3.BackColor = System.Drawing.Color.Transparent;
+            this.ptDiff3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptDiff3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ptDiff3.Location = new System.Drawing.Point(1027, 91);
+            this.ptDiff3.Name = "ptDiff3";
+            this.ptDiff3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ptDiff3.Size = new System.Drawing.Size(274, 79);
+            this.ptDiff3.TabIndex = 16;
+            this.ptDiff3.Text = "+0";
+            this.ptDiff3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ptDiff3.Visible = false;
+            // 
+            // ptDiff4
+            // 
+            this.ptDiff4.BackColor = System.Drawing.Color.Transparent;
+            this.ptDiff4.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptDiff4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ptDiff4.Location = new System.Drawing.Point(1545, 91);
+            this.ptDiff4.Name = "ptDiff4";
+            this.ptDiff4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ptDiff4.Size = new System.Drawing.Size(274, 79);
+            this.ptDiff4.TabIndex = 17;
+            this.ptDiff4.Text = "+0";
+            this.ptDiff4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ptDiff4.Visible = false;
+            // 
             // display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -229,6 +289,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(1898, 344);
+            this.Controls.Add(this.team1Name);
+            this.Controls.Add(this.ptDiff1);
             this.Controls.Add(this.wind);
             this.Controls.Add(this.team4Name);
             this.Controls.Add(this.p4name);
@@ -239,9 +301,11 @@
             this.Controls.Add(this.team2Name);
             this.Controls.Add(this.p2name);
             this.Controls.Add(this.p2point);
-            this.Controls.Add(this.team1Name);
             this.Controls.Add(this.p1name);
             this.Controls.Add(this.p1point);
+            this.Controls.Add(this.ptDiff2);
+            this.Controls.Add(this.ptDiff3);
+            this.Controls.Add(this.ptDiff4);
             this.MinimumSize = new System.Drawing.Size(1918, 56);
             this.Name = "display";
             this.Text = "显示系统";
@@ -265,5 +329,9 @@
         public System.Windows.Forms.Label p4name;
         public System.Windows.Forms.Label p4point;
         public System.Windows.Forms.PictureBox wind;
+        public System.Windows.Forms.Label ptDiff1;
+        public System.Windows.Forms.Label ptDiff2;
+        public System.Windows.Forms.Label ptDiff3;
+        public System.Windows.Forms.Label ptDiff4;
     }
 }
