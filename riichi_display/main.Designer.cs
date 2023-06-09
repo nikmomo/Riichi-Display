@@ -633,11 +633,7 @@
             // 
             this.playerList.FormattingEnabled = true;
             this.playerList.Items.AddRange(new object[] {
-            "PLAYER1",
-            "PLAYER2",
-            "PLAYER3",
-            "PLAYER4",
-            "三家"});
+            "三家", p1name.Text, p2name.Text, p3name.Text, p4name.Text});
             this.playerList.Location = new System.Drawing.Point(684, 123);
             this.playerList.Name = "playerList";
             this.playerList.Size = new System.Drawing.Size(96, 28);
@@ -650,6 +646,7 @@
             this.ron4.Name = "ron4";
             this.ron4.Size = new System.Drawing.Size(52, 30);
             this.ron4.TabIndex = 38;
+            this.ron4.Tag = "ron";
             this.ron4.Text = "荣和";
             this.ron4.UseMnemonic = false;
             this.ron4.UseVisualStyleBackColor = true;
@@ -672,6 +669,7 @@
             this.ron3.Name = "ron3";
             this.ron3.Size = new System.Drawing.Size(52, 30);
             this.ron3.TabIndex = 36;
+            this.ron3.Tag = "ron";
             this.ron3.Text = "荣和";
             this.ron3.UseMnemonic = false;
             this.ron3.UseVisualStyleBackColor = true;
@@ -683,6 +681,7 @@
             this.ron2.Name = "ron2";
             this.ron2.Size = new System.Drawing.Size(52, 30);
             this.ron2.TabIndex = 36;
+            this.ron2.Tag = "ron";
             this.ron2.Text = "荣和";
             this.ron2.UseMnemonic = false;
             this.ron2.UseVisualStyleBackColor = true;
@@ -716,6 +715,7 @@
             this.ron1.Name = "ron1";
             this.ron1.Size = new System.Drawing.Size(52, 30);
             this.ron1.TabIndex = 34;
+            this.ron1.Tag = "ron";
             this.ron1.Text = "荣和";
             this.ron1.UseMnemonic = false;
             this.ron1.UseVisualStyleBackColor = true;

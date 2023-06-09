@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pointHandler.cs" />
     <Compile Include="customEvents.cs" />
     <Compile Include="display.cs">
       <SubType>Form</SubType>

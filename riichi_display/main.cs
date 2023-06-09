@@ -12,41 +12,62 @@ namespace riichi_display
 {
     public partial class mainForm : Form
     {
+        // Declare the forms used in the main form
         private display displayForm;
         private setting setting;
+
         public mainForm()
         {
             InitializeComponent();
+            // Initialize form properties and event handlers
             PropertySetup();
+
+            // Remove focus from any form control
             ActiveControl = null;
+
+            // Initialize and show the display form
             displayForm = new display();
             displayForm.Show();
+
+            // Initialize the settings form and subscribe to its events
             setting = new setting();
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
         }
+
+        // Event handler for textbox focus
         private void textboxGetFocus(object sender, EventArgs e)
         {
+            // Cast the sender to a TextBox
             System.Windows.Forms.TextBox textbox = sender as System.Windows.Forms.TextBox;
             if (textbox != null)
             {
+                // Set the TextBox as editable and select all its text
                 textbox.ReadOnly = false;
                 textbox.SelectAll();
             }
         }
 
+        // Event handler for textbox losing focus
         private void textboxLoseFocus(object sender, EventArgs e)
         {
+            // Cast the sender to a TextBox
             System.Windows.Forms.TextBox textbox = sender as System.Windows.Forms.TextBox;
             if (textbox != null)
             {
+                // Find the corresponding label in the display form and set its text
                 Label target = displayForm.Controls.Find(textbox.Name, true).FirstOrDefault() as Label;
                 if (target != null)
                     target.Text = textbox.Text;
             }
         }
 
-        private bool nameLockStatus = true; // When it's false, it's unlocked, locked otherwise
+        // Status flags for various locks
+        private bool nameLockStatus = true;  // When it's false, it's unlocked, locked otherwise
+        private bool teamLockStatus = false; // When it's false, it's unlocked, locked otherwise
+        private bool pointLockStatus = true; // When it's false, it's unlocked, locked otherwise
+
+        // Event handler for name lock/unlock button click
         private void namelock_Click(object sender, EventArgs e)
         {
             nameLockStatus = !nameLockStatus;
@@ -60,7 +81,7 @@ namespace riichi_display
                 namelock.BackgroundImage = Properties.Resources.unlock;
         }
 
-        private bool teamLockStatus = false; // When it's false, it's unlocked, locked otherwise
+        // Event handler for team lock/unlock button click
         private void teamlock_Click(object sender, EventArgs e)
         {
             teamLockStatus = !teamLockStatus;
@@ -74,7 +95,7 @@ namespace riichi_display
                 teamlock.BackgroundImage = Properties.Resources.unlock;
         }
 
-        private bool pointLockStatus = true; // When it's false, it's unlocked, locked otherwise
+        // Event handler for point lock/unlock button click
         private void pointlock_Click(object sender, EventArgs e)
         {
             pointLockStatus = !pointLockStatus;
@@ -88,6 +109,7 @@ namespace riichi_display
                 pointLock.BackgroundImage = Properties.Resources.unlock;
         }
 
+        // Method to set up properties and event handlers for form controls
         private void PropertySetup()
         {
             foreach (Control control in this.Controls)
@@ -108,14 +130,17 @@ namespace riichi_display
             }
         }
 
+        // Event handler for key down event
         private void enterLoseFocus(object sender, KeyEventArgs e)
         {
+            // Remove focus from current control when enter key is pressed
             if (e.KeyCode == Keys.Enter)
             {
                 this.ActiveControl = null;
             }
         }
 
+        // Event handlers for various control click events
         private void seat_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
@@ -176,6 +201,7 @@ namespace riichi_display
         }
 
         private bool teamControl = false; // Hide team when it's false, show otherwise.
+        // Event handlers for setting form events
         private void changeTeamControl(object sender, TeamControlEvent e)
         {
             teamControl = !teamControl;
@@ -200,10 +226,50 @@ namespace riichi_display
             windControl = !windControl;
             displayForm.wind.BackgroundImage = windControl ? Properties.Resources.nan : Properties.Resources.ton;
         }
-        
+
+        // Event handler for text change in name textboxes
         private void name_changed(object sender, EventArgs e)
         {
-            // TODO: 当修改了名字后，下拉菜单也会跟随更新
+            // Create a list to store the textbox values
+            List<string> textboxValues = new List<string>();
+            foreach (Control control in this.Controls)
+            {
+                if (control.Tag != null && control.Tag.ToString() == "playerName")
+                {
+                    // Add the text from the TextBox to the list
+                    textboxValues.Add(control.Text);
+                }
+            }
+
+            // Clear the combobox items
+            playerList.Items.Clear();
+
+            playerList.Items.Add("三家");
+
+            // Add the items from the list to the combobox
+            foreach (string item in textboxValues)
+            {
+                playerList.Items.Add(item);
+            }
+        }
+
+        // Event handler for ron button click
+        private void ron_clicked(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            var num = button.Name.Substring(1, 1);
+            foreach (Control control in this.Controls)
+            {
+                if (control.Tag != null && control.Tag.ToString() == "playerName")
+                {
+                    // TODO: Add code here
+                    if (control.Name == "name")
+                        control.ForeColor = Color.DarkOrange;
+                    else
+                        control.ForeColor = Color.White;
+                }
+            }
+            
         }
     }
 }
