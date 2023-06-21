@@ -23,11 +23,11 @@ namespace riichi_display
         }
 
         // Public properties for kyutaku and combo.
-        public int Kyutaku { get { 
+        private int Kyutaku { get { 
                 var result = kyutaku;
                 kyutaku = 0;
                 return result; }}
-        public int Combo { get { return combo; } }
+        private int Combo { get { return combo; } }
         public int FinalAddup { get {
                 var result = finalAddup;
                 finalAddup = 0;
@@ -45,42 +45,46 @@ namespace riichi_display
         // Reset combo and kyutaku to zero.
         public void Reset() { combo = 0; kyutaku = 0; finalAddup = 0; }
 
-        // Calculate the total point when oyatsumo.
+        // Calculate the total point when oyatsumo, return the point that requires to pay by everyone
         // point - The base point.
         public int Oyatsumo(int point)
         {
-            var result = point / 4;
+            var result = point / 3;
             if (result % 100 != 0)
                 result += 100;
-            finalAddup = (toThousand(result) * 3 ) + combo * 300 +
+            finalAddup = (ToThousand(result) * 3 ) + combo * 300 +
                 kyutaku * 1000;
-            return toThousand(result) + combo * 100;
+            return ToThousand(result) + combo * 100;
         }
 
         // Calculate the total points for both oya and ko when kotsumo.
         // point - The base point.
-        public (int, int) Kotsumo(int point)
+        public (int oya, int ko) Kotsumo(int point)
         {
             var oyaResult = point / 2;
+            var koResult = oyaResult / 2;
             if (oyaResult % 100 != 0)
                 oyaResult += 100;
-            var koResult = oyaResult / 2;
             if (koResult % 100 != 0)
                 koResult += 100;
-            finalAddup = toThousand(oyaResult) + (combo * 300) + 
-                toThousand(koResult) * 2 + kyutaku * 1000;
-            return (toThousand(oyaResult) + combo * 100, toThousand(koResult) + combo * 100);
+            finalAddup = ToThousand(oyaResult) + (combo * 300) + 
+                ToThousand(koResult) * 2 + kyutaku * 1000;
+            return (ToThousand(oyaResult) + combo * 100, ToThousand(koResult) + combo * 100);
         }
 
         // Increase combo by one.
-        public void addCombo() { combo++; }
+        public void AddCombo() { combo++; }
 
         // Increase kyutaku by one.
-        public void addKyutaku() { kyutaku++; }
+        public void AddKyutaku() { kyutaku++; }
+
+        public int getKyutaku() { return kyutaku; }
+
+        public int getCombo() { return combo; }
 
         // Rounds a value down to the nearest thousand.
         // value - The value to round down.
-        private int toThousand(int value)
+        private int ToThousand(int value)
         {
             var result = value / 100;
             return result * 100;

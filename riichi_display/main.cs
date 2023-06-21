@@ -16,6 +16,11 @@ namespace riichi_display
         private display displayForm;
         private setting setting;
 
+        private string currentOya;
+        private string winner;
+
+        pointHandler handler;
+
         public mainForm()
         {
             InitializeComponent();
@@ -33,6 +38,9 @@ namespace riichi_display
             setting = new setting();
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
+
+            currentOya = "0";
+            handler = new pointHandler();
         }
 
         // Event handler for textbox focus
@@ -115,17 +123,21 @@ namespace riichi_display
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox)
-                {
                     control.KeyDown += new KeyEventHandler(enterLoseFocus);
-                    //Console.WriteLine(control.Name);
-                }
-                if (control.Tag != null && control.Tag.ToString() == "seat")
+                if (control.Tag != null)
                 {
-                    control.Click += new EventHandler(seat_Click);
-                }
-                if (control.Tag != null && control.Tag.ToString() == "playerName")
-                {
-                    control.TextChanged += new EventHandler(name_changed);
+                    if (control.Tag.ToString() == "seat")
+                        control.Click += new EventHandler(seat_Click);
+                    else if (control.Tag.ToString() == "playerName")
+                        control.TextChanged += new EventHandler(name_changed);
+                    else if (control.Tag.ToString() == "ron")
+                        control.Click += new EventHandler(ron_clicked);
+                    else if (control.Tag.ToString() == "tsumo")
+                        control.Click += new EventHandler(tsumo_clicked);
+                    else if (control.Tag.ToString() == "riichi")
+                        control.Click += new EventHandler(riichi_clicked);
+
+
                 }
             }
         }
@@ -144,6 +156,8 @@ namespace riichi_display
         private void seat_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            currentOya = button.Name.Substring(3);
+            //Console.WriteLine(currentOya);
             if (button != null)
             {
                 button.BackColor = Color.DarkOrange;
@@ -161,7 +175,7 @@ namespace riichi_display
                     if (control.Tag != null && control.Tag.ToString() == "name")
                     {
                         var name = "p" + button.Name.Substring(3, 1) + "name";
-                        Console.WriteLine(name);
+                        //Console.WriteLine(name);
                         if (control.Name == name)
                             control.ForeColor = Color.DarkOrange;
                         else
@@ -257,19 +271,209 @@ namespace riichi_display
         private void ron_clicked(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            var num = button.Name.Substring(1, 1);
-            foreach (Control control in this.Controls)
+            winner = button.Name.Substring(3);
+            playerList.Enabled = true;
+            
+        }
+
+        private void tsumo_clicked(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            winner = button.Name.Substring(5);
+            playerList.Text = "三家";
+            playerList.Enabled = false;
+            
+        }
+
+        private void pointGain_LoseFocus(object sender, EventArgs e)
+        {
+            if (playerList.Text == "")
+                return;
+            if (playerList.Text == "三家")
             {
-                if (control.Tag != null && control.Tag.ToString() == "playerName")
+                if (winner != currentOya)
                 {
-                    // TODO: Add code here
-                    if (control.Name == "name")
-                        control.ForeColor = Color.DarkOrange;
-                    else
-                        control.ForeColor = Color.White;
+                    int oya, ko;
+
+                    (oya, ko) = handler.Kotsumo(int.Parse(pointGain.Text));
+                    //Console.WriteLine("Oya" + currentOya + '\n' + "Ko" + winner);
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+                        {
+                            if (control.Name == "ptDiff" + currentOya)
+                            {
+                                control.Text = '-' + oya.ToString();
+                            }
+                            else if (control.Name == "ptDiff" + winner)
+                            {
+                                control.Text = handler.FinalAddup.ToString();
+                            }
+                            else
+                            {
+                                control.Text = '-' + ko.ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    int result = handler.Oyatsumo(int.Parse(pointGain.Text));
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+                        {
+                            if (control.Name == "ptDiff" + winner)
+                            {
+                                control.Text = handler.FinalAddup.ToString();
+                            }
+                            else
+                            {
+                                control.Text = '-' + result.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                var result = handler.Ron(int.Parse(pointGain.Text));
+                string number = "0";
+                foreach (Control control in this.Controls)
+                {
+                    if (control.Tag == null || control.Tag.ToString() != "playerName")
+                        continue;
+                    if (control.Text == playerList.Text)
+                    {
+                        number = control.Name.Substring(1, 1);
+                    }
+                }
+                string transferNum = (int.Parse(number) - 1).ToString();
+                Console.WriteLine(transferNum);
+                foreach (Control control in this.Controls)
+                {
+                    if (control.Name == "ptDiff" + transferNum)
+                    {
+                        control.Text = "-" + result.ToString();
+                    }
+                    else if (control.Name == "ptDiff" + winner)
+                    {
+                        control.Text = handler.FinalAddup.ToString();
+                    }
+                    else if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+                        control.Text = "0";
                 }
             }
             
         }
+
+        private void riichi_clicked(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            var player = button.Name.Substring(1, 1);
+            handler.AddKyutaku();
+            button.Enabled = false;
+            foreach (Control control in this.Controls)
+            {
+                if (control.Name == "kyutaku")
+                {
+                    control.Text = handler.getKyutaku().ToString();
+                    //Console.WriteLine(handler.getKyutaku());
+                }
+                if (control.Name == "p" + player + "point")
+                {
+                    PointAddup(control, "-1000");
+                }
+            }
+        }
+
+        private void submit_Click(object sender, EventArgs e)
+        {
+            string p1Adjust = "0", p2Adjust = "0", p3Adjust = "0", p4Adjust = "0";
+            foreach (Control control in this.Controls) // get points and reset the status of control
+            {
+                if (control.Tag != null)
+                {
+                    if (control.Tag.ToString() == "riichi")
+                    {
+                        control.Enabled = true;
+                    }
+                    else if (control.Tag.ToString() == "addup") // get the points
+                    {
+                        switch (control.Name.Substring(6))
+                        {
+                            case "0":
+                                p1Adjust = control.Text;
+                                control.Text = "0";
+                                break;
+                            case "1":
+                                p2Adjust = control.Text;
+                                control.Text = "0";
+                                break;
+                            case "2":
+                                p3Adjust = control.Text;
+                                control.Text = "0";
+                                break;
+                            case "3":
+                                p4Adjust = control.Text;
+                                control.Text = "0";
+                                break;
+                        }
+                    }
+                }
+                if (control.Name == "kyutaku")
+                    control.Text = handler.getKyutaku().ToString();
+                else if (control.Name == "combo")
+                    control.Text = handler.getCombo().ToString();
+                else if (control.Name == "pointGain")
+                    control.Text = "";
+                else if (control.Name == "playerList")
+                {
+                    control.Text = "";
+                    control.Enabled = true;
+                }
+
+            }
+            foreach (Control control in this.Controls) // add the points 
+            {
+                if (control.Tag != null)
+                {
+                    if (control.Tag.ToString() == "point")
+                    {
+                        switch (control.Name.Substring(1, 1))
+                        {
+                            case "1":
+                                PointAddup(control, p1Adjust);
+                                break;
+                            case "2":
+                                PointAddup(control, p2Adjust);
+                                break;
+                            case "3":
+                                PointAddup(control, p3Adjust);
+                                break;
+                            case "4":
+                                PointAddup(control, p4Adjust);
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void PointAddup(Control obj, string point)
+        {
+            if (obj is TextBox)
+            {
+                int addup = int.Parse(point);
+                int value = int.Parse(obj.Text);
+                value += addup;
+                obj.Text = value.ToString();
+            }
+            else
+            {
+                throw new Exception("Object type invalid");
+            }
+        }
     }
+
 }
