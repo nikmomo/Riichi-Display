@@ -29,8 +29,9 @@ namespace riichi_display
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setting));
             this.hideTeam = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.windSwitch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hideTeam
@@ -45,25 +46,26 @@ namespace riichi_display
             this.hideTeam.UseVisualStyleBackColor = true;
             this.hideTeam.Click += new System.EventHandler(this.hideTeam_Click);
             // 
-            // button1
+            // windSwitch
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(150, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 30);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "场风切换";
-            this.button1.UseMnemonic = false;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.windSwitch.AutoSize = true;
+            this.windSwitch.Location = new System.Drawing.Point(150, 78);
+            this.windSwitch.Name = "windSwitch";
+            this.windSwitch.Size = new System.Drawing.Size(151, 30);
+            this.windSwitch.TabIndex = 49;
+            this.windSwitch.Text = "场风切换";
+            this.windSwitch.UseMnemonic = false;
+            this.windSwitch.UseVisualStyleBackColor = true;
+            this.windSwitch.Click += new System.EventHandler(this.button1_Click);
             // 
             // setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 143);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.windSwitch);
             this.Controls.Add(this.hideTeam);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "setting";
             this.Text = "setting";
             this.ResumeLayout(false);
@@ -74,6 +76,6 @@ namespace riichi_display
         #endregion
 
         private System.Windows.Forms.Button hideTeam;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button windSwitch;
     }
 }

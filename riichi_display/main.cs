@@ -20,6 +20,7 @@ namespace riichi_display
         private string winner;
 
         pointHandler handler;
+        public event EventHandler<WindChangeEvent> WindChgeEvent;
 
         public mainForm()
         {
@@ -41,6 +42,8 @@ namespace riichi_display
 
             currentOya = "0";
             handler = new pointHandler();
+
+
         }
 
         // Event handler for textbox focus
@@ -73,7 +76,8 @@ namespace riichi_display
         // Status flags for various locks
         private bool nameLockStatus = true;  // When it's false, it's unlocked, locked otherwise
         private bool teamLockStatus = false; // When it's false, it's unlocked, locked otherwise
-        private bool pointLockStatus = true; // When it's false, it's unlocked, locked otherwise
+        private bool pointLockStatus = false; // When it's false, it's unlocked, locked otherwise
+        private bool gameStatus = false; // When it's false, it's unlocked, locked otherwise
 
         // Event handler for name lock/unlock button click
         private void namelock_Click(object sender, EventArgs e)
@@ -117,6 +121,16 @@ namespace riichi_display
                 pointLock.BackgroundImage = Properties.Resources.unlock;
         }
 
+        private void gameStatus_Click(object sender, EventArgs e)
+        {
+            gameStatus = !gameStatus;
+            kyutaku.Enabled = gameStatus;
+            combo.Enabled = gameStatus;
+            if (!gameStatus)
+                gameStatusLock.BackgroundImage = Properties.Resources._lock;
+            else
+                gameStatusLock.BackgroundImage = Properties.Resources.unlock;
+        }
         // Method to set up properties and event handlers for form controls
         private void PropertySetup()
         {
@@ -136,10 +150,11 @@ namespace riichi_display
                         control.Click += new EventHandler(tsumo_clicked);
                     else if (control.Tag.ToString() == "riichi")
                         control.Click += new EventHandler(riichi_clicked);
-
-
                 }
+                
             }
+
+            pointGain.KeyPress += pointGain_KeyPress;
         }
 
         // Event handler for key down event
@@ -156,7 +171,7 @@ namespace riichi_display
         private void seat_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            currentOya = button.Name.Substring(3);
+            currentOya = (int.Parse(button.Name.Substring(3)) - 1).ToString();
             //Console.WriteLine(currentOya);
             if (button != null)
             {
@@ -287,7 +302,7 @@ namespace riichi_display
 
         private void pointGain_LoseFocus(object sender, EventArgs e)
         {
-            if (playerList.Text == "")
+            if (playerList.Text == "" || pointGain.Text == "")
                 return;
             if (playerList.Text == "三家")
             {
@@ -349,7 +364,7 @@ namespace riichi_display
                     }
                 }
                 string transferNum = (int.Parse(number) - 1).ToString();
-                Console.WriteLine(transferNum);
+                //Console.WriteLine(transferNum);
                 foreach (Control control in this.Controls)
                 {
                     if (control.Name == "ptDiff" + transferNum)
@@ -366,6 +381,22 @@ namespace riichi_display
             }
             
         }
+
+        private void pointGain_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the input is not a digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Reject the input
+            }
+
+            // Check if the input exceeds a maximum length
+            if (!char.IsControl(e.KeyChar) && pointGain.Text.Length >= 7)
+            {
+                e.Handled = true; // Reject the input
+            }
+        }
+
 
         private void riichi_clicked(object sender, EventArgs e)
         {
@@ -458,6 +489,39 @@ namespace riichi_display
                     }
                 }
             }
+            handler.clearRiichi();
+            if (currentOya == winner)
+            {
+                handler.AddCombo();
+                combo.Text = handler.getCombo().ToString();
+            }
+            else
+            {
+                handler.Reset();
+                currentOya = (int.Parse(currentOya) + 1).ToString();
+                if (currentOya == "4")
+                {
+                    currentOya = "0";
+                    windChgeControl(sender, new WindChangeEvent());
+                }
+                string transferOya = (int.Parse(currentOya) + 1).ToString();
+                Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
+                if (control != null)
+                {
+                    control.PerformClick();
+                }
+            }
+            winner = "42";
+            Console.WriteLine(handler.getKyutaku().ToString());
+            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
+            Controls["combo"].Text = handler.getCombo().ToString();
+            foreach (Control control in Controls)
+            {
+                if (control.Tag != null && control.Tag.ToString() == "point")
+                {
+                    textboxLoseFocus(control, e);
+                }
+            }
         }
 
         private void PointAddup(Control obj, string point)
@@ -473,6 +537,16 @@ namespace riichi_display
             {
                 throw new Exception("Object type invalid");
             }
+        }
+
+        private void combo_LoseFocus(object sender, EventArgs e)
+        {
+            handler.setCombo(int.Parse(combo.Text));
+        }
+
+        private void kyutaku_LoseFocus(object sender, EventArgs e)
+        {
+            handler.setKyutaku(int.Parse(kyutaku.Text));
         }
     }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(display));
             this.team1Name = new System.Windows.Forms.Label();
             this.p1name = new System.Windows.Forms.Label();
             this.p1point = new System.Windows.Forms.Label();
@@ -66,7 +67,7 @@
             // p1name
             // 
             this.p1name.BackColor = System.Drawing.Color.Transparent;
-            this.p1name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p1name.ForeColor = System.Drawing.Color.DarkOrange;
             this.p1name.Location = new System.Drawing.Point(72, 170);
             this.p1name.Name = "p1name";
@@ -108,7 +109,7 @@
             // p2name
             // 
             this.p2name.BackColor = System.Drawing.Color.Transparent;
-            this.p2name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p2name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p2name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.p2name.Location = new System.Drawing.Point(516, 170);
             this.p2name.Name = "p2name";
@@ -150,7 +151,7 @@
             // p3name
             // 
             this.p3name.BackColor = System.Drawing.Color.Transparent;
-            this.p3name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p3name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p3name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.p3name.Location = new System.Drawing.Point(1001, 170);
             this.p3name.Name = "p3name";
@@ -192,7 +193,7 @@
             // p4name
             // 
             this.p4name.BackColor = System.Drawing.Color.Transparent;
-            this.p4name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p4name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p4name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.p4name.Location = new System.Drawing.Point(1519, 170);
             this.p4name.Name = "p4name";
@@ -306,6 +307,7 @@
             this.Controls.Add(this.ptDiff2);
             this.Controls.Add(this.ptDiff3);
             this.Controls.Add(this.ptDiff4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1918, 56);
             this.Name = "display";
             this.Text = "显示系统";

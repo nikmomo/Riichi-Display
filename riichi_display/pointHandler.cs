@@ -23,10 +23,7 @@ namespace riichi_display
         }
 
         // Public properties for kyutaku and combo.
-        private int Kyutaku { get { 
-                var result = kyutaku;
-                kyutaku = 0;
-                return result; }}
+        private int Kyutaku { get { return kyutaku; }}
         private int Combo { get { return combo; } }
         public int FinalAddup { get {
                 var result = finalAddup;
@@ -38,8 +35,8 @@ namespace riichi_display
         // point - The base point.
         public int Ron(int point)
         {
-            finalAddup = point + kyutaku * 1000 + combo * 300;
-            return point + combo * 300;
+            finalAddup = point + Kyutaku * 1000 + Combo * 300;
+            return point + Combo * 300;
         }
 
         // Reset combo and kyutaku to zero.
@@ -52,9 +49,9 @@ namespace riichi_display
             var result = point / 3;
             if (result % 100 != 0)
                 result += 100;
-            finalAddup = (ToThousand(result) * 3 ) + combo * 300 +
-                kyutaku * 1000;
-            return ToThousand(result) + combo * 100;
+            finalAddup = (ToThousand(result) * 3 ) + Combo * 300 +
+                Kyutaku * 1000;
+            return ToThousand(result) + Combo * 100;
         }
 
         // Calculate the total points for both oya and ko when kotsumo.
@@ -67,9 +64,9 @@ namespace riichi_display
                 oyaResult += 100;
             if (koResult % 100 != 0)
                 koResult += 100;
-            finalAddup = ToThousand(oyaResult) + (combo * 300) + 
-                ToThousand(koResult) * 2 + kyutaku * 1000;
-            return (ToThousand(oyaResult) + combo * 100, ToThousand(koResult) + combo * 100);
+            finalAddup = ToThousand(oyaResult) + (Combo * 300) + 
+                ToThousand(koResult) * 2 + Kyutaku * 1000;
+            return (ToThousand(oyaResult) + Combo * 100, ToThousand(koResult) + Combo * 100);
         }
 
         // Increase combo by one.
@@ -82,6 +79,10 @@ namespace riichi_display
 
         public int getCombo() { return combo; }
 
+        public void setKyutaku(int value) { kyutaku = value; }
+
+        public void setCombo(int value) { combo = value; }
+
         // Rounds a value down to the nearest thousand.
         // value - The value to round down.
         private int ToThousand(int value)
@@ -89,6 +90,8 @@ namespace riichi_display
             var result = value / 100;
             return result * 100;
         }
+
+        public void clearRiichi() { kyutaku = 0; }
 
     }
 }

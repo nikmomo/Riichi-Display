@@ -29,33 +29,34 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox pointgroup;
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.label7 = new System.Windows.Forms.Label();
-            this.ptDiff3 = new System.Windows.Forms.TextBox();
-            this.ron3 = new System.Windows.Forms.Button();
-            this.ptDiff2 = new System.Windows.Forms.TextBox();
-            this.tsumo3 = new System.Windows.Forms.Button();
-            this.ron2 = new System.Windows.Forms.Button();
-            this.ptDiff1 = new System.Windows.Forms.TextBox();
-            this.ron1 = new System.Windows.Forms.Button();
-            this.p4riichi = new System.Windows.Forms.Button();
-            this.ptDiff0 = new System.Windows.Forms.TextBox();
-            this.tsumo2 = new System.Windows.Forms.Button();
-            this.p3riichi = new System.Windows.Forms.Button();
-            this.tsumo1 = new System.Windows.Forms.Button();
-            this.p2riichi = new System.Windows.Forms.Button();
-            this.ron0 = new System.Windows.Forms.Button();
-            this.tsumo0 = new System.Windows.Forms.Button();
             this.pointGain = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ptDiff3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ptDiff2 = new System.Windows.Forms.TextBox();
+            this.playerList = new System.Windows.Forms.ComboBox();
+            this.ron3 = new System.Windows.Forms.Button();
+            this.ptDiff1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.p3riichi = new System.Windows.Forms.Button();
+            this.ptDiff0 = new System.Windows.Forms.TextBox();
+            this.submit = new System.Windows.Forms.Button();
+            this.tsumo3 = new System.Windows.Forms.Button();
+            this.tsumo2 = new System.Windows.Forms.Button();
+            this.ron2 = new System.Windows.Forms.Button();
+            this.ron1 = new System.Windows.Forms.Button();
+            this.tsumo1 = new System.Windows.Forms.Button();
+            this.ron0 = new System.Windows.Forms.Button();
+            this.p2riichi = new System.Windows.Forms.Button();
+            this.tsumo0 = new System.Windows.Forms.Button();
+            this.p4riichi = new System.Windows.Forms.Button();
+            this.gameStatusLock = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.riichisticks = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.combo = new System.Windows.Forms.TextBox();
             this.kyutaku = new System.Windows.Forms.TextBox();
-            this.playerList = new System.Windows.Forms.ComboBox();
-            this.submit = new System.Windows.Forms.Button();
             this.p1riichi = new System.Windows.Forms.Button();
             this.p1name = new System.Windows.Forms.TextBox();
             this.p2name = new System.Windows.Forms.TextBox();
@@ -77,279 +78,33 @@
             this.p1point = new System.Windows.Forms.TextBox();
             this.showDisplay = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             this.draw = new System.Windows.Forms.Button();
             this.oya4 = new System.Windows.Forms.Button();
             this.oya3 = new System.Windows.Forms.Button();
             this.oya2 = new System.Windows.Forms.Button();
             this.oya1 = new System.Windows.Forms.Button();
             pointgroup = new System.Windows.Forms.GroupBox();
-            pointgroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // pointgroup
             // 
             pointgroup.CausesValidation = false;
-            pointgroup.Controls.Add(this.label7);
-            pointgroup.Controls.Add(this.pointGain);
-            pointgroup.Controls.Add(this.label2);
-            pointgroup.Controls.Add(this.ptDiff3);
-            pointgroup.Controls.Add(this.label6);
-            pointgroup.Controls.Add(this.ptDiff2);
-            pointgroup.Controls.Add(this.playerList);
-            pointgroup.Controls.Add(this.ron3);
-            pointgroup.Controls.Add(this.ptDiff1);
-            pointgroup.Controls.Add(this.label4);
-            pointgroup.Controls.Add(this.p3riichi);
-            pointgroup.Controls.Add(this.ptDiff0);
-            pointgroup.Controls.Add(this.submit);
-            pointgroup.Controls.Add(this.tsumo3);
-            pointgroup.Controls.Add(this.tsumo2);
-            pointgroup.Controls.Add(this.ron2);
-            pointgroup.Controls.Add(this.ron1);
-            pointgroup.Controls.Add(this.tsumo1);
-            pointgroup.Controls.Add(this.ron0);
-            pointgroup.Controls.Add(this.p2riichi);
-            pointgroup.Controls.Add(this.tsumo0);
             pointgroup.Location = new System.Drawing.Point(12, 199);
             pointgroup.Name = "pointgroup";
-            pointgroup.Size = new System.Drawing.Size(809, 242);
+            pointgroup.Size = new System.Drawing.Size(809, 27);
             pointgroup.TabIndex = 28;
             pointgroup.TabStop = false;
             pointgroup.Text = "点数控制区";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 20);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "得点 (不包含场供/连庄)：";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 20);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "放铳者：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 20);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "最终得点\n";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(563, 118);
+            this.label7.Location = new System.Drawing.Point(574, 319);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(217, 20);
             this.label7.TabIndex = 51;
             this.label7.Text = "（确认最终得点无误后按提交）";
-            // 
-            // ptDiff3
-            // 
-            this.ptDiff3.AcceptsReturn = true;
-            this.ptDiff3.AcceptsTab = true;
-            this.ptDiff3.BackColor = System.Drawing.SystemColors.Window;
-            this.ptDiff3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ptDiff3.Location = new System.Drawing.Point(553, 156);
-            this.ptDiff3.MaxLength = 20;
-            this.ptDiff3.Name = "ptDiff3";
-            this.ptDiff3.ReadOnly = true;
-            this.ptDiff3.Size = new System.Drawing.Size(100, 26);
-            this.ptDiff3.TabIndex = 21;
-            this.ptDiff3.Tag = "addup";
-            this.ptDiff3.Text = "0";
-            this.ptDiff3.WordWrap = false;
-            // 
-            // ron3
-            // 
-            this.ron3.AutoSize = true;
-            this.ron3.Location = new System.Drawing.Point(601, 75);
-            this.ron3.Name = "ron3";
-            this.ron3.Size = new System.Drawing.Size(52, 30);
-            this.ron3.TabIndex = 38;
-            this.ron3.Tag = "ron";
-            this.ron3.Text = "荣和";
-            this.ron3.UseMnemonic = false;
-            this.ron3.UseVisualStyleBackColor = true;
-            // 
-            // ptDiff2
-            // 
-            this.ptDiff2.AcceptsReturn = true;
-            this.ptDiff2.AcceptsTab = true;
-            this.ptDiff2.BackColor = System.Drawing.SystemColors.Window;
-            this.ptDiff2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ptDiff2.Location = new System.Drawing.Point(410, 156);
-            this.ptDiff2.MaxLength = 20;
-            this.ptDiff2.Name = "ptDiff2";
-            this.ptDiff2.ReadOnly = true;
-            this.ptDiff2.Size = new System.Drawing.Size(100, 26);
-            this.ptDiff2.TabIndex = 20;
-            this.ptDiff2.Tag = "addup";
-            this.ptDiff2.Text = "0";
-            this.ptDiff2.WordWrap = false;
-            // 
-            // tsumo3
-            // 
-            this.tsumo3.AutoSize = true;
-            this.tsumo3.Location = new System.Drawing.Point(553, 75);
-            this.tsumo3.Name = "tsumo3";
-            this.tsumo3.Size = new System.Drawing.Size(52, 30);
-            this.tsumo3.TabIndex = 37;
-            this.tsumo3.Tag = "tsumo";
-            this.tsumo3.Text = "自摸";
-            this.tsumo3.UseMnemonic = false;
-            this.tsumo3.UseVisualStyleBackColor = true;
-            // 
-            // ron2
-            // 
-            this.ron2.AutoSize = true;
-            this.ron2.Location = new System.Drawing.Point(458, 75);
-            this.ron2.Name = "ron2";
-            this.ron2.Size = new System.Drawing.Size(52, 30);
-            this.ron2.TabIndex = 36;
-            this.ron2.Tag = "ron";
-            this.ron2.Text = "荣和";
-            this.ron2.UseMnemonic = false;
-            this.ron2.UseVisualStyleBackColor = true;
-            // 
-            // ptDiff1
-            // 
-            this.ptDiff1.AcceptsReturn = true;
-            this.ptDiff1.AcceptsTab = true;
-            this.ptDiff1.BackColor = System.Drawing.SystemColors.Window;
-            this.ptDiff1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ptDiff1.Location = new System.Drawing.Point(272, 156);
-            this.ptDiff1.MaxLength = 20;
-            this.ptDiff1.Name = "ptDiff1";
-            this.ptDiff1.ReadOnly = true;
-            this.ptDiff1.Size = new System.Drawing.Size(100, 26);
-            this.ptDiff1.TabIndex = 19;
-            this.ptDiff1.Tag = "addup";
-            this.ptDiff1.Text = "0";
-            this.ptDiff1.WordWrap = false;
-            // 
-            // ron1
-            // 
-            this.ron1.AutoSize = true;
-            this.ron1.Location = new System.Drawing.Point(320, 75);
-            this.ron1.Name = "ron1";
-            this.ron1.Size = new System.Drawing.Size(52, 30);
-            this.ron1.TabIndex = 36;
-            this.ron1.Tag = "ron";
-            this.ron1.Text = "荣和";
-            this.ron1.UseMnemonic = false;
-            this.ron1.UseVisualStyleBackColor = true;
-            // 
-            // p4riichi
-            // 
-            this.p4riichi.AutoSize = true;
-            this.p4riichi.Location = new System.Drawing.Point(577, 232);
-            this.p4riichi.Name = "p4riichi";
-            this.p4riichi.Size = new System.Drawing.Size(75, 30);
-            this.p4riichi.TabIndex = 27;
-            this.p4riichi.Tag = "riichi";
-            this.p4riichi.Text = "立直";
-            this.p4riichi.UseMnemonic = false;
-            this.p4riichi.UseVisualStyleBackColor = true;
-            // 
-            // ptDiff0
-            // 
-            this.ptDiff0.AcceptsReturn = true;
-            this.ptDiff0.AcceptsTab = true;
-            this.ptDiff0.BackColor = System.Drawing.SystemColors.Window;
-            this.ptDiff0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ptDiff0.Location = new System.Drawing.Point(134, 156);
-            this.ptDiff0.MaxLength = 20;
-            this.ptDiff0.Name = "ptDiff0";
-            this.ptDiff0.ReadOnly = true;
-            this.ptDiff0.Size = new System.Drawing.Size(100, 26);
-            this.ptDiff0.TabIndex = 18;
-            this.ptDiff0.Tag = "addup";
-            this.ptDiff0.Text = "0";
-            this.ptDiff0.WordWrap = false;
-            // 
-            // tsumo2
-            // 
-            this.tsumo2.AutoSize = true;
-            this.tsumo2.Location = new System.Drawing.Point(410, 75);
-            this.tsumo2.Name = "tsumo2";
-            this.tsumo2.Size = new System.Drawing.Size(52, 30);
-            this.tsumo2.TabIndex = 35;
-            this.tsumo2.Tag = "tsumo";
-            this.tsumo2.Text = "自摸";
-            this.tsumo2.UseMnemonic = false;
-            this.tsumo2.UseVisualStyleBackColor = true;
-            // 
-            // p3riichi
-            // 
-            this.p3riichi.AutoSize = true;
-            this.p3riichi.Location = new System.Drawing.Point(423, 33);
-            this.p3riichi.Name = "p3riichi";
-            this.p3riichi.Size = new System.Drawing.Size(75, 30);
-            this.p3riichi.TabIndex = 26;
-            this.p3riichi.Tag = "riichi";
-            this.p3riichi.Text = "立直";
-            this.p3riichi.UseMnemonic = false;
-            this.p3riichi.UseVisualStyleBackColor = true;
-            // 
-            // tsumo1
-            // 
-            this.tsumo1.AutoSize = true;
-            this.tsumo1.Location = new System.Drawing.Point(272, 75);
-            this.tsumo1.Name = "tsumo1";
-            this.tsumo1.Size = new System.Drawing.Size(52, 30);
-            this.tsumo1.TabIndex = 35;
-            this.tsumo1.Tag = "tsumo";
-            this.tsumo1.Text = "自摸";
-            this.tsumo1.UseMnemonic = false;
-            this.tsumo1.UseVisualStyleBackColor = true;
-            // 
-            // p2riichi
-            // 
-            this.p2riichi.AutoSize = true;
-            this.p2riichi.Location = new System.Drawing.Point(283, 33);
-            this.p2riichi.Name = "p2riichi";
-            this.p2riichi.Size = new System.Drawing.Size(75, 30);
-            this.p2riichi.TabIndex = 25;
-            this.p2riichi.Tag = "riichi";
-            this.p2riichi.Text = "立直";
-            this.p2riichi.UseMnemonic = false;
-            this.p2riichi.UseVisualStyleBackColor = true;
-            // 
-            // ron0
-            // 
-            this.ron0.AutoSize = true;
-            this.ron0.Location = new System.Drawing.Point(182, 75);
-            this.ron0.Name = "ron0";
-            this.ron0.Size = new System.Drawing.Size(52, 30);
-            this.ron0.TabIndex = 34;
-            this.ron0.Tag = "ron";
-            this.ron0.Text = "荣和";
-            this.ron0.UseMnemonic = false;
-            this.ron0.UseVisualStyleBackColor = true;
-            // 
-            // tsumo0
-            // 
-            this.tsumo0.AutoSize = true;
-            this.tsumo0.Location = new System.Drawing.Point(134, 75);
-            this.tsumo0.Name = "tsumo0";
-            this.tsumo0.Size = new System.Drawing.Size(52, 30);
-            this.tsumo0.TabIndex = 33;
-            this.tsumo0.Tag = "tsumo";
-            this.tsumo0.Text = "自摸";
-            this.tsumo0.UseMnemonic = false;
-            this.tsumo0.UseVisualStyleBackColor = true;
             // 
             // pointGain
             // 
@@ -384,25 +139,280 @@
             "48000",
             "64000",
             "96000"});
-            this.pointGain.Location = new System.Drawing.Point(457, 115);
+            this.pointGain.Location = new System.Drawing.Point(468, 316);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
             this.pointGain.Size = new System.Drawing.Size(100, 28);
             this.pointGain.TabIndex = 49;
             this.pointGain.Text = "0";
-            this.pointGain.LostFocus += new System.EventHandler(this.pointGain_LoseFocus);
+            this.pointGain.SelectedIndexChanged += new System.EventHandler(this.pointGain_LoseFocus);
+            this.pointGain.DropDownClosed += new System.EventHandler(this.pointGain_LoseFocus);
+            this.pointGain.TextChanged += new System.EventHandler(this.pointGain_LoseFocus);
             // 
-            // button8
+            // label2
             // 
-            this.button8.AutoSize = true;
-            this.button8.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.Location = new System.Drawing.Point(266, 398);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(27, 27);
-            this.button8.TabIndex = 48;
-            this.button8.UseMnemonic = false;
-            this.button8.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(261, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 20);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "得点 (不包含场供/连庄)：";
+            // 
+            // ptDiff3
+            // 
+            this.ptDiff3.AcceptsReturn = true;
+            this.ptDiff3.AcceptsTab = true;
+            this.ptDiff3.BackColor = System.Drawing.SystemColors.Window;
+            this.ptDiff3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ptDiff3.Location = new System.Drawing.Point(564, 357);
+            this.ptDiff3.MaxLength = 20;
+            this.ptDiff3.Name = "ptDiff3";
+            this.ptDiff3.ReadOnly = true;
+            this.ptDiff3.Size = new System.Drawing.Size(100, 26);
+            this.ptDiff3.TabIndex = 21;
+            this.ptDiff3.Tag = "addup";
+            this.ptDiff3.Text = "0";
+            this.ptDiff3.WordWrap = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(40, 319);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 20);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "放铳者：";
+            // 
+            // ptDiff2
+            // 
+            this.ptDiff2.AcceptsReturn = true;
+            this.ptDiff2.AcceptsTab = true;
+            this.ptDiff2.BackColor = System.Drawing.SystemColors.Window;
+            this.ptDiff2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ptDiff2.Location = new System.Drawing.Point(421, 357);
+            this.ptDiff2.MaxLength = 20;
+            this.ptDiff2.Name = "ptDiff2";
+            this.ptDiff2.ReadOnly = true;
+            this.ptDiff2.Size = new System.Drawing.Size(100, 26);
+            this.ptDiff2.TabIndex = 20;
+            this.ptDiff2.Tag = "addup";
+            this.ptDiff2.Text = "0";
+            this.ptDiff2.WordWrap = false;
+            // 
+            // playerList
+            // 
+            this.playerList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.playerList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.playerList.FormattingEnabled = true;
+            this.playerList.Items.AddRange(new object[] {
+            "三家",
+            "PLAYER1",
+            "PLAYER2",
+            "PLAYER3",
+            "PLAYER4"});
+            this.playerList.Location = new System.Drawing.Point(120, 316);
+            this.playerList.Name = "playerList";
+            this.playerList.Size = new System.Drawing.Size(125, 28);
+            this.playerList.TabIndex = 39;
+            // 
+            // ron3
+            // 
+            this.ron3.AutoSize = true;
+            this.ron3.Location = new System.Drawing.Point(617, 276);
+            this.ron3.Name = "ron3";
+            this.ron3.Size = new System.Drawing.Size(52, 30);
+            this.ron3.TabIndex = 38;
+            this.ron3.Tag = "ron";
+            this.ron3.Text = "荣和";
+            this.ron3.UseMnemonic = false;
+            this.ron3.UseVisualStyleBackColor = true;
+            // 
+            // ptDiff1
+            // 
+            this.ptDiff1.AcceptsReturn = true;
+            this.ptDiff1.AcceptsTab = true;
+            this.ptDiff1.BackColor = System.Drawing.SystemColors.Window;
+            this.ptDiff1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ptDiff1.Location = new System.Drawing.Point(283, 357);
+            this.ptDiff1.MaxLength = 20;
+            this.ptDiff1.Name = "ptDiff1";
+            this.ptDiff1.ReadOnly = true;
+            this.ptDiff1.Size = new System.Drawing.Size(100, 26);
+            this.ptDiff1.TabIndex = 19;
+            this.ptDiff1.Tag = "addup";
+            this.ptDiff1.Text = "0";
+            this.ptDiff1.WordWrap = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 363);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 20);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "最终得点\n";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p3riichi
+            // 
+            this.p3riichi.AutoSize = true;
+            this.p3riichi.Location = new System.Drawing.Point(434, 234);
+            this.p3riichi.Name = "p3riichi";
+            this.p3riichi.Size = new System.Drawing.Size(75, 30);
+            this.p3riichi.TabIndex = 26;
+            this.p3riichi.Tag = "riichi";
+            this.p3riichi.Text = "立直";
+            this.p3riichi.UseMnemonic = false;
+            this.p3riichi.UseVisualStyleBackColor = true;
+            // 
+            // ptDiff0
+            // 
+            this.ptDiff0.AcceptsReturn = true;
+            this.ptDiff0.AcceptsTab = true;
+            this.ptDiff0.BackColor = System.Drawing.SystemColors.Window;
+            this.ptDiff0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ptDiff0.Location = new System.Drawing.Point(145, 357);
+            this.ptDiff0.MaxLength = 20;
+            this.ptDiff0.Name = "ptDiff0";
+            this.ptDiff0.ReadOnly = true;
+            this.ptDiff0.Size = new System.Drawing.Size(100, 26);
+            this.ptDiff0.TabIndex = 18;
+            this.ptDiff0.Tag = "addup";
+            this.ptDiff0.Text = "0";
+            this.ptDiff0.WordWrap = false;
+            // 
+            // submit
+            // 
+            this.submit.AutoSize = true;
+            this.submit.Location = new System.Drawing.Point(695, 355);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(96, 30);
+            this.submit.TabIndex = 22;
+            this.submit.Text = "提交";
+            this.submit.UseMnemonic = false;
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
+            // 
+            // tsumo3
+            // 
+            this.tsumo3.AutoSize = true;
+            this.tsumo3.Location = new System.Drawing.Point(559, 276);
+            this.tsumo3.Name = "tsumo3";
+            this.tsumo3.Size = new System.Drawing.Size(52, 30);
+            this.tsumo3.TabIndex = 37;
+            this.tsumo3.Tag = "tsumo";
+            this.tsumo3.Text = "自摸";
+            this.tsumo3.UseMnemonic = false;
+            this.tsumo3.UseVisualStyleBackColor = true;
+            // 
+            // tsumo2
+            // 
+            this.tsumo2.AutoSize = true;
+            this.tsumo2.Location = new System.Drawing.Point(416, 276);
+            this.tsumo2.Name = "tsumo2";
+            this.tsumo2.Size = new System.Drawing.Size(52, 30);
+            this.tsumo2.TabIndex = 35;
+            this.tsumo2.Tag = "tsumo";
+            this.tsumo2.Text = "自摸";
+            this.tsumo2.UseMnemonic = false;
+            this.tsumo2.UseVisualStyleBackColor = true;
+            // 
+            // ron2
+            // 
+            this.ron2.AutoSize = true;
+            this.ron2.Location = new System.Drawing.Point(474, 276);
+            this.ron2.Name = "ron2";
+            this.ron2.Size = new System.Drawing.Size(52, 30);
+            this.ron2.TabIndex = 36;
+            this.ron2.Tag = "ron";
+            this.ron2.Text = "荣和";
+            this.ron2.UseMnemonic = false;
+            this.ron2.UseVisualStyleBackColor = true;
+            // 
+            // ron1
+            // 
+            this.ron1.AutoSize = true;
+            this.ron1.Location = new System.Drawing.Point(336, 276);
+            this.ron1.Name = "ron1";
+            this.ron1.Size = new System.Drawing.Size(52, 30);
+            this.ron1.TabIndex = 36;
+            this.ron1.Tag = "ron";
+            this.ron1.Text = "荣和";
+            this.ron1.UseMnemonic = false;
+            this.ron1.UseVisualStyleBackColor = true;
+            // 
+            // tsumo1
+            // 
+            this.tsumo1.AutoSize = true;
+            this.tsumo1.Location = new System.Drawing.Point(278, 276);
+            this.tsumo1.Name = "tsumo1";
+            this.tsumo1.Size = new System.Drawing.Size(52, 30);
+            this.tsumo1.TabIndex = 35;
+            this.tsumo1.Tag = "tsumo";
+            this.tsumo1.Text = "自摸";
+            this.tsumo1.UseMnemonic = false;
+            this.tsumo1.UseVisualStyleBackColor = true;
+            // 
+            // ron0
+            // 
+            this.ron0.AutoSize = true;
+            this.ron0.Location = new System.Drawing.Point(198, 276);
+            this.ron0.Name = "ron0";
+            this.ron0.Size = new System.Drawing.Size(52, 30);
+            this.ron0.TabIndex = 34;
+            this.ron0.Tag = "ron";
+            this.ron0.Text = "荣和";
+            this.ron0.UseMnemonic = false;
+            this.ron0.UseVisualStyleBackColor = true;
+            // 
+            // p2riichi
+            // 
+            this.p2riichi.AutoSize = true;
+            this.p2riichi.Location = new System.Drawing.Point(294, 234);
+            this.p2riichi.Name = "p2riichi";
+            this.p2riichi.Size = new System.Drawing.Size(75, 30);
+            this.p2riichi.TabIndex = 25;
+            this.p2riichi.Tag = "riichi";
+            this.p2riichi.Text = "立直";
+            this.p2riichi.UseMnemonic = false;
+            this.p2riichi.UseVisualStyleBackColor = true;
+            // 
+            // tsumo0
+            // 
+            this.tsumo0.AutoSize = true;
+            this.tsumo0.Location = new System.Drawing.Point(140, 276);
+            this.tsumo0.Name = "tsumo0";
+            this.tsumo0.Size = new System.Drawing.Size(52, 30);
+            this.tsumo0.TabIndex = 33;
+            this.tsumo0.Tag = "tsumo";
+            this.tsumo0.Text = "自摸";
+            this.tsumo0.UseMnemonic = false;
+            this.tsumo0.UseVisualStyleBackColor = true;
+            // 
+            // p4riichi
+            // 
+            this.p4riichi.AutoSize = true;
+            this.p4riichi.Location = new System.Drawing.Point(577, 234);
+            this.p4riichi.Name = "p4riichi";
+            this.p4riichi.Size = new System.Drawing.Size(75, 30);
+            this.p4riichi.TabIndex = 27;
+            this.p4riichi.Tag = "riichi";
+            this.p4riichi.Text = "立直";
+            this.p4riichi.UseMnemonic = false;
+            this.p4riichi.UseVisualStyleBackColor = true;
+            // 
+            // gameStatusLock
+            // 
+            this.gameStatusLock.AutoSize = true;
+            this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
+            this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.gameStatusLock.Location = new System.Drawing.Point(266, 398);
+            this.gameStatusLock.Name = "gameStatusLock";
+            this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
+            this.gameStatusLock.TabIndex = 48;
+            this.gameStatusLock.UseMnemonic = false;
+            this.gameStatusLock.UseVisualStyleBackColor = true;
+            this.gameStatusLock.Click += new System.EventHandler(this.gameStatus_Click);
             // 
             // label5
             // 
@@ -422,66 +432,40 @@
             this.riichisticks.TabIndex = 40;
             this.riichisticks.Text = "当前场供";
             // 
-            // textBox1
+            // combo
             // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.AcceptsTab = true;
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(218, 396);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(32, 26);
-            this.textBox1.TabIndex = 34;
-            this.textBox1.Text = "0";
-            this.textBox1.WordWrap = false;
+            this.combo.AcceptsReturn = true;
+            this.combo.AcceptsTab = true;
+            this.combo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.combo.Enabled = false;
+            this.combo.Location = new System.Drawing.Point(218, 396);
+            this.combo.MaxLength = 20;
+            this.combo.Name = "combo";
+            this.combo.Size = new System.Drawing.Size(32, 26);
+            this.combo.TabIndex = 34;
+            this.combo.Text = "0";
+            this.combo.WordWrap = false;
+            this.combo.LostFocus += new System.EventHandler(this.combo_LoseFocus);
             // 
             // kyutaku
             // 
             this.kyutaku.AcceptsReturn = true;
             this.kyutaku.AcceptsTab = true;
             this.kyutaku.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.kyutaku.Enabled = false;
             this.kyutaku.Location = new System.Drawing.Point(112, 399);
             this.kyutaku.MaxLength = 20;
             this.kyutaku.Name = "kyutaku";
-            this.kyutaku.ReadOnly = true;
             this.kyutaku.Size = new System.Drawing.Size(36, 26);
             this.kyutaku.TabIndex = 33;
             this.kyutaku.Text = "0";
             this.kyutaku.WordWrap = false;
-            // 
-            // playerList
-            // 
-            this.playerList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.playerList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.playerList.FormattingEnabled = true;
-            this.playerList.Items.AddRange(new object[] {
-            "三家",
-            "PLAYER1",
-            "PLAYER2",
-            "PLAYER3",
-            "PLAYER4"});
-            this.playerList.Location = new System.Drawing.Point(109, 115);
-            this.playerList.Name = "playerList";
-            this.playerList.Size = new System.Drawing.Size(125, 28);
-            this.playerList.TabIndex = 39;
-            // 
-            // submit
-            // 
-            this.submit.AutoSize = true;
-            this.submit.Location = new System.Drawing.Point(684, 154);
-            this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(96, 30);
-            this.submit.TabIndex = 22;
-            this.submit.Text = "提交";
-            this.submit.UseMnemonic = false;
-            this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.submit_Click);
+            this.kyutaku.LostFocus += new System.EventHandler(this.kyutaku_LoseFocus);
             // 
             // p1riichi
             // 
             this.p1riichi.AutoSize = true;
-            this.p1riichi.Location = new System.Drawing.Point(156, 232);
+            this.p1riichi.Location = new System.Drawing.Point(157, 235);
             this.p1riichi.Name = "p1riichi";
             this.p1riichi.Size = new System.Drawing.Size(75, 30);
             this.p1riichi.TabIndex = 24;
@@ -697,7 +681,7 @@
             // pointLock
             // 
             this.pointLock.AutoSize = true;
-            this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
+            this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pointLock.Location = new System.Drawing.Point(696, 154);
             this.pointLock.Name = "pointLock";
@@ -713,6 +697,7 @@
             this.p4point.AcceptsTab = true;
             this.p4point.BackColor = System.Drawing.SystemColors.Window;
             this.p4point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.p4point.Enabled = false;
             this.p4point.Location = new System.Drawing.Point(565, 154);
             this.p4point.MaxLength = 20;
             this.p4point.Name = "p4point";
@@ -731,6 +716,7 @@
             this.p3point.AcceptsTab = true;
             this.p3point.BackColor = System.Drawing.SystemColors.Window;
             this.p3point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.p3point.Enabled = false;
             this.p3point.Location = new System.Drawing.Point(422, 154);
             this.p3point.MaxLength = 20;
             this.p3point.Name = "p3point";
@@ -749,6 +735,7 @@
             this.p2point.AcceptsTab = true;
             this.p2point.BackColor = System.Drawing.SystemColors.Window;
             this.p2point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.p2point.Enabled = false;
             this.p2point.Location = new System.Drawing.Point(284, 154);
             this.p2point.MaxLength = 20;
             this.p2point.Name = "p2point";
@@ -767,6 +754,7 @@
             this.p1point.AcceptsTab = true;
             this.p1point.BackColor = System.Drawing.SystemColors.Window;
             this.p1point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.p1point.Enabled = false;
             this.p1point.Location = new System.Drawing.Point(146, 154);
             this.p1point.MaxLength = 20;
             this.p1point.Name = "p1point";
@@ -803,16 +791,16 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button6
+            // reset
             // 
-            this.button6.AutoSize = true;
-            this.button6.Location = new System.Drawing.Point(709, 397);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(83, 30);
-            this.button6.TabIndex = 43;
-            this.button6.Text = "重置游戏";
-            this.button6.UseMnemonic = false;
-            this.button6.UseVisualStyleBackColor = true;
+            this.reset.AutoSize = true;
+            this.reset.Location = new System.Drawing.Point(709, 397);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(83, 30);
+            this.reset.TabIndex = 43;
+            this.reset.Text = "重置游戏";
+            this.reset.UseMnemonic = false;
+            this.reset.UseVisualStyleBackColor = true;
             // 
             // draw
             // 
@@ -879,20 +867,41 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 466);
-            this.Controls.Add(this.p4riichi);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.gameStatusLock);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.riichisticks);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.combo);
             this.Controls.Add(this.kyutaku);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pointGain);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ptDiff3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ptDiff2);
+            this.Controls.Add(this.playerList);
+            this.Controls.Add(this.ron3);
+            this.Controls.Add(this.ptDiff1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.p3riichi);
+            this.Controls.Add(this.ptDiff0);
+            this.Controls.Add(this.submit);
+            this.Controls.Add(this.tsumo3);
+            this.Controls.Add(this.tsumo2);
+            this.Controls.Add(this.ron2);
+            this.Controls.Add(this.ron1);
+            this.Controls.Add(this.tsumo1);
+            this.Controls.Add(this.ron0);
+            this.Controls.Add(this.p2riichi);
+            this.Controls.Add(this.tsumo0);
             this.Controls.Add(this.p1riichi);
+            this.Controls.Add(this.p4riichi);
             this.Controls.Add(this.pointLock);
             this.Controls.Add(this.oya4);
             this.Controls.Add(this.showDisplay);
             this.Controls.Add(this.oya3);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.oya2);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.oya1);
             this.Controls.Add(this.label3);
@@ -913,10 +922,9 @@
             this.Controls.Add(this.p2name);
             this.Controls.Add(this.p1name);
             this.Controls.Add(pointgroup);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
             this.Text = "洛神雀庄直播点数显示系统";
-            pointgroup.ResumeLayout(false);
-            pointgroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -966,14 +974,14 @@
         private System.Windows.Forms.Button tsumo0;
         private System.Windows.Forms.ComboBox playerList;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button reset;
         private System.Windows.Forms.Button draw;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label riichisticks;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox combo;
         private System.Windows.Forms.TextBox kyutaku;
         private System.Windows.Forms.Button showDisplay;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button gameStatusLock;
         private System.Windows.Forms.ComboBox pointGain;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
