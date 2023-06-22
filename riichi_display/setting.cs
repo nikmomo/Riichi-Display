@@ -23,42 +23,14 @@ namespace riichi_display
             //displayFm = displayform;
         }
 
-        protected virtual void ChangeTeamControl()
+        private void hideTeam_Click(object sender, EventArgs e)
         {
             teamCtrlEvent?.Invoke(this, new TeamControlEvent());
         }
 
-        protected virtual void WindChangeControl()
-        {
-            WindChgeEvent?.Invoke(this, new WindChangeEvent());
-        }
-
-        private void showDisplay_Click(object sender, EventArgs e)
-        {
-            //if (displayFm.IsDisposed)
-            //{
-            //    displayFm = new display();
-            //}
-            //displayFm.Show();
-            //foreach (Control textbox in mainFm.Controls)
-            //{
-            //    if (textbox is TextBox)
-            //    {
-            //        Label target = displayFm.Controls.Find(textbox.Name, true).FirstOrDefault() as Label;
-            //        if (target != null)
-            //            target.Text = textbox.Text;
-            //    }
-            //}
-        }
-
-        private void hideTeam_Click(object sender, EventArgs e)
-        {
-            this.ChangeTeamControl();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            WindChangeControl();
+            WindChgeEvent?.Invoke(this, new WindChangeEvent());
         }
     }
 }

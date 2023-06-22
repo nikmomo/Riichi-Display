@@ -9,4 +9,6 @@ namespace riichi_display
     public class TeamControlEvent : EventArgs { }
 
     public class WindChangeEvent : EventArgs { }
+
+    public class DisplayUpdateEvent : EventArgs { }
 }

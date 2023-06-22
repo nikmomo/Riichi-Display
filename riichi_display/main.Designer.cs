@@ -801,6 +801,7 @@
             this.reset.Text = "重置游戏";
             this.reset.UseMnemonic = false;
             this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // draw
             // 

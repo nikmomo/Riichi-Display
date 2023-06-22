@@ -20,7 +20,9 @@ namespace riichi_display
         private string winner;
 
         pointHandler handler;
+
         public event EventHandler<WindChangeEvent> WindChgeEvent;
+        public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
 
         public mainForm()
         {
@@ -62,15 +64,7 @@ namespace riichi_display
         // Event handler for textbox losing focus
         private void textboxLoseFocus(object sender, EventArgs e)
         {
-            // Cast the sender to a TextBox
-            System.Windows.Forms.TextBox textbox = sender as System.Windows.Forms.TextBox;
-            if (textbox != null)
-            {
-                // Find the corresponding label in the display form and set its text
-                Label target = displayForm.Controls.Find(textbox.Name, true).FirstOrDefault() as Label;
-                if (target != null)
-                    target.Text = textbox.Text;
-            }
+            DisplayUpdate(sender, new DisplayUpdateEvent());
         }
 
         // Status flags for various locks
@@ -218,15 +212,7 @@ namespace riichi_display
                 displayForm = new display();
             }
             displayForm.Show();
-            foreach (Control textbox in this.Controls)
-            {
-                if (textbox is TextBox)
-                {
-                    Label target = displayForm.Controls.Find(textbox.Name, true).FirstOrDefault() as Label;
-                    if (target != null)
-                        target.Text = textbox.Text;
-                }
-            }
+            DisplayUpdate(sender, new DisplayUpdateEvent());
         }
 
         private bool teamControl = false; // Hide team when it's false, show otherwise.
@@ -420,8 +406,31 @@ namespace riichi_display
 
         private void submit_Click(object sender, EventArgs e)
         {
-            string p1Adjust = "0", p2Adjust = "0", p3Adjust = "0", p4Adjust = "0";
-            foreach (Control control in this.Controls) // get points and reset the status of control
+            string[] adjustments = ResetControlsAndGetAdjustments();
+
+            AdjustPoints(adjustments);
+
+            handler.clearRiichi();
+            if (currentOya == winner)
+            {
+                handler.AddCombo();
+                combo.Text = handler.getCombo().ToString();
+            }
+            else
+            {
+                HandleNonWinner();
+            }
+            winner = "42";
+            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
+            Controls["combo"].Text = handler.getCombo().ToString();
+            DisplayUpdate(sender, new DisplayUpdateEvent());
+        }
+
+        private string[] ResetControlsAndGetAdjustments()
+        {
+            string[] adjustments = new string[4];
+
+            foreach (Control control in this.Controls)
             {
                 if (control.Tag != null)
                 {
@@ -431,96 +440,54 @@ namespace riichi_display
                     }
                     else if (control.Tag.ToString() == "addup") // get the points
                     {
-                        switch (control.Name.Substring(6))
-                        {
-                            case "0":
-                                p1Adjust = control.Text;
-                                control.Text = "0";
-                                break;
-                            case "1":
-                                p2Adjust = control.Text;
-                                control.Text = "0";
-                                break;
-                            case "2":
-                                p3Adjust = control.Text;
-                                control.Text = "0";
-                                break;
-                            case "3":
-                                p4Adjust = control.Text;
-                                control.Text = "0";
-                                break;
-                        }
+                        int index = int.Parse(control.Name.Substring(6));
+                        adjustments[index] = control.Text;
+                        control.Text = "0";
                     }
-                }
-                if (control.Name == "kyutaku")
-                    control.Text = handler.getKyutaku().ToString();
-                else if (control.Name == "combo")
-                    control.Text = handler.getCombo().ToString();
-                else if (control.Name == "pointGain")
-                    control.Text = "";
-                else if (control.Name == "playerList")
-                {
-                    control.Text = "";
-                    control.Enabled = true;
                 }
 
+                switch (control.Name)
+                {
+                    case "kyutaku":
+                    case "combo":
+                        control.Text = handler.getCombo().ToString();
+                        break;
+                    case "pointGain":
+                    case "playerList":
+                        control.Text = "";
+                        control.Enabled = true;
+                        break;
+                }
             }
+
+            return adjustments;
+        }
+
+        private void AdjustPoints(string[] adjustments)
+        {
             foreach (Control control in this.Controls) // add the points 
-            {
-                if (control.Tag != null)
-                {
-                    if (control.Tag.ToString() == "point")
-                    {
-                        switch (control.Name.Substring(1, 1))
-                        {
-                            case "1":
-                                PointAddup(control, p1Adjust);
-                                break;
-                            case "2":
-                                PointAddup(control, p2Adjust);
-                                break;
-                            case "3":
-                                PointAddup(control, p3Adjust);
-                                break;
-                            case "4":
-                                PointAddup(control, p4Adjust);
-                                break;
-                        }
-                    }
-                }
-            }
-            handler.clearRiichi();
-            if (currentOya == winner)
-            {
-                handler.AddCombo();
-                combo.Text = handler.getCombo().ToString();
-            }
-            else
-            {
-                handler.Reset();
-                currentOya = (int.Parse(currentOya) + 1).ToString();
-                if (currentOya == "4")
-                {
-                    currentOya = "0";
-                    windChgeControl(sender, new WindChangeEvent());
-                }
-                string transferOya = (int.Parse(currentOya) + 1).ToString();
-                Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
-                if (control != null)
-                {
-                    control.PerformClick();
-                }
-            }
-            winner = "42";
-            Console.WriteLine(handler.getKyutaku().ToString());
-            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
-            Controls["combo"].Text = handler.getCombo().ToString();
-            foreach (Control control in Controls)
             {
                 if (control.Tag != null && control.Tag.ToString() == "point")
                 {
-                    textboxLoseFocus(control, e);
+                    int index = int.Parse(control.Name.Substring(1, 1)) - 1;
+                    PointAddup(control, adjustments[index]);
                 }
+            }
+        }
+
+        private void HandleNonWinner()
+        {
+            handler.Reset();
+            currentOya = ((int.Parse(currentOya) + 1) % 4).ToString();
+            if (currentOya == "0")
+            {
+                windChgeControl(this, new WindChangeEvent());
+            }
+            string transferOya = (int.Parse(currentOya) + 1).ToString();
+            Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
+            if (control != null)
+            {
+                control.PerformClick();
             }
         }
 
@@ -547,6 +514,40 @@ namespace riichi_display
         private void kyutaku_LoseFocus(object sender, EventArgs e)
         {
             handler.setKyutaku(int.Parse(kyutaku.Text));
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            foreach(Control control in Controls)
+            {
+                if (control.Tag == null) continue;
+                if (control.Tag.ToString() == "point")
+                {
+                    control.Text = "25000";
+                }
+                if (control.Tag.ToString() == "riichi")
+                {
+                    control.Enabled = true;
+                }
+                // TODO: reset oya, round wind, player choose, etc.
+                handler.Reset();
+            }
+            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
+            Controls["combo"].Text = handler.getCombo().ToString();
+            DisplayUpdate(sender, new DisplayUpdateEvent());
+        }
+
+        private void DisplayUpdate(object sender, DisplayUpdateEvent e)
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                {
+                    Label target = displayForm.Controls.Find(control.Name, true).FirstOrDefault() as Label;
+                    if (target != null)
+                        target.Text = control.Text;
+                }
+            }
         }
     }
 
