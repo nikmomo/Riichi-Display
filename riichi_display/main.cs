@@ -21,8 +21,6 @@ namespace riichi_display
 
         pointHandler handler;
 
-        public event EventHandler<WindChangeEvent> WindChgeEvent;
-        public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
 
         public mainForm()
         {
@@ -297,7 +295,6 @@ namespace riichi_display
                     int oya, ko;
 
                     (oya, ko) = handler.Kotsumo(int.Parse(pointGain.Text));
-                    //Console.WriteLine("Oya" + currentOya + '\n' + "Ko" + winner);
                     foreach (Control control in this.Controls)
                     {
                         if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
@@ -421,8 +418,6 @@ namespace riichi_display
                 HandleNonWinner();
             }
             winner = "42";
-            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
-            Controls["combo"].Text = handler.getCombo().ToString();
             DisplayUpdate(sender, new DisplayUpdateEvent());
         }
 
@@ -478,10 +473,11 @@ namespace riichi_display
         private void HandleNonWinner()
         {
             handler.Reset();
-            currentOya = ((int.Parse(currentOya) + 1) % 4).ToString();
-            if (currentOya == "0")
+            currentOya = ((int.Parse(currentOya) + 1) % 5).ToString();
+            if (currentOya == "4")
             {
                 windChgeControl(this, new WindChangeEvent());
+                currentOya = "0";
             }
             string transferOya = (int.Parse(currentOya) + 1).ToString();
             Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
@@ -532,13 +528,15 @@ namespace riichi_display
                 // TODO: reset oya, round wind, player choose, etc.
                 handler.Reset();
             }
-            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
-            Controls["combo"].Text = handler.getCombo().ToString();
             DisplayUpdate(sender, new DisplayUpdateEvent());
         }
 
         private void DisplayUpdate(object sender, DisplayUpdateEvent e)
         {
+            // update the kyutaku & combo
+            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
+            Controls["combo"].Text = handler.getCombo().ToString();
+
             foreach (Control control in Controls)
             {
                 if (control is TextBox)
@@ -549,6 +547,12 @@ namespace riichi_display
                 }
             }
         }
+
+        // TODO: 流局设计思路：给pointHandler加一个流局的method，take听牌的人数，返回一个tuple，（听牌收的点，不听交的点）
+        //       每次按下按钮切换按钮以及玩家听牌状态。
+
+        // 想法：在把所有功能实现后，可以考虑把结构重新做一下。目前过于臃肿，不适合拓展开发。新的思路是，将每个玩家的信息
+        //       做成一个可转化成json的class，重新链接所有的controls，这样可以更大程度的优化整个app运行效率。
     }
 
 }

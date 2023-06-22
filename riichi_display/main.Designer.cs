@@ -84,6 +84,10 @@
             this.oya3 = new System.Windows.Forms.Button();
             this.oya2 = new System.Windows.Forms.Button();
             this.oya1 = new System.Windows.Forms.Button();
+            this.tenpai2 = new System.Windows.Forms.Button();
+            this.tenpai1 = new System.Windows.Forms.Button();
+            this.tenpai0 = new System.Windows.Forms.Button();
+            this.tenpai3 = new System.Windows.Forms.Button();
             pointgroup = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -92,7 +96,7 @@
             pointgroup.CausesValidation = false;
             pointgroup.Location = new System.Drawing.Point(12, 199);
             pointgroup.Name = "pointgroup";
-            pointgroup.Size = new System.Drawing.Size(809, 27);
+            pointgroup.Size = new System.Drawing.Size(791, 27);
             pointgroup.TabIndex = 28;
             pointgroup.TabStop = false;
             pointgroup.Text = "点数控制区";
@@ -256,7 +260,7 @@
             // p3riichi
             // 
             this.p3riichi.AutoSize = true;
-            this.p3riichi.Location = new System.Drawing.Point(434, 234);
+            this.p3riichi.Location = new System.Drawing.Point(434, 245);
             this.p3riichi.Name = "p3riichi";
             this.p3riichi.Size = new System.Drawing.Size(75, 30);
             this.p3riichi.TabIndex = 26;
@@ -368,7 +372,7 @@
             // p2riichi
             // 
             this.p2riichi.AutoSize = true;
-            this.p2riichi.Location = new System.Drawing.Point(294, 234);
+            this.p2riichi.Location = new System.Drawing.Point(294, 245);
             this.p2riichi.Name = "p2riichi";
             this.p2riichi.Size = new System.Drawing.Size(75, 30);
             this.p2riichi.TabIndex = 25;
@@ -392,7 +396,7 @@
             // p4riichi
             // 
             this.p4riichi.AutoSize = true;
-            this.p4riichi.Location = new System.Drawing.Point(577, 234);
+            this.p4riichi.Location = new System.Drawing.Point(577, 245);
             this.p4riichi.Name = "p4riichi";
             this.p4riichi.Size = new System.Drawing.Size(75, 30);
             this.p4riichi.TabIndex = 27;
@@ -465,7 +469,7 @@
             // p1riichi
             // 
             this.p1riichi.AutoSize = true;
-            this.p1riichi.Location = new System.Drawing.Point(157, 235);
+            this.p1riichi.Location = new System.Drawing.Point(157, 246);
             this.p1riichi.Name = "p1riichi";
             this.p1riichi.Size = new System.Drawing.Size(75, 30);
             this.p1riichi.TabIndex = 24;
@@ -863,11 +867,67 @@
             this.oya1.UseMnemonic = false;
             this.oya1.UseVisualStyleBackColor = false;
             // 
+            // tenpai2
+            // 
+            this.tenpai2.AutoSize = true;
+            this.tenpai2.Location = new System.Drawing.Point(434, 214);
+            this.tenpai2.Name = "tenpai2";
+            this.tenpai2.Size = new System.Drawing.Size(75, 30);
+            this.tenpai2.TabIndex = 54;
+            this.tenpai2.Tag = "tenpai";
+            this.tenpai2.Text = "不听";
+            this.tenpai2.UseMnemonic = false;
+            this.tenpai2.UseVisualStyleBackColor = true;
+            this.tenpai2.Visible = false;
+            // 
+            // tenpai1
+            // 
+            this.tenpai1.AutoSize = true;
+            this.tenpai1.Location = new System.Drawing.Point(294, 214);
+            this.tenpai1.Name = "tenpai1";
+            this.tenpai1.Size = new System.Drawing.Size(75, 30);
+            this.tenpai1.TabIndex = 53;
+            this.tenpai1.Tag = "tenpai";
+            this.tenpai1.Text = "不听";
+            this.tenpai1.UseMnemonic = false;
+            this.tenpai1.UseVisualStyleBackColor = true;
+            this.tenpai1.Visible = false;
+            // 
+            // tenpai0
+            // 
+            this.tenpai0.AutoSize = true;
+            this.tenpai0.Location = new System.Drawing.Point(157, 215);
+            this.tenpai0.Name = "tenpai0";
+            this.tenpai0.Size = new System.Drawing.Size(75, 30);
+            this.tenpai0.TabIndex = 52;
+            this.tenpai0.Tag = "tenpai";
+            this.tenpai0.Text = "不听";
+            this.tenpai0.UseMnemonic = false;
+            this.tenpai0.UseVisualStyleBackColor = true;
+            this.tenpai0.Visible = false;
+            // 
+            // tenpai3
+            // 
+            this.tenpai3.AutoSize = true;
+            this.tenpai3.Location = new System.Drawing.Point(577, 214);
+            this.tenpai3.Name = "tenpai3";
+            this.tenpai3.Size = new System.Drawing.Size(75, 30);
+            this.tenpai3.TabIndex = 55;
+            this.tenpai3.Tag = "tenpai";
+            this.tenpai3.Text = "不听";
+            this.tenpai3.UseMnemonic = false;
+            this.tenpai3.UseVisualStyleBackColor = true;
+            this.tenpai3.Visible = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 466);
+            this.ClientSize = new System.Drawing.Size(808, 444);
+            this.Controls.Add(this.tenpai2);
+            this.Controls.Add(this.tenpai1);
+            this.Controls.Add(this.tenpai0);
+            this.Controls.Add(this.tenpai3);
             this.Controls.Add(this.gameStatusLock);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.riichisticks);
@@ -987,6 +1047,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button tenpai2;
+        private System.Windows.Forms.Button tenpai1;
+        private System.Windows.Forms.Button tenpai0;
+        private System.Windows.Forms.Button tenpai3;
     }
 }
 
