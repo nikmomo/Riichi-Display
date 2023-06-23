@@ -40,7 +40,7 @@
             this.ron3 = new System.Windows.Forms.Button();
             this.ptDiff1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.p3riichi = new System.Windows.Forms.Button();
+            this.riichi2 = new System.Windows.Forms.Button();
             this.ptDiff0 = new System.Windows.Forms.TextBox();
             this.submit = new System.Windows.Forms.Button();
             this.tsumo3 = new System.Windows.Forms.Button();
@@ -49,41 +49,41 @@
             this.ron1 = new System.Windows.Forms.Button();
             this.tsumo1 = new System.Windows.Forms.Button();
             this.ron0 = new System.Windows.Forms.Button();
-            this.p2riichi = new System.Windows.Forms.Button();
+            this.riichi1 = new System.Windows.Forms.Button();
             this.tsumo0 = new System.Windows.Forms.Button();
-            this.p4riichi = new System.Windows.Forms.Button();
+            this.riichi3 = new System.Windows.Forms.Button();
             this.gameStatusLock = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.riichisticks = new System.Windows.Forms.Label();
             this.combo = new System.Windows.Forms.TextBox();
             this.kyutaku = new System.Windows.Forms.TextBox();
-            this.p1riichi = new System.Windows.Forms.Button();
-            this.p1name = new System.Windows.Forms.TextBox();
-            this.p2name = new System.Windows.Forms.TextBox();
-            this.p3name = new System.Windows.Forms.TextBox();
-            this.p4name = new System.Windows.Forms.TextBox();
+            this.riichi0 = new System.Windows.Forms.Button();
+            this.name0 = new System.Windows.Forms.TextBox();
+            this.name1 = new System.Windows.Forms.TextBox();
+            this.name2 = new System.Windows.Forms.TextBox();
+            this.name3 = new System.Windows.Forms.TextBox();
             this.namelock = new System.Windows.Forms.Button();
             this.teamlock = new System.Windows.Forms.Button();
-            this.team4name = new System.Windows.Forms.TextBox();
-            this.team3name = new System.Windows.Forms.TextBox();
-            this.team2name = new System.Windows.Forms.TextBox();
-            this.team1name = new System.Windows.Forms.TextBox();
+            this.teamname3 = new System.Windows.Forms.TextBox();
+            this.teamname2 = new System.Windows.Forms.TextBox();
+            this.teamname1 = new System.Windows.Forms.TextBox();
+            this.teamname0 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.teamLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pointLock = new System.Windows.Forms.Button();
-            this.p4point = new System.Windows.Forms.TextBox();
-            this.p3point = new System.Windows.Forms.TextBox();
-            this.p2point = new System.Windows.Forms.TextBox();
-            this.p1point = new System.Windows.Forms.TextBox();
+            this.point3 = new System.Windows.Forms.TextBox();
+            this.point2 = new System.Windows.Forms.TextBox();
+            this.point1 = new System.Windows.Forms.TextBox();
+            this.point0 = new System.Windows.Forms.TextBox();
             this.showDisplay = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.draw = new System.Windows.Forms.Button();
-            this.oya4 = new System.Windows.Forms.Button();
             this.oya3 = new System.Windows.Forms.Button();
             this.oya2 = new System.Windows.Forms.Button();
             this.oya1 = new System.Windows.Forms.Button();
+            this.oya0 = new System.Windows.Forms.Button();
             this.tenpai2 = new System.Windows.Forms.Button();
             this.tenpai1 = new System.Windows.Forms.Button();
             this.tenpai0 = new System.Windows.Forms.Button();
@@ -149,9 +149,6 @@
             this.pointGain.Size = new System.Drawing.Size(100, 28);
             this.pointGain.TabIndex = 49;
             this.pointGain.Text = "0";
-            this.pointGain.SelectedIndexChanged += new System.EventHandler(this.pointGain_LoseFocus);
-            this.pointGain.DropDownClosed += new System.EventHandler(this.pointGain_LoseFocus);
-            this.pointGain.TextChanged += new System.EventHandler(this.pointGain_LoseFocus);
             // 
             // label2
             // 
@@ -257,17 +254,17 @@
             this.label4.Text = "最终得点\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // p3riichi
+            // riichi2
             // 
-            this.p3riichi.AutoSize = true;
-            this.p3riichi.Location = new System.Drawing.Point(434, 245);
-            this.p3riichi.Name = "p3riichi";
-            this.p3riichi.Size = new System.Drawing.Size(75, 30);
-            this.p3riichi.TabIndex = 26;
-            this.p3riichi.Tag = "riichi";
-            this.p3riichi.Text = "立直";
-            this.p3riichi.UseMnemonic = false;
-            this.p3riichi.UseVisualStyleBackColor = true;
+            this.riichi2.AutoSize = true;
+            this.riichi2.Location = new System.Drawing.Point(434, 245);
+            this.riichi2.Name = "riichi2";
+            this.riichi2.Size = new System.Drawing.Size(75, 30);
+            this.riichi2.TabIndex = 26;
+            this.riichi2.Tag = "riichi";
+            this.riichi2.Text = "立直";
+            this.riichi2.UseMnemonic = false;
+            this.riichi2.UseVisualStyleBackColor = true;
             // 
             // ptDiff0
             // 
@@ -295,7 +292,6 @@
             this.submit.Text = "提交";
             this.submit.UseMnemonic = false;
             this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // tsumo3
             // 
@@ -369,17 +365,17 @@
             this.ron0.UseMnemonic = false;
             this.ron0.UseVisualStyleBackColor = true;
             // 
-            // p2riichi
+            // riichi1
             // 
-            this.p2riichi.AutoSize = true;
-            this.p2riichi.Location = new System.Drawing.Point(294, 245);
-            this.p2riichi.Name = "p2riichi";
-            this.p2riichi.Size = new System.Drawing.Size(75, 30);
-            this.p2riichi.TabIndex = 25;
-            this.p2riichi.Tag = "riichi";
-            this.p2riichi.Text = "立直";
-            this.p2riichi.UseMnemonic = false;
-            this.p2riichi.UseVisualStyleBackColor = true;
+            this.riichi1.AutoSize = true;
+            this.riichi1.Location = new System.Drawing.Point(294, 245);
+            this.riichi1.Name = "riichi1";
+            this.riichi1.Size = new System.Drawing.Size(75, 30);
+            this.riichi1.TabIndex = 25;
+            this.riichi1.Tag = "riichi";
+            this.riichi1.Text = "立直";
+            this.riichi1.UseMnemonic = false;
+            this.riichi1.UseVisualStyleBackColor = true;
             // 
             // tsumo0
             // 
@@ -393,17 +389,17 @@
             this.tsumo0.UseMnemonic = false;
             this.tsumo0.UseVisualStyleBackColor = true;
             // 
-            // p4riichi
+            // riichi3
             // 
-            this.p4riichi.AutoSize = true;
-            this.p4riichi.Location = new System.Drawing.Point(577, 245);
-            this.p4riichi.Name = "p4riichi";
-            this.p4riichi.Size = new System.Drawing.Size(75, 30);
-            this.p4riichi.TabIndex = 27;
-            this.p4riichi.Tag = "riichi";
-            this.p4riichi.Text = "立直";
-            this.p4riichi.UseMnemonic = false;
-            this.p4riichi.UseVisualStyleBackColor = true;
+            this.riichi3.AutoSize = true;
+            this.riichi3.Location = new System.Drawing.Point(577, 245);
+            this.riichi3.Name = "riichi3";
+            this.riichi3.Size = new System.Drawing.Size(75, 30);
+            this.riichi3.TabIndex = 27;
+            this.riichi3.Tag = "riichi";
+            this.riichi3.Text = "立直";
+            this.riichi3.UseMnemonic = false;
+            this.riichi3.UseVisualStyleBackColor = true;
             // 
             // gameStatusLock
             // 
@@ -416,7 +412,7 @@
             this.gameStatusLock.TabIndex = 48;
             this.gameStatusLock.UseMnemonic = false;
             this.gameStatusLock.UseVisualStyleBackColor = true;
-            this.gameStatusLock.Click += new System.EventHandler(this.gameStatus_Click);
+            this.gameStatusLock.Click += new System.EventHandler(this.gameStatusLock_Click);
             // 
             // label5
             // 
@@ -466,89 +462,85 @@
             this.kyutaku.WordWrap = false;
             this.kyutaku.LostFocus += new System.EventHandler(this.kyutaku_LoseFocus);
             // 
-            // p1riichi
+            // riichi0
             // 
-            this.p1riichi.AutoSize = true;
-            this.p1riichi.Location = new System.Drawing.Point(157, 246);
-            this.p1riichi.Name = "p1riichi";
-            this.p1riichi.Size = new System.Drawing.Size(75, 30);
-            this.p1riichi.TabIndex = 24;
-            this.p1riichi.Tag = "riichi";
-            this.p1riichi.Text = "立直";
-            this.p1riichi.UseMnemonic = false;
-            this.p1riichi.UseVisualStyleBackColor = true;
+            this.riichi0.AutoSize = true;
+            this.riichi0.Location = new System.Drawing.Point(157, 246);
+            this.riichi0.Name = "riichi0";
+            this.riichi0.Size = new System.Drawing.Size(75, 30);
+            this.riichi0.TabIndex = 24;
+            this.riichi0.Tag = "riichi";
+            this.riichi0.Text = "立直";
+            this.riichi0.UseMnemonic = false;
+            this.riichi0.UseVisualStyleBackColor = true;
             // 
-            // p1name
+            // name0
             // 
-            this.p1name.AcceptsReturn = true;
-            this.p1name.AcceptsTab = true;
-            this.p1name.BackColor = System.Drawing.SystemColors.Window;
-            this.p1name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p1name.Location = new System.Drawing.Point(146, 112);
-            this.p1name.MaxLength = 20;
-            this.p1name.Name = "p1name";
-            this.p1name.ReadOnly = true;
-            this.p1name.Size = new System.Drawing.Size(100, 26);
-            this.p1name.TabIndex = 0;
-            this.p1name.Tag = "playerName";
-            this.p1name.Text = "PLAYER1";
-            this.p1name.WordWrap = false;
-            this.p1name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p1name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.name0.AcceptsReturn = true;
+            this.name0.AcceptsTab = true;
+            this.name0.BackColor = System.Drawing.SystemColors.Window;
+            this.name0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.name0.Location = new System.Drawing.Point(146, 112);
+            this.name0.MaxLength = 20;
+            this.name0.Name = "name0";
+            this.name0.ReadOnly = true;
+            this.name0.Size = new System.Drawing.Size(100, 26);
+            this.name0.TabIndex = 0;
+            this.name0.Tag = "playerName";
+            this.name0.Text = "PLAYER1";
+            this.name0.WordWrap = false;
+            this.name0.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p2name
+            // name1
             // 
-            this.p2name.AcceptsReturn = true;
-            this.p2name.AcceptsTab = true;
-            this.p2name.BackColor = System.Drawing.SystemColors.Window;
-            this.p2name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p2name.Location = new System.Drawing.Point(284, 112);
-            this.p2name.MaxLength = 20;
-            this.p2name.Name = "p2name";
-            this.p2name.ReadOnly = true;
-            this.p2name.Size = new System.Drawing.Size(100, 26);
-            this.p2name.TabIndex = 1;
-            this.p2name.Tag = "playerName";
-            this.p2name.Text = "PLAYER2";
-            this.p2name.WordWrap = false;
-            this.p2name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p2name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.name1.AcceptsReturn = true;
+            this.name1.AcceptsTab = true;
+            this.name1.BackColor = System.Drawing.SystemColors.Window;
+            this.name1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.name1.Location = new System.Drawing.Point(284, 112);
+            this.name1.MaxLength = 20;
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            this.name1.Size = new System.Drawing.Size(100, 26);
+            this.name1.TabIndex = 1;
+            this.name1.Tag = "playerName";
+            this.name1.Text = "PLAYER2";
+            this.name1.WordWrap = false;
+            this.name1.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p3name
+            // name2
             // 
-            this.p3name.AcceptsReturn = true;
-            this.p3name.AcceptsTab = true;
-            this.p3name.BackColor = System.Drawing.SystemColors.Window;
-            this.p3name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p3name.Location = new System.Drawing.Point(422, 112);
-            this.p3name.MaxLength = 20;
-            this.p3name.Name = "p3name";
-            this.p3name.ReadOnly = true;
-            this.p3name.Size = new System.Drawing.Size(100, 26);
-            this.p3name.TabIndex = 2;
-            this.p3name.Tag = "playerName";
-            this.p3name.Text = "PLAYER3";
-            this.p3name.WordWrap = false;
-            this.p3name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p3name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.name2.AcceptsReturn = true;
+            this.name2.AcceptsTab = true;
+            this.name2.BackColor = System.Drawing.SystemColors.Window;
+            this.name2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.name2.Location = new System.Drawing.Point(422, 112);
+            this.name2.MaxLength = 20;
+            this.name2.Name = "name2";
+            this.name2.ReadOnly = true;
+            this.name2.Size = new System.Drawing.Size(100, 26);
+            this.name2.TabIndex = 2;
+            this.name2.Tag = "playerName";
+            this.name2.Text = "PLAYER3";
+            this.name2.WordWrap = false;
+            this.name2.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p4name
+            // name3
             // 
-            this.p4name.AcceptsReturn = true;
-            this.p4name.AcceptsTab = true;
-            this.p4name.BackColor = System.Drawing.SystemColors.Window;
-            this.p4name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p4name.Location = new System.Drawing.Point(565, 112);
-            this.p4name.MaxLength = 20;
-            this.p4name.Name = "p4name";
-            this.p4name.ReadOnly = true;
-            this.p4name.Size = new System.Drawing.Size(100, 26);
-            this.p4name.TabIndex = 3;
-            this.p4name.Tag = "playerName";
-            this.p4name.Text = "PLAYER4";
-            this.p4name.WordWrap = false;
-            this.p4name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p4name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.name3.AcceptsReturn = true;
+            this.name3.AcceptsTab = true;
+            this.name3.BackColor = System.Drawing.SystemColors.Window;
+            this.name3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.name3.Location = new System.Drawing.Point(565, 112);
+            this.name3.MaxLength = 20;
+            this.name3.Name = "name3";
+            this.name3.ReadOnly = true;
+            this.name3.Size = new System.Drawing.Size(100, 26);
+            this.name3.TabIndex = 3;
+            this.name3.Tag = "playerName";
+            this.name3.Text = "PLAYER4";
+            this.name3.WordWrap = false;
+            this.name3.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
             // namelock
             // 
@@ -578,81 +570,81 @@
             this.teamlock.Visible = false;
             this.teamlock.Click += new System.EventHandler(this.teamlock_Click);
             // 
-            // team4name
+            // teamname3
             // 
-            this.team4name.AcceptsReturn = true;
-            this.team4name.AcceptsTab = true;
-            this.team4name.BackColor = System.Drawing.SystemColors.Window;
-            this.team4name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.team4name.Enabled = false;
-            this.team4name.Location = new System.Drawing.Point(565, 74);
-            this.team4name.MaxLength = 20;
-            this.team4name.Name = "team4name";
-            this.team4name.ReadOnly = true;
-            this.team4name.Size = new System.Drawing.Size(100, 26);
-            this.team4name.TabIndex = 8;
-            this.team4name.Text = "TEAM4";
-            this.team4name.Visible = false;
-            this.team4name.WordWrap = false;
-            this.team4name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.team4name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.teamname3.AcceptsReturn = true;
+            this.teamname3.AcceptsTab = true;
+            this.teamname3.BackColor = System.Drawing.SystemColors.Window;
+            this.teamname3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teamname3.Enabled = false;
+            this.teamname3.Location = new System.Drawing.Point(565, 74);
+            this.teamname3.MaxLength = 20;
+            this.teamname3.Name = "teamname3";
+            this.teamname3.ReadOnly = true;
+            this.teamname3.Size = new System.Drawing.Size(100, 26);
+            this.teamname3.TabIndex = 8;
+            this.teamname3.Tag = "team";
+            this.teamname3.Text = "TEAM4";
+            this.teamname3.Visible = false;
+            this.teamname3.WordWrap = false;
+            this.teamname3.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // team3name
+            // teamname2
             // 
-            this.team3name.AcceptsReturn = true;
-            this.team3name.AcceptsTab = true;
-            this.team3name.BackColor = System.Drawing.SystemColors.Window;
-            this.team3name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.team3name.Enabled = false;
-            this.team3name.Location = new System.Drawing.Point(422, 74);
-            this.team3name.MaxLength = 20;
-            this.team3name.Name = "team3name";
-            this.team3name.ReadOnly = true;
-            this.team3name.Size = new System.Drawing.Size(100, 26);
-            this.team3name.TabIndex = 7;
-            this.team3name.Text = "TEAM3";
-            this.team3name.Visible = false;
-            this.team3name.WordWrap = false;
-            this.team3name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.team3name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.teamname2.AcceptsReturn = true;
+            this.teamname2.AcceptsTab = true;
+            this.teamname2.BackColor = System.Drawing.SystemColors.Window;
+            this.teamname2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teamname2.Enabled = false;
+            this.teamname2.Location = new System.Drawing.Point(422, 74);
+            this.teamname2.MaxLength = 20;
+            this.teamname2.Name = "teamname2";
+            this.teamname2.ReadOnly = true;
+            this.teamname2.Size = new System.Drawing.Size(100, 26);
+            this.teamname2.TabIndex = 7;
+            this.teamname2.Tag = "team";
+            this.teamname2.Text = "TEAM3";
+            this.teamname2.Visible = false;
+            this.teamname2.WordWrap = false;
+            this.teamname2.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // team2name
+            // teamname1
             // 
-            this.team2name.AcceptsReturn = true;
-            this.team2name.AcceptsTab = true;
-            this.team2name.BackColor = System.Drawing.SystemColors.Window;
-            this.team2name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.team2name.Enabled = false;
-            this.team2name.Location = new System.Drawing.Point(284, 74);
-            this.team2name.MaxLength = 20;
-            this.team2name.Name = "team2name";
-            this.team2name.ReadOnly = true;
-            this.team2name.Size = new System.Drawing.Size(100, 26);
-            this.team2name.TabIndex = 6;
-            this.team2name.Text = "TEAM2";
-            this.team2name.Visible = false;
-            this.team2name.WordWrap = false;
-            this.team2name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.team2name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.teamname1.AcceptsReturn = true;
+            this.teamname1.AcceptsTab = true;
+            this.teamname1.BackColor = System.Drawing.SystemColors.Window;
+            this.teamname1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teamname1.Enabled = false;
+            this.teamname1.Location = new System.Drawing.Point(284, 74);
+            this.teamname1.MaxLength = 20;
+            this.teamname1.Name = "teamname1";
+            this.teamname1.ReadOnly = true;
+            this.teamname1.Size = new System.Drawing.Size(100, 26);
+            this.teamname1.TabIndex = 6;
+            this.teamname1.Tag = "team";
+            this.teamname1.Text = "TEAM2";
+            this.teamname1.Visible = false;
+            this.teamname1.WordWrap = false;
+            this.teamname1.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // team1name
+            // teamname0
             // 
-            this.team1name.AcceptsReturn = true;
-            this.team1name.AcceptsTab = true;
-            this.team1name.BackColor = System.Drawing.SystemColors.Window;
-            this.team1name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.team1name.Enabled = false;
-            this.team1name.Location = new System.Drawing.Point(146, 74);
-            this.team1name.MaxLength = 20;
-            this.team1name.Name = "team1name";
-            this.team1name.ReadOnly = true;
-            this.team1name.Size = new System.Drawing.Size(100, 26);
-            this.team1name.TabIndex = 5;
-            this.team1name.Text = "TEAM1";
-            this.team1name.Visible = false;
-            this.team1name.WordWrap = false;
-            this.team1name.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.team1name.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.teamname0.AcceptsReturn = true;
+            this.teamname0.AcceptsTab = true;
+            this.teamname0.BackColor = System.Drawing.SystemColors.Window;
+            this.teamname0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teamname0.Enabled = false;
+            this.teamname0.Location = new System.Drawing.Point(146, 74);
+            this.teamname0.MaxLength = 20;
+            this.teamname0.Name = "teamname0";
+            this.teamname0.ReadOnly = true;
+            this.teamname0.Size = new System.Drawing.Size(100, 26);
+            this.teamname0.TabIndex = 5;
+            this.teamname0.Tag = "team";
+            this.teamname0.Text = "TEAM1";
+            this.teamname0.Visible = false;
+            this.teamname0.WordWrap = false;
+            this.teamname0.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
             // label1
             // 
@@ -695,81 +687,77 @@
             this.pointLock.UseVisualStyleBackColor = true;
             this.pointLock.Click += new System.EventHandler(this.pointlock_Click);
             // 
-            // p4point
+            // point3
             // 
-            this.p4point.AcceptsReturn = true;
-            this.p4point.AcceptsTab = true;
-            this.p4point.BackColor = System.Drawing.SystemColors.Window;
-            this.p4point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p4point.Enabled = false;
-            this.p4point.Location = new System.Drawing.Point(565, 154);
-            this.p4point.MaxLength = 20;
-            this.p4point.Name = "p4point";
-            this.p4point.ReadOnly = true;
-            this.p4point.Size = new System.Drawing.Size(100, 26);
-            this.p4point.TabIndex = 15;
-            this.p4point.Tag = "point";
-            this.p4point.Text = "25000";
-            this.p4point.WordWrap = false;
-            this.p4point.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p4point.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.point3.AcceptsReturn = true;
+            this.point3.AcceptsTab = true;
+            this.point3.BackColor = System.Drawing.SystemColors.Window;
+            this.point3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.point3.Enabled = false;
+            this.point3.Location = new System.Drawing.Point(565, 154);
+            this.point3.MaxLength = 20;
+            this.point3.Name = "point3";
+            this.point3.ReadOnly = true;
+            this.point3.Size = new System.Drawing.Size(100, 26);
+            this.point3.TabIndex = 15;
+            this.point3.Tag = "point";
+            this.point3.Text = "25000";
+            this.point3.WordWrap = false;
+            this.point3.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p3point
+            // point2
             // 
-            this.p3point.AcceptsReturn = true;
-            this.p3point.AcceptsTab = true;
-            this.p3point.BackColor = System.Drawing.SystemColors.Window;
-            this.p3point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p3point.Enabled = false;
-            this.p3point.Location = new System.Drawing.Point(422, 154);
-            this.p3point.MaxLength = 20;
-            this.p3point.Name = "p3point";
-            this.p3point.ReadOnly = true;
-            this.p3point.Size = new System.Drawing.Size(100, 26);
-            this.p3point.TabIndex = 14;
-            this.p3point.Tag = "point";
-            this.p3point.Text = "25000";
-            this.p3point.WordWrap = false;
-            this.p3point.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p3point.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.point2.AcceptsReturn = true;
+            this.point2.AcceptsTab = true;
+            this.point2.BackColor = System.Drawing.SystemColors.Window;
+            this.point2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.point2.Enabled = false;
+            this.point2.Location = new System.Drawing.Point(422, 154);
+            this.point2.MaxLength = 20;
+            this.point2.Name = "point2";
+            this.point2.ReadOnly = true;
+            this.point2.Size = new System.Drawing.Size(100, 26);
+            this.point2.TabIndex = 14;
+            this.point2.Tag = "point";
+            this.point2.Text = "25000";
+            this.point2.WordWrap = false;
+            this.point2.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p2point
+            // point1
             // 
-            this.p2point.AcceptsReturn = true;
-            this.p2point.AcceptsTab = true;
-            this.p2point.BackColor = System.Drawing.SystemColors.Window;
-            this.p2point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p2point.Enabled = false;
-            this.p2point.Location = new System.Drawing.Point(284, 154);
-            this.p2point.MaxLength = 20;
-            this.p2point.Name = "p2point";
-            this.p2point.ReadOnly = true;
-            this.p2point.Size = new System.Drawing.Size(100, 26);
-            this.p2point.TabIndex = 13;
-            this.p2point.Tag = "point";
-            this.p2point.Text = "25000";
-            this.p2point.WordWrap = false;
-            this.p2point.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p2point.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.point1.AcceptsReturn = true;
+            this.point1.AcceptsTab = true;
+            this.point1.BackColor = System.Drawing.SystemColors.Window;
+            this.point1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.point1.Enabled = false;
+            this.point1.Location = new System.Drawing.Point(284, 154);
+            this.point1.MaxLength = 20;
+            this.point1.Name = "point1";
+            this.point1.ReadOnly = true;
+            this.point1.Size = new System.Drawing.Size(100, 26);
+            this.point1.TabIndex = 13;
+            this.point1.Tag = "point";
+            this.point1.Text = "25000";
+            this.point1.WordWrap = false;
+            this.point1.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // p1point
+            // point0
             // 
-            this.p1point.AcceptsReturn = true;
-            this.p1point.AcceptsTab = true;
-            this.p1point.BackColor = System.Drawing.SystemColors.Window;
-            this.p1point.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.p1point.Enabled = false;
-            this.p1point.Location = new System.Drawing.Point(146, 154);
-            this.p1point.MaxLength = 20;
-            this.p1point.Name = "p1point";
-            this.p1point.ReadOnly = true;
-            this.p1point.Size = new System.Drawing.Size(100, 26);
-            this.p1point.TabIndex = 12;
-            this.p1point.Tag = "point";
-            this.p1point.Text = "25000";
-            this.p1point.WordWrap = false;
-            this.p1point.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            this.p1point.LostFocus += new System.EventHandler(this.textboxLoseFocus);
+            this.point0.AcceptsReturn = true;
+            this.point0.AcceptsTab = true;
+            this.point0.BackColor = System.Drawing.SystemColors.Window;
+            this.point0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.point0.Enabled = false;
+            this.point0.Location = new System.Drawing.Point(146, 154);
+            this.point0.MaxLength = 20;
+            this.point0.Name = "point0";
+            this.point0.ReadOnly = true;
+            this.point0.Size = new System.Drawing.Size(100, 26);
+            this.point0.TabIndex = 12;
+            this.point0.Tag = "point";
+            this.point0.Text = "25000";
+            this.point0.WordWrap = false;
+            this.point0.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
             // showDisplay
             // 
@@ -818,25 +806,13 @@
             this.draw.UseMnemonic = false;
             this.draw.UseVisualStyleBackColor = true;
             // 
-            // oya4
-            // 
-            this.oya4.AutoSize = true;
-            this.oya4.Location = new System.Drawing.Point(592, 26);
-            this.oya4.Name = "oya4";
-            this.oya4.Size = new System.Drawing.Size(35, 35);
-            this.oya4.TabIndex = 32;
-            this.oya4.Tag = "seat";
-            this.oya4.Text = "子";
-            this.oya4.UseMnemonic = false;
-            this.oya4.UseVisualStyleBackColor = true;
-            // 
             // oya3
             // 
             this.oya3.AutoSize = true;
-            this.oya3.Location = new System.Drawing.Point(447, 26);
+            this.oya3.Location = new System.Drawing.Point(592, 26);
             this.oya3.Name = "oya3";
             this.oya3.Size = new System.Drawing.Size(35, 35);
-            this.oya3.TabIndex = 31;
+            this.oya3.TabIndex = 32;
             this.oya3.Tag = "seat";
             this.oya3.Text = "子";
             this.oya3.UseMnemonic = false;
@@ -845,10 +821,10 @@
             // oya2
             // 
             this.oya2.AutoSize = true;
-            this.oya2.Location = new System.Drawing.Point(309, 26);
+            this.oya2.Location = new System.Drawing.Point(447, 26);
             this.oya2.Name = "oya2";
             this.oya2.Size = new System.Drawing.Size(35, 35);
-            this.oya2.TabIndex = 30;
+            this.oya2.TabIndex = 31;
             this.oya2.Tag = "seat";
             this.oya2.Text = "子";
             this.oya2.UseMnemonic = false;
@@ -857,15 +833,27 @@
             // oya1
             // 
             this.oya1.AutoSize = true;
-            this.oya1.BackColor = System.Drawing.Color.DarkOrange;
-            this.oya1.Location = new System.Drawing.Point(173, 26);
+            this.oya1.Location = new System.Drawing.Point(309, 26);
             this.oya1.Name = "oya1";
             this.oya1.Size = new System.Drawing.Size(35, 35);
-            this.oya1.TabIndex = 29;
+            this.oya1.TabIndex = 30;
             this.oya1.Tag = "seat";
-            this.oya1.Text = "親";
+            this.oya1.Text = "子";
             this.oya1.UseMnemonic = false;
-            this.oya1.UseVisualStyleBackColor = false;
+            this.oya1.UseVisualStyleBackColor = true;
+            // 
+            // oya0
+            // 
+            this.oya0.AutoSize = true;
+            this.oya0.BackColor = System.Drawing.Color.DarkOrange;
+            this.oya0.Location = new System.Drawing.Point(173, 26);
+            this.oya0.Name = "oya0";
+            this.oya0.Size = new System.Drawing.Size(35, 35);
+            this.oya0.TabIndex = 29;
+            this.oya0.Tag = "seat";
+            this.oya0.Text = "親";
+            this.oya0.UseMnemonic = false;
+            this.oya0.UseVisualStyleBackColor = false;
             // 
             // tenpai2
             // 
@@ -943,7 +931,7 @@
             this.Controls.Add(this.ron3);
             this.Controls.Add(this.ptDiff1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.p3riichi);
+            this.Controls.Add(this.riichi2);
             this.Controls.Add(this.ptDiff0);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.tsumo3);
@@ -952,36 +940,36 @@
             this.Controls.Add(this.ron1);
             this.Controls.Add(this.tsumo1);
             this.Controls.Add(this.ron0);
-            this.Controls.Add(this.p2riichi);
+            this.Controls.Add(this.riichi1);
             this.Controls.Add(this.tsumo0);
-            this.Controls.Add(this.p1riichi);
-            this.Controls.Add(this.p4riichi);
+            this.Controls.Add(this.riichi0);
+            this.Controls.Add(this.riichi3);
             this.Controls.Add(this.pointLock);
-            this.Controls.Add(this.oya4);
-            this.Controls.Add(this.showDisplay);
             this.Controls.Add(this.oya3);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.showDisplay);
             this.Controls.Add(this.oya2);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.oya1);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.draw);
-            this.Controls.Add(this.oya1);
+            this.Controls.Add(this.oya0);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.p4point);
-            this.Controls.Add(this.p3point);
-            this.Controls.Add(this.p2point);
-            this.Controls.Add(this.p1point);
+            this.Controls.Add(this.point3);
+            this.Controls.Add(this.point2);
+            this.Controls.Add(this.point1);
+            this.Controls.Add(this.point0);
             this.Controls.Add(this.teamLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.teamlock);
-            this.Controls.Add(this.team4name);
-            this.Controls.Add(this.team3name);
-            this.Controls.Add(this.team2name);
-            this.Controls.Add(this.team1name);
+            this.Controls.Add(this.teamname3);
+            this.Controls.Add(this.teamname2);
+            this.Controls.Add(this.teamname1);
+            this.Controls.Add(this.teamname0);
             this.Controls.Add(this.namelock);
-            this.Controls.Add(this.p4name);
-            this.Controls.Add(this.p3name);
-            this.Controls.Add(this.p2name);
-            this.Controls.Add(this.p1name);
+            this.Controls.Add(this.name3);
+            this.Controls.Add(this.name2);
+            this.Controls.Add(this.name1);
+            this.Controls.Add(this.name0);
             this.Controls.Add(pointgroup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
@@ -993,38 +981,38 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox p1name;
-        public System.Windows.Forms.TextBox p2name;
-        public System.Windows.Forms.TextBox p3name;
-        public System.Windows.Forms.TextBox p4name;
+        public System.Windows.Forms.TextBox name0;
+        public System.Windows.Forms.TextBox name1;
+        public System.Windows.Forms.TextBox name2;
+        public System.Windows.Forms.TextBox name3;
         private System.Windows.Forms.Button namelock;
         private System.Windows.Forms.Button teamlock;
-        public System.Windows.Forms.TextBox team4name;
-        public System.Windows.Forms.TextBox team3name;
-        public System.Windows.Forms.TextBox team2name;
-        public System.Windows.Forms.TextBox team1name;
+        public System.Windows.Forms.TextBox teamname3;
+        public System.Windows.Forms.TextBox teamname2;
+        public System.Windows.Forms.TextBox teamname1;
+        public System.Windows.Forms.TextBox teamname0;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label teamLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button pointLock;
-        public System.Windows.Forms.TextBox p4point;
-        public System.Windows.Forms.TextBox p3point;
-        public System.Windows.Forms.TextBox p2point;
-        public System.Windows.Forms.TextBox p1point;
+        public System.Windows.Forms.TextBox point3;
+        public System.Windows.Forms.TextBox point2;
+        public System.Windows.Forms.TextBox point1;
+        public System.Windows.Forms.TextBox point0;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.TextBox ptDiff3;
         private System.Windows.Forms.TextBox ptDiff2;
         private System.Windows.Forms.TextBox ptDiff1;
         private System.Windows.Forms.TextBox ptDiff0;
-        private System.Windows.Forms.Button p1riichi;
-        private System.Windows.Forms.Button p2riichi;
-        private System.Windows.Forms.Button p3riichi;
-        private System.Windows.Forms.Button p4riichi;
-        private System.Windows.Forms.Button oya4;
+        private System.Windows.Forms.Button riichi0;
+        private System.Windows.Forms.Button riichi1;
+        private System.Windows.Forms.Button riichi2;
+        private System.Windows.Forms.Button riichi3;
         private System.Windows.Forms.Button oya3;
         private System.Windows.Forms.Button oya2;
         private System.Windows.Forms.Button oya1;
+        private System.Windows.Forms.Button oya0;
         private System.Windows.Forms.Button ron3;
         private System.Windows.Forms.Button tsumo3;
         private System.Windows.Forms.Button ron2;

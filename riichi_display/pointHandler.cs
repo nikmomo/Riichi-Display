@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace riichi_display
 {
     // The pointHandler class is used to handle point calculations.
-    public class pointHandler
+    public class PointHandler
     {
         // Declare the fields for the class.
         private int kyutaku;
@@ -15,7 +15,7 @@ namespace riichi_display
         private int finalAddup; // Final adding up point to the player
 
         // Default constructor initializing kyutaku and combo to zero.
-        public pointHandler()
+        public PointHandler()
         {
             kyutaku = 0;
             combo = 0;

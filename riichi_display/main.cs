@@ -16,11 +16,13 @@ namespace riichi_display
         private display displayForm;
         private setting setting;
 
-        private string currentOya;
-        private string winner;
+        //private string currentOya;
+        //private string winner;
 
-        pointHandler handler;
+        PointHandler handler;
+        Player[] players;
 
+        public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
 
         public mainForm()
         {
@@ -40,9 +42,14 @@ namespace riichi_display
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
 
-            currentOya = "0";
-            handler = new pointHandler();
+            //currentOya = "0";
+            handler = new PointHandler();
 
+            players = new Player[4];
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = new Player { Index = i };
+            }
 
         }
 
@@ -60,9 +67,19 @@ namespace riichi_display
         }
 
         // Event handler for textbox losing focus
-        private void textboxLoseFocus(object sender, EventArgs e)
+        //private void textboxLoseFocus(object sender, EventArgs e)
+        //{
+        //    DisplayUpdate(sender, new DisplayUpdateEvent());
+        //}
+
+        // Event handler for key down event
+        private void enterLoseFocus(object sender, KeyEventArgs e)
         {
-            DisplayUpdate(sender, new DisplayUpdateEvent());
+            // Remove focus from current control when enter key is pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ActiveControl = null;
+            }
         }
 
         // Status flags for various locks
@@ -75,10 +92,10 @@ namespace riichi_display
         private void namelock_Click(object sender, EventArgs e)
         {
             nameLockStatus = !nameLockStatus;
-            p1name.Enabled = nameLockStatus;
-            p2name.Enabled = nameLockStatus;
-            p3name.Enabled = nameLockStatus;
-            p4name.Enabled = nameLockStatus;
+            name0.Enabled = nameLockStatus;
+            name1.Enabled = nameLockStatus;
+            name2.Enabled = nameLockStatus;
+            name3.Enabled = nameLockStatus;
             if (!nameLockStatus)
                 namelock.BackgroundImage = Properties.Resources._lock;
             else
@@ -89,10 +106,10 @@ namespace riichi_display
         private void teamlock_Click(object sender, EventArgs e)
         {
             teamLockStatus = !teamLockStatus;
-            team1name.Enabled = teamLockStatus;
-            team2name.Enabled = teamLockStatus;
-            team3name.Enabled = teamLockStatus;
-            team4name.Enabled = teamLockStatus;
+            teamname0.Enabled = teamLockStatus;
+            teamname1.Enabled = teamLockStatus;
+            teamname2.Enabled = teamLockStatus;
+            teamname3.Enabled = teamLockStatus;
             if (!teamLockStatus)
                 teamlock.BackgroundImage = Properties.Resources._lock;
             else
@@ -103,17 +120,17 @@ namespace riichi_display
         private void pointlock_Click(object sender, EventArgs e)
         {
             pointLockStatus = !pointLockStatus;
-            p1point.Enabled = pointLockStatus;
-            p2point.Enabled = pointLockStatus;
-            p3point.Enabled = pointLockStatus;
-            p4point.Enabled = pointLockStatus;
+            point0.Enabled = pointLockStatus;
+            point1.Enabled = pointLockStatus;
+            point2.Enabled = pointLockStatus;
+            point3.Enabled = pointLockStatus;
             if (!pointLockStatus)
                 pointLock.BackgroundImage = Properties.Resources._lock;
             else
                 pointLock.BackgroundImage = Properties.Resources.unlock;
         }
 
-        private void gameStatus_Click(object sender, EventArgs e)
+        private void gameStatusLock_Click(object sender, EventArgs e)
         {
             gameStatus = !gameStatus;
             kyutaku.Enabled = gameStatus;
@@ -126,22 +143,25 @@ namespace riichi_display
         // Method to set up properties and event handlers for form controls
         private void PropertySetup()
         {
+
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox)
                     control.KeyDown += new KeyEventHandler(enterLoseFocus);
                 if (control.Tag != null)
                 {
+                    if (control is TextBox)
+                        control.LostFocus += new EventHandler(textBox_LoseFocus);
                     if (control.Tag.ToString() == "seat")
                         control.Click += new EventHandler(seat_Click);
-                    else if (control.Tag.ToString() == "playerName")
-                        control.TextChanged += new EventHandler(name_changed);
-                    else if (control.Tag.ToString() == "ron")
-                        control.Click += new EventHandler(ron_clicked);
-                    else if (control.Tag.ToString() == "tsumo")
-                        control.Click += new EventHandler(tsumo_clicked);
-                    else if (control.Tag.ToString() == "riichi")
-                        control.Click += new EventHandler(riichi_clicked);
+                    //else if (control.Tag.ToString() == "playerName")
+                    //    control.TextChanged += new EventHandler(name_changed);
+                    //else if (control.Tag.ToString() == "ron")
+                    //    control.Click += new EventHandler(ron_clicked);
+                    //else if (control.Tag.ToString() == "tsumo")
+                    //    control.Click += new EventHandler(tsumo_clicked);
+                    //else if (control.Tag.ToString() == "riichi")
+                    //    control.Click += new EventHandler(riichi_clicked);
                 }
                 
             }
@@ -149,47 +169,83 @@ namespace riichi_display
             pointGain.KeyPress += pointGain_KeyPress;
         }
 
-        // Event handler for key down event
-        private void enterLoseFocus(object sender, KeyEventArgs e)
+        private void textBox_LoseFocus(object sender, EventArgs e)
         {
-            // Remove focus from current control when enter key is pressed
-            if (e.KeyCode == Keys.Enter)
+            TextBox textBox = sender as TextBox;
+            int n = determinePlayer(textBox.Name); // index of the player
+            switch (textBox.Tag) // update player based on the tag
             {
-                this.ActiveControl = null;
+                case "playerName":
+                    players[n].Name = textBox.Text;
+                    break;
+                case "team":
+                    players[n].Team = textBox.Text;
+                    break;
+                case "point":
+                    players[n].Point = long.Parse(textBox.Text);
+                    break;
+                case "addup":
+                    players[n].Addup = long.Parse(textBox.Text);
+                    break;
+                case "riichi": // TODO: THIS IS BUTTON
+                    players[n].Riichi = bool.Parse(textBox.Text);
+                    break;
+                case "Tenpai": // TODO: THIS IS BUTTON
+                    players[n].Tenpai = bool.Parse(textBox.Text);
+                    break;
+                case "Oya": // TODO: THIS IS BUTTON
+                    players[n].Oya = bool.Parse(textBox.Text);
+                    break;
+                case "Winner": // TODO: THIS IS BUTTON
+                    players[n].Winner = bool.Parse(textBox.Text);
+                    break;
+                default:
+                    throw new Exception($"Invalid tag: {textBox.Tag}");
             }
+            Console.WriteLine(players[n].ToString());
+            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+        }
+
+        private int determinePlayer(string name)
+        {
+            int index = int.Parse(name[name.Length - 1].ToString());
+            if (index > players.Length)
+                throw new Exception("Invalid Index @determinePlayer!");
+            return index;
+
         }
 
         // Event handlers for various control click events
         private void seat_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            currentOya = (int.Parse(button.Name.Substring(3)) - 1).ToString();
-            //Console.WriteLine(currentOya);
-            if (button != null)
-            {
-                button.BackColor = Color.DarkOrange;
-                button.Text = "親";
-                foreach (Control control in this.Controls)
-                {
-                    if (control.Tag != null && control.Tag.ToString() == "seat" && control != button)
-                    {
-                        control.BackColor = Color.White;
-                        control.Text = "子";
-                    }
-                }
-                foreach(Control control in displayForm.Controls)
-                {
-                    if (control.Tag != null && control.Tag.ToString() == "name")
-                    {
-                        var name = "p" + button.Name.Substring(3, 1) + "name";
-                        //Console.WriteLine(name);
-                        if (control.Name == name)
-                            control.ForeColor = Color.DarkOrange;
-                        else
-                            control.ForeColor = Color.White;
-                    }
-                }
-            }
+            int n = determinePlayer(button.Name); // index of the player
+            // TODO: Keep working here <<<<<<<<<<<<<<<<
+            //if (button != null)
+            //{
+            //    button.BackColor = Color.DarkOrange;
+            //    button.Text = "親";
+            //    foreach (Control control in this.Controls)
+            //    {
+            //        if (control.Tag != null && control.Tag.ToString() == "seat" && control != button)
+            //        {
+            //            control.BackColor = Color.White;
+            //            control.Text = "子";
+            //        }
+            //    }
+            //    foreach(Control control in displayForm.Controls)
+            //    {
+            //        if (control.Tag != null && control.Tag.ToString() == "name")
+            //        {
+            //            var name = "p" + button.Name.Substring(3, 1) + "name";
+            //            //Console.WriteLine(name);
+            //            if (control.Name == name)
+            //                control.ForeColor = Color.DarkOrange;
+            //            else
+            //                control.ForeColor = Color.White;
+            //        }
+            //    }
+            //}
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -219,10 +275,10 @@ namespace riichi_display
         {
             teamControl = !teamControl;
             teamLabel.Visible = teamControl;
-            team1name.Visible = teamControl;
-            team2name.Visible = teamControl;
-            team3name.Visible = teamControl;
-            team4name.Visible = teamControl;
+            teamname0.Visible = teamControl;
+            teamname1.Visible = teamControl;
+            teamname2.Visible = teamControl;
+            teamname3.Visible = teamControl;
             teamlock.Visible = teamControl;
             foreach(Control control in displayForm.Controls)
             {
@@ -270,7 +326,7 @@ namespace riichi_display
         private void ron_clicked(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            winner = button.Name.Substring(3);
+            //winner = button.Name.Substring(3);
             playerList.Enabled = true;
             
         }
@@ -278,92 +334,92 @@ namespace riichi_display
         private void tsumo_clicked(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            winner = button.Name.Substring(5);
+            //winner = button.Name.Substring(5);
             playerList.Text = "三家";
             playerList.Enabled = false;
             
         }
 
-        private void pointGain_LoseFocus(object sender, EventArgs e)
-        {
-            if (playerList.Text == "" || pointGain.Text == "")
-                return;
-            if (playerList.Text == "三家")
-            {
-                if (winner != currentOya)
-                {
-                    int oya, ko;
+        //private void pointGain_LoseFocus(object sender, EventArgs e)
+        //{
+        //    if (playerList.Text == "" || pointGain.Text == "")
+        //        return;
+        //    if (playerList.Text == "三家")
+        //    {
+        //        if (winner != currentOya)
+        //        {
+        //            int oya, ko;
 
-                    (oya, ko) = handler.Kotsumo(int.Parse(pointGain.Text));
-                    foreach (Control control in this.Controls)
-                    {
-                        if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
-                        {
-                            if (control.Name == "ptDiff" + currentOya)
-                            {
-                                control.Text = '-' + oya.ToString();
-                            }
-                            else if (control.Name == "ptDiff" + winner)
-                            {
-                                control.Text = handler.FinalAddup.ToString();
-                            }
-                            else
-                            {
-                                control.Text = '-' + ko.ToString();
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    int result = handler.Oyatsumo(int.Parse(pointGain.Text));
-                    foreach (Control control in this.Controls)
-                    {
-                        if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
-                        {
-                            if (control.Name == "ptDiff" + winner)
-                            {
-                                control.Text = handler.FinalAddup.ToString();
-                            }
-                            else
-                            {
-                                control.Text = '-' + result.ToString();
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                var result = handler.Ron(int.Parse(pointGain.Text));
-                string number = "0";
-                foreach (Control control in this.Controls)
-                {
-                    if (control.Tag == null || control.Tag.ToString() != "playerName")
-                        continue;
-                    if (control.Text == playerList.Text)
-                    {
-                        number = control.Name.Substring(1, 1);
-                    }
-                }
-                string transferNum = (int.Parse(number) - 1).ToString();
-                //Console.WriteLine(transferNum);
-                foreach (Control control in this.Controls)
-                {
-                    if (control.Name == "ptDiff" + transferNum)
-                    {
-                        control.Text = "-" + result.ToString();
-                    }
-                    else if (control.Name == "ptDiff" + winner)
-                    {
-                        control.Text = handler.FinalAddup.ToString();
-                    }
-                    else if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
-                        control.Text = "0";
-                }
-            }
+        //            (oya, ko) = handler.Kotsumo(int.Parse(pointGain.Text));
+        //            foreach (Control control in this.Controls)
+        //            {
+        //                if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+        //                {
+        //                    if (control.Name == "ptDiff" + currentOya)
+        //                    {
+        //                        control.Text = '-' + oya.ToString();
+        //                    }
+        //                    else if (control.Name == "ptDiff" + winner)
+        //                    {
+        //                        control.Text = handler.FinalAddup.ToString();
+        //                    }
+        //                    else
+        //                    {
+        //                        control.Text = '-' + ko.ToString();
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            int result = handler.Oyatsumo(int.Parse(pointGain.Text));
+        //            foreach (Control control in this.Controls)
+        //            {
+        //                if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+        //                {
+        //                    if (control.Name == "ptDiff" + winner)
+        //                    {
+        //                        control.Text = handler.FinalAddup.ToString();
+        //                    }
+        //                    else
+        //                    {
+        //                        control.Text = '-' + result.ToString();
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        var result = handler.Ron(int.Parse(pointGain.Text));
+        //        string number = "0";
+        //        foreach (Control control in this.Controls)
+        //        {
+        //            if (control.Tag == null || control.Tag.ToString() != "playerName")
+        //                continue;
+        //            if (control.Text == playerList.Text)
+        //            {
+        //                number = control.Name.Substring(1, 1);
+        //            }
+        //        }
+        //        string transferNum = (int.Parse(number) - 1).ToString();
+        //        //Console.WriteLine(transferNum);
+        //        foreach (Control control in this.Controls)
+        //        {
+        //            if (control.Name == "ptDiff" + transferNum)
+        //            {
+        //                control.Text = "-" + result.ToString();
+        //            }
+        //            else if (control.Name == "ptDiff" + winner)
+        //            {
+        //                control.Text = handler.FinalAddup.ToString();
+        //            }
+        //            else if (control.Name.Length > 6 && control.Name.Substring(0, 6) == "ptDiff")
+        //                control.Text = "0";
+        //        }
+        //    }
             
-        }
+        //}
 
         private void pointGain_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -401,25 +457,25 @@ namespace riichi_display
             }
         }
 
-        private void submit_Click(object sender, EventArgs e)
-        {
-            string[] adjustments = ResetControlsAndGetAdjustments();
+        //private void submit_Click(object sender, EventArgs e)
+        //{
+        //    string[] adjustments = ResetControlsAndGetAdjustments();
 
-            AdjustPoints(adjustments);
+        //    AdjustPoints(adjustments);
 
-            handler.clearRiichi();
-            if (currentOya == winner)
-            {
-                handler.AddCombo();
-                combo.Text = handler.getCombo().ToString();
-            }
-            else
-            {
-                HandleNonWinner();
-            }
-            winner = "42";
-            DisplayUpdate(sender, new DisplayUpdateEvent());
-        }
+        //    handler.clearRiichi();
+        //    if (currentOya == winner)
+        //    {
+        //        handler.AddCombo();
+        //        combo.Text = handler.getCombo().ToString();
+        //    }
+        //    else
+        //    {
+        //        HandleNonWinner();
+        //    }
+        //    winner = "42";
+        //    DisplayUpdate(sender, new DisplayUpdateEvent());
+        //}
 
         private string[] ResetControlsAndGetAdjustments()
         {
@@ -470,22 +526,22 @@ namespace riichi_display
             }
         }
 
-        private void HandleNonWinner()
-        {
-            handler.Reset();
-            currentOya = ((int.Parse(currentOya) + 1) % 5).ToString();
-            if (currentOya == "4")
-            {
-                windChgeControl(this, new WindChangeEvent());
-                currentOya = "0";
-            }
-            string transferOya = (int.Parse(currentOya) + 1).ToString();
-            Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
-            if (control != null)
-            {
-                control.PerformClick();
-            }
-        }
+        //private void HandleNonWinner()
+        //{
+        //    handler.Reset();
+        //    currentOya = ((int.Parse(currentOya) + 1) % 5).ToString();
+        //    if (currentOya == "4")
+        //    {
+        //        windChgeControl(this, new WindChangeEvent());
+        //        currentOya = "0";
+        //    }
+        //    string transferOya = (int.Parse(currentOya) + 1).ToString();
+        //    Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
+        //    if (control != null)
+        //    {
+        //        control.PerformClick();
+        //    }
+        //}
 
         private void PointAddup(Control obj, string point)
         {
@@ -537,15 +593,25 @@ namespace riichi_display
             Controls["kyutaku"].Text = handler.getKyutaku().ToString();
             Controls["combo"].Text = handler.getCombo().ToString();
 
-            foreach (Control control in Controls)
+            if (sender is Button)
             {
-                if (control is TextBox)
+                foreach (Control control in Controls)
                 {
-                    Label target = displayForm.Controls.Find(control.Name, true).FirstOrDefault() as Label;
-                    if (target != null)
-                        target.Text = control.Text;
+                    if (control is TextBox)
+                    {
+                        Label target = displayForm.Controls.Find(control.Name, true).FirstOrDefault() as Label;
+                        if (target != null)
+                            target.Text = control.Text;
+                    }
                 }
             }
+            else
+            {
+                TextBox textbox = sender as TextBox;
+
+            }
+
+            
         }
 
         // TODO: 流局设计思路：给pointHandler加一个流局的method，take听牌的人数，返回一个tuple，（听牌收的点，不听交的点）
