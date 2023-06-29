@@ -31,5 +31,23 @@ namespace riichi_display
                    $"Oya: {Oya}\n" +
                    $"Winner: {Winner}\n";
         }
+        public void ClearAddupWinner()
+        {
+            Addup = 0;
+            Winner = false;
+        }
+        public void Clear()
+        {
+            ClearAddupWinner();
+            Riichi = false;
+            Tenpai = false;
+        }
+
+        public void Reset()
+        {
+            Clear();
+            Point = 25000;
+            Oya = false;
+        }
     }
 }

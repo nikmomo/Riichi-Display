@@ -11,4 +11,6 @@ namespace riichi_display
     public class WindChangeEvent : EventArgs { }
 
     public class DisplayUpdateEvent : EventArgs { }
+
+    public class PointCalculateEvent : EventArgs { }
 }

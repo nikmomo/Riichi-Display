@@ -775,13 +775,13 @@
             // 
             this.button7.AutoSize = true;
             this.button7.Location = new System.Drawing.Point(504, 397);
-            this.button7.Name = "button7";
+            this.button7.Name = "setting";
             this.button7.Size = new System.Drawing.Size(83, 30);
             this.button7.TabIndex = 44;
             this.button7.Text = "其他设置";
             this.button7.UseMnemonic = false;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.setting_Click);
             // 
             // reset
             // 
