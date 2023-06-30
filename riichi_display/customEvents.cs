@@ -13,4 +13,8 @@ namespace riichi_display
     public class DisplayUpdateEvent : EventArgs { }
 
     public class PointCalculateEvent : EventArgs { }
+
+    public class FormDisplayUpdateEvent : EventArgs { }
+
+    public class WindowDisplayUpdateEvent : EventArgs { }
 }

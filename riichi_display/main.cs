@@ -28,6 +28,8 @@ namespace riichi_display
 
         public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
         public event EventHandler<PointCalculateEvent> PointCalculateEvent;
+        public event EventHandler<FormDisplayUpdateEvent> FormDisplayUpdateEvent;
+        public event EventHandler<WindowDisplayUpdateEvent> WindowDisplayUpdateEvent;
 
         public mainForm()
         {
@@ -58,6 +60,35 @@ namespace riichi_display
                     players[i].Oya = true;
             }
 
+        }
+
+        // Method to set up properties and event handlers for form controls
+        private void PropertySetup()
+        {
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                    control.KeyDown += new KeyEventHandler(enterLoseFocus);
+                if (control.Tag != null)
+                {
+                    if (control is TextBox)
+                        control.LostFocus += new EventHandler(textBox_LoseFocus);
+                    if (control.Tag.ToString() == "seat")
+                        control.Click += new EventHandler(seat_Click);
+                    else if (control.Tag.ToString() == "playerName")
+                        control.TextChanged += new EventHandler(name_changed);
+                    else if (control.Tag.ToString() == "ron")
+                        control.Click += new EventHandler(ron_clicked);
+                    else if (control.Tag.ToString() == "tsumo")
+                        control.Click += new EventHandler(tsumo_clicked);
+                    else if (control.Tag.ToString() == "riichi")
+                        control.Click += new EventHandler(riichi_clicked);
+                }
+
+            }
+            pointGain.LostFocus += PointGain_LostFocus;
+            pointGain.KeyPress += pointGain_KeyPress;
         }
 
         // Event handler for textbox focus
@@ -147,35 +178,7 @@ namespace riichi_display
             else
                 gameStatusLock.BackgroundImage = Properties.Resources.unlock;
         }
-        // Method to set up properties and event handlers for form controls
-        private void PropertySetup()
-        {
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                    control.KeyDown += new KeyEventHandler(enterLoseFocus);
-                if (control.Tag != null)
-                {
-                    if (control is TextBox)
-                        control.LostFocus += new EventHandler(textBox_LoseFocus);
-                    if (control.Tag.ToString() == "seat")
-                        control.Click += new EventHandler(seat_Click);
-                    else if (control.Tag.ToString() == "playerName")
-                        control.TextChanged += new EventHandler(name_changed);
-                    else if (control.Tag.ToString() == "ron")
-                        control.Click += new EventHandler(ron_clicked);
-                    else if (control.Tag.ToString() == "tsumo")
-                        control.Click += new EventHandler(tsumo_clicked);
-                    //else if (control.Tag.ToString() == "riichi")
-                    //    control.Click += new EventHandler(riichi_clicked);
-                }
-                
-            }
-            pointGain.LostFocus += PointGain_LostFocus;
-            pointGain.KeyPress += pointGain_KeyPress;
-        }
-
+        
         private void textBox_LoseFocus(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -439,26 +442,21 @@ namespace riichi_display
             }
         }
 
-
+        // Arguement remaining here, should riichi -1000 goes to addup? or point?
         private void riichi_clicked(object sender, EventArgs e)
         {
-            // TODO: CONTINUE WORKING HERE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            //System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            //var player = button.Name.Substring(1, 1);
-            //handler.AddKyutaku();
-            //button.Enabled = false;
-            //foreach (Control control in this.Controls)
-            //{
-            //    if (control.Name == "kyutaku")
-            //    {
-            //        control.Text = handler.getKyutaku().ToString();
-            //        //Console.WriteLine(handler.getKyutaku());
-            //    }
-            //    if (control.Name == "p" + player + "point")
-            //    {
-            //        PointAddup(control, "-1000");
-            //    }
-            //}
+            Button button = sender as Button;
+            int n = determinePlayer(button.Name); // index of the player
+
+            players[n].Riichi = true;
+            players[n].Point -= 1000;
+
+            handler.AddKyutaku();
+
+            button.Enabled = false;
+
+            Console.WriteLine(players[n].ToString());
+            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
         }
 
         //private void submit_Click(object sender, EventArgs e)
@@ -481,54 +479,54 @@ namespace riichi_display
         //    DisplayUpdate(sender, new DisplayUpdateEvent());
         //}
 
-        private string[] ResetControlsAndGetAdjustments()
-        {
-            string[] adjustments = new string[4];
+        //private string[] ResetControlsAndGetAdjustments()
+        //{
+        //    string[] adjustments = new string[4];
 
-            foreach (Control control in this.Controls)
-            {
-                if (control.Tag != null)
-                {
-                    if (control.Tag.ToString() == "riichi")
-                    {
-                        control.Enabled = true;
-                    }
-                    else if (control.Tag.ToString() == "addup") // get the points
-                    {
-                        int index = int.Parse(control.Name.Substring(6));
-                        adjustments[index] = control.Text;
-                        control.Text = "0";
-                    }
-                }
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        if (control.Tag != null)
+        //        {
+        //            if (control.Tag.ToString() == "riichi")
+        //            {
+        //                control.Enabled = true;
+        //            }
+        //            else if (control.Tag.ToString() == "addup") // get the points
+        //            {
+        //                int index = int.Parse(control.Name.Substring(6));
+        //                adjustments[index] = control.Text;
+        //                control.Text = "0";
+        //            }
+        //        }
 
-                switch (control.Name)
-                {
-                    case "kyutaku":
-                    case "combo":
-                        control.Text = handler.getCombo().ToString();
-                        break;
-                    case "pointGain":
-                    case "playerList":
-                        control.Text = "";
-                        control.Enabled = true;
-                        break;
-                }
-            }
+        //        switch (control.Name)
+        //        {
+        //            case "kyutaku":
+        //            case "combo":
+        //                control.Text = handler.getCombo().ToString();
+        //                break;
+        //            case "pointGain":
+        //            case "playerList":
+        //                control.Text = "";
+        //                control.Enabled = true;
+        //                break;
+        //        }
+        //    }
 
-            return adjustments;
-        }
+        //    return adjustments;
+        //}
 
-        private void AdjustPoints(string[] adjustments)
-        {
-            foreach (Control control in this.Controls) // add the points 
-            {
-                if (control.Tag != null && control.Tag.ToString() == "point")
-                {
-                    int index = int.Parse(control.Name.Substring(1, 1)) - 1;
-                    PointAddup(control, adjustments[index]);
-                }
-            }
-        }
+        //private void AdjustPoints(string[] adjustments)
+        //{
+        //    foreach (Control control in this.Controls) // add the points 
+        //    {
+        //        if (control.Tag != null && control.Tag.ToString() == "point")
+        //        {
+        //            int index = int.Parse(control.Name.Substring(1, 1)) - 1;
+        //            PointAddup(control, adjustments[index]);
+        //        }
+        //    }
+        //}
 
         //private void HandleNonWinner()
         //{
@@ -547,49 +545,49 @@ namespace riichi_display
         //    }
         //}
 
-        private void PointAddup(Control obj, string point)
-        {
-            if (obj is TextBox)
-            {
-                int addup = int.Parse(point);
-                int value = int.Parse(obj.Text);
-                value += addup;
-                obj.Text = value.ToString();
-            }
-            else
-            {
-                throw new Exception("Object type invalid");
-            }
-        }
+        //private void PointAddup(Control obj, string point)
+        //{
+        //    if (obj is TextBox)
+        //    {
+        //        int addup = int.Parse(point);
+        //        int value = int.Parse(obj.Text);
+        //        value += addup;
+        //        obj.Text = value.ToString();
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Object type invalid");
+        //    }
+        //}
 
-        private void combo_LoseFocus(object sender, EventArgs e)
-        {
-            handler.setCombo(int.Parse(combo.Text));
-        }
+        //private void combo_LoseFocus(object sender, EventArgs e)
+        //{
+        //    handler.setCombo(int.Parse(combo.Text));
+        //}
 
-        private void kyutaku_LoseFocus(object sender, EventArgs e)
-        {
-            handler.setKyutaku(int.Parse(kyutaku.Text));
-        }
+        //private void kyutaku_LoseFocus(object sender, EventArgs e)
+        //{
+        //    handler.setKyutaku(int.Parse(kyutaku.Text));
+        //}
 
-        private void reset_Click(object sender, EventArgs e)
-        {
-            foreach(Control control in Controls)
-            {
-                if (control.Tag == null) continue;
-                if (control.Tag.ToString() == "point")
-                {
-                    control.Text = "25000";
-                }
-                if (control.Tag.ToString() == "riichi")
-                {
-                    control.Enabled = true;
-                }
-                // TODO: reset oya, round wind, player choose, etc.
-                handler.Reset();
-            }
-            DisplayUpdate(sender, new DisplayUpdateEvent());
-        }
+        //private void reset_Click(object sender, EventArgs e)
+        //{
+        //    foreach(Control control in Controls)
+        //    {
+        //        if (control.Tag == null) continue;
+        //        if (control.Tag.ToString() == "point")
+        //        {
+        //            control.Text = "25000";
+        //        }
+        //        if (control.Tag.ToString() == "riichi")
+        //        {
+        //            control.Enabled = true;
+        //        }
+        //        // TODO: reset oya, round wind, player choose, etc.
+        //        handler.Reset();
+        //    }
+        //    DisplayUpdate(sender, new DisplayUpdateEvent());
+        //}
 
         private void DisplayUpdate(object sender, DisplayUpdateEvent e)
         {
@@ -629,6 +627,8 @@ namespace riichi_display
 
         // 想法：在把所有功能实现后，可以考虑把结构重新做一下。目前过于臃肿，不适合拓展开发。新的思路是，将每个玩家的信息
         //       做成一个可转化成json的class，重新链接所有的controls，这样可以更大程度的优化整个app运行效率。
+
+        // TODO: 将display update分为form(控制台)的update event 和 display window 的update event
     }
 
 }

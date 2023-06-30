@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="main_old.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PointHandler.cs" />
     <Compile Include="CustomEvents.cs" />
