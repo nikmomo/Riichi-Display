@@ -29,7 +29,7 @@ namespace riichi_display
         public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
         public event EventHandler<PointCalculateEvent> PointCalculateEvent;
         public event EventHandler<FormDisplayUpdateEvent> FormDisplayUpdateEvent;
-        public event EventHandler<WindowDisplayUpdateEvent> WindowDisplayUpdateEvent;
+        public event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
 
         public mainForm()
         {
@@ -42,6 +42,7 @@ namespace riichi_display
 
             // Initialize and show the display form
             displayForm = new display();
+            displayForm.DisplayWindowUpdateEvent += DisplayWindowUpdate;
             displayForm.Show();
 
             // Initialize the settings form and subscribe to its events
@@ -87,6 +88,7 @@ namespace riichi_display
                 }
 
             }
+            
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
         }
@@ -228,7 +230,7 @@ namespace riichi_display
         // Event handlers for various control click events
         private void seat_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            Button button = sender as Button;
             int n = determinePlayer(button.Name); // index of the player
             for (int i = 0; i < players.Length; i++)
             {
@@ -237,21 +239,18 @@ namespace riichi_display
                 else
                     players[i].Oya = true;
             }
-            if (button != null)
+            button.BackColor = Color.DarkOrange;
+            button.Text = "親";
+            foreach (Control control in this.Controls)
             {
-                button.BackColor = Color.DarkOrange;
-                button.Text = "親";
-                foreach (Control control in this.Controls)
+                if (control.Tag != null && control.Tag.ToString() == "seat" && control != button)
                 {
-                    if (control.Tag != null && control.Tag.ToString() == "seat" && control != button)
-                    {
-                        control.BackColor = Color.White;
-                        control.Text = "子";
-                    }
+                    control.BackColor = Color.White;
+                    control.Text = "子";
                 }
-                Console.WriteLine(players[n].ToString());
-                DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
             }
+            Console.WriteLine(players[n].ToString());
+            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
         }
 
         private void setting_Click(object sender, EventArgs e)
@@ -459,106 +458,39 @@ namespace riichi_display
             DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
         }
 
-        //private void submit_Click(object sender, EventArgs e)
-        //{
-        //    string[] adjustments = ResetControlsAndGetAdjustments();
+        private void submit_Click(object sender, EventArgs e)
+        {
+            long oyaIndex = 0;
+            foreach (Player player in players)
+            {
+                player.Point += player.Addup;
+                AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent((int)player.Index, (int)player.Addup));
+                if (player.Oya && (player.Winner || player.Tenpai))
+                {
+                    handler.AddCombo();
+                    oyaIndex = player.Index;
+                }
+                else if (player.Oya)
+                {
+                    oyaIndex = player.Index + 1;
+                }
+                player.Clear();
+                Console.WriteLine(player.ToString());
+            }
+            if (oyaIndex > 3)
+            {
+                windChgeControl(this, new WindChangeEvent());
+                oyaIndex = 0;
+            }
+            Button control = this.Controls.Find("oya" + oyaIndex, true).FirstOrDefault() as Button;
+            if (control != null)
+            {
+                control.PerformClick();
+            }
+            handler.Reset();
+            DisplayUpdate(sender, new DisplayUpdateEvent());
+        }
 
-        //    AdjustPoints(adjustments);
-
-        //    handler.clearRiichi();
-        //    if (currentOya == winner)
-        //    {
-        //        handler.AddCombo();
-        //        combo.Text = handler.getCombo().ToString();
-        //    }
-        //    else
-        //    {
-        //        HandleNonWinner();
-        //    }
-        //    winner = "42";
-        //    DisplayUpdate(sender, new DisplayUpdateEvent());
-        //}
-
-        //private string[] ResetControlsAndGetAdjustments()
-        //{
-        //    string[] adjustments = new string[4];
-
-        //    foreach (Control control in this.Controls)
-        //    {
-        //        if (control.Tag != null)
-        //        {
-        //            if (control.Tag.ToString() == "riichi")
-        //            {
-        //                control.Enabled = true;
-        //            }
-        //            else if (control.Tag.ToString() == "addup") // get the points
-        //            {
-        //                int index = int.Parse(control.Name.Substring(6));
-        //                adjustments[index] = control.Text;
-        //                control.Text = "0";
-        //            }
-        //        }
-
-        //        switch (control.Name)
-        //        {
-        //            case "kyutaku":
-        //            case "combo":
-        //                control.Text = handler.getCombo().ToString();
-        //                break;
-        //            case "pointGain":
-        //            case "playerList":
-        //                control.Text = "";
-        //                control.Enabled = true;
-        //                break;
-        //        }
-        //    }
-
-        //    return adjustments;
-        //}
-
-        //private void AdjustPoints(string[] adjustments)
-        //{
-        //    foreach (Control control in this.Controls) // add the points 
-        //    {
-        //        if (control.Tag != null && control.Tag.ToString() == "point")
-        //        {
-        //            int index = int.Parse(control.Name.Substring(1, 1)) - 1;
-        //            PointAddup(control, adjustments[index]);
-        //        }
-        //    }
-        //}
-
-        //private void HandleNonWinner()
-        //{
-        //    handler.Reset();
-        //    currentOya = ((int.Parse(currentOya) + 1) % 5).ToString();
-        //    if (currentOya == "4")
-        //    {
-        //        windChgeControl(this, new WindChangeEvent());
-        //        currentOya = "0";
-        //    }
-        //    string transferOya = (int.Parse(currentOya) + 1).ToString();
-        //    Button control = this.Controls.Find("oya" + transferOya, true).FirstOrDefault() as Button;
-        //    if (control != null)
-        //    {
-        //        control.PerformClick();
-        //    }
-        //}
-
-        //private void PointAddup(Control obj, string point)
-        //{
-        //    if (obj is TextBox)
-        //    {
-        //        int addup = int.Parse(point);
-        //        int value = int.Parse(obj.Text);
-        //        value += addup;
-        //        obj.Text = value.ToString();
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("Object type invalid");
-        //    }
-        //}
 
         //private void combo_LoseFocus(object sender, EventArgs e)
         //{
@@ -596,25 +528,11 @@ namespace riichi_display
             Controls["combo"].Text = handler.getCombo().ToString();
 
             // TODO: Instead of reading from the textbox, read from the players
-            //if (sender is Button)
-            //{
-            //    foreach (Control control in Controls)
-            //    {
-            //        if (control is TextBox)
-            //        {
-            //            Label target = displayForm.Controls.Find(control.Name, true).FirstOrDefault() as Label;
-            //            if (target != null)
-            //                target.Text = control.Text;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    TextBox textbox = sender as TextBox;
+        }
 
-            //}
-
-            
+        private void DisplayWindowUpdate(object sender, DisplayWindowUpdateEvent e)
+        {
+            // TODO HERE
         }
 
         private void PointGain_LostFocus(object sender, EventArgs e)

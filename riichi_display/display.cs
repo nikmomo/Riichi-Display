@@ -12,7 +12,8 @@ namespace riichi_display
 {
     public partial class display : Form
     {
-
+        public event EventHandler<DisplayWindowUpdateEvent> DisplayWindowUpdateEvent;
+        public event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
         public display()
         {
             InitializeComponent();

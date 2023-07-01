@@ -16,5 +16,18 @@ namespace riichi_display
 
     public class FormDisplayUpdateEvent : EventArgs { }
 
-    public class WindowDisplayUpdateEvent : EventArgs { }
+    public class DisplayWindowUpdateEvent : EventArgs { }
+
+    public class AddupDisplayEvent : EventArgs
+    {
+        public AddupDisplayEvent(int index, int point)
+        {
+            this.Index = index;
+            this.Point = point;
+        }
+
+        public int Index { get; private set; }
+
+        public int Point { get; private set; }
+    }
 }
