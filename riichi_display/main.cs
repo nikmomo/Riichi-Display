@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace riichi_display
 {
@@ -69,15 +70,15 @@ namespace riichi_display
 
             foreach (Control control in this.Controls)
             {
-                if (control is TextBox)
+                if (control is System.Windows.Forms.TextBox)
                     control.KeyDown += new KeyEventHandler(enterLoseFocus);
                 if (control.Tag != null)
                 {
-                    if (control is TextBox)
+                    if (control is System.Windows.Forms.TextBox)
                         control.LostFocus += new EventHandler(textBox_LoseFocus);
                     if (control.Tag.ToString() == "seat")
                         control.Click += new EventHandler(seat_Click);
-                    else if (control.Tag.ToString() == "playerName")
+                    else if (control.Tag.ToString() == "name")
                         control.TextChanged += new EventHandler(name_changed);
                     else if (control.Tag.ToString() == "ron")
                         control.Click += new EventHandler(ron_clicked);
@@ -88,9 +89,10 @@ namespace riichi_display
                 }
 
             }
-            
+            submit.Click += submit_Click;
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
+            pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged;
         }
 
         // Event handler for textbox focus
@@ -183,11 +185,11 @@ namespace riichi_display
         
         private void textBox_LoseFocus(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
             int n = determinePlayer(textBox.Name); // index of the player
             switch (textBox.Tag) // update player based on the tag
             {
-                case "playerName":
+                case "name":
                     players[n].Name = textBox.Text;
                     break;
                 case "team":
@@ -199,23 +201,23 @@ namespace riichi_display
                 case "addup":
                     players[n].Addup = long.Parse(textBox.Text);
                     break;
-                case "riichi": // TODO: THIS IS BUTTON
-                    players[n].Riichi = bool.Parse(textBox.Text);
-                    break;
-                case "Tenpai": // TODO: THIS IS BUTTON
-                    players[n].Tenpai = bool.Parse(textBox.Text);
-                    break;
-                case "Oya": // TODO: THIS IS BUTTON
-                    players[n].Oya = bool.Parse(textBox.Text);
-                    break;
-                case "Winner": // TODO: THIS IS BUTTON
-                    players[n].Winner = bool.Parse(textBox.Text);
-                    break;
+                //case "riichi": // TODO: THIS IS BUTTON
+                //    players[n].Riichi = bool.Parse(textBox.Text);
+                //    break;
+                //case "Tenpai": // TODO: THIS IS BUTTON
+                //    players[n].Tenpai = bool.Parse(textBox.Text);
+                //    break;
+                //case "Oya": // TODO: THIS IS BUTTON
+                //    players[n].Oya = bool.Parse(textBox.Text);
+                //    break;
+                //case "Winner": // TODO: THIS IS BUTTON
+                //    players[n].Winner = bool.Parse(textBox.Text);
+                //    break;
                 default:
                     throw new Exception($"Invalid tag: {textBox.Tag}");
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+            DisplayUpdate(sender, new DisplayUpdateEvent(textBox.Tag.ToString())); // display update
         }
 
         private int determinePlayer(string name)
@@ -230,7 +232,7 @@ namespace riichi_display
         // Event handlers for various control click events
         private void seat_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             int n = determinePlayer(button.Name); // index of the player
             for (int i = 0; i < players.Length; i++)
             {
@@ -250,7 +252,7 @@ namespace riichi_display
                 }
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+            DisplayUpdate(sender, new DisplayUpdateEvent(button.Tag.ToString())); // display update
         }
 
         private void setting_Click(object sender, EventArgs e)
@@ -304,9 +306,9 @@ namespace riichi_display
         // Event handler for text change in name textboxes
         private void name_changed(object sender, EventArgs e)
         {
-            TextBox textbox = sender as TextBox;
-            int n = determinePlayer(textbox.Name); // index of the player
-            players[n].Name = textbox.Text;
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            int n = determinePlayer(textBox.Name); // index of the player
+            players[n].Name = textBox.Text;
             // Create a list to store the textbox values
             List<string> textboxValues = new List<string>();
 
@@ -321,13 +323,13 @@ namespace riichi_display
                 playerList.Items.Add(player.Name);
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+            //DisplayUpdate(sender, new DisplayUpdateEvent(textBox.Tag.ToString())); // send display update event
         }
 
         // Event handler for ron button click
         private void ron_clicked(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             int n = determinePlayer(button.Name); // index of the player
             for (int i = 0; i < players.Length; i++)
             {
@@ -335,7 +337,10 @@ namespace riichi_display
                 if (i != n)
                     players[i].Winner = false;
                 else
+                {
                     players[i].Winner = true;
+                    winner.Text = players[i].Name + '\r' + button.Text;
+                }
             }
             Console.WriteLine(players[n].ToString());
             PointUpdate(this, new PointCalculateEvent()); // send point calculate event
@@ -345,7 +350,7 @@ namespace riichi_display
 
         private void tsumo_clicked(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             int n = determinePlayer(button.Name); // index of the player
             for (int i = 0; i < players.Length; i++)
             {
@@ -353,10 +358,15 @@ namespace riichi_display
                 if (i != n)
                     players[i].Winner = false;
                 else
+                {
                     players[i].Winner = true;
+                    winner.Text = players[i].Name + '\r' + button.Text;
+                }
             }
             playerList.Text = "三家";
             playerList.Enabled = false;
+
+
             Console.WriteLine(players[n].ToString());
             PointUpdate(this, new PointCalculateEvent()); // send point calculate event
         }
@@ -422,29 +432,35 @@ namespace riichi_display
                 Console.WriteLine("Oya: " + oya + " Ko: " + ko);
                 
             }
-            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+            FormUpdate(sender, new FormDisplayUpdateEvent());
 
         }
 
         private void pointGain_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Check if the input is not a digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '\r')
             {
                 e.Handled = true; // Reject the input
             }
 
             // Check if the input exceeds a maximum length
-            if (!char.IsControl(e.KeyChar) && pointGain.Text.Length >= 7)
+            if (!char.IsControl(e.KeyChar) && pointGain.Text.Length >= 7 && e.KeyChar != '\r')
             {
                 e.Handled = true; // Reject the input
+            }
+
+            // Check if the key pressed was Enter
+            if (e.KeyChar == '\r')
+            {
+                playerList_SelectedIndexChanged(sender, e);
             }
         }
 
         // Arguement remaining here, should riichi -1000 goes to addup? or point?
         private void riichi_clicked(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             int n = determinePlayer(button.Name); // index of the player
 
             players[n].Riichi = true;
@@ -455,7 +471,7 @@ namespace riichi_display
             button.Enabled = false;
 
             Console.WriteLine(players[n].ToString());
-            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
+            DisplayUpdate(sender, new DisplayUpdateEvent(button.Tag.ToString())); // send display update event
         }
 
         private void submit_Click(object sender, EventArgs e)
@@ -473,8 +489,8 @@ namespace riichi_display
                 else if (player.Oya)
                 {
                     oyaIndex = player.Index + 1;
+                    handler.Reset();
                 }
-                player.Clear();
                 Console.WriteLine(player.ToString());
             }
             if (oyaIndex > 3)
@@ -482,25 +498,26 @@ namespace riichi_display
                 windChgeControl(this, new WindChangeEvent());
                 oyaIndex = 0;
             }
-            Button control = this.Controls.Find("oya" + oyaIndex, true).FirstOrDefault() as Button;
+            System.Windows.Forms.Button control = this.Controls.Find("oya" + oyaIndex, true).FirstOrDefault() as System.Windows.Forms.Button;
             if (control != null)
             {
                 control.PerformClick();
             }
-            handler.Reset();
+            NextRound();
             DisplayUpdate(sender, new DisplayUpdateEvent());
+            
         }
 
 
-        //private void combo_LoseFocus(object sender, EventArgs e)
-        //{
-        //    handler.setCombo(int.Parse(combo.Text));
-        //}
+        private void combo_LoseFocus(object sender, EventArgs e)
+        {
+            handler.setCombo(int.Parse(combo.Text));
+        }
 
-        //private void kyutaku_LoseFocus(object sender, EventArgs e)
-        //{
-        //    handler.setKyutaku(int.Parse(kyutaku.Text));
-        //}
+        private void kyutaku_LoseFocus(object sender, EventArgs e)
+        {
+            handler.setKyutaku(int.Parse(kyutaku.Text));
+        }
 
         //private void reset_Click(object sender, EventArgs e)
         //{
@@ -523,21 +540,156 @@ namespace riichi_display
 
         private void DisplayUpdate(object sender, DisplayUpdateEvent e)
         {
-            // update the kyutaku & combo
-            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
-            Controls["combo"].Text = handler.getCombo().ToString();
-
-            // TODO: Instead of reading from the textbox, read from the players
+            if (e.Tag == null)
+            {
+                foreach (var propertyName in typeof(Player).GetProperties().Select(p => p.Name))
+                {
+                    DisplayWindowUpdate(sender, new DisplayWindowUpdateEvent(propertyName.ToLower()));
+                }
+            }
+            else
+            {
+                DisplayWindowUpdate(sender, new DisplayWindowUpdateEvent(e.Tag));
+            }
+            FormUpdate(sender, new FormDisplayUpdateEvent());
+            // TODO: addup display update is required
         }
 
         private void DisplayWindowUpdate(object sender, DisplayWindowUpdateEvent e)
         {
-            // TODO HERE
+            foreach (Player player in players)
+            {
+                string propertyName = e.Tag;
+                string controlName = propertyName.ToLower() + player.Index; // constructing control name
+                if (propertyName == "oya") // Oya handler
+                {
+                    controlName = "name" + player.Index;
+                }
+                else if (propertyName == "riichi")
+                {
+                    controlName = "point" + player.Index;
+                }
+                var control = displayForm.Controls.Find(controlName, true).FirstOrDefault();
+
+                // Ensure the control was found
+                if (control != null)
+                {
+                    // Depending on the name of the control, update the corresponding property
+                    switch (propertyName)
+                    {
+                        case "name":
+                            control.Text = player.Name; break;
+                        case "team":
+                            control.Text = player.Team; break;
+                        case "point":
+                            control.Text = player.Point.ToString(); break;
+                        case "addup":
+                            control.Text = player.Addup.ToString(); break;
+                        case nameof(Player.Riichi):
+                            // TODO: Set the riichi
+                        case nameof(Player.Tenpai):
+                            // TODO: Set the tenpai
+                        case "oya":
+                            if (player.Oya)
+                                control.ForeColor = Color.DarkOrange;
+                            else
+                                control.ForeColor = Color.White;
+                            break;
+                        case "riichi":
+                            control.Text = player.Point.ToString(); break;
+                    }
+                }
+            }
+        }
+
+        private void AddupDisplayUpdate(object sender, AddupDisplayEvent e)
+        {
+
+        }
+
+        // Form update only updates the controls that not usually update manually
+        private void FormUpdate(object sender, FormDisplayUpdateEvent e)
+        {
+            // update the kyutaku & combo
+            Controls["kyutaku"].Text = handler.getKyutaku().ToString();
+            Controls["combo"].Text = handler.getCombo().ToString();
+
+            foreach (Player player in players)
+            {
+                foreach (var propertyName in typeof(Player).GetProperties().Select(p => p.Name))
+                {
+                    string controlName = propertyName.ToLower() + player.Index; // constructing control name
+                    var control = this.Controls.Find(controlName, true).FirstOrDefault();
+
+                    // Ensure the control was found
+                    if (control != null)
+                    {
+                        // Depending on the name of the control, update the corresponding property
+                        switch (propertyName.ToLower())
+                        {
+                            case "point":
+                                control.Text = player.Point.ToString(); break;
+                            case "addup":
+                                control.Text = player.Addup.ToString(); break;
+                            case "riichi":
+                                control.Enabled = !player.Riichi; break;
+                            case "tenpai":
+                                // TODO HERE
+                                break;
+                        }
+                    }
+                }
+            }
         }
 
         private void PointGain_LostFocus(object sender, EventArgs e)
         {
-            PointUpdate(this, new PointCalculateEvent()); // send point calculate event
+            PointUpdate(sender, new PointCalculateEvent()); // send point calculate event
+            FormUpdate(sender, new FormDisplayUpdateEvent());
+        }
+
+        private void NextRound()
+        {
+            foreach (Control control in this.Controls) // Enable the riichi button
+            {
+                if (control.Tag != null)
+                {
+                    if (control.Tag.ToString() == "riichi")
+                    {
+                        control.Enabled = true;
+                    }
+                    else if (control.Tag.ToString() == "addup")
+                    {
+                        control.Text = "0";
+                    }
+                }
+                else if (control.Name == "playerList")
+                {
+                    control.Text = "";
+                    control.Enabled = true;
+                }
+                else if (control.Name == "pointGain")
+                {
+                    control.Text = "0";
+                }
+                else if (control.Name == "winner")
+                    control.Text = "";
+
+            }
+            foreach (Player player in players) // clear the last round data
+            {
+                player.Clear();
+            }
+            
+        }
+
+        private void playerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach(Player player in players)
+            {
+                player.Addup = 0;
+            }
+            PointUpdate(this, new PointCalculateEvent());
         }
 
         // TODO: 流局设计思路：给pointHandler加一个流局的method，take听牌的人数，返回一个tuple，（听牌收的点，不听交的点）

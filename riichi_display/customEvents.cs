@@ -10,13 +10,23 @@ namespace riichi_display
 
     public class WindChangeEvent : EventArgs { }
 
-    public class DisplayUpdateEvent : EventArgs { }
+    public class DisplayUpdateEvent : EventArgs 
+    {
+        public DisplayUpdateEvent() { }
+        public DisplayUpdateEvent(string tag) { Tag = tag; }
+        public string Tag { get; private set; }
+    }
 
     public class PointCalculateEvent : EventArgs { }
 
-    public class FormDisplayUpdateEvent : EventArgs { }
+    public class FormDisplayUpdateEvent : DisplayUpdateEvent { }
 
-    public class DisplayWindowUpdateEvent : EventArgs { }
+    public class DisplayWindowUpdateEvent : DisplayUpdateEvent
+    {
+        public DisplayWindowUpdateEvent(string tag) : base(tag)
+        {
+        }
+    }
 
     public class AddupDisplayEvent : EventArgs
     {

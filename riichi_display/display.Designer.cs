@@ -29,276 +29,276 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(display));
-            this.team1Name = new System.Windows.Forms.Label();
-            this.p1name = new System.Windows.Forms.Label();
-            this.p1point = new System.Windows.Forms.Label();
-            this.team2Name = new System.Windows.Forms.Label();
-            this.p2name = new System.Windows.Forms.Label();
-            this.p2point = new System.Windows.Forms.Label();
-            this.team3Name = new System.Windows.Forms.Label();
-            this.p3name = new System.Windows.Forms.Label();
-            this.p3point = new System.Windows.Forms.Label();
-            this.team4Name = new System.Windows.Forms.Label();
-            this.p4name = new System.Windows.Forms.Label();
-            this.p4point = new System.Windows.Forms.Label();
+            this.team0 = new System.Windows.Forms.Label();
+            this.name0 = new System.Windows.Forms.Label();
+            this.point0 = new System.Windows.Forms.Label();
+            this.team1 = new System.Windows.Forms.Label();
+            this.name1 = new System.Windows.Forms.Label();
+            this.point1 = new System.Windows.Forms.Label();
+            this.team2 = new System.Windows.Forms.Label();
+            this.name2 = new System.Windows.Forms.Label();
+            this.point2 = new System.Windows.Forms.Label();
+            this.team3 = new System.Windows.Forms.Label();
+            this.name3 = new System.Windows.Forms.Label();
+            this.point3 = new System.Windows.Forms.Label();
             this.wind = new System.Windows.Forms.PictureBox();
-            this.ptDiff1 = new System.Windows.Forms.Label();
-            this.ptDiff2 = new System.Windows.Forms.Label();
-            this.ptDiff3 = new System.Windows.Forms.Label();
-            this.ptDiff4 = new System.Windows.Forms.Label();
+            this.addup0 = new System.Windows.Forms.Label();
+            this.addup1 = new System.Windows.Forms.Label();
+            this.addup2 = new System.Windows.Forms.Label();
+            this.addup3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wind)).BeginInit();
             this.SuspendLayout();
             // 
-            // team1Name
+            // team0
             // 
-            this.team1Name.BackColor = System.Drawing.Color.Transparent;
-            this.team1Name.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team1Name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team1Name.Location = new System.Drawing.Point(73, 93);
-            this.team1Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.team1Name.Name = "team1Name";
-            this.team1Name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team1Name.Size = new System.Drawing.Size(175, 19);
-            this.team1Name.TabIndex = 0;
-            this.team1Name.Tag = "team";
-            this.team1Name.Text = "Team1";
-            this.team1Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.team1Name.Visible = false;
+            this.team0.BackColor = System.Drawing.Color.Transparent;
+            this.team0.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.team0.Location = new System.Drawing.Point(73, 93);
+            this.team0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.team0.Name = "team0";
+            this.team0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.team0.Size = new System.Drawing.Size(175, 19);
+            this.team0.TabIndex = 0;
+            this.team0.Tag = "team";
+            this.team0.Text = "Team1";
+            this.team0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team0.Visible = false;
             // 
-            // p1name
+            // name0
             // 
-            this.p1name.BackColor = System.Drawing.Color.Transparent;
-            this.p1name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p1name.ForeColor = System.Drawing.Color.DarkOrange;
-            this.p1name.Location = new System.Drawing.Point(48, 102);
-            this.p1name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p1name.Name = "p1name";
-            this.p1name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p1name.Size = new System.Drawing.Size(212, 49);
-            this.p1name.TabIndex = 1;
-            this.p1name.Tag = "name";
-            this.p1name.Text = "PLAYER1";
-            this.p1name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.name0.BackColor = System.Drawing.Color.Transparent;
+            this.name0.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name0.ForeColor = System.Drawing.Color.DarkOrange;
+            this.name0.Location = new System.Drawing.Point(48, 102);
+            this.name0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name0.Name = "name0";
+            this.name0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.name0.Size = new System.Drawing.Size(212, 49);
+            this.name0.TabIndex = 1;
+            this.name0.Tag = "name";
+            this.name0.Text = "PLAYER1";
+            this.name0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // p1point
+            // point0
             // 
-            this.p1point.BackColor = System.Drawing.Color.Transparent;
-            this.p1point.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p1point.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p1point.Location = new System.Drawing.Point(21, 137);
-            this.p1point.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p1point.Name = "p1point";
-            this.p1point.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p1point.Size = new System.Drawing.Size(233, 64);
-            this.p1point.TabIndex = 2;
-            this.p1point.Text = "25000";
-            this.p1point.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.point0.BackColor = System.Drawing.Color.Transparent;
+            this.point0.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.point0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.point0.Location = new System.Drawing.Point(21, 137);
+            this.point0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.point0.Name = "point0";
+            this.point0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.point0.Size = new System.Drawing.Size(233, 64);
+            this.point0.TabIndex = 2;
+            this.point0.Text = "25000";
+            this.point0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // team2Name
+            // team1
             // 
-            this.team2Name.BackColor = System.Drawing.Color.Transparent;
-            this.team2Name.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team2Name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team2Name.Location = new System.Drawing.Point(369, 93);
-            this.team2Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.team2Name.Name = "team2Name";
-            this.team2Name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team2Name.Size = new System.Drawing.Size(175, 19);
-            this.team2Name.TabIndex = 3;
-            this.team2Name.Tag = "team";
-            this.team2Name.Text = "Team2";
-            this.team2Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.team2Name.Visible = false;
+            this.team1.BackColor = System.Drawing.Color.Transparent;
+            this.team1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.team1.Location = new System.Drawing.Point(369, 93);
+            this.team1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.team1.Name = "team1";
+            this.team1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.team1.Size = new System.Drawing.Size(175, 19);
+            this.team1.TabIndex = 3;
+            this.team1.Tag = "team";
+            this.team1.Text = "Team2";
+            this.team1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team1.Visible = false;
             // 
-            // p2name
+            // name1
             // 
-            this.p2name.BackColor = System.Drawing.Color.Transparent;
-            this.p2name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p2name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p2name.Location = new System.Drawing.Point(344, 102);
-            this.p2name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p2name.Name = "p2name";
-            this.p2name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p2name.Size = new System.Drawing.Size(212, 49);
-            this.p2name.TabIndex = 4;
-            this.p2name.Tag = "name";
-            this.p2name.Text = "PLAYER2";
-            this.p2name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.name1.BackColor = System.Drawing.Color.Transparent;
+            this.name1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.name1.Location = new System.Drawing.Point(344, 102);
+            this.name1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name1.Name = "name1";
+            this.name1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.name1.Size = new System.Drawing.Size(212, 49);
+            this.name1.TabIndex = 4;
+            this.name1.Tag = "name";
+            this.name1.Text = "PLAYER2";
+            this.name1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // p2point
+            // point1
             // 
-            this.p2point.BackColor = System.Drawing.Color.Transparent;
-            this.p2point.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p2point.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p2point.Location = new System.Drawing.Point(317, 137);
-            this.p2point.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p2point.Name = "p2point";
-            this.p2point.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p2point.Size = new System.Drawing.Size(233, 64);
-            this.p2point.TabIndex = 5;
-            this.p2point.Text = "25000";
-            this.p2point.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.point1.BackColor = System.Drawing.Color.Transparent;
+            this.point1.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.point1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.point1.Location = new System.Drawing.Point(317, 137);
+            this.point1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.point1.Name = "point1";
+            this.point1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.point1.Size = new System.Drawing.Size(233, 64);
+            this.point1.TabIndex = 5;
+            this.point1.Text = "25000";
+            this.point1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // team3Name
+            // team2
             // 
-            this.team3Name.BackColor = System.Drawing.Color.Transparent;
-            this.team3Name.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team3Name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team3Name.Location = new System.Drawing.Point(693, 93);
-            this.team3Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.team3Name.Name = "team3Name";
-            this.team3Name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team3Name.Size = new System.Drawing.Size(175, 19);
-            this.team3Name.TabIndex = 6;
-            this.team3Name.Tag = "team";
-            this.team3Name.Text = "Team1";
-            this.team3Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.team3Name.Visible = false;
+            this.team2.BackColor = System.Drawing.Color.Transparent;
+            this.team2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.team2.Location = new System.Drawing.Point(693, 93);
+            this.team2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.team2.Name = "team2";
+            this.team2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.team2.Size = new System.Drawing.Size(175, 19);
+            this.team2.TabIndex = 6;
+            this.team2.Tag = "team";
+            this.team2.Text = "Team1";
+            this.team2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team2.Visible = false;
             // 
-            // p3name
+            // name2
             // 
-            this.p3name.BackColor = System.Drawing.Color.Transparent;
-            this.p3name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p3name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p3name.Location = new System.Drawing.Point(667, 102);
-            this.p3name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p3name.Name = "p3name";
-            this.p3name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p3name.Size = new System.Drawing.Size(212, 49);
-            this.p3name.TabIndex = 7;
-            this.p3name.Tag = "name";
-            this.p3name.Text = "PLAYER3";
-            this.p3name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.name2.BackColor = System.Drawing.Color.Transparent;
+            this.name2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.name2.Location = new System.Drawing.Point(667, 102);
+            this.name2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name2.Name = "name2";
+            this.name2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.name2.Size = new System.Drawing.Size(212, 49);
+            this.name2.TabIndex = 7;
+            this.name2.Tag = "name";
+            this.name2.Text = "PLAYER3";
+            this.name2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // p3point
+            // point2
             // 
-            this.p3point.BackColor = System.Drawing.Color.Transparent;
-            this.p3point.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p3point.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p3point.Location = new System.Drawing.Point(641, 137);
-            this.p3point.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p3point.Name = "p3point";
-            this.p3point.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p3point.Size = new System.Drawing.Size(233, 64);
-            this.p3point.TabIndex = 8;
-            this.p3point.Text = "25000";
-            this.p3point.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.point2.BackColor = System.Drawing.Color.Transparent;
+            this.point2.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.point2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.point2.Location = new System.Drawing.Point(641, 137);
+            this.point2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.point2.Name = "point2";
+            this.point2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.point2.Size = new System.Drawing.Size(233, 64);
+            this.point2.TabIndex = 8;
+            this.point2.Text = "25000";
+            this.point2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // team4Name
+            // team3
             // 
-            this.team4Name.BackColor = System.Drawing.Color.Transparent;
-            this.team4Name.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team4Name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team4Name.Location = new System.Drawing.Point(1038, 93);
-            this.team4Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.team4Name.Name = "team4Name";
-            this.team4Name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team4Name.Size = new System.Drawing.Size(175, 19);
-            this.team4Name.TabIndex = 9;
-            this.team4Name.Tag = "team";
-            this.team4Name.Text = "Team1";
-            this.team4Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.team4Name.Visible = false;
+            this.team3.BackColor = System.Drawing.Color.Transparent;
+            this.team3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.team3.Location = new System.Drawing.Point(1038, 93);
+            this.team3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.team3.Name = "team3";
+            this.team3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.team3.Size = new System.Drawing.Size(175, 19);
+            this.team3.TabIndex = 9;
+            this.team3.Tag = "team";
+            this.team3.Text = "Team1";
+            this.team3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team3.Visible = false;
             // 
-            // p4name
+            // name3
             // 
-            this.p4name.BackColor = System.Drawing.Color.Transparent;
-            this.p4name.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p4name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p4name.Location = new System.Drawing.Point(1013, 102);
-            this.p4name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p4name.Name = "p4name";
-            this.p4name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p4name.Size = new System.Drawing.Size(212, 49);
-            this.p4name.TabIndex = 10;
-            this.p4name.Tag = "name";
-            this.p4name.Text = "PLAYER4";
-            this.p4name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.name3.BackColor = System.Drawing.Color.Transparent;
+            this.name3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.name3.Location = new System.Drawing.Point(1013, 102);
+            this.name3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name3.Name = "name3";
+            this.name3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.name3.Size = new System.Drawing.Size(212, 49);
+            this.name3.TabIndex = 10;
+            this.name3.Tag = "name";
+            this.name3.Text = "PLAYER4";
+            this.name3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // p4point
+            // point3
             // 
-            this.p4point.BackColor = System.Drawing.Color.Transparent;
-            this.p4point.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p4point.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.p4point.Location = new System.Drawing.Point(986, 137);
-            this.p4point.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.p4point.Name = "p4point";
-            this.p4point.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.p4point.Size = new System.Drawing.Size(233, 64);
-            this.p4point.TabIndex = 11;
-            this.p4point.Text = "25000";
-            this.p4point.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.point3.BackColor = System.Drawing.Color.Transparent;
+            this.point3.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.point3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.point3.Location = new System.Drawing.Point(986, 137);
+            this.point3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.point3.Name = "point3";
+            this.point3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.point3.Size = new System.Drawing.Size(233, 64);
+            this.point3.TabIndex = 11;
+            this.point3.Text = "25000";
+            this.point3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // wind
             // 
             this.wind.BackgroundImage = global::riichi_display.Properties.Resources.ton;
             this.wind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.wind.Location = new System.Drawing.Point(8, 173);
-            this.wind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wind.Margin = new System.Windows.Forms.Padding(2);
             this.wind.Name = "wind";
             this.wind.Size = new System.Drawing.Size(46, 19);
             this.wind.TabIndex = 13;
             this.wind.TabStop = false;
             // 
-            // ptDiff1
+            // addup0
             // 
-            this.ptDiff1.BackColor = System.Drawing.Color.Transparent;
-            this.ptDiff1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptDiff1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ptDiff1.Location = new System.Drawing.Point(77, 55);
-            this.ptDiff1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ptDiff1.Name = "ptDiff1";
-            this.ptDiff1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ptDiff1.Size = new System.Drawing.Size(183, 47);
-            this.ptDiff1.TabIndex = 14;
-            this.ptDiff1.Text = "+0";
-            this.ptDiff1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ptDiff1.Visible = false;
+            this.addup0.BackColor = System.Drawing.Color.Transparent;
+            this.addup0.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addup0.Location = new System.Drawing.Point(77, 55);
+            this.addup0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addup0.Name = "addup0";
+            this.addup0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addup0.Size = new System.Drawing.Size(183, 47);
+            this.addup0.TabIndex = 14;
+            this.addup0.Text = "+0";
+            this.addup0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup0.Visible = false;
             // 
-            // ptDiff2
+            // addup1
             // 
-            this.ptDiff2.BackColor = System.Drawing.Color.Transparent;
-            this.ptDiff2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptDiff2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ptDiff2.Location = new System.Drawing.Point(373, 55);
-            this.ptDiff2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ptDiff2.Name = "ptDiff2";
-            this.ptDiff2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ptDiff2.Size = new System.Drawing.Size(183, 47);
-            this.ptDiff2.TabIndex = 15;
-            this.ptDiff2.Text = "+0";
-            this.ptDiff2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ptDiff2.Visible = false;
+            this.addup1.BackColor = System.Drawing.Color.Transparent;
+            this.addup1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addup1.Location = new System.Drawing.Point(373, 55);
+            this.addup1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addup1.Name = "addup1";
+            this.addup1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addup1.Size = new System.Drawing.Size(183, 47);
+            this.addup1.TabIndex = 15;
+            this.addup1.Text = "+0";
+            this.addup1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup1.Visible = false;
             // 
-            // ptDiff3
+            // addup2
             // 
-            this.ptDiff3.BackColor = System.Drawing.Color.Transparent;
-            this.ptDiff3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptDiff3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ptDiff3.Location = new System.Drawing.Point(685, 55);
-            this.ptDiff3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ptDiff3.Name = "ptDiff3";
-            this.ptDiff3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ptDiff3.Size = new System.Drawing.Size(183, 47);
-            this.ptDiff3.TabIndex = 16;
-            this.ptDiff3.Text = "+0";
-            this.ptDiff3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ptDiff3.Visible = false;
+            this.addup2.BackColor = System.Drawing.Color.Transparent;
+            this.addup2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addup2.Location = new System.Drawing.Point(685, 55);
+            this.addup2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addup2.Name = "addup2";
+            this.addup2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addup2.Size = new System.Drawing.Size(183, 47);
+            this.addup2.TabIndex = 16;
+            this.addup2.Text = "+0";
+            this.addup2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup2.Visible = false;
             // 
-            // ptDiff4
+            // addup3
             // 
-            this.ptDiff4.BackColor = System.Drawing.Color.Transparent;
-            this.ptDiff4.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptDiff4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ptDiff4.Location = new System.Drawing.Point(1030, 55);
-            this.ptDiff4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ptDiff4.Name = "ptDiff4";
-            this.ptDiff4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ptDiff4.Size = new System.Drawing.Size(183, 47);
-            this.ptDiff4.TabIndex = 17;
-            this.ptDiff4.Text = "+0";
-            this.ptDiff4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ptDiff4.Visible = false;
+            this.addup3.BackColor = System.Drawing.Color.Transparent;
+            this.addup3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addup3.Location = new System.Drawing.Point(1030, 55);
+            this.addup3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addup3.Name = "addup3";
+            this.addup3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addup3.Size = new System.Drawing.Size(183, 47);
+            this.addup3.TabIndex = 17;
+            this.addup3.Text = "+0";
+            this.addup3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup3.Visible = false;
             // 
             // display
             // 
@@ -307,25 +307,25 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(1268, 206);
-            this.Controls.Add(this.team1Name);
-            this.Controls.Add(this.ptDiff1);
+            this.Controls.Add(this.team0);
+            this.Controls.Add(this.addup0);
             this.Controls.Add(this.wind);
-            this.Controls.Add(this.team4Name);
-            this.Controls.Add(this.p4name);
-            this.Controls.Add(this.p4point);
-            this.Controls.Add(this.team3Name);
-            this.Controls.Add(this.p3name);
-            this.Controls.Add(this.p3point);
-            this.Controls.Add(this.team2Name);
-            this.Controls.Add(this.p2name);
-            this.Controls.Add(this.p2point);
-            this.Controls.Add(this.p1name);
-            this.Controls.Add(this.p1point);
-            this.Controls.Add(this.ptDiff2);
-            this.Controls.Add(this.ptDiff3);
-            this.Controls.Add(this.ptDiff4);
+            this.Controls.Add(this.team3);
+            this.Controls.Add(this.name3);
+            this.Controls.Add(this.point3);
+            this.Controls.Add(this.team2);
+            this.Controls.Add(this.name2);
+            this.Controls.Add(this.point2);
+            this.Controls.Add(this.team1);
+            this.Controls.Add(this.name1);
+            this.Controls.Add(this.point1);
+            this.Controls.Add(this.name0);
+            this.Controls.Add(this.point0);
+            this.Controls.Add(this.addup1);
+            this.Controls.Add(this.addup2);
+            this.Controls.Add(this.addup3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1284, 49);
             this.Name = "display";
             this.Text = "显示系统";
@@ -336,22 +336,22 @@
 
         #endregion
 
-        public System.Windows.Forms.Label team1Name;
-        public System.Windows.Forms.Label p1name;
-        public System.Windows.Forms.Label p1point;
-        public System.Windows.Forms.Label team2Name;
-        public System.Windows.Forms.Label p2name;
-        public System.Windows.Forms.Label p2point;
-        public System.Windows.Forms.Label team3Name;
-        public System.Windows.Forms.Label p3name;
-        public System.Windows.Forms.Label p3point;
-        public System.Windows.Forms.Label team4Name;
-        public System.Windows.Forms.Label p4name;
-        public System.Windows.Forms.Label p4point;
+        public System.Windows.Forms.Label team0;
+        public System.Windows.Forms.Label name0;
+        public System.Windows.Forms.Label point0;
+        public System.Windows.Forms.Label team1;
+        public System.Windows.Forms.Label name1;
+        public System.Windows.Forms.Label point1;
+        public System.Windows.Forms.Label team2;
+        public System.Windows.Forms.Label name2;
+        public System.Windows.Forms.Label point2;
+        public System.Windows.Forms.Label team3;
+        public System.Windows.Forms.Label name3;
+        public System.Windows.Forms.Label point3;
         public System.Windows.Forms.PictureBox wind;
-        public System.Windows.Forms.Label ptDiff1;
-        public System.Windows.Forms.Label ptDiff2;
-        public System.Windows.Forms.Label ptDiff3;
-        public System.Windows.Forms.Label ptDiff4;
+        public System.Windows.Forms.Label addup0;
+        public System.Windows.Forms.Label addup1;
+        public System.Windows.Forms.Label addup2;
+        public System.Windows.Forms.Label addup3;
     }
 }

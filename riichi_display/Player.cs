@@ -41,6 +41,7 @@ namespace riichi_display
             ClearAddupWinner();
             Riichi = false;
             Tenpai = false;
+            Winner = false;
         }
 
         public void Reset()
