@@ -52,7 +52,6 @@
             this.riichi1 = new System.Windows.Forms.Button();
             this.tsumo0 = new System.Windows.Forms.Button();
             this.riichi3 = new System.Windows.Forms.Button();
-            this.gameStatusLock = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.riichisticks = new System.Windows.Forms.Label();
             this.combo = new System.Windows.Forms.TextBox();
@@ -62,8 +61,6 @@
             this.name1 = new System.Windows.Forms.TextBox();
             this.name2 = new System.Windows.Forms.TextBox();
             this.name3 = new System.Windows.Forms.TextBox();
-            this.namelock = new System.Windows.Forms.Button();
-            this.teamlock = new System.Windows.Forms.Button();
             this.teamname3 = new System.Windows.Forms.TextBox();
             this.teamname2 = new System.Windows.Forms.TextBox();
             this.teamname1 = new System.Windows.Forms.TextBox();
@@ -71,12 +68,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.teamLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pointLock = new System.Windows.Forms.Button();
             this.point3 = new System.Windows.Forms.TextBox();
             this.point2 = new System.Windows.Forms.TextBox();
             this.point1 = new System.Windows.Forms.TextBox();
             this.point0 = new System.Windows.Forms.TextBox();
-            this.showDisplay = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.draw = new System.Windows.Forms.Button();
@@ -89,6 +84,11 @@
             this.tenpai0 = new System.Windows.Forms.Button();
             this.tenpai3 = new System.Windows.Forms.Button();
             this.winner = new System.Windows.Forms.Label();
+            this.gameStatusLock = new System.Windows.Forms.Button();
+            this.pointLock = new System.Windows.Forms.Button();
+            this.teamlock = new System.Windows.Forms.Button();
+            this.namelock = new System.Windows.Forms.Button();
+            this.status = new System.Windows.Forms.ComboBox();
             pointgroup = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 333);
+            this.label7.Location = new System.Drawing.Point(588, 337);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(217, 20);
             this.label7.TabIndex = 51;
@@ -144,7 +144,7 @@
             "48000",
             "64000",
             "96000"});
-            this.pointGain.Location = new System.Drawing.Point(480, 328);
+            this.pointGain.Location = new System.Drawing.Point(474, 334);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
             this.pointGain.Size = new System.Drawing.Size(100, 28);
@@ -154,7 +154,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 333);
+            this.label2.Location = new System.Drawing.Point(262, 337);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(179, 20);
             this.label2.TabIndex = 48;
@@ -179,7 +179,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 330);
+            this.label6.Location = new System.Drawing.Point(42, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 50;
@@ -212,7 +212,7 @@
             "PLAYER2",
             "PLAYER3",
             "PLAYER4"});
-            this.playerList.Location = new System.Drawing.Point(120, 328);
+            this.playerList.Location = new System.Drawing.Point(130, 334);
             this.playerList.Name = "playerList";
             this.playerList.Size = new System.Drawing.Size(126, 28);
             this.playerList.TabIndex = 39;
@@ -287,7 +287,7 @@
             // submit
             // 
             this.submit.AutoSize = true;
-            this.submit.Location = new System.Drawing.Point(694, 367);
+            this.submit.Location = new System.Drawing.Point(694, 363);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(96, 37);
             this.submit.TabIndex = 22;
@@ -403,19 +403,6 @@
             this.riichi3.UseMnemonic = false;
             this.riichi3.UseVisualStyleBackColor = true;
             // 
-            // gameStatusLock
-            // 
-            this.gameStatusLock.AutoSize = true;
-            this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
-            this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.gameStatusLock.Location = new System.Drawing.Point(266, 410);
-            this.gameStatusLock.Name = "gameStatusLock";
-            this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
-            this.gameStatusLock.TabIndex = 48;
-            this.gameStatusLock.UseMnemonic = false;
-            this.gameStatusLock.UseVisualStyleBackColor = true;
-            this.gameStatusLock.Click += new System.EventHandler(this.gameStatusLock_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -467,7 +454,7 @@
             // riichi0
             // 
             this.riichi0.AutoSize = true;
-            this.riichi0.Location = new System.Drawing.Point(158, 245);
+            this.riichi0.Location = new System.Drawing.Point(158, 243);
             this.riichi0.Name = "riichi0";
             this.riichi0.Size = new System.Drawing.Size(75, 37);
             this.riichi0.TabIndex = 24;
@@ -543,34 +530,6 @@
             this.name3.Text = "PLAYER4";
             this.name3.WordWrap = false;
             this.name3.GotFocus += new System.EventHandler(this.textboxGetFocus);
-            // 
-            // namelock
-            // 
-            this.namelock.AutoSize = true;
-            this.namelock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
-            this.namelock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.namelock.Location = new System.Drawing.Point(696, 115);
-            this.namelock.Name = "namelock";
-            this.namelock.Size = new System.Drawing.Size(27, 27);
-            this.namelock.TabIndex = 4;
-            this.namelock.UseMnemonic = false;
-            this.namelock.UseVisualStyleBackColor = true;
-            this.namelock.Click += new System.EventHandler(this.namelock_Click);
-            // 
-            // teamlock
-            // 
-            this.teamlock.AutoSize = true;
-            this.teamlock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
-            this.teamlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.teamlock.Location = new System.Drawing.Point(696, 73);
-            this.teamlock.MaximumSize = new System.Drawing.Size(34, 33);
-            this.teamlock.Name = "teamlock";
-            this.teamlock.Size = new System.Drawing.Size(27, 27);
-            this.teamlock.TabIndex = 9;
-            this.teamlock.UseMnemonic = false;
-            this.teamlock.UseVisualStyleBackColor = true;
-            this.teamlock.Visible = false;
-            this.teamlock.Click += new System.EventHandler(this.teamlock_Click);
             // 
             // teamname3
             // 
@@ -676,19 +635,6 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "点数";
             // 
-            // pointLock
-            // 
-            this.pointLock.AutoSize = true;
-            this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
-            this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pointLock.Location = new System.Drawing.Point(696, 153);
-            this.pointLock.Name = "pointLock";
-            this.pointLock.Size = new System.Drawing.Size(27, 27);
-            this.pointLock.TabIndex = 16;
-            this.pointLock.UseMnemonic = false;
-            this.pointLock.UseVisualStyleBackColor = true;
-            this.pointLock.Click += new System.EventHandler(this.pointlock_Click);
-            // 
             // point3
             // 
             this.point3.AcceptsReturn = true;
@@ -761,22 +707,10 @@
             this.point0.WordWrap = false;
             this.point0.GotFocus += new System.EventHandler(this.textboxGetFocus);
             // 
-            // showDisplay
-            // 
-            this.showDisplay.AutoSize = true;
-            this.showDisplay.Location = new System.Drawing.Point(399, 408);
-            this.showDisplay.Name = "showDisplay";
-            this.showDisplay.Size = new System.Drawing.Size(94, 37);
-            this.showDisplay.TabIndex = 47;
-            this.showDisplay.Text = "显示界面";
-            this.showDisplay.UseMnemonic = false;
-            this.showDisplay.UseVisualStyleBackColor = true;
-            this.showDisplay.Click += new System.EventHandler(this.showDisplay_Click);
-            // 
             // button7
             // 
             this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(504, 408);
+            this.button7.Location = new System.Drawing.Point(480, 408);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 37);
             this.button7.TabIndex = 44;
@@ -788,7 +722,7 @@
             // reset
             // 
             this.reset.AutoSize = true;
-            this.reset.Location = new System.Drawing.Point(710, 408);
+            this.reset.Location = new System.Drawing.Point(694, 408);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(94, 37);
             this.reset.TabIndex = 43;
@@ -799,7 +733,7 @@
             // draw
             // 
             this.draw.AutoSize = true;
-            this.draw.Location = new System.Drawing.Point(614, 408);
+            this.draw.Location = new System.Drawing.Point(599, 408);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(75, 37);
             this.draw.TabIndex = 42;
@@ -886,7 +820,7 @@
             // tenpai0
             // 
             this.tenpai0.AutoSize = true;
-            this.tenpai0.Location = new System.Drawing.Point(158, 202);
+            this.tenpai0.Location = new System.Drawing.Point(158, 200);
             this.tenpai0.Name = "tenpai0";
             this.tenpai0.Size = new System.Drawing.Size(75, 37);
             this.tenpai0.TabIndex = 52;
@@ -919,11 +853,92 @@
             this.winner.TabIndex = 56;
             this.winner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gameStatusLock
+            // 
+            this.gameStatusLock.AutoSize = true;
+            this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
+            this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.gameStatusLock.Location = new System.Drawing.Point(388, 408);
+            this.gameStatusLock.Name = "gameStatusLock";
+            this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
+            this.gameStatusLock.TabIndex = 48;
+            this.gameStatusLock.UseMnemonic = false;
+            this.gameStatusLock.UseVisualStyleBackColor = true;
+            this.gameStatusLock.Click += new System.EventHandler(this.gameStatusLock_Click);
+            // 
+            // pointLock
+            // 
+            this.pointLock.AutoSize = true;
+            this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
+            this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pointLock.Location = new System.Drawing.Point(696, 153);
+            this.pointLock.Name = "pointLock";
+            this.pointLock.Size = new System.Drawing.Size(27, 27);
+            this.pointLock.TabIndex = 16;
+            this.pointLock.UseMnemonic = false;
+            this.pointLock.UseVisualStyleBackColor = true;
+            this.pointLock.Click += new System.EventHandler(this.pointlock_Click);
+            // 
+            // teamlock
+            // 
+            this.teamlock.AutoSize = true;
+            this.teamlock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
+            this.teamlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.teamlock.Location = new System.Drawing.Point(696, 73);
+            this.teamlock.MaximumSize = new System.Drawing.Size(34, 33);
+            this.teamlock.Name = "teamlock";
+            this.teamlock.Size = new System.Drawing.Size(27, 27);
+            this.teamlock.TabIndex = 9;
+            this.teamlock.UseMnemonic = false;
+            this.teamlock.UseVisualStyleBackColor = true;
+            this.teamlock.Visible = false;
+            this.teamlock.Click += new System.EventHandler(this.teamlock_Click);
+            // 
+            // namelock
+            // 
+            this.namelock.AutoSize = true;
+            this.namelock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
+            this.namelock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.namelock.Location = new System.Drawing.Point(696, 115);
+            this.namelock.Name = "namelock";
+            this.namelock.Size = new System.Drawing.Size(27, 27);
+            this.namelock.TabIndex = 4;
+            this.namelock.UseMnemonic = false;
+            this.namelock.UseVisualStyleBackColor = true;
+            this.namelock.Click += new System.EventHandler(this.namelock_Click);
+            // 
+            // status
+            // 
+            this.status.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.status.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.status.BackColor = System.Drawing.SystemColors.Window;
+            this.status.Enabled = false;
+            this.status.Items.AddRange(new object[] {
+            "東一局",
+            "東二局",
+            "東三局",
+            "東四局",
+            "南一局",
+            "南二局",
+            "南三局",
+            "南四局",
+            "西一局",
+            "西二局",
+            "西三局",
+            "西四局"});
+            this.status.Location = new System.Drawing.Point(269, 408);
+            this.status.MaxLength = 20;
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(100, 28);
+            this.status.TabIndex = 57;
+            this.status.Text = "東一局";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 460);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.winner);
             this.Controls.Add(this.tenpai2);
             this.Controls.Add(this.tenpai1);
@@ -959,7 +974,6 @@
             this.Controls.Add(this.riichi3);
             this.Controls.Add(this.pointLock);
             this.Controls.Add(this.oya3);
-            this.Controls.Add(this.showDisplay);
             this.Controls.Add(this.oya2);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.oya1);
@@ -1042,7 +1056,6 @@
         private System.Windows.Forms.Label riichisticks;
         private System.Windows.Forms.TextBox combo;
         private System.Windows.Forms.TextBox kyutaku;
-        private System.Windows.Forms.Button showDisplay;
         private System.Windows.Forms.Button gameStatusLock;
         private System.Windows.Forms.ComboBox pointGain;
         private System.Windows.Forms.Label label6;
@@ -1053,6 +1066,7 @@
         private System.Windows.Forms.Button tenpai0;
         private System.Windows.Forms.Button tenpai3;
         private System.Windows.Forms.Label winner;
+        private System.Windows.Forms.ComboBox status;
     }
 }
 

@@ -179,6 +179,7 @@ namespace riichi_display
             gameStatus = !gameStatus;
             kyutaku.Enabled = gameStatus;
             combo.Enabled = gameStatus;
+            status.Enabled = gameStatus;
             if (!gameStatus)
                 gameStatusLock.BackgroundImage = Properties.Resources._lock;
             else
@@ -254,7 +255,7 @@ namespace riichi_display
                 }
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdate(sender, new DisplayUpdateEvent(button.Tag.ToString())); // display update
+            DisplayUpdate(sender, new DisplayUpdateEvent()); // display update
         }
 
         private void setting_Click(object sender, EventArgs e)
@@ -714,6 +715,15 @@ namespace riichi_display
             tenpai1.Visible = isDraw;
             tenpai2.Visible = isDraw;
             tenpai3.Visible = isDraw;
+            tsumo0.Enabled = !isDraw;
+            tsumo1.Enabled = !isDraw;
+            tsumo2.Enabled = !isDraw;
+            tsumo3.Enabled = !isDraw;
+            ron0.Enabled = !isDraw;
+            ron1.Enabled = !isDraw;
+            ron2.Enabled = !isDraw;
+            ron3.Enabled = !isDraw;
+            winner.Visible = !isDraw;
         }
 
         private void tenpai_Click(object sender, EventArgs e)
@@ -750,14 +760,7 @@ namespace riichi_display
             }
             FormUpdate(sender, new FormDisplayUpdateEvent());
         }
-
-        // TODO: 流局设计思路：给pointHandler加一个流局的method，take听牌的人数，返回一个tuple，（听牌收的点，不听交的点）
-        //       每次按下按钮切换按钮以及玩家听牌状态。
-
-        // 想法：在把所有功能实现后，可以考虑把结构重新做一下。目前过于臃肿，不适合拓展开发。新的思路是，将每个玩家的信息
-        //       做成一个可转化成json的class，重新链接所有的controls，这样可以更大程度的优化整个app运行效率。
-
-        // TODO: 将display update分为form(控制台)的update event 和 display window 的update event
+        // TODO: 写一个status的method每次status的item切换了statusform的也会跟随切换
     }
 
 }

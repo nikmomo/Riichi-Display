@@ -84,6 +84,12 @@
     <Compile Include="setting.Designer.cs">
       <DependentUpon>setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="status.Designer.cs">
+      <DependentUpon>status.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="display.resx">
       <DependentUpon>display.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="setting.resx">
       <DependentUpon>setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="status.resx">
+      <DependentUpon>status.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
