@@ -8,13 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
 
 namespace riichi_display
 {
-    //struct playerType
-    //{
-        
-    //}
     public partial class mainForm : Form
     {
         // Declare the forms used in the main form
@@ -31,6 +28,8 @@ namespace riichi_display
         public event EventHandler<PointCalculateEvent> PointCalculateEvent;
         public event EventHandler<FormDisplayUpdateEvent> FormDisplayUpdateEvent;
         public event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
+
+        private bool isDraw = false;
 
         public mainForm()
         {
@@ -86,6 +85,8 @@ namespace riichi_display
                         control.Click += new EventHandler(tsumo_clicked);
                     else if (control.Tag.ToString() == "riichi")
                         control.Click += new EventHandler(riichi_clicked);
+                    else if (control.Tag.ToString() == "tenpai")
+                        control.Click += new EventHandler(tenpai_Click);
                 }
 
             }
@@ -93,6 +94,7 @@ namespace riichi_display
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
             pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged;
+            reset.Click += reset_Click;
         }
 
         // Event handler for textbox focus
@@ -477,11 +479,16 @@ namespace riichi_display
         private void submit_Click(object sender, EventArgs e)
         {
             long oyaIndex = 0;
+            
             foreach (Player player in players)
             {
                 player.Point += player.Addup;
                 AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent((int)player.Index, (int)player.Addup));
-                if (player.Oya && (player.Winner || player.Tenpai))
+                if (isDraw && player.Oya && player.Tenpai)
+                {
+                    oyaIndex = player.Index;
+                }
+                else if (player.Oya && player.Winner)
                 {
                     handler.AddCombo();
                     oyaIndex = player.Index;
@@ -489,9 +496,16 @@ namespace riichi_display
                 else if (player.Oya)
                 {
                     oyaIndex = player.Index + 1;
-                    handler.Reset();
                 }
                 Console.WriteLine(player.ToString());
+            }
+            if (isDraw)
+            {
+                handler.AddCombo();
+            }
+            else
+            {
+                handler.Reset();
             }
             if (oyaIndex > 3)
             {
@@ -519,24 +533,16 @@ namespace riichi_display
             handler.setKyutaku(int.Parse(kyutaku.Text));
         }
 
-        //private void reset_Click(object sender, EventArgs e)
-        //{
-        //    foreach(Control control in Controls)
-        //    {
-        //        if (control.Tag == null) continue;
-        //        if (control.Tag.ToString() == "point")
-        //        {
-        //            control.Text = "25000";
-        //        }
-        //        if (control.Tag.ToString() == "riichi")
-        //        {
-        //            control.Enabled = true;
-        //        }
-        //        // TODO: reset oya, round wind, player choose, etc.
-        //        handler.Reset();
-        //    }
-        //    DisplayUpdate(sender, new DisplayUpdateEvent());
-        //}
+        private void reset_Click(object sender, EventArgs e)
+        {
+            NextRound();
+            foreach(Player player in players)
+                player.Reset();
+            handler.Reset();
+            oya0.PerformClick();
+            DisplayUpdate(sender, new DisplayUpdateEvent());
+            FormUpdate(sender, new FormDisplayUpdateEvent());
+        }
 
         private void DisplayUpdate(object sender, DisplayUpdateEvent e)
         {
@@ -662,6 +668,10 @@ namespace riichi_display
                     {
                         control.Text = "0";
                     }
+                    else if (control.Tag.ToString() == "tenpai")
+                    {
+                        control.Text = "不听";
+                    }
                 }
                 else if (control.Name == "playerList")
                 {
@@ -674,13 +684,18 @@ namespace riichi_display
                 }
                 else if (control.Name == "winner")
                     control.Text = "";
-
+                else if (control.Name == "draw" && isDraw)
+                {
+                    Button button = control as Button;
+                    button.PerformClick();
+                }
+                    
             }
             foreach (Player player in players) // clear the last round data
             {
                 player.Clear();
             }
-            
+            handler.Tenpai = 0;
         }
 
         private void playerList_SelectedIndexChanged(object sender, EventArgs e)
@@ -690,6 +705,50 @@ namespace riichi_display
                 player.Addup = 0;
             }
             PointUpdate(this, new PointCalculateEvent());
+        }
+
+        private void draw_Click(object sender, EventArgs e)
+        {
+            isDraw = !isDraw;
+            tenpai0.Visible = isDraw;
+            tenpai1.Visible = isDraw;
+            tenpai2.Visible = isDraw;
+            tenpai3.Visible = isDraw;
+        }
+
+        private void tenpai_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            int n = determinePlayer(button.Name); // index of the player
+            players[n].Tenpai = !players[n].Tenpai;
+            if (players[n].Tenpai)
+            {
+                button.Text = "听牌";
+                handler.Tenpai++;
+            }
+            else
+            {
+                button.Text = "不听";
+                handler.Tenpai--;
+            }
+            var receive = (handler.Tenpai == 1) ? 3000 :
+                          (handler.Tenpai == 2) ? 1500 :
+                          (handler.Tenpai == 3) ? 1000 : 0;
+            var pay = (handler.Tenpai == 1) ? 1000 :
+                      (handler.Tenpai == 2) ? 1500 :
+                      (handler.Tenpai == 3) ? 3000 : 0;
+            foreach (Player player in players)
+            {
+                if (player.Tenpai)
+                {
+                    player.Addup = receive;
+                }
+                else
+                {
+                    player.Addup = 0 - pay;
+                }
+            }
+            FormUpdate(sender, new FormDisplayUpdateEvent());
         }
 
         // TODO: 流局设计思路：给pointHandler加一个流局的method，take听牌的人数，返回一个tuple，（听牌收的点，不听交的点）

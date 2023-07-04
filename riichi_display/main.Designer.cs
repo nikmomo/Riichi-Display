@@ -95,11 +95,9 @@
             // pointgroup
             // 
             pointgroup.CausesValidation = false;
-            pointgroup.Location = new System.Drawing.Point(8, 119);
-            pointgroup.Margin = new System.Windows.Forms.Padding(2);
+            pointgroup.Location = new System.Drawing.Point(12, 198);
             pointgroup.Name = "pointgroup";
-            pointgroup.Padding = new System.Windows.Forms.Padding(2);
-            pointgroup.Size = new System.Drawing.Size(527, 16);
+            pointgroup.Size = new System.Drawing.Size(790, 27);
             pointgroup.TabIndex = 28;
             pointgroup.TabStop = false;
             pointgroup.Text = "点数控制区";
@@ -107,10 +105,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(392, 200);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(588, 333);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 12);
+            this.label7.Size = new System.Drawing.Size(217, 20);
             this.label7.TabIndex = 51;
             this.label7.Text = "（确认最终得点无误后按提交）";
             // 
@@ -147,21 +144,19 @@
             "48000",
             "64000",
             "96000"});
-            this.pointGain.Location = new System.Drawing.Point(320, 197);
-            this.pointGain.Margin = new System.Windows.Forms.Padding(2);
+            this.pointGain.Location = new System.Drawing.Point(480, 328);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
-            this.pointGain.Size = new System.Drawing.Size(68, 20);
+            this.pointGain.Size = new System.Drawing.Size(100, 28);
             this.pointGain.TabIndex = 49;
             this.pointGain.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 200);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(262, 333);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 12);
+            this.label2.Size = new System.Drawing.Size(179, 20);
             this.label2.TabIndex = 48;
             this.label2.Text = "得点 (不包含场供/连庄)：";
             // 
@@ -171,12 +166,11 @@
             this.addup3.AcceptsTab = true;
             this.addup3.BackColor = System.Drawing.SystemColors.Window;
             this.addup3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup3.Location = new System.Drawing.Point(376, 221);
-            this.addup3.Margin = new System.Windows.Forms.Padding(2);
+            this.addup3.Location = new System.Drawing.Point(564, 368);
             this.addup3.MaxLength = 20;
             this.addup3.Name = "addup3";
             this.addup3.ReadOnly = true;
-            this.addup3.Size = new System.Drawing.Size(68, 21);
+            this.addup3.Size = new System.Drawing.Size(100, 26);
             this.addup3.TabIndex = 21;
             this.addup3.Tag = "addup";
             this.addup3.Text = "0";
@@ -185,10 +179,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 198);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(40, 330);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 50;
             this.label6.Text = "放铳者：";
             // 
@@ -198,12 +191,11 @@
             this.addup2.AcceptsTab = true;
             this.addup2.BackColor = System.Drawing.SystemColors.Window;
             this.addup2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup2.Location = new System.Drawing.Point(281, 221);
-            this.addup2.Margin = new System.Windows.Forms.Padding(2);
+            this.addup2.Location = new System.Drawing.Point(422, 368);
             this.addup2.MaxLength = 20;
             this.addup2.Name = "addup2";
             this.addup2.ReadOnly = true;
-            this.addup2.Size = new System.Drawing.Size(68, 21);
+            this.addup2.Size = new System.Drawing.Size(100, 26);
             this.addup2.TabIndex = 20;
             this.addup2.Tag = "addup";
             this.addup2.Text = "0";
@@ -220,20 +212,18 @@
             "PLAYER2",
             "PLAYER3",
             "PLAYER4"});
-            this.playerList.Location = new System.Drawing.Point(80, 197);
-            this.playerList.Margin = new System.Windows.Forms.Padding(2);
+            this.playerList.Location = new System.Drawing.Point(120, 328);
             this.playerList.Name = "playerList";
-            this.playerList.Size = new System.Drawing.Size(85, 20);
+            this.playerList.Size = new System.Drawing.Size(126, 28);
             this.playerList.TabIndex = 39;
             this.playerList.SelectedIndexChanged += new System.EventHandler(this.playerList_SelectedIndexChanged);
             // 
             // ron3
             // 
             this.ron3.AutoSize = true;
-            this.ron3.Location = new System.Drawing.Point(411, 173);
-            this.ron3.Margin = new System.Windows.Forms.Padding(2);
+            this.ron3.Location = new System.Drawing.Point(616, 288);
             this.ron3.Name = "ron3";
-            this.ron3.Size = new System.Drawing.Size(39, 22);
+            this.ron3.Size = new System.Drawing.Size(58, 37);
             this.ron3.TabIndex = 38;
             this.ron3.Tag = "ron";
             this.ron3.Text = "荣和";
@@ -246,12 +236,11 @@
             this.addup1.AcceptsTab = true;
             this.addup1.BackColor = System.Drawing.SystemColors.Window;
             this.addup1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup1.Location = new System.Drawing.Point(189, 221);
-            this.addup1.Margin = new System.Windows.Forms.Padding(2);
+            this.addup1.Location = new System.Drawing.Point(284, 368);
             this.addup1.MaxLength = 20;
             this.addup1.Name = "addup1";
             this.addup1.ReadOnly = true;
-            this.addup1.Size = new System.Drawing.Size(68, 21);
+            this.addup1.Size = new System.Drawing.Size(100, 26);
             this.addup1.TabIndex = 19;
             this.addup1.Tag = "addup";
             this.addup1.Text = "0";
@@ -260,10 +249,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 225);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(32, 375);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 23;
             this.label4.Text = "最终得点\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -271,10 +259,9 @@
             // riichi2
             // 
             this.riichi2.AutoSize = true;
-            this.riichi2.Location = new System.Drawing.Point(289, 146);
-            this.riichi2.Margin = new System.Windows.Forms.Padding(2);
+            this.riichi2.Location = new System.Drawing.Point(434, 243);
             this.riichi2.Name = "riichi2";
-            this.riichi2.Size = new System.Drawing.Size(50, 22);
+            this.riichi2.Size = new System.Drawing.Size(75, 37);
             this.riichi2.TabIndex = 26;
             this.riichi2.Tag = "riichi";
             this.riichi2.Text = "立直";
@@ -287,12 +274,11 @@
             this.addup0.AcceptsTab = true;
             this.addup0.BackColor = System.Drawing.SystemColors.Window;
             this.addup0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup0.Location = new System.Drawing.Point(97, 221);
-            this.addup0.Margin = new System.Windows.Forms.Padding(2);
+            this.addup0.Location = new System.Drawing.Point(146, 368);
             this.addup0.MaxLength = 20;
             this.addup0.Name = "addup0";
             this.addup0.ReadOnly = true;
-            this.addup0.Size = new System.Drawing.Size(68, 21);
+            this.addup0.Size = new System.Drawing.Size(100, 26);
             this.addup0.TabIndex = 18;
             this.addup0.Tag = "addup";
             this.addup0.Text = "0";
@@ -301,10 +287,9 @@
             // submit
             // 
             this.submit.AutoSize = true;
-            this.submit.Location = new System.Drawing.Point(463, 220);
-            this.submit.Margin = new System.Windows.Forms.Padding(2);
+            this.submit.Location = new System.Drawing.Point(694, 367);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(64, 22);
+            this.submit.Size = new System.Drawing.Size(96, 37);
             this.submit.TabIndex = 22;
             this.submit.Text = "提交";
             this.submit.UseMnemonic = false;
@@ -313,10 +298,9 @@
             // tsumo3
             // 
             this.tsumo3.AutoSize = true;
-            this.tsumo3.Location = new System.Drawing.Point(373, 173);
-            this.tsumo3.Margin = new System.Windows.Forms.Padding(2);
+            this.tsumo3.Location = new System.Drawing.Point(560, 288);
             this.tsumo3.Name = "tsumo3";
-            this.tsumo3.Size = new System.Drawing.Size(39, 22);
+            this.tsumo3.Size = new System.Drawing.Size(58, 37);
             this.tsumo3.TabIndex = 37;
             this.tsumo3.Tag = "tsumo";
             this.tsumo3.Text = "自摸";
@@ -326,10 +310,9 @@
             // tsumo2
             // 
             this.tsumo2.AutoSize = true;
-            this.tsumo2.Location = new System.Drawing.Point(277, 173);
-            this.tsumo2.Margin = new System.Windows.Forms.Padding(2);
+            this.tsumo2.Location = new System.Drawing.Point(416, 288);
             this.tsumo2.Name = "tsumo2";
-            this.tsumo2.Size = new System.Drawing.Size(39, 22);
+            this.tsumo2.Size = new System.Drawing.Size(58, 37);
             this.tsumo2.TabIndex = 35;
             this.tsumo2.Tag = "tsumo";
             this.tsumo2.Text = "自摸";
@@ -339,10 +322,9 @@
             // ron2
             // 
             this.ron2.AutoSize = true;
-            this.ron2.Location = new System.Drawing.Point(316, 173);
-            this.ron2.Margin = new System.Windows.Forms.Padding(2);
+            this.ron2.Location = new System.Drawing.Point(474, 288);
             this.ron2.Name = "ron2";
-            this.ron2.Size = new System.Drawing.Size(39, 22);
+            this.ron2.Size = new System.Drawing.Size(58, 37);
             this.ron2.TabIndex = 36;
             this.ron2.Tag = "ron";
             this.ron2.Text = "荣和";
@@ -352,10 +334,9 @@
             // ron1
             // 
             this.ron1.AutoSize = true;
-            this.ron1.Location = new System.Drawing.Point(224, 173);
-            this.ron1.Margin = new System.Windows.Forms.Padding(2);
+            this.ron1.Location = new System.Drawing.Point(336, 288);
             this.ron1.Name = "ron1";
-            this.ron1.Size = new System.Drawing.Size(39, 22);
+            this.ron1.Size = new System.Drawing.Size(58, 37);
             this.ron1.TabIndex = 36;
             this.ron1.Tag = "ron";
             this.ron1.Text = "荣和";
@@ -365,10 +346,9 @@
             // tsumo1
             // 
             this.tsumo1.AutoSize = true;
-            this.tsumo1.Location = new System.Drawing.Point(185, 173);
-            this.tsumo1.Margin = new System.Windows.Forms.Padding(2);
+            this.tsumo1.Location = new System.Drawing.Point(278, 288);
             this.tsumo1.Name = "tsumo1";
-            this.tsumo1.Size = new System.Drawing.Size(39, 22);
+            this.tsumo1.Size = new System.Drawing.Size(58, 37);
             this.tsumo1.TabIndex = 35;
             this.tsumo1.Tag = "tsumo";
             this.tsumo1.Text = "自摸";
@@ -378,10 +358,9 @@
             // ron0
             // 
             this.ron0.AutoSize = true;
-            this.ron0.Location = new System.Drawing.Point(132, 173);
-            this.ron0.Margin = new System.Windows.Forms.Padding(2);
+            this.ron0.Location = new System.Drawing.Point(198, 288);
             this.ron0.Name = "ron0";
-            this.ron0.Size = new System.Drawing.Size(39, 22);
+            this.ron0.Size = new System.Drawing.Size(58, 37);
             this.ron0.TabIndex = 34;
             this.ron0.Tag = "ron";
             this.ron0.Text = "荣和";
@@ -391,10 +370,9 @@
             // riichi1
             // 
             this.riichi1.AutoSize = true;
-            this.riichi1.Location = new System.Drawing.Point(196, 146);
-            this.riichi1.Margin = new System.Windows.Forms.Padding(2);
+            this.riichi1.Location = new System.Drawing.Point(294, 243);
             this.riichi1.Name = "riichi1";
-            this.riichi1.Size = new System.Drawing.Size(50, 22);
+            this.riichi1.Size = new System.Drawing.Size(75, 37);
             this.riichi1.TabIndex = 25;
             this.riichi1.Tag = "riichi";
             this.riichi1.Text = "立直";
@@ -404,10 +382,9 @@
             // tsumo0
             // 
             this.tsumo0.AutoSize = true;
-            this.tsumo0.Location = new System.Drawing.Point(93, 173);
-            this.tsumo0.Margin = new System.Windows.Forms.Padding(2);
+            this.tsumo0.Location = new System.Drawing.Point(140, 288);
             this.tsumo0.Name = "tsumo0";
-            this.tsumo0.Size = new System.Drawing.Size(39, 22);
+            this.tsumo0.Size = new System.Drawing.Size(58, 37);
             this.tsumo0.TabIndex = 33;
             this.tsumo0.Tag = "tsumo";
             this.tsumo0.Text = "自摸";
@@ -417,10 +394,9 @@
             // riichi3
             // 
             this.riichi3.AutoSize = true;
-            this.riichi3.Location = new System.Drawing.Point(385, 146);
-            this.riichi3.Margin = new System.Windows.Forms.Padding(2);
+            this.riichi3.Location = new System.Drawing.Point(578, 243);
             this.riichi3.Name = "riichi3";
-            this.riichi3.Size = new System.Drawing.Size(50, 22);
+            this.riichi3.Size = new System.Drawing.Size(75, 37);
             this.riichi3.TabIndex = 27;
             this.riichi3.Tag = "riichi";
             this.riichi3.Text = "立直";
@@ -432,10 +408,9 @@
             this.gameStatusLock.AutoSize = true;
             this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.gameStatusLock.Location = new System.Drawing.Point(177, 246);
-            this.gameStatusLock.Margin = new System.Windows.Forms.Padding(2);
+            this.gameStatusLock.Location = new System.Drawing.Point(266, 410);
             this.gameStatusLock.Name = "gameStatusLock";
-            this.gameStatusLock.Size = new System.Drawing.Size(18, 16);
+            this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
             this.gameStatusLock.TabIndex = 48;
             this.gameStatusLock.UseMnemonic = false;
             this.gameStatusLock.UseVisualStyleBackColor = true;
@@ -444,20 +419,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(114, 248);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(171, 413);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 41;
             this.label5.Text = "连庄";
             // 
             // riichisticks
             // 
             this.riichisticks.AutoSize = true;
-            this.riichisticks.Location = new System.Drawing.Point(22, 248);
-            this.riichisticks.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.riichisticks.Location = new System.Drawing.Point(33, 413);
             this.riichisticks.Name = "riichisticks";
-            this.riichisticks.Size = new System.Drawing.Size(53, 12);
+            this.riichisticks.Size = new System.Drawing.Size(73, 20);
             this.riichisticks.TabIndex = 40;
             this.riichisticks.Text = "当前场供";
             // 
@@ -467,11 +440,10 @@
             this.combo.AcceptsTab = true;
             this.combo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.combo.Enabled = false;
-            this.combo.Location = new System.Drawing.Point(145, 245);
-            this.combo.Margin = new System.Windows.Forms.Padding(2);
+            this.combo.Location = new System.Drawing.Point(218, 408);
             this.combo.MaxLength = 20;
             this.combo.Name = "combo";
-            this.combo.Size = new System.Drawing.Size(23, 21);
+            this.combo.Size = new System.Drawing.Size(32, 26);
             this.combo.TabIndex = 34;
             this.combo.Text = "0";
             this.combo.WordWrap = false;
@@ -483,11 +455,10 @@
             this.kyutaku.AcceptsTab = true;
             this.kyutaku.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.kyutaku.Enabled = false;
-            this.kyutaku.Location = new System.Drawing.Point(75, 246);
-            this.kyutaku.Margin = new System.Windows.Forms.Padding(2);
+            this.kyutaku.Location = new System.Drawing.Point(112, 410);
             this.kyutaku.MaxLength = 20;
             this.kyutaku.Name = "kyutaku";
-            this.kyutaku.Size = new System.Drawing.Size(25, 21);
+            this.kyutaku.Size = new System.Drawing.Size(36, 26);
             this.kyutaku.TabIndex = 33;
             this.kyutaku.Text = "0";
             this.kyutaku.WordWrap = false;
@@ -496,10 +467,9 @@
             // riichi0
             // 
             this.riichi0.AutoSize = true;
-            this.riichi0.Location = new System.Drawing.Point(105, 147);
-            this.riichi0.Margin = new System.Windows.Forms.Padding(2);
+            this.riichi0.Location = new System.Drawing.Point(158, 245);
             this.riichi0.Name = "riichi0";
-            this.riichi0.Size = new System.Drawing.Size(50, 22);
+            this.riichi0.Size = new System.Drawing.Size(75, 37);
             this.riichi0.TabIndex = 24;
             this.riichi0.Tag = "riichi";
             this.riichi0.Text = "立直";
@@ -512,12 +482,11 @@
             this.name0.AcceptsTab = true;
             this.name0.BackColor = System.Drawing.SystemColors.Window;
             this.name0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.name0.Location = new System.Drawing.Point(97, 67);
-            this.name0.Margin = new System.Windows.Forms.Padding(2);
+            this.name0.Location = new System.Drawing.Point(146, 112);
             this.name0.MaxLength = 20;
             this.name0.Name = "name0";
             this.name0.ReadOnly = true;
-            this.name0.Size = new System.Drawing.Size(68, 21);
+            this.name0.Size = new System.Drawing.Size(100, 26);
             this.name0.TabIndex = 0;
             this.name0.Tag = "name";
             this.name0.Text = "PLAYER1";
@@ -530,12 +499,11 @@
             this.name1.AcceptsTab = true;
             this.name1.BackColor = System.Drawing.SystemColors.Window;
             this.name1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.name1.Location = new System.Drawing.Point(189, 67);
-            this.name1.Margin = new System.Windows.Forms.Padding(2);
+            this.name1.Location = new System.Drawing.Point(284, 112);
             this.name1.MaxLength = 20;
             this.name1.Name = "name1";
             this.name1.ReadOnly = true;
-            this.name1.Size = new System.Drawing.Size(68, 21);
+            this.name1.Size = new System.Drawing.Size(100, 26);
             this.name1.TabIndex = 1;
             this.name1.Tag = "name";
             this.name1.Text = "PLAYER2";
@@ -548,12 +516,11 @@
             this.name2.AcceptsTab = true;
             this.name2.BackColor = System.Drawing.SystemColors.Window;
             this.name2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.name2.Location = new System.Drawing.Point(281, 67);
-            this.name2.Margin = new System.Windows.Forms.Padding(2);
+            this.name2.Location = new System.Drawing.Point(422, 112);
             this.name2.MaxLength = 20;
             this.name2.Name = "name2";
             this.name2.ReadOnly = true;
-            this.name2.Size = new System.Drawing.Size(68, 21);
+            this.name2.Size = new System.Drawing.Size(100, 26);
             this.name2.TabIndex = 2;
             this.name2.Tag = "name";
             this.name2.Text = "PLAYER3";
@@ -566,12 +533,11 @@
             this.name3.AcceptsTab = true;
             this.name3.BackColor = System.Drawing.SystemColors.Window;
             this.name3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.name3.Location = new System.Drawing.Point(377, 67);
-            this.name3.Margin = new System.Windows.Forms.Padding(2);
+            this.name3.Location = new System.Drawing.Point(566, 112);
             this.name3.MaxLength = 20;
             this.name3.Name = "name3";
             this.name3.ReadOnly = true;
-            this.name3.Size = new System.Drawing.Size(68, 21);
+            this.name3.Size = new System.Drawing.Size(100, 26);
             this.name3.TabIndex = 3;
             this.name3.Tag = "name";
             this.name3.Text = "PLAYER4";
@@ -583,10 +549,9 @@
             this.namelock.AutoSize = true;
             this.namelock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
             this.namelock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.namelock.Location = new System.Drawing.Point(464, 69);
-            this.namelock.Margin = new System.Windows.Forms.Padding(2);
+            this.namelock.Location = new System.Drawing.Point(696, 115);
             this.namelock.Name = "namelock";
-            this.namelock.Size = new System.Drawing.Size(18, 16);
+            this.namelock.Size = new System.Drawing.Size(27, 27);
             this.namelock.TabIndex = 4;
             this.namelock.UseMnemonic = false;
             this.namelock.UseVisualStyleBackColor = true;
@@ -597,11 +562,10 @@
             this.teamlock.AutoSize = true;
             this.teamlock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.teamlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.teamlock.Location = new System.Drawing.Point(464, 44);
-            this.teamlock.Margin = new System.Windows.Forms.Padding(2);
-            this.teamlock.MaximumSize = new System.Drawing.Size(23, 20);
+            this.teamlock.Location = new System.Drawing.Point(696, 73);
+            this.teamlock.MaximumSize = new System.Drawing.Size(34, 33);
             this.teamlock.Name = "teamlock";
-            this.teamlock.Size = new System.Drawing.Size(18, 16);
+            this.teamlock.Size = new System.Drawing.Size(27, 27);
             this.teamlock.TabIndex = 9;
             this.teamlock.UseMnemonic = false;
             this.teamlock.UseVisualStyleBackColor = true;
@@ -615,12 +579,11 @@
             this.teamname3.BackColor = System.Drawing.SystemColors.Window;
             this.teamname3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname3.Enabled = false;
-            this.teamname3.Location = new System.Drawing.Point(377, 44);
-            this.teamname3.Margin = new System.Windows.Forms.Padding(2);
+            this.teamname3.Location = new System.Drawing.Point(566, 73);
             this.teamname3.MaxLength = 20;
             this.teamname3.Name = "teamname3";
             this.teamname3.ReadOnly = true;
-            this.teamname3.Size = new System.Drawing.Size(68, 21);
+            this.teamname3.Size = new System.Drawing.Size(100, 26);
             this.teamname3.TabIndex = 8;
             this.teamname3.Tag = "team";
             this.teamname3.Text = "TEAM4";
@@ -635,12 +598,11 @@
             this.teamname2.BackColor = System.Drawing.SystemColors.Window;
             this.teamname2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname2.Enabled = false;
-            this.teamname2.Location = new System.Drawing.Point(281, 44);
-            this.teamname2.Margin = new System.Windows.Forms.Padding(2);
+            this.teamname2.Location = new System.Drawing.Point(422, 73);
             this.teamname2.MaxLength = 20;
             this.teamname2.Name = "teamname2";
             this.teamname2.ReadOnly = true;
-            this.teamname2.Size = new System.Drawing.Size(68, 21);
+            this.teamname2.Size = new System.Drawing.Size(100, 26);
             this.teamname2.TabIndex = 7;
             this.teamname2.Tag = "team";
             this.teamname2.Text = "TEAM3";
@@ -655,12 +617,11 @@
             this.teamname1.BackColor = System.Drawing.SystemColors.Window;
             this.teamname1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname1.Enabled = false;
-            this.teamname1.Location = new System.Drawing.Point(189, 44);
-            this.teamname1.Margin = new System.Windows.Forms.Padding(2);
+            this.teamname1.Location = new System.Drawing.Point(284, 73);
             this.teamname1.MaxLength = 20;
             this.teamname1.Name = "teamname1";
             this.teamname1.ReadOnly = true;
-            this.teamname1.Size = new System.Drawing.Size(68, 21);
+            this.teamname1.Size = new System.Drawing.Size(100, 26);
             this.teamname1.TabIndex = 6;
             this.teamname1.Tag = "team";
             this.teamname1.Text = "TEAM2";
@@ -675,12 +636,11 @@
             this.teamname0.BackColor = System.Drawing.SystemColors.Window;
             this.teamname0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname0.Enabled = false;
-            this.teamname0.Location = new System.Drawing.Point(97, 44);
-            this.teamname0.Margin = new System.Windows.Forms.Padding(2);
+            this.teamname0.Location = new System.Drawing.Point(146, 73);
             this.teamname0.MaxLength = 20;
             this.teamname0.Name = "teamname0";
             this.teamname0.ReadOnly = true;
-            this.teamname0.Size = new System.Drawing.Size(68, 21);
+            this.teamname0.Size = new System.Drawing.Size(100, 26);
             this.teamname0.TabIndex = 5;
             this.teamname0.Tag = "team";
             this.teamname0.Text = "TEAM1";
@@ -691,20 +651,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 69);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(64, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "名字";
             // 
             // teamLabel
             // 
             this.teamLabel.AutoSize = true;
-            this.teamLabel.Location = new System.Drawing.Point(33, 48);
-            this.teamLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.teamLabel.Location = new System.Drawing.Point(50, 80);
             this.teamLabel.Name = "teamLabel";
-            this.teamLabel.Size = new System.Drawing.Size(41, 12);
+            this.teamLabel.Size = new System.Drawing.Size(57, 20);
             this.teamLabel.TabIndex = 11;
             this.teamLabel.Text = "团队名";
             this.teamLabel.Visible = false;
@@ -712,10 +670,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(64, 162);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 17;
             this.label3.Text = "点数";
             // 
@@ -724,10 +681,9 @@
             this.pointLock.AutoSize = true;
             this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pointLock.Location = new System.Drawing.Point(464, 92);
-            this.pointLock.Margin = new System.Windows.Forms.Padding(2);
+            this.pointLock.Location = new System.Drawing.Point(696, 153);
             this.pointLock.Name = "pointLock";
-            this.pointLock.Size = new System.Drawing.Size(18, 16);
+            this.pointLock.Size = new System.Drawing.Size(27, 27);
             this.pointLock.TabIndex = 16;
             this.pointLock.UseMnemonic = false;
             this.pointLock.UseVisualStyleBackColor = true;
@@ -740,12 +696,11 @@
             this.point3.BackColor = System.Drawing.SystemColors.Window;
             this.point3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point3.Enabled = false;
-            this.point3.Location = new System.Drawing.Point(377, 92);
-            this.point3.Margin = new System.Windows.Forms.Padding(2);
+            this.point3.Location = new System.Drawing.Point(566, 153);
             this.point3.MaxLength = 20;
             this.point3.Name = "point3";
             this.point3.ReadOnly = true;
-            this.point3.Size = new System.Drawing.Size(68, 21);
+            this.point3.Size = new System.Drawing.Size(100, 26);
             this.point3.TabIndex = 15;
             this.point3.Tag = "point";
             this.point3.Text = "25000";
@@ -759,12 +714,11 @@
             this.point2.BackColor = System.Drawing.SystemColors.Window;
             this.point2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point2.Enabled = false;
-            this.point2.Location = new System.Drawing.Point(281, 92);
-            this.point2.Margin = new System.Windows.Forms.Padding(2);
+            this.point2.Location = new System.Drawing.Point(422, 153);
             this.point2.MaxLength = 20;
             this.point2.Name = "point2";
             this.point2.ReadOnly = true;
-            this.point2.Size = new System.Drawing.Size(68, 21);
+            this.point2.Size = new System.Drawing.Size(100, 26);
             this.point2.TabIndex = 14;
             this.point2.Tag = "point";
             this.point2.Text = "25000";
@@ -778,12 +732,11 @@
             this.point1.BackColor = System.Drawing.SystemColors.Window;
             this.point1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point1.Enabled = false;
-            this.point1.Location = new System.Drawing.Point(189, 92);
-            this.point1.Margin = new System.Windows.Forms.Padding(2);
+            this.point1.Location = new System.Drawing.Point(284, 153);
             this.point1.MaxLength = 20;
             this.point1.Name = "point1";
             this.point1.ReadOnly = true;
-            this.point1.Size = new System.Drawing.Size(68, 21);
+            this.point1.Size = new System.Drawing.Size(100, 26);
             this.point1.TabIndex = 13;
             this.point1.Tag = "point";
             this.point1.Text = "25000";
@@ -797,12 +750,11 @@
             this.point0.BackColor = System.Drawing.SystemColors.Window;
             this.point0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point0.Enabled = false;
-            this.point0.Location = new System.Drawing.Point(97, 92);
-            this.point0.Margin = new System.Windows.Forms.Padding(2);
+            this.point0.Location = new System.Drawing.Point(146, 153);
             this.point0.MaxLength = 20;
             this.point0.Name = "point0";
             this.point0.ReadOnly = true;
-            this.point0.Size = new System.Drawing.Size(68, 21);
+            this.point0.Size = new System.Drawing.Size(100, 26);
             this.point0.TabIndex = 12;
             this.point0.Tag = "point";
             this.point0.Text = "25000";
@@ -812,10 +764,9 @@
             // showDisplay
             // 
             this.showDisplay.AutoSize = true;
-            this.showDisplay.Location = new System.Drawing.Point(266, 245);
-            this.showDisplay.Margin = new System.Windows.Forms.Padding(2);
+            this.showDisplay.Location = new System.Drawing.Point(399, 408);
             this.showDisplay.Name = "showDisplay";
-            this.showDisplay.Size = new System.Drawing.Size(63, 22);
+            this.showDisplay.Size = new System.Drawing.Size(94, 37);
             this.showDisplay.TabIndex = 47;
             this.showDisplay.Text = "显示界面";
             this.showDisplay.UseMnemonic = false;
@@ -825,10 +776,9 @@
             // button7
             // 
             this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(336, 245);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Location = new System.Drawing.Point(504, 408);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(63, 22);
+            this.button7.Size = new System.Drawing.Size(94, 37);
             this.button7.TabIndex = 44;
             this.button7.Text = "其他设置";
             this.button7.UseMnemonic = false;
@@ -838,10 +788,9 @@
             // reset
             // 
             this.reset.AutoSize = true;
-            this.reset.Location = new System.Drawing.Point(473, 245);
-            this.reset.Margin = new System.Windows.Forms.Padding(2);
+            this.reset.Location = new System.Drawing.Point(710, 408);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(63, 22);
+            this.reset.Size = new System.Drawing.Size(94, 37);
             this.reset.TabIndex = 43;
             this.reset.Text = "重置游戏";
             this.reset.UseMnemonic = false;
@@ -850,22 +799,21 @@
             // draw
             // 
             this.draw.AutoSize = true;
-            this.draw.Location = new System.Drawing.Point(409, 245);
-            this.draw.Margin = new System.Windows.Forms.Padding(2);
+            this.draw.Location = new System.Drawing.Point(614, 408);
             this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(50, 22);
+            this.draw.Size = new System.Drawing.Size(75, 37);
             this.draw.TabIndex = 42;
             this.draw.Text = "流局";
             this.draw.UseMnemonic = false;
             this.draw.UseVisualStyleBackColor = true;
+            this.draw.Click += new System.EventHandler(this.draw_Click);
             // 
             // oya3
             // 
             this.oya3.AutoSize = true;
-            this.oya3.Location = new System.Drawing.Point(395, 16);
-            this.oya3.Margin = new System.Windows.Forms.Padding(2);
+            this.oya3.Location = new System.Drawing.Point(592, 27);
             this.oya3.Name = "oya3";
-            this.oya3.Size = new System.Drawing.Size(27, 22);
+            this.oya3.Size = new System.Drawing.Size(40, 37);
             this.oya3.TabIndex = 32;
             this.oya3.Tag = "seat";
             this.oya3.Text = "子";
@@ -875,10 +823,9 @@
             // oya2
             // 
             this.oya2.AutoSize = true;
-            this.oya2.Location = new System.Drawing.Point(298, 16);
-            this.oya2.Margin = new System.Windows.Forms.Padding(2);
+            this.oya2.Location = new System.Drawing.Point(447, 27);
             this.oya2.Name = "oya2";
-            this.oya2.Size = new System.Drawing.Size(27, 22);
+            this.oya2.Size = new System.Drawing.Size(40, 37);
             this.oya2.TabIndex = 31;
             this.oya2.Tag = "seat";
             this.oya2.Text = "子";
@@ -888,10 +835,9 @@
             // oya1
             // 
             this.oya1.AutoSize = true;
-            this.oya1.Location = new System.Drawing.Point(206, 16);
-            this.oya1.Margin = new System.Windows.Forms.Padding(2);
+            this.oya1.Location = new System.Drawing.Point(309, 27);
             this.oya1.Name = "oya1";
-            this.oya1.Size = new System.Drawing.Size(27, 22);
+            this.oya1.Size = new System.Drawing.Size(40, 37);
             this.oya1.TabIndex = 30;
             this.oya1.Tag = "seat";
             this.oya1.Text = "子";
@@ -902,10 +848,9 @@
             // 
             this.oya0.AutoSize = true;
             this.oya0.BackColor = System.Drawing.Color.DarkOrange;
-            this.oya0.Location = new System.Drawing.Point(115, 16);
-            this.oya0.Margin = new System.Windows.Forms.Padding(2);
+            this.oya0.Location = new System.Drawing.Point(172, 27);
             this.oya0.Name = "oya0";
-            this.oya0.Size = new System.Drawing.Size(27, 22);
+            this.oya0.Size = new System.Drawing.Size(40, 37);
             this.oya0.TabIndex = 29;
             this.oya0.Tag = "seat";
             this.oya0.Text = "親";
@@ -915,10 +860,9 @@
             // tenpai2
             // 
             this.tenpai2.AutoSize = true;
-            this.tenpai2.Location = new System.Drawing.Point(289, 120);
-            this.tenpai2.Margin = new System.Windows.Forms.Padding(2);
+            this.tenpai2.Location = new System.Drawing.Point(434, 200);
             this.tenpai2.Name = "tenpai2";
-            this.tenpai2.Size = new System.Drawing.Size(50, 22);
+            this.tenpai2.Size = new System.Drawing.Size(75, 37);
             this.tenpai2.TabIndex = 54;
             this.tenpai2.Tag = "tenpai";
             this.tenpai2.Text = "不听";
@@ -929,10 +873,9 @@
             // tenpai1
             // 
             this.tenpai1.AutoSize = true;
-            this.tenpai1.Location = new System.Drawing.Point(196, 120);
-            this.tenpai1.Margin = new System.Windows.Forms.Padding(2);
+            this.tenpai1.Location = new System.Drawing.Point(294, 200);
             this.tenpai1.Name = "tenpai1";
-            this.tenpai1.Size = new System.Drawing.Size(50, 22);
+            this.tenpai1.Size = new System.Drawing.Size(75, 37);
             this.tenpai1.TabIndex = 53;
             this.tenpai1.Tag = "tenpai";
             this.tenpai1.Text = "不听";
@@ -943,10 +886,9 @@
             // tenpai0
             // 
             this.tenpai0.AutoSize = true;
-            this.tenpai0.Location = new System.Drawing.Point(105, 121);
-            this.tenpai0.Margin = new System.Windows.Forms.Padding(2);
+            this.tenpai0.Location = new System.Drawing.Point(158, 202);
             this.tenpai0.Name = "tenpai0";
-            this.tenpai0.Size = new System.Drawing.Size(50, 22);
+            this.tenpai0.Size = new System.Drawing.Size(75, 37);
             this.tenpai0.TabIndex = 52;
             this.tenpai0.Tag = "tenpai";
             this.tenpai0.Text = "不听";
@@ -957,10 +899,9 @@
             // tenpai3
             // 
             this.tenpai3.AutoSize = true;
-            this.tenpai3.Location = new System.Drawing.Point(385, 120);
-            this.tenpai3.Margin = new System.Windows.Forms.Padding(2);
+            this.tenpai3.Location = new System.Drawing.Point(578, 200);
             this.tenpai3.Name = "tenpai3";
-            this.tenpai3.Size = new System.Drawing.Size(50, 22);
+            this.tenpai3.Size = new System.Drawing.Size(75, 37);
             this.tenpai3.TabIndex = 55;
             this.tenpai3.Tag = "tenpai";
             this.tenpai3.Text = "不听";
@@ -971,17 +912,18 @@
             // winner
             // 
             this.winner.AutoSize = true;
-            this.winner.Location = new System.Drawing.Point(33, 152);
+            this.winner.Location = new System.Drawing.Point(50, 253);
+            this.winner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.winner.Name = "winner";
-            this.winner.Size = new System.Drawing.Size(0, 12);
+            this.winner.Size = new System.Drawing.Size(0, 20);
             this.winner.TabIndex = 56;
             this.winner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 276);
+            this.ClientSize = new System.Drawing.Size(840, 460);
             this.Controls.Add(this.winner);
             this.Controls.Add(this.tenpai2);
             this.Controls.Add(this.tenpai1);
@@ -1043,7 +985,6 @@
             this.Controls.Add(this.name0);
             this.Controls.Add(pointgroup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "mainForm";
             this.Text = "洛神雀庄直播点数显示系统";
             this.ResumeLayout(false);

@@ -13,6 +13,7 @@ namespace riichi_display
         private int kyutaku;
         private int combo;
         private int finalAddup; // Final adding up point to the player
+        private int tenpai; // Number of tenpai players
 
         // Default constructor initializing kyutaku and combo to zero.
         public PointHandler()
@@ -20,11 +21,13 @@ namespace riichi_display
             kyutaku = 0;
             combo = 0;
             finalAddup = 0;
+            tenpai = 0;
         }
 
         // Public properties for kyutaku and combo.
         private int Kyutaku { get { return kyutaku; }}
         private int Combo { get { return combo; } }
+        public int Tenpai { get { return tenpai; } set { tenpai = value;  } }
         public int FinalAddup { get {
                 var result = finalAddup;
                 finalAddup = 0;
@@ -40,7 +43,7 @@ namespace riichi_display
         }
 
         // Reset combo and kyutaku to zero.
-        public void Reset() { combo = 0; kyutaku = 0; finalAddup = 0; }
+        public void Reset() { combo = 0; kyutaku = 0; finalAddup = 0; tenpai = 0; }
 
         // Calculate the total point when oyatsumo, return the point that requires to pay by everyone
         // point - The base point.
@@ -89,7 +92,6 @@ namespace riichi_display
             var result = value / 100;
             return result * 100;
         }
-
         public void clearRiichi() { kyutaku = 0; }
 
     }
