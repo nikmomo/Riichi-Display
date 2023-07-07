@@ -24,10 +24,13 @@ namespace riichi_display
         PointHandler handler;
         Player[] players;
 
-        public event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
-        public event EventHandler<PointCalculateEvent> PointCalculateEvent;
-        public event EventHandler<FormDisplayUpdateEvent> FormDisplayUpdateEvent;
-        public event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
+        private event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
+        private event EventHandler<DisplayWindowUpdateEvent> DisplayWindowUpdateEvent;
+        private event EventHandler<PointCalculateEvent> PointCalculateEvent;
+        private event EventHandler<FormDisplayUpdateEvent> FormDisplayUpdateEvent;
+        private event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
+        private event EventHandler<RiichiDisplayEvent> RiichiDisplayEvent;
+        private event EventHandler<WindChangeEvent> WindChangeEvent;
 
         private bool isDraw = false;
 
@@ -36,13 +39,17 @@ namespace riichi_display
             InitializeComponent();
             // Initialize form properties and event handlers
             PropertySetup();
-
+            PointCalculateEvent += PointUpdate;
+            FormDisplayUpdateEvent += FormUpdate;
+            DisplayUpdateEvent += DisplayUpdate;
+            WindChangeEvent += windChgeControl;
             // Remove focus from any form control
             ActiveControl = null;
 
             // Initialize and show the display form
             displayForm = new display();
-            displayForm.DisplayWindowUpdateEvent += DisplayWindowUpdate;
+            this.DisplayWindowUpdateEvent += DisplayWindowUpdate;
+            this.RiichiDisplayEvent += displayForm.RiichiSwitch;
             displayForm.Show();
 
             // Initialize the settings form and subscribe to its events
@@ -91,9 +98,13 @@ namespace riichi_display
 
             }
             submit.Click += submit_Click;
+
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
-            pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged;
+            pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged; // PointGain using same method because requires same functionality
+
+            playerList.SelectedIndexChanged += playerList_SelectedIndexChanged;
+
             reset.Click += reset_Click;
         }
 
@@ -109,12 +120,6 @@ namespace riichi_display
                 textbox.SelectAll();
             }
         }
-
-        // Event handler for textbox losing focus
-        //private void textboxLoseFocus(object sender, EventArgs e)
-        //{
-        //    DisplayUpdate(sender, new DisplayUpdateEvent());
-        //}
 
         // Event handler for key down event
         private void enterLoseFocus(object sender, KeyEventArgs e)
@@ -199,28 +204,16 @@ namespace riichi_display
                     players[n].Team = textBox.Text;
                     break;
                 case "point":
-                    players[n].Point = long.Parse(textBox.Text);
+                    players[n].Point = int.Parse(textBox.Text);
                     break;
                 case "addup":
-                    players[n].Addup = long.Parse(textBox.Text);
+                    players[n].Addup = int.Parse(textBox.Text);
                     break;
-                //case "riichi": // TODO: THIS IS BUTTON
-                //    players[n].Riichi = bool.Parse(textBox.Text);
-                //    break;
-                //case "Tenpai": // TODO: THIS IS BUTTON
-                //    players[n].Tenpai = bool.Parse(textBox.Text);
-                //    break;
-                //case "Oya": // TODO: THIS IS BUTTON
-                //    players[n].Oya = bool.Parse(textBox.Text);
-                //    break;
-                //case "Winner": // TODO: THIS IS BUTTON
-                //    players[n].Winner = bool.Parse(textBox.Text);
-                //    break;
                 default:
                     throw new Exception($"Invalid tag: {textBox.Tag}");
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdate(sender, new DisplayUpdateEvent(textBox.Tag.ToString())); // display update
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent(textBox.Tag.ToString())); // send display update event
         }
 
         private int determinePlayer(string name)
@@ -255,7 +248,8 @@ namespace riichi_display
                 }
             }
             Console.WriteLine(players[n].ToString());
-            DisplayUpdate(sender, new DisplayUpdateEvent()); // display update
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
+
         }
 
         private void setting_Click(object sender, EventArgs e)
@@ -276,7 +270,7 @@ namespace riichi_display
                 displayForm = new display();
             }
             displayForm.Show();
-            DisplayUpdate(sender, new DisplayUpdateEvent());
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
         }
 
         private bool teamControl = false; // Hide team when it's false, show otherwise.
@@ -346,7 +340,7 @@ namespace riichi_display
                 }
             }
             Console.WriteLine(players[n].ToString());
-            PointUpdate(this, new PointCalculateEvent()); // send point calculate event
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point calculate event
             playerList.Enabled = true;
             
         }
@@ -371,7 +365,7 @@ namespace riichi_display
 
 
             Console.WriteLine(players[n].ToString());
-            PointUpdate(this, new PointCalculateEvent()); // send point calculate event
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point calculate event
         }
 
         private void PointUpdate(object sender, PointCalculateEvent e)
@@ -435,7 +429,7 @@ namespace riichi_display
                 Console.WriteLine("Oya: " + oya + " Ko: " + ko);
                 
             }
-            FormUpdate(sender, new FormDisplayUpdateEvent());
+            FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
 
         }
 
@@ -474,7 +468,8 @@ namespace riichi_display
             button.Enabled = false;
 
             Console.WriteLine(players[n].ToString());
-            DisplayUpdate(sender, new DisplayUpdateEvent(button.Tag.ToString())); // send display update event
+            RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // send riichi update
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent(button.Tag.ToString())); // send display update event
         }
 
         private void submit_Click(object sender, EventArgs e)
@@ -510,7 +505,7 @@ namespace riichi_display
             }
             if (oyaIndex > 3)
             {
-                windChgeControl(this, new WindChangeEvent());
+                WindChangeEvent?.Invoke(sender, new WindChangeEvent());
                 oyaIndex = 0;
             }
             System.Windows.Forms.Button control = this.Controls.Find("oya" + oyaIndex, true).FirstOrDefault() as System.Windows.Forms.Button;
@@ -519,8 +514,8 @@ namespace riichi_display
                 control.PerformClick();
             }
             NextRound();
-            DisplayUpdate(sender, new DisplayUpdateEvent());
-            
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
+
         }
 
 
@@ -541,8 +536,9 @@ namespace riichi_display
                 player.Reset();
             handler.Reset();
             oya0.PerformClick();
-            DisplayUpdate(sender, new DisplayUpdateEvent());
-            FormUpdate(sender, new FormDisplayUpdateEvent());
+            WindChangeEvent?.Invoke(sender, new WindChangeEvent());
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
+            FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
         }
 
         private void DisplayUpdate(object sender, DisplayUpdateEvent e)
@@ -558,7 +554,7 @@ namespace riichi_display
             {
                 DisplayWindowUpdate(sender, new DisplayWindowUpdateEvent(e.Tag));
             }
-            FormUpdate(sender, new FormDisplayUpdateEvent());
+            FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
             // TODO: addup display update is required
         }
 
@@ -575,6 +571,7 @@ namespace riichi_display
                 else if (propertyName == "riichi")
                 {
                     controlName = "point" + player.Index;
+                    RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(player.Index, player.Riichi)); // send riichi update
                 }
                 var control = displayForm.Controls.Find(controlName, true).FirstOrDefault();
 
@@ -592,8 +589,6 @@ namespace riichi_display
                             control.Text = player.Point.ToString(); break;
                         case "addup":
                             control.Text = player.Addup.ToString(); break;
-                        case nameof(Player.Riichi):
-                            // TODO: Set the riichi
                         case nameof(Player.Tenpai):
                             // TODO: Set the tenpai
                         case "oya":
@@ -651,7 +646,7 @@ namespace riichi_display
 
         private void PointGain_LostFocus(object sender, EventArgs e)
         {
-            PointUpdate(sender, new PointCalculateEvent()); // send point calculate event
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
             FormUpdate(sender, new FormDisplayUpdateEvent());
         }
 
@@ -705,7 +700,7 @@ namespace riichi_display
             {
                 player.Addup = 0;
             }
-            PointUpdate(this, new PointCalculateEvent());
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
         }
 
         private void draw_Click(object sender, EventArgs e)
@@ -758,9 +753,9 @@ namespace riichi_display
                     player.Addup = 0 - pay;
                 }
             }
-            FormUpdate(sender, new FormDisplayUpdateEvent());
+            FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
         }
         // TODO: 写一个status的method每次status的item切换了statusform的也会跟随切换
     }
-
+    // TODO: 刚刚用了send event 代替了call update的method，需要debug并且优化结构
 }

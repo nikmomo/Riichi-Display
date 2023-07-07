@@ -12,12 +12,15 @@ namespace riichi_display
 {
     public partial class display : Form
     {
-        public event EventHandler<DisplayWindowUpdateEvent> DisplayWindowUpdateEvent;
-        public event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
         public display()
         {
             InitializeComponent();
         }
-
+        
+        public void RiichiSwitch(object sender, RiichiDisplayEvent e)
+        {
+            Control control = this.Controls.Find("riichi" + e.Index, true).FirstOrDefault() as System.Windows.Forms.Control;
+            control.Visible = e.Show;
+        }
     }
 }

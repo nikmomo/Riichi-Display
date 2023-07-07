@@ -14,13 +14,9 @@ namespace riichi_display
     {
         public event EventHandler<TeamControlEvent> teamCtrlEvent;
         public event EventHandler<WindChangeEvent> WindChgeEvent;
-        //private mainForm mainFm;
-        //public display displayFm;
         public setting()//mainForm form, display displayform)
         {
             InitializeComponent();
-            //mainFm = form;
-            //displayFm = displayform;
         }
 
         private void hideTeam_Click(object sender, EventArgs e)

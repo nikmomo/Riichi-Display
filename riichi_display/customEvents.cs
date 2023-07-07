@@ -40,4 +40,17 @@ namespace riichi_display
 
         public int Point { get; private set; }
     }
+
+    public class RiichiDisplayEvent : EventArgs
+    {
+        public RiichiDisplayEvent(int index, bool show)
+        {
+            this.Index = index;
+            this.Show = show;
+        }
+
+        public int Index { get; private set; }
+        public bool Show { get; private set; }
+    }
+
 }

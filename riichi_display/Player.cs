@@ -10,11 +10,11 @@ namespace riichi_display
     {
         public string Name { get; set; } = "NoName";
         public string Team { get; set; } = "N/A";
-        public long Point { get; set; } = 25000;
-        public long Addup { get; set; } = 0;
+        public int Point { get; set; } = 25000;
+        public int Addup { get; set; } = 0;
         public bool Riichi { get; set; } = false;
         public bool Tenpai { get; set; } = false;
-        public long Index { get; set; } = 0;
+        public int Index { get; set; } = 0;
         public bool Oya { get; set; } = false;
         public bool Winner { get; set; } = false;
 

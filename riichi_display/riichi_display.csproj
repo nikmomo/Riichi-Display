@@ -138,6 +138,47 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\m1.png" />
+    <Content Include="Resources\m2.png" />
+    <Content Include="Resources\m3.png" />
+    <Content Include="Resources\m4.png" />
+    <Content Include="Resources\m5.png" />
+    <Content Include="Resources\m6.png" />
+    <Content Include="Resources\m7.png" />
+    <Content Include="Resources\m8.png" />
+    <Content Include="Resources\m9.png" />
+    <Content Include="Resources\p1.png" />
+    <Content Include="Resources\p2.png" />
+    <Content Include="Resources\p3.png" />
+    <Content Include="Resources\p4.png" />
+    <Content Include="Resources\p5.png" />
+    <Content Include="Resources\p6.png" />
+    <Content Include="Resources\p7.png" />
+    <Content Include="Resources\p8.png" />
+    <Content Include="Resources\p9.png" />
+    <Content Include="Resources\questionmark.png" />
+    <Content Include="Resources\s1.png" />
+    <Content Include="Resources\s2.png" />
+    <Content Include="Resources\s3.png" />
+    <Content Include="Resources\s4.png" />
+    <Content Include="Resources\s5.png" />
+    <Content Include="Resources\s6.png" />
+    <Content Include="Resources\s7.png" />
+    <Content Include="Resources\s8.png" />
+    <Content Include="Resources\s9.png" />
+    <None Include="Resources\status_frame.png" />
+    <Content Include="Resources\ze.png" />
+    <Content Include="Resources\zg.png" />
+    <Content Include="Resources\zn.png" />
+    <Content Include="Resources\zr.png" />
+    <Content Include="Resources\zs.png" />
+    <Content Include="Resources\zw.png" />
+    <Content Include="Resources\zwh.png" />
+    <None Include="Resources\combo_short.png" />
+    <None Include="Resources\riichiStick_short.png" />
+    <None Include="Resources\main_background.png" />
+    <None Include="Resources\riichiStick_90degree.png" />
+    <None Include="Resources\riichiStick.png" />
     <None Include="img\unlock.png" />
     <None Include="img\lock.png" />
     <Content Include="img\nan.png" />
