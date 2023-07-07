@@ -71,7 +71,7 @@
             this.kyutaku.BackColor = System.Drawing.Color.Transparent;
             this.kyutaku.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kyutaku.ForeColor = System.Drawing.SystemColors.Control;
-            this.kyutaku.Location = new System.Drawing.Point(452, 27);
+            this.kyutaku.Location = new System.Drawing.Point(439, 26);
             this.kyutaku.Name = "kyutaku";
             this.kyutaku.Size = new System.Drawing.Size(37, 41);
             this.kyutaku.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.combo.BackColor = System.Drawing.Color.Transparent;
             this.combo.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo.ForeColor = System.Drawing.SystemColors.Control;
-            this.combo.Location = new System.Drawing.Point(452, 73);
+            this.combo.Location = new System.Drawing.Point(439, 74);
             this.combo.Name = "combo";
             this.combo.Size = new System.Drawing.Size(37, 41);
             this.combo.TabIndex = 4;
