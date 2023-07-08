@@ -17,6 +17,7 @@ namespace riichi_display
         // Declare the forms used in the main form
         private display displayForm;
         private setting setting;
+        private status statusForm;
 
         //private string currentOya;
         //private string winner;
@@ -48,8 +49,9 @@ namespace riichi_display
 
             // Initialize and show the display form
             displayForm = new display();
-            this.DisplayWindowUpdateEvent += DisplayWindowUpdate;
-            this.RiichiDisplayEvent += displayForm.RiichiSwitch;
+            DisplayWindowUpdateEvent += DisplayWindowUpdate;
+            RiichiDisplayEvent += displayForm.RiichiSwitch;
+            AddupDisplayEvent += displayForm.AddupUpdate;
             displayForm.Show();
 
             // Initialize the settings form and subscribe to its events
@@ -57,9 +59,12 @@ namespace riichi_display
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
 
-            //currentOya = "0";
             handler = new PointHandler();
 
+            statusForm = new status();
+            handler.StatusUpdateEvent += statusForm.StatusUpdate;
+            statusForm.Show();
+            
             players = new Player[4];
             for (int i = 0; i < players.Length; i++)
             {
@@ -206,9 +211,9 @@ namespace riichi_display
                 case "point":
                     players[n].Point = int.Parse(textBox.Text);
                     break;
-                case "addup":
-                    players[n].Addup = int.Parse(textBox.Text);
-                    break;
+                //case "addup":
+                //    players[n].Addup = int.Parse(textBox.Text);
+                //    break;
                 default:
                     throw new Exception($"Invalid tag: {textBox.Tag}");
             }
@@ -342,7 +347,8 @@ namespace riichi_display
             Console.WriteLine(players[n].ToString());
             PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point calculate event
             playerList.Enabled = true;
-            
+            submit.Enabled = true;
+
         }
 
         private void tsumo_clicked(object sender, EventArgs e)
@@ -363,7 +369,7 @@ namespace riichi_display
             playerList.Text = "三家";
             playerList.Enabled = false;
 
-
+            submit.Enabled = true;
             Console.WriteLine(players[n].ToString());
             PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point calculate event
         }
@@ -475,18 +481,18 @@ namespace riichi_display
         private void submit_Click(object sender, EventArgs e)
         {
             long oyaIndex = 0;
-            
+            bool oyaWin = false;
             foreach (Player player in players)
             {
                 player.Point += player.Addup;
-                AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent((int)player.Index, (int)player.Addup));
+                AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent(player.Index, player.Addup));
                 if (isDraw && player.Oya && player.Tenpai)
                 {
                     oyaIndex = player.Index;
                 }
                 else if (player.Oya && player.Winner)
                 {
-                    handler.AddCombo();
+                    oyaWin = true;
                     oyaIndex = player.Index;
                 }
                 else if (player.Oya)
@@ -495,7 +501,7 @@ namespace riichi_display
                 }
                 Console.WriteLine(player.ToString());
             }
-            if (isDraw)
+            if (isDraw || oyaWin)
             {
                 handler.AddCombo();
             }
@@ -555,7 +561,10 @@ namespace riichi_display
                 DisplayWindowUpdate(sender, new DisplayWindowUpdateEvent(e.Tag));
             }
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
-            // TODO: addup display update is required
+            //foreach (Player player in players)
+            //{
+            //    AddupDisplayEvent?.Invoke(sender, new AddupDisplayEvent(player.Index, player.Addup)); // send addup update event
+            //}
         }
 
         private void DisplayWindowUpdate(object sender, DisplayWindowUpdateEvent e)
@@ -587,8 +596,8 @@ namespace riichi_display
                             control.Text = player.Team; break;
                         case "point":
                             control.Text = player.Point.ToString(); break;
-                        case "addup":
-                            control.Text = player.Addup.ToString(); break;
+                        //case "addup":
+                        //    control.Text = player.Addup.ToString(); break;
                         case nameof(Player.Tenpai):
                             // TODO: Set the tenpai
                         case "oya":
@@ -602,11 +611,6 @@ namespace riichi_display
                     }
                 }
             }
-        }
-
-        private void AddupDisplayUpdate(object sender, AddupDisplayEvent e)
-        {
-
         }
 
         // Form update only updates the controls that not usually update manually
@@ -692,6 +696,8 @@ namespace riichi_display
                 player.Clear();
             }
             handler.Tenpai = 0;
+            submit.Enabled = false;
+            //AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent()); // send clear event
         }
 
         private void playerList_SelectedIndexChanged(object sender, EventArgs e)
@@ -719,6 +725,7 @@ namespace riichi_display
             ron2.Enabled = !isDraw;
             ron3.Enabled = !isDraw;
             winner.Visible = !isDraw;
+            submit.Enabled = true;
         }
 
         private void tenpai_Click(object sender, EventArgs e)

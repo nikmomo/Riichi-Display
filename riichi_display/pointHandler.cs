@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace riichi_display
-{
+{ 
     // The pointHandler class is used to handle point calculations.
     public class PointHandler
     {
@@ -14,6 +14,7 @@ namespace riichi_display
         private int combo;
         private int finalAddup; // Final adding up point to the player
         private int tenpai; // Number of tenpai players
+        public event EventHandler<StatusUpdateEvent> StatusUpdateEvent;
 
         // Default constructor initializing kyutaku and combo to zero.
         public PointHandler()
@@ -81,9 +82,17 @@ namespace riichi_display
 
         public int getCombo() { return combo; }
 
-        public void setKyutaku(int value) { kyutaku = value; }
+        public void setKyutaku(int value) 
+        { 
+            kyutaku = value;
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+        }
 
-        public void setCombo(int value) { combo = value; }
+        public void setCombo(int value) 
+        { 
+            combo = value;
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+        }
 
         // Rounds a value down to the nearest thousand.
         // value - The value to round down.

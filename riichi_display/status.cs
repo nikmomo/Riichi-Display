@@ -16,5 +16,13 @@ namespace riichi_display
         {
             InitializeComponent();
         }
+
+        public void StatusUpdate(object sneder, StatusUpdateEvent e)
+        {
+            kyutaku.Text = e.Kyutaku.ToString();
+            combo.Text = e.Combo.ToString();
+        }
+
+        // TODO: Fix the bug that combo and kyutaku wont update
     }
 }

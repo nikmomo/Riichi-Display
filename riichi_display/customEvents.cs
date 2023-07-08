@@ -30,6 +30,7 @@ namespace riichi_display
 
     public class AddupDisplayEvent : EventArgs
     {
+        public AddupDisplayEvent() { Index = 42; }
         public AddupDisplayEvent(int index, int point)
         {
             this.Index = index;
@@ -53,4 +54,14 @@ namespace riichi_display
         public bool Show { get; private set; }
     }
 
+    public class StatusUpdateEvent : EventArgs 
+    {
+        public StatusUpdateEvent(int kyutaku, int combo) 
+        { 
+            Kyutaku = kyutaku;
+            Combo = combo;
+        }
+        public int Kyutaku { get; private set; }
+        public int Combo { get; private set; }
+    }
 }

@@ -287,6 +287,7 @@
             // submit
             // 
             this.submit.AutoSize = true;
+            this.submit.Enabled = false;
             this.submit.Location = new System.Drawing.Point(694, 363);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(96, 37);

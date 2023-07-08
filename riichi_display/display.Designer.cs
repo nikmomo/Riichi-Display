@@ -63,14 +63,14 @@
             this.team0.BackColor = System.Drawing.Color.Transparent;
             this.team0.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team0.Location = new System.Drawing.Point(222, 140);
+            this.team0.Location = new System.Drawing.Point(195, 319);
             this.team0.Name = "team0";
             this.team0.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team0.Size = new System.Drawing.Size(262, 50);
             this.team0.TabIndex = 0;
             this.team0.Tag = "team";
             this.team0.Text = "Team1";
-            this.team0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.team0.Visible = false;
             // 
             // name0
@@ -105,14 +105,14 @@
             this.team1.BackColor = System.Drawing.Color.Transparent;
             this.team1.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team1.Location = new System.Drawing.Point(666, 143);
+            this.team1.Location = new System.Drawing.Point(637, 322);
             this.team1.Name = "team1";
             this.team1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team1.Size = new System.Drawing.Size(262, 47);
             this.team1.TabIndex = 3;
             this.team1.Tag = "team";
             this.team1.Text = "Team2";
-            this.team1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.team1.Visible = false;
             // 
             // name1
@@ -147,14 +147,14 @@
             this.team2.BackColor = System.Drawing.Color.Transparent;
             this.team2.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team2.Location = new System.Drawing.Point(1111, 143);
+            this.team2.Location = new System.Drawing.Point(1082, 322);
             this.team2.Name = "team2";
             this.team2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team2.Size = new System.Drawing.Size(262, 47);
             this.team2.TabIndex = 6;
             this.team2.Tag = "team";
             this.team2.Text = "Team1";
-            this.team2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.team2.Visible = false;
             // 
             // name2
@@ -189,14 +189,14 @@
             this.team3.BackColor = System.Drawing.Color.Transparent;
             this.team3.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team3.Location = new System.Drawing.Point(1554, 143);
+            this.team3.Location = new System.Drawing.Point(1527, 322);
             this.team3.Name = "team3";
             this.team3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team3.Size = new System.Drawing.Size(262, 47);
             this.team3.TabIndex = 9;
             this.team3.Tag = "team";
             this.team3.Text = "Team1";
-            this.team3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.team3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.team3.Visible = false;
             // 
             // name3
@@ -229,57 +229,57 @@
             // addup0
             // 
             this.addup0.BackColor = System.Drawing.Color.Transparent;
-            this.addup0.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup0.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup0.Location = new System.Drawing.Point(218, 62);
+            this.addup0.Location = new System.Drawing.Point(210, 120);
             this.addup0.Name = "addup0";
             this.addup0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup0.Size = new System.Drawing.Size(274, 78);
+            this.addup0.Size = new System.Drawing.Size(274, 63);
             this.addup0.TabIndex = 14;
             this.addup0.Text = "+0";
-            this.addup0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup0.Visible = false;
             // 
             // addup1
             // 
             this.addup1.BackColor = System.Drawing.Color.Transparent;
-            this.addup1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup1.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup1.Location = new System.Drawing.Point(654, 65);
+            this.addup1.Location = new System.Drawing.Point(655, 120);
             this.addup1.Name = "addup1";
             this.addup1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup1.Size = new System.Drawing.Size(274, 78);
+            this.addup1.Size = new System.Drawing.Size(274, 61);
             this.addup1.TabIndex = 15;
             this.addup1.Text = "+0";
-            this.addup1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup1.Visible = false;
             // 
             // addup2
             // 
             this.addup2.BackColor = System.Drawing.Color.Transparent;
-            this.addup2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup2.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup2.Location = new System.Drawing.Point(1099, 65);
+            this.addup2.Location = new System.Drawing.Point(1100, 120);
             this.addup2.Name = "addup2";
             this.addup2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup2.Size = new System.Drawing.Size(274, 78);
+            this.addup2.Size = new System.Drawing.Size(274, 61);
             this.addup2.TabIndex = 16;
             this.addup2.Text = "+0";
-            this.addup2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup2.Visible = false;
             // 
             // addup3
             // 
             this.addup3.BackColor = System.Drawing.Color.Transparent;
-            this.addup3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addup3.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup3.Location = new System.Drawing.Point(1542, 65);
+            this.addup3.Location = new System.Drawing.Point(1543, 120);
             this.addup3.Name = "addup3";
             this.addup3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup3.Size = new System.Drawing.Size(274, 78);
+            this.addup3.Size = new System.Drawing.Size(274, 61);
             this.addup3.TabIndex = 17;
             this.addup3.Text = "+0";
-            this.addup3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addup3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup3.Visible = false;
             // 
             // riichi1
@@ -363,6 +363,9 @@
             this.BackgroundImage = global::riichi_display.Properties.Resources.main_background;
             this.ClientSize = new System.Drawing.Size(1896, 378);
             this.ControlBox = false;
+            this.Controls.Add(this.addup1);
+            this.Controls.Add(this.addup2);
+            this.Controls.Add(this.addup3);
             this.Controls.Add(this.nonuse);
             this.Controls.Add(this.riichi2);
             this.Controls.Add(this.riichi3);
@@ -382,9 +385,6 @@
             this.Controls.Add(this.point1);
             this.Controls.Add(this.name0);
             this.Controls.Add(this.point0);
-            this.Controls.Add(this.addup1);
-            this.Controls.Add(this.addup2);
-            this.Controls.Add(this.addup3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1912, 400);
             this.Name = "display";
