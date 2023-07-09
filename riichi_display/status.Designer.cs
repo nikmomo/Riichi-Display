@@ -52,6 +52,7 @@
             baopai.Size = new System.Drawing.Size(50, 82);
             baopai.TabIndex = 7;
             baopai.Text = "宝\r\n牌";
+            baopai.Visible = false;
             // 
             // round
             // 
@@ -99,6 +100,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(71, 112);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // pictureBox1
             // 

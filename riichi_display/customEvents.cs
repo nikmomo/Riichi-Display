@@ -64,4 +64,13 @@ namespace riichi_display
         public int Kyutaku { get; private set; }
         public int Combo { get; private set; }
     }
+
+    public class RoundUpdateEvent : EventArgs
+    {
+        public RoundUpdateEvent(string round)
+        {
+            Round = round;
+        }
+        public string Round { get; private set; }
+    }
 }

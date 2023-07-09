@@ -73,12 +73,20 @@ namespace riichi_display
         }
 
         // Increase combo by one.
-        public void AddCombo() { combo++; }
+        public void AddCombo() 
+        { 
+            combo++;
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+        }
 
         // Increase kyutaku by one.
-        public void AddKyutaku() { kyutaku++; }
+        public void AddKyutaku() 
+        { 
+            kyutaku++; 
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+        }
 
-        public int getKyutaku() { return kyutaku; }
+            public int getKyutaku() { return kyutaku; }
 
         public int getCombo() { return combo; }
 
@@ -101,7 +109,11 @@ namespace riichi_display
             var result = value / 100;
             return result * 100;
         }
-        public void clearRiichi() { kyutaku = 0; }
+        public void clearRiichi() 
+        { 
+            kyutaku = 0;
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+        }
 
     }
 }

@@ -89,6 +89,8 @@
             this.teamlock = new System.Windows.Forms.Button();
             this.namelock = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
+            this.baopai = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             pointgroup = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -205,6 +207,7 @@
             // 
             this.playerList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.playerList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.playerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.playerList.FormattingEnabled = true;
             this.playerList.Items.AddRange(new object[] {
             "三家",
@@ -407,7 +410,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 413);
+            this.label5.Location = new System.Drawing.Point(126, 420);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 41;
@@ -416,11 +419,11 @@
             // riichisticks
             // 
             this.riichisticks.AutoSize = true;
-            this.riichisticks.Location = new System.Drawing.Point(33, 413);
+            this.riichisticks.Location = new System.Drawing.Point(32, 420);
             this.riichisticks.Name = "riichisticks";
-            this.riichisticks.Size = new System.Drawing.Size(73, 20);
+            this.riichisticks.Size = new System.Drawing.Size(41, 20);
             this.riichisticks.TabIndex = 40;
-            this.riichisticks.Text = "当前场供";
+            this.riichisticks.Text = "场供";
             // 
             // combo
             // 
@@ -428,7 +431,7 @@
             this.combo.AcceptsTab = true;
             this.combo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.combo.Enabled = false;
-            this.combo.Location = new System.Drawing.Point(218, 408);
+            this.combo.Location = new System.Drawing.Point(172, 417);
             this.combo.MaxLength = 20;
             this.combo.Name = "combo";
             this.combo.Size = new System.Drawing.Size(32, 26);
@@ -443,10 +446,10 @@
             this.kyutaku.AcceptsTab = true;
             this.kyutaku.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.kyutaku.Enabled = false;
-            this.kyutaku.Location = new System.Drawing.Point(112, 410);
+            this.kyutaku.Location = new System.Drawing.Point(79, 415);
             this.kyutaku.MaxLength = 20;
             this.kyutaku.Name = "kyutaku";
-            this.kyutaku.Size = new System.Drawing.Size(36, 26);
+            this.kyutaku.Size = new System.Drawing.Size(32, 26);
             this.kyutaku.TabIndex = 33;
             this.kyutaku.Text = "0";
             this.kyutaku.WordWrap = false;
@@ -711,7 +714,7 @@
             // button7
             // 
             this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(480, 408);
+            this.button7.Location = new System.Drawing.Point(513, 408);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 37);
             this.button7.TabIndex = 44;
@@ -734,7 +737,7 @@
             // draw
             // 
             this.draw.AutoSize = true;
-            this.draw.Location = new System.Drawing.Point(599, 408);
+            this.draw.Location = new System.Drawing.Point(613, 408);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(75, 37);
             this.draw.TabIndex = 42;
@@ -859,7 +862,7 @@
             this.gameStatusLock.AutoSize = true;
             this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.gameStatusLock.Location = new System.Drawing.Point(388, 408);
+            this.gameStatusLock.Location = new System.Drawing.Point(309, 416);
             this.gameStatusLock.Name = "gameStatusLock";
             this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
             this.gameStatusLock.TabIndex = 48;
@@ -913,6 +916,7 @@
             this.status.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.status.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.status.BackColor = System.Drawing.SystemColors.Window;
+            this.status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.status.Enabled = false;
             this.status.Items.AddRange(new object[] {
             "東一局",
@@ -927,18 +931,55 @@
             "西二局",
             "西三局",
             "西四局"});
-            this.status.Location = new System.Drawing.Point(269, 408);
+            this.status.Location = new System.Drawing.Point(210, 416);
             this.status.MaxLength = 20;
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(100, 28);
+            this.status.Size = new System.Drawing.Size(86, 28);
             this.status.TabIndex = 57;
-            this.status.Text = "東一局";
+            this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
+            // 
+            // baopai
+            // 
+            this.baopai.AutoSize = true;
+            this.baopai.Location = new System.Drawing.Point(342, 418);
+            this.baopai.Name = "baopai";
+            this.baopai.Size = new System.Drawing.Size(41, 20);
+            this.baopai.TabIndex = 58;
+            this.baopai.Text = "宝牌";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
+            this.comboBox1.Items.AddRange(new object[] {
+            "東一局",
+            "東二局",
+            "東三局",
+            "東四局",
+            "南一局",
+            "南二局",
+            "南三局",
+            "南四局",
+            "西一局",
+            "西二局",
+            "西三局",
+            "西四局"});
+            this.comboBox1.Location = new System.Drawing.Point(388, 412);
+            this.comboBox1.MaxLength = 20;
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(86, 28);
+            this.comboBox1.TabIndex = 59;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 460);
+            this.ClientSize = new System.Drawing.Size(840, 458);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.baopai);
             this.Controls.Add(this.status);
             this.Controls.Add(this.winner);
             this.Controls.Add(this.tenpai2);
@@ -1068,6 +1109,8 @@
         private System.Windows.Forms.Button tenpai3;
         private System.Windows.Forms.Label winner;
         private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.Label baopai;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

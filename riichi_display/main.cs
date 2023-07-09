@@ -32,8 +32,10 @@ namespace riichi_display
         private event EventHandler<AddupDisplayEvent> AddupDisplayEvent;
         private event EventHandler<RiichiDisplayEvent> RiichiDisplayEvent;
         private event EventHandler<WindChangeEvent> WindChangeEvent;
+        private event EventHandler<RoundUpdateEvent> RoundUpdateEvent;
 
         private bool isDraw = false;
+        private bool doubleEnter = false;
 
         public mainForm()
         {
@@ -63,6 +65,7 @@ namespace riichi_display
 
             statusForm = new status();
             handler.StatusUpdateEvent += statusForm.StatusUpdate;
+            RoundUpdateEvent += statusForm.RoundUpdate;
             statusForm.Show();
             
             players = new Player[4];
@@ -106,11 +109,14 @@ namespace riichi_display
 
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
+            pointGain.KeyDown += pointGain_KeyDown;
             pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged; // PointGain using same method because requires same functionality
 
             playerList.SelectedIndexChanged += playerList_SelectedIndexChanged;
 
             reset.Click += reset_Click;
+
+            status.SelectedIndex = 0;
         }
 
         // Event handler for textbox focus
@@ -452,15 +458,27 @@ namespace riichi_display
             {
                 e.Handled = true; // Reject the input
             }
+        }
 
-            // Check if the key pressed was Enter
-            if (e.KeyChar == '\r')
+        private void pointGain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                playerList_SelectedIndexChanged(sender, e);
+                // Check if the key pressed was Enter
+                if (!doubleEnter)
+                {
+                    doubleEnter = true;
+                    playerList_SelectedIndexChanged(sender, e);
+                    Console.WriteLine("Waiting Next Enter");
+                }
+                else
+                {
+                    submit_Click(sender, e);
+                    Console.WriteLine("Next Enter Executed");
+                }
             }
         }
 
-        // Arguement remaining here, should riichi -1000 goes to addup? or point?
         private void riichi_clicked(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
@@ -475,11 +493,14 @@ namespace riichi_display
 
             Console.WriteLine(players[n].ToString());
             RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // send riichi update
+            AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent(n, -1000));
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent(button.Tag.ToString())); // send display update event
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
+            doubleEnter = false;
+
             long oyaIndex = 0;
             bool oyaWin = false;
             foreach (Player player in players)
@@ -498,12 +519,18 @@ namespace riichi_display
                 else if (player.Oya)
                 {
                     oyaIndex = player.Index + 1;
+                    ToNextRoundIdicator();
                 }
                 Console.WriteLine(player.ToString());
             }
-            if (isDraw || oyaWin)
+            if (isDraw)
             {
                 handler.AddCombo();
+            }
+            else if (oyaWin)
+            {
+                handler.AddCombo();
+                handler.clearRiichi();
             }
             else
             {
@@ -542,6 +569,7 @@ namespace riichi_display
                 player.Reset();
             handler.Reset();
             oya0.PerformClick();
+            ToNextRoundIdicator(0);
             WindChangeEvent?.Invoke(sender, new WindChangeEvent());
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
@@ -650,6 +678,7 @@ namespace riichi_display
 
         private void PointGain_LostFocus(object sender, EventArgs e)
         {
+            doubleEnter = false;
             PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
             FormUpdate(sender, new FormDisplayUpdateEvent());
         }
@@ -762,7 +791,24 @@ namespace riichi_display
             }
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
         }
-        // TODO: 写一个status的method每次status的item切换了statusform的也会跟随切换
+
+        private void ToNextRoundIdicator()
+        {
+            if (status.SelectedIndex < 7 || (status.SelectedIndex > 8 && status.SelectedIndex < 11))
+                status.SelectedIndex++;
+            else
+                status.SelectedIndex = 0;
+            RoundUpdateEvent?.Invoke(this, new RoundUpdateEvent(status.Text));
+        }
+        private void ToNextRoundIdicator(int index)
+        {
+            status.SelectedIndex = index;
+            RoundUpdateEvent?.Invoke(this, new RoundUpdateEvent(status.Text));
+        }
+
+        private void status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ToNextRoundIdicator(status.SelectedIndex);
+        }
     }
-    // TODO: 刚刚用了send event 代替了call update的method，需要debug并且优化结构
 }
