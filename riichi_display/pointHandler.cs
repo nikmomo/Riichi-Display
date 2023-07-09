@@ -26,8 +26,20 @@ namespace riichi_display
         }
 
         // Public properties for kyutaku and combo.
-        private int Kyutaku { get { return kyutaku; }}
-        private int Combo { get { return combo; } }
+        private int Kyutaku {
+            get { return kyutaku; }
+            set
+            {
+                kyutaku = value;
+                StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            }
+        }
+        private int Combo { 
+            get { return combo; } 
+            set { 
+                combo = value;
+                StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            } }
         public int Tenpai { get { return tenpai; } set { tenpai = value;  } }
         public int FinalAddup { get {
                 var result = finalAddup;
@@ -44,7 +56,7 @@ namespace riichi_display
         }
 
         // Reset combo and kyutaku to zero.
-        public void Reset() { combo = 0; kyutaku = 0; finalAddup = 0; tenpai = 0; }
+        public void Reset() { Combo = 0; Kyutaku = 0; finalAddup = 0; tenpai = 0; }
 
         // Calculate the total point when oyatsumo, return the point that requires to pay by everyone
         // point - The base point.
@@ -75,31 +87,27 @@ namespace riichi_display
         // Increase combo by one.
         public void AddCombo() 
         { 
-            combo++;
-            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            Combo++;
         }
 
         // Increase kyutaku by one.
         public void AddKyutaku() 
         { 
-            kyutaku++; 
-            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            Kyutaku++; 
         }
 
-            public int getKyutaku() { return kyutaku; }
+        public int getKyutaku() { return Kyutaku; }
 
-        public int getCombo() { return combo; }
+        public int getCombo() { return Combo; }
 
         public void setKyutaku(int value) 
         { 
-            kyutaku = value;
-            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            Kyutaku = value;
         }
 
         public void setCombo(int value) 
         { 
-            combo = value;
-            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            Combo = value;
         }
 
         // Rounds a value down to the nearest thousand.
@@ -111,8 +119,7 @@ namespace riichi_display
         }
         public void clearRiichi() 
         { 
-            kyutaku = 0;
-            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
+            Kyutaku = 0;
         }
 
     }

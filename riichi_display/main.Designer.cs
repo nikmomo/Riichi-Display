@@ -1042,7 +1042,7 @@
             this.Controls.Add(pointgroup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
-            this.Text = "洛神雀庄直播点数显示系统";
+            this.Text = "雀庄直播计分显示系统 By Shin Z";
             this.ResumeLayout(false);
             this.PerformLayout();
 
