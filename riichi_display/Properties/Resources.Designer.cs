@@ -173,16 +173,6 @@ namespace riichi_display.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap main_background {
-            get {
-                object obj = ResourceManager.GetObject("main_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
         internal static System.Drawing.Bitmap nan {
             get {
                 object obj = ResourceManager.GetObject("nan", resourceCulture);
@@ -406,16 +396,6 @@ namespace riichi_display.Properties {
         internal static System.Drawing.Bitmap s9 {
             get {
                 object obj = ResourceManager.GetObject("s9", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap status_frame {
-            get {
-                object obj = ResourceManager.GetObject("status_frame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
