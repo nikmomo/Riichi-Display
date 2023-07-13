@@ -8,7 +8,12 @@ namespace riichi_display
 {
     public class TeamControlEvent : EventArgs { }
 
-    public class WindChangeEvent : EventArgs { }
+    public class WindChangeEvent : EventArgs 
+    {
+        public WindChangeEvent() { }
+        public WindChangeEvent(int signal) { Signal = signal; }
+        public int Signal { get; private set; }
+    }
 
     public class DisplayUpdateEvent : EventArgs 
     {
@@ -72,5 +77,21 @@ namespace riichi_display
             Round = round;
         }
         public string Round { get; private set; }
+    }
+
+    public class DoraUpdateEvent : EventArgs
+    {
+        public DoraUpdateEvent(int doraNumber, int index)
+        {
+            DoraNumber = doraNumber;
+            Index = index;
+        }
+        public DoraUpdateEvent()
+        {
+            DoraNumber = 42;
+            Index = 42;
+        }
+        public int DoraNumber { get; private set; }
+        public int Index { get; private set; }
     }
 }

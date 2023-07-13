@@ -18,6 +18,7 @@ namespace riichi_display
         private display displayForm;
         private setting setting;
         private status statusForm;
+        private doraControl doraControl;
 
         //private string currentOya;
         //private string winner;
@@ -33,6 +34,7 @@ namespace riichi_display
         private event EventHandler<RiichiDisplayEvent> RiichiDisplayEvent;
         private event EventHandler<WindChangeEvent> WindChangeEvent;
         private event EventHandler<RoundUpdateEvent> RoundUpdateEvent;
+        private event EventHandler<DoraUpdateEvent> DoraUpdateEvent;
 
         private bool isDraw = false;
         private bool doubleEnter = false;
@@ -41,7 +43,6 @@ namespace riichi_display
         {
             InitializeComponent();
             // Initialize form properties and event handlers
-            PropertySetup();
             PointCalculateEvent += PointUpdate;
             FormDisplayUpdateEvent += FormUpdate;
             DisplayUpdateEvent += DisplayUpdate;
@@ -67,6 +68,10 @@ namespace riichi_display
             handler.StatusUpdateEvent += statusForm.StatusUpdate;
             RoundUpdateEvent += statusForm.RoundUpdate;
             statusForm.Show();
+
+            doraControl = new doraControl();
+
+            doraControl.Show();
             
             players = new Player[4];
             for (int i = 0; i < players.Length; i++)
@@ -75,6 +80,8 @@ namespace riichi_display
                 if (i == 0)
                     players[i].Oya = true;
             }
+
+            PropertySetup();
 
         }
 
@@ -115,6 +122,7 @@ namespace riichi_display
             playerList.SelectedIndexChanged += playerList_SelectedIndexChanged;
 
             reset.Click += reset_Click;
+            reset.Click += doraControl.reset_Click;
 
             status.SelectedIndex = 0;
         }
@@ -308,6 +316,8 @@ namespace riichi_display
         private void windChgeControl(object sender, WindChangeEvent e)
         {
             windControl = !windControl;
+            if (e.Signal == 42)
+                windControl = false;
             displayForm.wind.BackgroundImage = windControl ? Properties.Resources.nan : Properties.Resources.ton;
         }
 
@@ -570,7 +580,7 @@ namespace riichi_display
             handler.Reset();
             oya0.PerformClick();
             ToNextRoundIdicator(0);
-            WindChangeEvent?.Invoke(sender, new WindChangeEvent());
+            WindChangeEvent?.Invoke(sender, new WindChangeEvent(42));
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // send display update event
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
         }
@@ -589,10 +599,6 @@ namespace riichi_display
                 DisplayWindowUpdate(sender, new DisplayWindowUpdateEvent(e.Tag));
             }
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // send form update event
-            //foreach (Player player in players)
-            //{
-            //    AddupDisplayEvent?.Invoke(sender, new AddupDisplayEvent(player.Index, player.Addup)); // send addup update event
-            //}
         }
 
         private void DisplayWindowUpdate(object sender, DisplayWindowUpdateEvent e)
@@ -624,8 +630,6 @@ namespace riichi_display
                             control.Text = player.Team; break;
                         case "point":
                             control.Text = player.Point.ToString(); break;
-                        //case "addup":
-                        //    control.Text = player.Addup.ToString(); break;
                         case nameof(Player.Tenpai):
                             // TODO: Set the tenpai
                         case "oya":

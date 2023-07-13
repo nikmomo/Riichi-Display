@@ -38,15 +38,16 @@
             this.dora3 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dora4 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 20);
+            this.label12.Location = new System.Drawing.Point(18, 12);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 20);
+            this.label12.Size = new System.Drawing.Size(23, 12);
             this.label12.TabIndex = 72;
             this.label12.Text = "宝1";
             // 
@@ -55,8 +56,8 @@
             this.dora0.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dora0.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dora0.BackColor = System.Drawing.SystemColors.Window;
-            this.dora0.Enabled = false;
             this.dora0.Items.AddRange(new object[] {
+            "",
             "1s",
             "2s",
             "3s",
@@ -91,18 +92,21 @@
             "白",
             "发",
             "中"});
-            this.dora0.Location = new System.Drawing.Point(67, 17);
+            this.dora0.Location = new System.Drawing.Point(45, 10);
+            this.dora0.Margin = new System.Windows.Forms.Padding(2);
             this.dora0.MaxLength = 20;
             this.dora0.Name = "dora0";
-            this.dora0.Size = new System.Drawing.Size(86, 28);
+            this.dora0.Size = new System.Drawing.Size(59, 20);
             this.dora0.TabIndex = 71;
+            this.dora0.Tag = "dora";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 54);
+            this.label1.Location = new System.Drawing.Point(18, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 20);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 74;
             this.label1.Text = "宝2";
             // 
@@ -111,8 +115,8 @@
             this.dora1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dora1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dora1.BackColor = System.Drawing.SystemColors.Window;
-            this.dora1.Enabled = false;
             this.dora1.Items.AddRange(new object[] {
+            "",
             "1s",
             "2s",
             "3s",
@@ -147,18 +151,21 @@
             "白",
             "发",
             "中"});
-            this.dora1.Location = new System.Drawing.Point(67, 51);
+            this.dora1.Location = new System.Drawing.Point(45, 31);
+            this.dora1.Margin = new System.Windows.Forms.Padding(2);
             this.dora1.MaxLength = 20;
             this.dora1.Name = "dora1";
-            this.dora1.Size = new System.Drawing.Size(86, 28);
+            this.dora1.Size = new System.Drawing.Size(59, 20);
             this.dora1.TabIndex = 73;
+            this.dora1.Tag = "dora";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 88);
+            this.label2.Location = new System.Drawing.Point(18, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 20);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 76;
             this.label2.Text = "宝3";
             // 
@@ -167,8 +174,8 @@
             this.dora2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dora2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dora2.BackColor = System.Drawing.SystemColors.Window;
-            this.dora2.Enabled = false;
             this.dora2.Items.AddRange(new object[] {
+            "",
             "1s",
             "2s",
             "3s",
@@ -203,18 +210,21 @@
             "白",
             "发",
             "中"});
-            this.dora2.Location = new System.Drawing.Point(67, 85);
+            this.dora2.Location = new System.Drawing.Point(45, 51);
+            this.dora2.Margin = new System.Windows.Forms.Padding(2);
             this.dora2.MaxLength = 20;
             this.dora2.Name = "dora2";
-            this.dora2.Size = new System.Drawing.Size(86, 28);
+            this.dora2.Size = new System.Drawing.Size(59, 20);
             this.dora2.TabIndex = 75;
+            this.dora2.Tag = "dora";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 122);
+            this.label3.Location = new System.Drawing.Point(18, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 78;
             this.label3.Text = "宝4";
             // 
@@ -223,8 +233,8 @@
             this.dora3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dora3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dora3.BackColor = System.Drawing.SystemColors.Window;
-            this.dora3.Enabled = false;
             this.dora3.Items.AddRange(new object[] {
+            "",
             "1s",
             "2s",
             "3s",
@@ -259,18 +269,21 @@
             "白",
             "发",
             "中"});
-            this.dora3.Location = new System.Drawing.Point(67, 119);
+            this.dora3.Location = new System.Drawing.Point(45, 71);
+            this.dora3.Margin = new System.Windows.Forms.Padding(2);
             this.dora3.MaxLength = 20;
             this.dora3.Name = "dora3";
-            this.dora3.Size = new System.Drawing.Size(86, 28);
+            this.dora3.Size = new System.Drawing.Size(59, 20);
             this.dora3.TabIndex = 77;
+            this.dora3.Tag = "dora";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 156);
+            this.label4.Location = new System.Drawing.Point(18, 94);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 20);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 80;
             this.label4.Text = "宝5";
             // 
@@ -279,8 +292,8 @@
             this.dora4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dora4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dora4.BackColor = System.Drawing.SystemColors.Window;
-            this.dora4.Enabled = false;
             this.dora4.Items.AddRange(new object[] {
+            "",
             "1s",
             "2s",
             "3s",
@@ -315,28 +328,32 @@
             "白",
             "发",
             "中"});
-            this.dora4.Location = new System.Drawing.Point(67, 153);
+            this.dora4.Location = new System.Drawing.Point(45, 92);
+            this.dora4.Margin = new System.Windows.Forms.Padding(2);
             this.dora4.MaxLength = 20;
             this.dora4.Name = "dora4";
-            this.dora4.Size = new System.Drawing.Size(86, 28);
+            this.dora4.Size = new System.Drawing.Size(59, 20);
             this.dora4.TabIndex = 79;
+            this.dora4.Tag = "dora";
             // 
-            // button1
+            // reset
             // 
-            this.button1.Location = new System.Drawing.Point(177, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 34);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "重置dora";
-            this.button1.UseVisualStyleBackColor = true;
+            this.reset.Location = new System.Drawing.Point(118, 49);
+            this.reset.Margin = new System.Windows.Forms.Padding(2);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(54, 20);
+            this.reset.TabIndex = 81;
+            this.reset.Text = "重置dora";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // doraControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 198);
+            this.ClientSize = new System.Drawing.Size(183, 119);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dora4);
             this.Controls.Add(this.label3);
@@ -347,7 +364,9 @@
             this.Controls.Add(this.dora1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dora0);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "doraControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Dora管理页";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -366,6 +385,6 @@
         private System.Windows.Forms.ComboBox dora3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox dora4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button reset;
     }
 }
