@@ -89,8 +89,7 @@
             this.teamlock = new System.Windows.Forms.Button();
             this.namelock = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
-            this.baopai = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             pointgroup = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -99,7 +98,7 @@
             pointgroup.CausesValidation = false;
             pointgroup.Location = new System.Drawing.Point(12, 198);
             pointgroup.Name = "pointgroup";
-            pointgroup.Size = new System.Drawing.Size(790, 27);
+            pointgroup.Size = new System.Drawing.Size(662, 27);
             pointgroup.TabIndex = 28;
             pointgroup.TabStop = false;
             pointgroup.Text = "点数控制区";
@@ -107,7 +106,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 337);
+            this.label7.Location = new System.Drawing.Point(610, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(217, 20);
             this.label7.TabIndex = 51;
@@ -146,7 +145,7 @@
             "48000",
             "64000",
             "96000"});
-            this.pointGain.Location = new System.Drawing.Point(474, 334);
+            this.pointGain.Location = new System.Drawing.Point(474, 337);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
             this.pointGain.Size = new System.Drawing.Size(100, 28);
@@ -156,7 +155,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 337);
+            this.label2.Location = new System.Drawing.Point(274, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(179, 20);
             this.label2.TabIndex = 48;
@@ -168,7 +167,7 @@
             this.addup3.AcceptsTab = true;
             this.addup3.BackColor = System.Drawing.SystemColors.Window;
             this.addup3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup3.Location = new System.Drawing.Point(564, 368);
+            this.addup3.Location = new System.Drawing.Point(564, 371);
             this.addup3.MaxLength = 20;
             this.addup3.Name = "addup3";
             this.addup3.ReadOnly = true;
@@ -181,7 +180,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 337);
+            this.label6.Location = new System.Drawing.Point(42, 340);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 50;
@@ -193,7 +192,7 @@
             this.addup2.AcceptsTab = true;
             this.addup2.BackColor = System.Drawing.SystemColors.Window;
             this.addup2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup2.Location = new System.Drawing.Point(422, 368);
+            this.addup2.Location = new System.Drawing.Point(422, 371);
             this.addup2.MaxLength = 20;
             this.addup2.Name = "addup2";
             this.addup2.ReadOnly = true;
@@ -215,7 +214,7 @@
             "PLAYER2",
             "PLAYER3",
             "PLAYER4"});
-            this.playerList.Location = new System.Drawing.Point(130, 334);
+            this.playerList.Location = new System.Drawing.Point(120, 337);
             this.playerList.Name = "playerList";
             this.playerList.Size = new System.Drawing.Size(126, 28);
             this.playerList.TabIndex = 39;
@@ -239,7 +238,7 @@
             this.addup1.AcceptsTab = true;
             this.addup1.BackColor = System.Drawing.SystemColors.Window;
             this.addup1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup1.Location = new System.Drawing.Point(284, 368);
+            this.addup1.Location = new System.Drawing.Point(284, 371);
             this.addup1.MaxLength = 20;
             this.addup1.Name = "addup1";
             this.addup1.ReadOnly = true;
@@ -252,7 +251,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 375);
+            this.label4.Location = new System.Drawing.Point(32, 378);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 23;
@@ -277,7 +276,7 @@
             this.addup0.AcceptsTab = true;
             this.addup0.BackColor = System.Drawing.SystemColors.Window;
             this.addup0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.addup0.Location = new System.Drawing.Point(146, 368);
+            this.addup0.Location = new System.Drawing.Point(146, 371);
             this.addup0.MaxLength = 20;
             this.addup0.Name = "addup0";
             this.addup0.ReadOnly = true;
@@ -291,7 +290,7 @@
             // 
             this.submit.AutoSize = true;
             this.submit.Enabled = false;
-            this.submit.Location = new System.Drawing.Point(694, 363);
+            this.submit.Location = new System.Drawing.Point(696, 366);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(96, 37);
             this.submit.TabIndex = 22;
@@ -410,7 +409,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(126, 420);
+            this.label5.Location = new System.Drawing.Point(126, 419);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 41;
@@ -419,7 +418,7 @@
             // riichisticks
             // 
             this.riichisticks.AutoSize = true;
-            this.riichisticks.Location = new System.Drawing.Point(32, 420);
+            this.riichisticks.Location = new System.Drawing.Point(32, 419);
             this.riichisticks.Name = "riichisticks";
             this.riichisticks.Size = new System.Drawing.Size(41, 20);
             this.riichisticks.TabIndex = 40;
@@ -431,7 +430,7 @@
             this.combo.AcceptsTab = true;
             this.combo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.combo.Enabled = false;
-            this.combo.Location = new System.Drawing.Point(172, 417);
+            this.combo.Location = new System.Drawing.Point(172, 416);
             this.combo.MaxLength = 20;
             this.combo.Name = "combo";
             this.combo.Size = new System.Drawing.Size(32, 26);
@@ -446,7 +445,7 @@
             this.kyutaku.AcceptsTab = true;
             this.kyutaku.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.kyutaku.Enabled = false;
-            this.kyutaku.Location = new System.Drawing.Point(79, 415);
+            this.kyutaku.Location = new System.Drawing.Point(79, 414);
             this.kyutaku.MaxLength = 20;
             this.kyutaku.Name = "kyutaku";
             this.kyutaku.Size = new System.Drawing.Size(32, 26);
@@ -714,7 +713,7 @@
             // button7
             // 
             this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(513, 408);
+            this.button7.Location = new System.Drawing.Point(565, 413);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 37);
             this.button7.TabIndex = 44;
@@ -726,7 +725,7 @@
             // reset
             // 
             this.reset.AutoSize = true;
-            this.reset.Location = new System.Drawing.Point(694, 408);
+            this.reset.Location = new System.Drawing.Point(746, 413);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(94, 37);
             this.reset.TabIndex = 43;
@@ -737,7 +736,7 @@
             // draw
             // 
             this.draw.AutoSize = true;
-            this.draw.Location = new System.Drawing.Point(613, 408);
+            this.draw.Location = new System.Drawing.Point(665, 413);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(75, 37);
             this.draw.TabIndex = 42;
@@ -862,7 +861,7 @@
             this.gameStatusLock.AutoSize = true;
             this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.gameStatusLock.Location = new System.Drawing.Point(309, 416);
+            this.gameStatusLock.Location = new System.Drawing.Point(309, 415);
             this.gameStatusLock.Name = "gameStatusLock";
             this.gameStatusLock.Size = new System.Drawing.Size(27, 27);
             this.gameStatusLock.TabIndex = 48;
@@ -875,7 +874,7 @@
             this.pointLock.AutoSize = true;
             this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pointLock.Location = new System.Drawing.Point(696, 153);
+            this.pointLock.Location = new System.Drawing.Point(672, 153);
             this.pointLock.Name = "pointLock";
             this.pointLock.Size = new System.Drawing.Size(27, 27);
             this.pointLock.TabIndex = 16;
@@ -888,7 +887,7 @@
             this.teamlock.AutoSize = true;
             this.teamlock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.teamlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.teamlock.Location = new System.Drawing.Point(696, 73);
+            this.teamlock.Location = new System.Drawing.Point(672, 73);
             this.teamlock.MaximumSize = new System.Drawing.Size(34, 33);
             this.teamlock.Name = "teamlock";
             this.teamlock.Size = new System.Drawing.Size(27, 27);
@@ -903,7 +902,7 @@
             this.namelock.AutoSize = true;
             this.namelock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
             this.namelock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.namelock.Location = new System.Drawing.Point(696, 115);
+            this.namelock.Location = new System.Drawing.Point(672, 115);
             this.namelock.Name = "namelock";
             this.namelock.Size = new System.Drawing.Size(27, 27);
             this.namelock.TabIndex = 4;
@@ -931,55 +930,30 @@
             "西二局",
             "西三局",
             "西四局"});
-            this.status.Location = new System.Drawing.Point(210, 416);
+            this.status.Location = new System.Drawing.Point(210, 415);
             this.status.MaxLength = 20;
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(86, 28);
             this.status.TabIndex = 57;
             this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
             // 
-            // baopai
+            // button1
             // 
-            this.baopai.AutoSize = true;
-            this.baopai.Location = new System.Drawing.Point(342, 418);
-            this.baopai.Name = "baopai";
-            this.baopai.Size = new System.Drawing.Size(41, 20);
-            this.baopai.TabIndex = 58;
-            this.baopai.Text = "宝牌";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.Items.AddRange(new object[] {
-            "東一局",
-            "東二局",
-            "東三局",
-            "東四局",
-            "南一局",
-            "南二局",
-            "南三局",
-            "南四局",
-            "西一局",
-            "西二局",
-            "西三局",
-            "西四局"});
-            this.comboBox1.Location = new System.Drawing.Point(388, 412);
-            this.comboBox1.MaxLength = 20;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(86, 28);
-            this.comboBox1.TabIndex = 59;
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(465, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 37);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "宝牌管理";
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 458);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.baopai);
+            this.ClientSize = new System.Drawing.Size(858, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.status);
             this.Controls.Add(this.winner);
             this.Controls.Add(this.tenpai2);
@@ -1109,8 +1083,7 @@
         private System.Windows.Forms.Button tenpai3;
         private System.Windows.Forms.Label winner;
         private System.Windows.Forms.ComboBox status;
-        private System.Windows.Forms.Label baopai;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

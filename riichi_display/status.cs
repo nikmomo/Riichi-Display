@@ -27,5 +27,6 @@ namespace riichi_display
         {
             round.Text = e.Round;
         }
+
     }
 }

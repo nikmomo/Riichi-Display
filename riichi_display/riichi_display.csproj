@@ -65,6 +65,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="doraControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="doraControl.Designer.cs">
+      <DependentUpon>doraControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PointHandler.cs" />
     <Compile Include="CustomEvents.cs" />
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="display.resx">
       <DependentUpon>display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="doraControl.resx">
+      <DependentUpon>doraControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
