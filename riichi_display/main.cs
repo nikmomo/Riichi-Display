@@ -323,6 +323,7 @@ namespace riichi_display
                 setting = new setting();
                 setting.teamCtrlEvent += changeTeamControl;
                 setting.WindChgeEvent += windChgeControl;
+                setting.windIndicator.Click += (s, p) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
             }
             setting.Show();
         }
@@ -500,8 +501,8 @@ namespace riichi_display
                 control.PerformClick();
             }
 
-            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
             NextRound();
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
         }
 
         // Event handler for clicking on the reset button
@@ -755,6 +756,8 @@ namespace riichi_display
                 }
                 else
                 {
+                    if (propertyName == "Addup")
+                        return;
                     // For other properties, we can use our new method to update the control
                     var property = typeof(Player).GetProperty(char.ToUpper(propertyName[0]) + propertyName.Substring(1));
                     if (property != null)
@@ -878,6 +881,8 @@ namespace riichi_display
 
         private void UpdateControl(Form form, Player player, string propertyName, object newValue)
         {
+            if (propertyName == "addup" && form != this)
+                return;
             string controlName = propertyName.ToLower() + player.Index; // constructing control name
             var control = form.Controls.Find(controlName, true).FirstOrDefault();
 

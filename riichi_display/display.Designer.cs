@@ -395,7 +395,7 @@ namespace riichi_display
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1264, 217);
+            this.ClientSize = new System.Drawing.Size(1264, 240);
             this.ControlBox = false;
             this.Controls.Add(this.addup1);
             this.Controls.Add(this.addup2);
@@ -450,7 +450,6 @@ namespace riichi_display
         public System.Windows.Forms.Label name3;
         public System.Windows.Forms.Label point3;
         public System.Windows.Forms.PictureBox wind;
-        public System.Windows.Forms.Label addup0;
         public System.Windows.Forms.Label addup1;
         public System.Windows.Forms.Label addup2;
         public System.Windows.Forms.Label addup3;
@@ -459,5 +458,6 @@ namespace riichi_display
         private System.Windows.Forms.PictureBox riichi2;
         private System.Windows.Forms.PictureBox riichi3;
         private System.Windows.Forms.Label nonuse;
+        private System.Windows.Forms.Label addup0;
     }
 }
