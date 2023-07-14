@@ -28,12 +28,19 @@ using System.Windows.Forms;
 
 namespace riichi_display
 {
+    // Define a partial class 'status' which extends 'Form'
     public partial class status : Form
     {
-        Image[] doraList; 
+        // Declare an Image array to store the list of Dora indicators
+        Image[] doraList;
+
+        // Default constructor for the 'status' class
         public status()
         {
+            // Call the InitializeComponent method from the designer file
             InitializeComponent();
+
+            // Initialize doraList with image resources
             doraList = new Image[]{
             null,
             Properties.Resources.s1,
@@ -73,30 +80,43 @@ namespace riichi_display
             };
         }
 
+        // Method to update the status of Kyutaku and Combo 
+        // based on the 'StatusUpdateEvent'
         public void StatusUpdate(object sender, StatusUpdateEvent e)
         {
+            // update the 'kyutaku' and 'combo' text fields
             kyutaku.Text = e.Kyutaku.ToString();
             combo.Text = e.Combo.ToString();
         }
 
+        // Method to update the round text based on the 'RoundUpdateEvent'
         public void RoundUpdate(object sender, RoundUpdateEvent e)
         {
+            // Update the 'round' text field
             round.Text = e.Round;
         }
 
+        // Method to update the dora indicators based on the 'DoraUpdateEvent'
         public void DoraUpdate(object sender, DoraUpdateEvent e)
         {
+            // Find the relevant control based on the dora number
             var control = this.Controls.Find("dora" + e.DoraNumber, true).FirstOrDefault();
-            if (control == null) 
+
+            // If the control is not found, throw an exception
+            if (control == null)
             {
                 throw new Exception("Error @DoraUpdate, control not found! Index: " + e.DoraNumber);
             }
+
+            // If the index of the dora is 0, make the control invisible
             if (e.Index == 0)
             {
                 control.Visible = false;
             }
             else
             {
+                // If the index is not 0, make the control visible and update 
+                // its background image to the corresponding dora image
                 control.Visible = true;
                 control.BackgroundImage = doraList[e.Index];
             }

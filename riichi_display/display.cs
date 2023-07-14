@@ -30,63 +30,78 @@ namespace riichi_display
 {
     public partial class display : Form
     {
+        // Initialize a timer with a 5-second interval
+        private readonly Timer timer = new Timer { Interval = 5000 };
+
         public display()
         {
             InitializeComponent();
+
+            // Define an event handler for the timer's Tick event
+            timer.Tick += (s, e) =>
+            {
+                ClearAddupControls();
+                // Stop the timer to prevent it from ticking again
+                timer.Stop();
+                // Dispose the timer
+                timer.Dispose();
+            };
         }
-        
+
         public void RiichiSwitch(object sender, RiichiDisplayEvent e)
         {
-            Control control = this.Controls.Find("riichi" + e.Index, true).FirstOrDefault() as System.Windows.Forms.Control;
-            control.Visible = e.Show;
+            UpdateControlVisibility("riichi" + e.Index, e.Show);
         }
 
         public void AddupUpdate(object sender, AddupDisplayEvent e)
         {
-            if (e.Index == 42) // 42 means clear instruction sent
+            if (e.Index == 42)
             {
-                ClearAddupControlsAfterDelay();
+                timer.Start();
             }
-            else if (e.Point == 0)
+            else if (e.Point != 0)
             {
-                return;
-            }
-            else // update the target addup
-            {
-                Control control = this.Controls.Find("addup" + e.Index, true).FirstOrDefault() as System.Windows.Forms.Control;
-                control.Text = e.Point.ToString();
-                if (e.Point < 0)
-                {
-                    control.ForeColor = Color.DarkRed;
-                    control.Text = e.Point.ToString();
-                }
-                else
-                {
-                    control.ForeColor = Color.White;
-                    control.Text = '+' + e.Point.ToString();
-                }
-                control.Visible = true;
-                
-                ClearAddupControlsAfterDelay();
+                UpdateAddupControl("addup" + e.Index, e.Point);
+                timer.Start();
             }
         }
 
-        private void ClearAddupControlsAfterDelay()
+        private void UpdateControlVisibility(string controlName, bool isVisible)
         {
-            Timer timer = new Timer();
-            timer.Interval = 5000; // 5 seconds
+            Control control = this.Controls.Find(controlName, true).FirstOrDefault();
 
-            timer.Tick += (s, e) =>
+            if (control != null)
             {
-                addup0.Visible = false;
-                addup1.Visible = false;
-                addup2.Visible = false;
-                addup3.Visible = false;
-                ((Timer)s).Stop(); // Stop the timer to prevent it from ticking again
-            };
-
-            timer.Start();
+                control.Visible = isVisible;
+            }
+            else
+            {
+                throw new Exception($"Control with name {controlName} not found!");
+            }
         }
 
+        private void UpdateAddupControl(string controlName, int point)
+        {
+            Control control = this.Controls.Find(controlName, true).FirstOrDefault();
+
+            if (control != null)
+            {
+                control.ForeColor = point < 0 ? Color.DarkRed : Color.White;
+                control.Text = (point < 0 ? "" : "+") + point.ToString();
+                control.Visible = true;
+            }
+            else
+            {
+                throw new Exception($"Control with name {controlName} not found!");
+            }
+        }
+
+        private void ClearAddupControls()
+        {
+            addup0.Visible = false;
+            addup1.Visible = false;
+            addup2.Visible = false;
+            addup3.Visible = false;
+        }
     }
 }

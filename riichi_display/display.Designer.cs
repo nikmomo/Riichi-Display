@@ -256,7 +256,7 @@ namespace riichi_display
             this.addup0.BackColor = System.Drawing.Color.Transparent;
             this.addup0.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup0.Location = new System.Drawing.Point(140, 36);
+            this.addup0.Location = new System.Drawing.Point(140, 32);
             this.addup0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup0.Name = "addup0";
             this.addup0.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -271,7 +271,7 @@ namespace riichi_display
             this.addup1.BackColor = System.Drawing.Color.Transparent;
             this.addup1.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup1.Location = new System.Drawing.Point(437, 36);
+            this.addup1.Location = new System.Drawing.Point(437, 32);
             this.addup1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup1.Name = "addup1";
             this.addup1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -286,7 +286,7 @@ namespace riichi_display
             this.addup2.BackColor = System.Drawing.Color.Transparent;
             this.addup2.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup2.Location = new System.Drawing.Point(733, 36);
+            this.addup2.Location = new System.Drawing.Point(733, 32);
             this.addup2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup2.Name = "addup2";
             this.addup2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -301,7 +301,7 @@ namespace riichi_display
             this.addup3.BackColor = System.Drawing.Color.Transparent;
             this.addup3.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup3.Location = new System.Drawing.Point(1029, 36);
+            this.addup3.Location = new System.Drawing.Point(1029, 32);
             this.addup3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup3.Name = "addup3";
             this.addup3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -395,7 +395,7 @@ namespace riichi_display
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1264, 240);
+            this.ClientSize = new System.Drawing.Size(1264, 217);
             this.ControlBox = false;
             this.Controls.Add(this.addup1);
             this.Controls.Add(this.addup2);

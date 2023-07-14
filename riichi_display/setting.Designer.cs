@@ -48,14 +48,16 @@ namespace riichi_display
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setting));
             this.hideTeam = new System.Windows.Forms.Button();
             this.windSwitch = new System.Windows.Forms.Button();
+            this.windIndicator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hideTeam
             // 
             this.hideTeam.AutoSize = true;
-            this.hideTeam.Location = new System.Drawing.Point(150, 33);
+            this.hideTeam.Location = new System.Drawing.Point(11, 53);
+            this.hideTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.hideTeam.Name = "hideTeam";
-            this.hideTeam.Size = new System.Drawing.Size(151, 30);
+            this.hideTeam.Size = new System.Drawing.Size(117, 22);
             this.hideTeam.TabIndex = 48;
             this.hideTeam.Text = "关闭/启用团队名称";
             this.hideTeam.UseMnemonic = false;
@@ -65,23 +67,38 @@ namespace riichi_display
             // windSwitch
             // 
             this.windSwitch.AutoSize = true;
-            this.windSwitch.Location = new System.Drawing.Point(150, 78);
+            this.windSwitch.Location = new System.Drawing.Point(132, 20);
+            this.windSwitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.windSwitch.Name = "windSwitch";
-            this.windSwitch.Size = new System.Drawing.Size(151, 30);
+            this.windSwitch.Size = new System.Drawing.Size(101, 22);
             this.windSwitch.TabIndex = 49;
             this.windSwitch.Text = "场风切换";
             this.windSwitch.UseMnemonic = false;
             this.windSwitch.UseVisualStyleBackColor = true;
             this.windSwitch.Click += new System.EventHandler(this.button1_Click);
             // 
+            // windIndicator
+            // 
+            this.windIndicator.AutoSize = true;
+            this.windIndicator.Location = new System.Drawing.Point(11, 20);
+            this.windIndicator.Margin = new System.Windows.Forms.Padding(2);
+            this.windIndicator.Name = "windIndicator";
+            this.windIndicator.Size = new System.Drawing.Size(117, 22);
+            this.windIndicator.TabIndex = 50;
+            this.windIndicator.Text = "关闭/启用场风指示";
+            this.windIndicator.UseMnemonic = false;
+            this.windIndicator.UseVisualStyleBackColor = true;
+            // 
             // setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 143);
+            this.ClientSize = new System.Drawing.Size(253, 88);
+            this.Controls.Add(this.windIndicator);
             this.Controls.Add(this.windSwitch);
             this.Controls.Add(this.hideTeam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "setting";
             this.Text = "setting";
             this.ResumeLayout(false);
@@ -93,5 +110,6 @@ namespace riichi_display
 
         private System.Windows.Forms.Button hideTeam;
         private System.Windows.Forms.Button windSwitch;
+        public System.Windows.Forms.Button windIndicator;
     }
 }

@@ -23,26 +23,34 @@ using System.Threading.Tasks;
 
 namespace riichi_display
 {
+    // Empty event used for team control
     public class TeamControlEvent : EventArgs { }
 
-    public class WindChangeEvent : EventArgs 
+    // Event used to change wind (player turn) in game
+    public class WindChangeEvent : EventArgs
     {
         public WindChangeEvent() { }
         public WindChangeEvent(int signal) { Signal = signal; }
+        // Signal property to control wind change direction or reset
         public int Signal { get; private set; }
     }
 
-    public class DisplayUpdateEvent : EventArgs 
+    // Base event used for updating various displays
+    public class DisplayUpdateEvent : EventArgs
     {
         public DisplayUpdateEvent() { }
         public DisplayUpdateEvent(string tag) { Tag = tag; }
+        // Tag property to differentiate display types
         public string Tag { get; private set; }
     }
 
+    // Event to trigger point calculation
     public class PointCalculateEvent : EventArgs { }
 
+    // Event for updating main form display
     public class FormDisplayUpdateEvent : DisplayUpdateEvent { }
 
+    // Event for updating secondary display window
     public class DisplayWindowUpdateEvent : DisplayUpdateEvent
     {
         public DisplayWindowUpdateEvent(string tag) : base(tag)
@@ -50,20 +58,24 @@ namespace riichi_display
         }
     }
 
+    // Event for updating add-up point display
     public class AddupDisplayEvent : EventArgs
     {
-        public AddupDisplayEvent() { Index = 42; }
+        public AddupDisplayEvent() { Index = 42; } // Default value to signal reset
         public AddupDisplayEvent(int index, int point)
         {
             this.Index = index;
             this.Point = point;
         }
 
+        // Index of player whose add-up points are to be displayed
         public int Index { get; private set; }
 
+        // Point value to be displayed
         public int Point { get; private set; }
     }
 
+    // Event for showing or hiding Riichi stick display
     public class RiichiDisplayEvent : EventArgs
     {
         public RiichiDisplayEvent(int index, bool show)
@@ -72,30 +84,41 @@ namespace riichi_display
             this.Show = show;
         }
 
+        // Index of player for whom the display is affected
         public int Index { get; private set; }
+
+        // Show or hide the Riichi stick
         public bool Show { get; private set; }
     }
 
-    public class StatusUpdateEvent : EventArgs 
+    // Event to update game status displays (Kyutaku and Combo)
+    public class StatusUpdateEvent : EventArgs
     {
-        public StatusUpdateEvent(int kyutaku, int combo) 
-        { 
+        public StatusUpdateEvent(int kyutaku, int combo)
+        {
             Kyutaku = kyutaku;
             Combo = combo;
         }
+
+        // Number of sticks in the Kyutaku
         public int Kyutaku { get; private set; }
+
+        // Combo count (number of consecutive hands won by the dealer)
         public int Combo { get; private set; }
     }
 
+    // Event to update round display
     public class RoundUpdateEvent : EventArgs
     {
         public RoundUpdateEvent(string round)
         {
             Round = round;
         }
+        // Current round of the game
         public string Round { get; private set; }
     }
 
+    // Event to update Dora display
     public class DoraUpdateEvent : EventArgs
     {
         public DoraUpdateEvent(int doraNumber, int index)
@@ -103,12 +126,18 @@ namespace riichi_display
             DoraNumber = doraNumber;
             Index = index;
         }
+
+        // Default constructor sets DoraNumber and Index to 42 to signal reset
         public DoraUpdateEvent()
         {
             DoraNumber = 42;
             Index = 42;
         }
+
+        // Current Dora indicator number
         public int DoraNumber { get; private set; }
+
+        // Index of player for whom the Dora indicator is displayed
         public int Index { get; private set; }
     }
 }

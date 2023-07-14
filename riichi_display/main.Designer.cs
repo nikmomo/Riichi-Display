@@ -1074,24 +1074,24 @@ namespace riichi_display
 
         #endregion
 
-        public System.Windows.Forms.TextBox name0;
-        public System.Windows.Forms.TextBox name1;
-        public System.Windows.Forms.TextBox name2;
-        public System.Windows.Forms.TextBox name3;
+        private System.Windows.Forms.TextBox name0;
+        private System.Windows.Forms.TextBox name1;
+        private System.Windows.Forms.TextBox name2;
+        private System.Windows.Forms.TextBox name3;
         private System.Windows.Forms.Button namelock;
         private System.Windows.Forms.Button teamlock;
-        public System.Windows.Forms.TextBox teamname3;
-        public System.Windows.Forms.TextBox teamname2;
-        public System.Windows.Forms.TextBox teamname1;
-        public System.Windows.Forms.TextBox teamname0;
+        private System.Windows.Forms.TextBox teamname3;
+        private System.Windows.Forms.TextBox teamname2;
+        private System.Windows.Forms.TextBox teamname1;
+        private System.Windows.Forms.TextBox teamname0;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label teamLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button pointLock;
-        public System.Windows.Forms.TextBox point3;
-        public System.Windows.Forms.TextBox point2;
-        public System.Windows.Forms.TextBox point1;
-        public System.Windows.Forms.TextBox point0;
+        private System.Windows.Forms.TextBox point3;
+        private System.Windows.Forms.TextBox point2;
+        private System.Windows.Forms.TextBox point1;
+        private System.Windows.Forms.TextBox point0;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.TextBox addup3;
