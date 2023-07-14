@@ -1,4 +1,21 @@
-﻿namespace riichi_display
+﻿/*
+This file is part of Riichi Mahjong Livestreaming Display System.
+
+Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Riichi Mahjong Livestreaming Display System is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Riichi Mahjong Livestreaming Display System.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+namespace riichi_display
 {
     partial class display
     {
@@ -378,7 +395,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1264, 217);
+            this.ClientSize = new System.Drawing.Size(1264, 240);
             this.ControlBox = false;
             this.Controls.Add(this.addup1);
             this.Controls.Add(this.addup2);

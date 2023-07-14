@@ -1,4 +1,21 @@
-﻿using riichi_display.Properties;
+﻿/*
+This file is part of Riichi Mahjong Livestreaming Display System.
+
+Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Riichi Mahjong Livestreaming Display System is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Riichi Mahjong Livestreaming Display System.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+using riichi_display.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +30,11 @@ namespace riichi_display
 {
     public partial class status : Form
     {
-        object[] doraList; 
+        Image[] doraList; 
         public status()
         {
             InitializeComponent();
-            doraList = new object[]{
+            doraList = new Image[]{
             null,
             Properties.Resources.s1,
             Properties.Resources.s2,
@@ -67,5 +84,22 @@ namespace riichi_display
             round.Text = e.Round;
         }
 
+        public void DoraUpdate(object sender, DoraUpdateEvent e)
+        {
+            var control = this.Controls.Find("dora" + e.DoraNumber, true).FirstOrDefault();
+            if (control == null) 
+            {
+                throw new Exception("Error @DoraUpdate, control not found! Index: " + e.DoraNumber);
+            }
+            if (e.Index == 0)
+            {
+                control.Visible = false;
+            }
+            else
+            {
+                control.Visible = true;
+                control.BackgroundImage = doraList[e.Index];
+            }
+        }
     }
 }

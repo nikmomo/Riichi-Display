@@ -1,4 +1,21 @@
-﻿namespace riichi_display
+﻿/*
+This file is part of Riichi Mahjong Livestreaming Display System.
+
+Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Riichi Mahjong Livestreaming Display System is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Riichi Mahjong Livestreaming Display System.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+namespace riichi_display
 {
     partial class doraControl
     {
@@ -85,13 +102,13 @@
             "7p",
             "8p",
             "9p",
-            "东",
-            "南",
-            "西",
-            "北",
-            "白",
-            "发",
-            "中"});
+            "ton",
+            "nan",
+            "sha",
+            "pei",
+            "haku",
+            "hatsu",
+            "chun"});
             this.dora0.Location = new System.Drawing.Point(45, 10);
             this.dora0.Margin = new System.Windows.Forms.Padding(2);
             this.dora0.MaxLength = 20;
@@ -144,13 +161,13 @@
             "7p",
             "8p",
             "9p",
-            "东",
-            "南",
-            "西",
-            "北",
-            "白",
-            "发",
-            "中"});
+            "ton",
+            "nan",
+            "sha",
+            "pei",
+            "haku",
+            "hatsu",
+            "chun"});
             this.dora1.Location = new System.Drawing.Point(45, 31);
             this.dora1.Margin = new System.Windows.Forms.Padding(2);
             this.dora1.MaxLength = 20;
@@ -203,13 +220,13 @@
             "7p",
             "8p",
             "9p",
-            "东",
-            "南",
-            "西",
-            "北",
-            "白",
-            "发",
-            "中"});
+            "ton",
+            "nan",
+            "sha",
+            "pei",
+            "haku",
+            "hatsu",
+            "chun"});
             this.dora2.Location = new System.Drawing.Point(45, 51);
             this.dora2.Margin = new System.Windows.Forms.Padding(2);
             this.dora2.MaxLength = 20;
@@ -262,13 +279,13 @@
             "7p",
             "8p",
             "9p",
-            "东",
-            "南",
-            "西",
-            "北",
-            "白",
-            "发",
-            "中"});
+            "ton",
+            "nan",
+            "sha",
+            "pei",
+            "haku",
+            "hatsu",
+            "chun"});
             this.dora3.Location = new System.Drawing.Point(45, 71);
             this.dora3.Margin = new System.Windows.Forms.Padding(2);
             this.dora3.MaxLength = 20;
@@ -321,13 +338,13 @@
             "7p",
             "8p",
             "9p",
-            "东",
-            "南",
-            "西",
-            "北",
-            "白",
-            "发",
-            "中"});
+            "ton",
+            "nan",
+            "sha",
+            "pei",
+            "haku",
+            "hatsu",
+            "chun"});
             this.dora4.Location = new System.Drawing.Point(45, 92);
             this.dora4.Margin = new System.Windows.Forms.Padding(2);
             this.dora4.MaxLength = 20;
@@ -364,9 +381,11 @@
             this.Controls.Add(this.dora1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dora0);
+            this.Location = new System.Drawing.Point(100, 100);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(199, 158);
             this.Name = "doraControl";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Dora管理页";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,22 @@
-﻿using System;
+﻿/*
+This file is part of Riichi Mahjong Livestreaming Display System.
+
+Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Riichi Mahjong Livestreaming Display System is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Riichi Mahjong Livestreaming Display System.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,7 +88,7 @@ namespace riichi_display
             statusForm.Show();
 
             doraControl = new doraControl();
-
+            doraControl.DoraUpdateEvent += statusForm.DoraUpdate;
             doraControl.Show();
             
             players = new Player[4];
@@ -113,6 +131,7 @@ namespace riichi_display
 
             }
             submit.Click += submit_Click;
+            submit.Click += doraControl.reset_Click;
 
             pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
@@ -225,9 +244,9 @@ namespace riichi_display
                 case "point":
                     players[n].Point = int.Parse(textBox.Text);
                     break;
-                //case "addup":
-                //    players[n].Addup = int.Parse(textBox.Text);
-                //    break;
+                case "addup":
+                    //players[n].Addup = int.Parse(textBox.Text);
+                    break;
                 default:
                     throw new Exception($"Invalid tag: {textBox.Tag}");
             }
