@@ -17,15 +17,10 @@ along with Riichi Mahjong Livestreaming Display System.  If not, see <https://ww
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 
 namespace riichi_display
@@ -50,7 +45,6 @@ namespace riichi_display
         private event EventHandler<RiichiDisplayEvent> RiichiDisplayEvent;
         private event EventHandler<WindChangeEvent> WindChangeEvent;
         private event EventHandler<RoundUpdateEvent> RoundUpdateEvent;
-        private event EventHandler<DoraUpdateEvent> DoraUpdateEvent;
 
         private bool isDraw = false;
         private bool doubleEnter = false;
@@ -153,6 +147,11 @@ namespace riichi_display
             reset.Click += reset_Click;
             reset.Click += doraControl.reset_Click;
 
+            teamlock.Click += (sender, e) => Lock_Clicked(sender, e, "team");
+            namelock.Click += (sender, e) => Lock_Clicked(sender, e, "name");
+            pointLock.Click += (sender, e) => Lock_Clicked(sender, e, "point");
+            gameStatusLock.Click += (sender, e) => Lock_Clicked(sender, e, "status");
+
             status.SelectedIndex = 0;
         }
 
@@ -179,77 +178,40 @@ namespace riichi_display
             }
         }
 
-        // Status flags for various locks
-        private bool nameLockStatus = true;  // When it's false, it's unlocked, locked otherwise
-        private bool teamLockStatus = false; // When it's false, it's unlocked, locked otherwise
-        private bool pointLockStatus = false; // When it's false, it's unlocked, locked otherwise
-        private bool gameStatus = false; // When it's false, it's unlocked, locked otherwise
-
-        // Event handler for name lock/unlock button click
-        private void namelock_Click(object sender, EventArgs e)
+        // Lock control
+        private void Lock_Clicked(object sender, EventArgs e, string tag)
         {
-            // Toggles the lock status and updates the enabled status of the corresponding name fields
-            // Also, updates the button's background image to reflect the current lock status
-            nameLockStatus = !nameLockStatus;
-            name0.Enabled = nameLockStatus;
-            name1.Enabled = nameLockStatus;
-            name2.Enabled = nameLockStatus;
-            name3.Enabled = nameLockStatus;
-            namelock.BackgroundImage = nameLockStatus ? Properties.Resources.unlock : Properties.Resources._lock;
+            Button button = sender as Button;
+            bool currentStatus = false;
+            foreach (Control control in Controls)
+            {
+                if (control.Tag != null)
+                {
+                    if (control.Tag.ToString() == tag)
+                    {
+                        control.Enabled = !control.Enabled;
+                        currentStatus = control.Enabled;
+                    }
+                }
+            }
+            button.BackgroundImage = currentStatus ? Properties.Resources.unlock : Properties.Resources._lock;
         }
-
-        // Event handler for team lock/unlock button click
-        private void teamlock_Click(object sender, EventArgs e)
-        {
-            // Similar to namelock_Click but for team fields
-            teamLockStatus = !teamLockStatus;
-            teamname0.Enabled = teamLockStatus;
-            teamname1.Enabled = teamLockStatus;
-            teamname2.Enabled = teamLockStatus;
-            teamname3.Enabled = teamLockStatus;
-            teamlock.BackgroundImage = teamLockStatus ? Properties.Resources.unlock : Properties.Resources._lock;
-        }
-
-        // Event handler for point lock/unlock button click
-        private void pointlock_Click(object sender, EventArgs e)
-        {
-            // Similar to namelock_Click but for point fields
-            pointLockStatus = !pointLockStatus;
-            point0.Enabled = pointLockStatus;
-            point1.Enabled = pointLockStatus;
-            point2.Enabled = pointLockStatus;
-            point3.Enabled = pointLockStatus;
-            pointLock.BackgroundImage = pointLockStatus ? Properties.Resources.unlock : Properties.Resources._lock;
-        }
-
-        private void gameStatusLock_Click(object sender, EventArgs e)
-        {
-            // Similar to namelock_Click but for game status fields
-            gameStatus = !gameStatus;
-            kyutaku.Enabled = gameStatus;
-            combo.Enabled = gameStatus;
-            status.Enabled = gameStatus;
-            gameStatusLock.BackgroundImage = gameStatus ? Properties.Resources.unlock : Properties.Resources._lock;
-        }
-
-        private bool teamControl = false; // Hide team when it's false, show otherwise.
 
         // Event handler for setting form events to change team control visibility
         private void changeTeamControl(object sender, TeamControlEvent e)
         {
-            teamControl = !teamControl;
-            teamLabel.Visible = teamControl;
-            teamname0.Visible = teamControl;
-            teamname1.Visible = teamControl;
-            teamname2.Visible = teamControl;
-            teamname3.Visible = teamControl;
-            teamlock.Visible = teamControl;
+            teamLabel.Visible = !teamLabel.Visible;
+            teamname0.Visible = teamLabel.Visible;
+            teamname1.Visible = teamLabel.Visible;
+            teamname2.Visible = teamLabel.Visible;
+            teamname3.Visible = teamLabel.Visible;
+            teamlock.Visible = teamLabel.Visible;
             // Also change visibility on displayForm
             foreach (Control control in displayForm.Controls)
             {
                 if (control.Tag != null && control.Tag.ToString() == "team")
                 {
-                    control.Visible = teamControl;
+                    control.Visible = teamLabel.Visible;
                 }
             }
         }
@@ -435,7 +397,7 @@ namespace riichi_display
             // Invoke the relevant events
             RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // Send riichi update
             AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent(n, -1000));
-            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent(button.Tag.ToString())); // Send display update event
+            DisplayWindowUpdateEvent?.Invoke(sender, new DisplayWindowUpdateEvent(button.Tag.ToString())); // Send display update event
         }
 
         // Event handler for clicking on the submit button
@@ -534,6 +496,7 @@ namespace riichi_display
             tenpai1.Visible = isDraw;
             tenpai2.Visible = isDraw;
             tenpai3.Visible = isDraw;
+            tenpaiLabel.Visible = isDraw;
             tsumo0.Enabled = !isDraw;
             tsumo1.Enabled = !isDraw;
             tsumo2.Enabled = !isDraw;
@@ -544,6 +507,26 @@ namespace riichi_display
             ron3.Enabled = !isDraw;
             winner.Visible = !isDraw;
 
+            // Read the current tenpai status
+            foreach (Player player in players)
+            {
+                if (player.Riichi)
+                {
+                    var control = Controls.Find("tenpai" + player.Index, true).FirstOrDefault();
+                    Button button = control as Button;
+                    if (button.Text == "不听")
+                        button.PerformClick();
+                }
+            }
+
+            FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // Send form update event
+            if (!isDraw)
+            {
+                addup0.Text = "0";
+                addup1.Text = "0";
+                addup2.Text = "0";
+                addup3.Text = "0";
+            }
             // Enable the submit button
             submit.Enabled = true;
         }
@@ -791,7 +774,6 @@ namespace riichi_display
 
             }
         }
-
 
         // When PointGain control loses focus, set doubleEnter to false, send point update event and update the form
         private void PointGain_LostFocus(object sender, EventArgs e)

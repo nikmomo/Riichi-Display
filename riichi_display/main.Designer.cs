@@ -105,6 +105,7 @@ namespace riichi_display
             this.teamlock = new System.Windows.Forms.Button();
             this.namelock = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
+            this.tenpaiLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label7
@@ -151,7 +152,7 @@ namespace riichi_display
             "64000",
             "96000"});
             this.pointGain.Location = new System.Drawing.Point(323, 200);
-            this.pointGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pointGain.Margin = new System.Windows.Forms.Padding(2);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
             this.pointGain.Size = new System.Drawing.Size(68, 20);
@@ -175,7 +176,7 @@ namespace riichi_display
             this.addup3.BackColor = System.Drawing.SystemColors.Window;
             this.addup3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.addup3.Location = new System.Drawing.Point(376, 229);
-            this.addup3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addup3.Margin = new System.Windows.Forms.Padding(2);
             this.addup3.MaxLength = 20;
             this.addup3.Name = "addup3";
             this.addup3.ReadOnly = true;
@@ -202,7 +203,7 @@ namespace riichi_display
             this.addup2.BackColor = System.Drawing.SystemColors.Window;
             this.addup2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.addup2.Location = new System.Drawing.Point(281, 229);
-            this.addup2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addup2.Margin = new System.Windows.Forms.Padding(2);
             this.addup2.MaxLength = 20;
             this.addup2.Name = "addup2";
             this.addup2.ReadOnly = true;
@@ -225,7 +226,7 @@ namespace riichi_display
             "PLAYER3",
             "PLAYER4"});
             this.playerList.Location = new System.Drawing.Point(97, 202);
-            this.playerList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playerList.Margin = new System.Windows.Forms.Padding(2);
             this.playerList.Name = "playerList";
             this.playerList.Size = new System.Drawing.Size(68, 20);
             this.playerList.TabIndex = 39;
@@ -235,7 +236,7 @@ namespace riichi_display
             // 
             this.ron3.AutoSize = true;
             this.ron3.Location = new System.Drawing.Point(458, 173);
-            this.ron3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ron3.Margin = new System.Windows.Forms.Padding(2);
             this.ron3.Name = "ron3";
             this.ron3.Size = new System.Drawing.Size(39, 22);
             this.ron3.TabIndex = 38;
@@ -251,7 +252,7 @@ namespace riichi_display
             this.addup1.BackColor = System.Drawing.SystemColors.Window;
             this.addup1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.addup1.Location = new System.Drawing.Point(189, 229);
-            this.addup1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addup1.Margin = new System.Windows.Forms.Padding(2);
             this.addup1.MaxLength = 20;
             this.addup1.Name = "addup1";
             this.addup1.ReadOnly = true;
@@ -276,7 +277,7 @@ namespace riichi_display
             // 
             this.riichi2.AutoSize = true;
             this.riichi2.Location = new System.Drawing.Point(325, 146);
-            this.riichi2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.riichi2.Margin = new System.Windows.Forms.Padding(2);
             this.riichi2.Name = "riichi2";
             this.riichi2.Size = new System.Drawing.Size(50, 22);
             this.riichi2.TabIndex = 26;
@@ -292,7 +293,7 @@ namespace riichi_display
             this.addup0.BackColor = System.Drawing.SystemColors.Window;
             this.addup0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.addup0.Location = new System.Drawing.Point(97, 229);
-            this.addup0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addup0.Margin = new System.Windows.Forms.Padding(2);
             this.addup0.MaxLength = 20;
             this.addup0.Name = "addup0";
             this.addup0.ReadOnly = true;
@@ -307,7 +308,7 @@ namespace riichi_display
             this.submit.AutoSize = true;
             this.submit.Enabled = false;
             this.submit.Location = new System.Drawing.Point(464, 229);
-            this.submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.submit.Margin = new System.Windows.Forms.Padding(2);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(64, 22);
             this.submit.TabIndex = 22;
@@ -319,7 +320,7 @@ namespace riichi_display
             // 
             this.tsumo3.AutoSize = true;
             this.tsumo3.Location = new System.Drawing.Point(420, 173);
-            this.tsumo3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tsumo3.Margin = new System.Windows.Forms.Padding(2);
             this.tsumo3.Name = "tsumo3";
             this.tsumo3.Size = new System.Drawing.Size(39, 22);
             this.tsumo3.TabIndex = 37;
@@ -332,7 +333,7 @@ namespace riichi_display
             // 
             this.tsumo2.AutoSize = true;
             this.tsumo2.Location = new System.Drawing.Point(311, 173);
-            this.tsumo2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tsumo2.Margin = new System.Windows.Forms.Padding(2);
             this.tsumo2.Name = "tsumo2";
             this.tsumo2.Size = new System.Drawing.Size(39, 22);
             this.tsumo2.TabIndex = 35;
@@ -345,7 +346,7 @@ namespace riichi_display
             // 
             this.ron2.AutoSize = true;
             this.ron2.Location = new System.Drawing.Point(350, 173);
-            this.ron2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ron2.Margin = new System.Windows.Forms.Padding(2);
             this.ron2.Name = "ron2";
             this.ron2.Size = new System.Drawing.Size(39, 22);
             this.ron2.TabIndex = 36;
@@ -358,7 +359,7 @@ namespace riichi_display
             // 
             this.ron1.AutoSize = true;
             this.ron1.Location = new System.Drawing.Point(240, 173);
-            this.ron1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ron1.Margin = new System.Windows.Forms.Padding(2);
             this.ron1.Name = "ron1";
             this.ron1.Size = new System.Drawing.Size(39, 22);
             this.ron1.TabIndex = 36;
@@ -371,7 +372,7 @@ namespace riichi_display
             // 
             this.tsumo1.AutoSize = true;
             this.tsumo1.Location = new System.Drawing.Point(201, 173);
-            this.tsumo1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tsumo1.Margin = new System.Windows.Forms.Padding(2);
             this.tsumo1.Name = "tsumo1";
             this.tsumo1.Size = new System.Drawing.Size(39, 22);
             this.tsumo1.TabIndex = 35;
@@ -384,7 +385,7 @@ namespace riichi_display
             // 
             this.ron0.AutoSize = true;
             this.ron0.Location = new System.Drawing.Point(132, 173);
-            this.ron0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ron0.Margin = new System.Windows.Forms.Padding(2);
             this.ron0.Name = "ron0";
             this.ron0.Size = new System.Drawing.Size(39, 22);
             this.ron0.TabIndex = 34;
@@ -397,7 +398,7 @@ namespace riichi_display
             // 
             this.riichi1.AutoSize = true;
             this.riichi1.Location = new System.Drawing.Point(214, 146);
-            this.riichi1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.riichi1.Margin = new System.Windows.Forms.Padding(2);
             this.riichi1.Name = "riichi1";
             this.riichi1.Size = new System.Drawing.Size(50, 22);
             this.riichi1.TabIndex = 25;
@@ -410,7 +411,7 @@ namespace riichi_display
             // 
             this.tsumo0.AutoSize = true;
             this.tsumo0.Location = new System.Drawing.Point(93, 173);
-            this.tsumo0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tsumo0.Margin = new System.Windows.Forms.Padding(2);
             this.tsumo0.Name = "tsumo0";
             this.tsumo0.Size = new System.Drawing.Size(39, 22);
             this.tsumo0.TabIndex = 33;
@@ -423,7 +424,7 @@ namespace riichi_display
             // 
             this.riichi3.AutoSize = true;
             this.riichi3.Location = new System.Drawing.Point(433, 146);
-            this.riichi3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.riichi3.Margin = new System.Windows.Forms.Padding(2);
             this.riichi3.Name = "riichi3";
             this.riichi3.Size = new System.Drawing.Size(50, 22);
             this.riichi3.TabIndex = 27;
@@ -459,11 +460,12 @@ namespace riichi_display
             this.combo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.combo.Enabled = false;
             this.combo.Location = new System.Drawing.Point(115, 258);
-            this.combo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combo.Margin = new System.Windows.Forms.Padding(2);
             this.combo.MaxLength = 20;
             this.combo.Name = "combo";
             this.combo.Size = new System.Drawing.Size(23, 21);
             this.combo.TabIndex = 34;
+            this.combo.Tag = "status";
             this.combo.Text = "0";
             this.combo.WordWrap = false;
             this.combo.LostFocus += new System.EventHandler(this.combo_LoseFocus);
@@ -475,11 +477,12 @@ namespace riichi_display
             this.kyutaku.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.kyutaku.Enabled = false;
             this.kyutaku.Location = new System.Drawing.Point(53, 258);
-            this.kyutaku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kyutaku.Margin = new System.Windows.Forms.Padding(2);
             this.kyutaku.MaxLength = 20;
             this.kyutaku.Name = "kyutaku";
             this.kyutaku.Size = new System.Drawing.Size(23, 21);
             this.kyutaku.TabIndex = 33;
+            this.kyutaku.Tag = "status";
             this.kyutaku.Text = "0";
             this.kyutaku.WordWrap = false;
             this.kyutaku.LostFocus += new System.EventHandler(this.kyutaku_LoseFocus);
@@ -488,7 +491,7 @@ namespace riichi_display
             // 
             this.riichi0.AutoSize = true;
             this.riichi0.Location = new System.Drawing.Point(107, 146);
-            this.riichi0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.riichi0.Margin = new System.Windows.Forms.Padding(2);
             this.riichi0.Name = "riichi0";
             this.riichi0.Size = new System.Drawing.Size(50, 22);
             this.riichi0.TabIndex = 24;
@@ -502,9 +505,8 @@ namespace riichi_display
             this.name0.AcceptsReturn = true;
             this.name0.AcceptsTab = true;
             this.name0.BackColor = System.Drawing.SystemColors.Window;
-            this.name0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.name0.Location = new System.Drawing.Point(99, 67);
-            this.name0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name0.Margin = new System.Windows.Forms.Padding(2);
             this.name0.MaxLength = 20;
             this.name0.Name = "name0";
             this.name0.ReadOnly = true;
@@ -520,9 +522,8 @@ namespace riichi_display
             this.name1.AcceptsReturn = true;
             this.name1.AcceptsTab = true;
             this.name1.BackColor = System.Drawing.SystemColors.Window;
-            this.name1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.name1.Location = new System.Drawing.Point(207, 67);
-            this.name1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name1.Margin = new System.Windows.Forms.Padding(2);
             this.name1.MaxLength = 20;
             this.name1.Name = "name1";
             this.name1.ReadOnly = true;
@@ -538,9 +539,8 @@ namespace riichi_display
             this.name2.AcceptsReturn = true;
             this.name2.AcceptsTab = true;
             this.name2.BackColor = System.Drawing.SystemColors.Window;
-            this.name2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.name2.Location = new System.Drawing.Point(316, 67);
-            this.name2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name2.Margin = new System.Windows.Forms.Padding(2);
             this.name2.MaxLength = 20;
             this.name2.Name = "name2";
             this.name2.ReadOnly = true;
@@ -556,9 +556,8 @@ namespace riichi_display
             this.name3.AcceptsReturn = true;
             this.name3.AcceptsTab = true;
             this.name3.BackColor = System.Drawing.SystemColors.Window;
-            this.name3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.name3.Location = new System.Drawing.Point(425, 67);
-            this.name3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name3.Margin = new System.Windows.Forms.Padding(2);
             this.name3.MaxLength = 20;
             this.name3.Name = "name3";
             this.name3.ReadOnly = true;
@@ -574,10 +573,9 @@ namespace riichi_display
             this.teamname3.AcceptsReturn = true;
             this.teamname3.AcceptsTab = true;
             this.teamname3.BackColor = System.Drawing.SystemColors.Window;
-            this.teamname3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname3.Enabled = false;
             this.teamname3.Location = new System.Drawing.Point(425, 44);
-            this.teamname3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teamname3.Margin = new System.Windows.Forms.Padding(2);
             this.teamname3.MaxLength = 20;
             this.teamname3.Name = "teamname3";
             this.teamname3.ReadOnly = true;
@@ -594,10 +592,9 @@ namespace riichi_display
             this.teamname2.AcceptsReturn = true;
             this.teamname2.AcceptsTab = true;
             this.teamname2.BackColor = System.Drawing.SystemColors.Window;
-            this.teamname2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname2.Enabled = false;
             this.teamname2.Location = new System.Drawing.Point(316, 44);
-            this.teamname2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teamname2.Margin = new System.Windows.Forms.Padding(2);
             this.teamname2.MaxLength = 20;
             this.teamname2.Name = "teamname2";
             this.teamname2.ReadOnly = true;
@@ -614,10 +611,9 @@ namespace riichi_display
             this.teamname1.AcceptsReturn = true;
             this.teamname1.AcceptsTab = true;
             this.teamname1.BackColor = System.Drawing.SystemColors.Window;
-            this.teamname1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname1.Enabled = false;
             this.teamname1.Location = new System.Drawing.Point(207, 44);
-            this.teamname1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teamname1.Margin = new System.Windows.Forms.Padding(2);
             this.teamname1.MaxLength = 20;
             this.teamname1.Name = "teamname1";
             this.teamname1.ReadOnly = true;
@@ -634,10 +630,9 @@ namespace riichi_display
             this.teamname0.AcceptsReturn = true;
             this.teamname0.AcceptsTab = true;
             this.teamname0.BackColor = System.Drawing.SystemColors.Window;
-            this.teamname0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teamname0.Enabled = false;
             this.teamname0.Location = new System.Drawing.Point(99, 44);
-            this.teamname0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teamname0.Margin = new System.Windows.Forms.Padding(2);
             this.teamname0.MaxLength = 20;
             this.teamname0.Name = "teamname0";
             this.teamname0.ReadOnly = true;
@@ -688,7 +683,7 @@ namespace riichi_display
             this.point3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point3.Enabled = false;
             this.point3.Location = new System.Drawing.Point(425, 92);
-            this.point3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.point3.Margin = new System.Windows.Forms.Padding(2);
             this.point3.MaxLength = 20;
             this.point3.Name = "point3";
             this.point3.ReadOnly = true;
@@ -707,7 +702,7 @@ namespace riichi_display
             this.point2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point2.Enabled = false;
             this.point2.Location = new System.Drawing.Point(316, 92);
-            this.point2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.point2.Margin = new System.Windows.Forms.Padding(2);
             this.point2.MaxLength = 20;
             this.point2.Name = "point2";
             this.point2.ReadOnly = true;
@@ -726,7 +721,7 @@ namespace riichi_display
             this.point1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point1.Enabled = false;
             this.point1.Location = new System.Drawing.Point(207, 92);
-            this.point1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.point1.Margin = new System.Windows.Forms.Padding(2);
             this.point1.MaxLength = 20;
             this.point1.Name = "point1";
             this.point1.ReadOnly = true;
@@ -745,7 +740,7 @@ namespace riichi_display
             this.point0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.point0.Enabled = false;
             this.point0.Location = new System.Drawing.Point(99, 92);
-            this.point0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.point0.Margin = new System.Windows.Forms.Padding(2);
             this.point0.MaxLength = 20;
             this.point0.Name = "point0";
             this.point0.ReadOnly = true;
@@ -760,7 +755,7 @@ namespace riichi_display
             // 
             this.button7.AutoSize = true;
             this.button7.Location = new System.Drawing.Point(371, 258);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(63, 22);
             this.button7.TabIndex = 44;
@@ -773,7 +768,7 @@ namespace riichi_display
             // 
             this.reset.AutoSize = true;
             this.reset.Location = new System.Drawing.Point(491, 258);
-            this.reset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reset.Margin = new System.Windows.Forms.Padding(2);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(63, 22);
             this.reset.TabIndex = 43;
@@ -785,7 +780,7 @@ namespace riichi_display
             // 
             this.draw.AutoSize = true;
             this.draw.Location = new System.Drawing.Point(437, 258);
-            this.draw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.draw.Margin = new System.Windows.Forms.Padding(2);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(50, 22);
             this.draw.TabIndex = 42;
@@ -798,7 +793,7 @@ namespace riichi_display
             // 
             this.oya3.AutoSize = true;
             this.oya3.Location = new System.Drawing.Point(444, 16);
-            this.oya3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oya3.Margin = new System.Windows.Forms.Padding(2);
             this.oya3.Name = "oya3";
             this.oya3.Size = new System.Drawing.Size(27, 22);
             this.oya3.TabIndex = 32;
@@ -811,7 +806,7 @@ namespace riichi_display
             // 
             this.oya2.AutoSize = true;
             this.oya2.Location = new System.Drawing.Point(334, 16);
-            this.oya2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oya2.Margin = new System.Windows.Forms.Padding(2);
             this.oya2.Name = "oya2";
             this.oya2.Size = new System.Drawing.Size(27, 22);
             this.oya2.TabIndex = 31;
@@ -824,7 +819,7 @@ namespace riichi_display
             // 
             this.oya1.AutoSize = true;
             this.oya1.Location = new System.Drawing.Point(226, 16);
-            this.oya1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oya1.Margin = new System.Windows.Forms.Padding(2);
             this.oya1.Name = "oya1";
             this.oya1.Size = new System.Drawing.Size(27, 22);
             this.oya1.TabIndex = 30;
@@ -838,7 +833,7 @@ namespace riichi_display
             this.oya0.AutoSize = true;
             this.oya0.BackColor = System.Drawing.Color.DarkOrange;
             this.oya0.Location = new System.Drawing.Point(118, 16);
-            this.oya0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oya0.Margin = new System.Windows.Forms.Padding(2);
             this.oya0.Name = "oya0";
             this.oya0.Size = new System.Drawing.Size(27, 22);
             this.oya0.TabIndex = 29;
@@ -851,7 +846,7 @@ namespace riichi_display
             // 
             this.tenpai2.AutoSize = true;
             this.tenpai2.Location = new System.Drawing.Point(325, 120);
-            this.tenpai2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenpai2.Margin = new System.Windows.Forms.Padding(2);
             this.tenpai2.Name = "tenpai2";
             this.tenpai2.Size = new System.Drawing.Size(50, 22);
             this.tenpai2.TabIndex = 54;
@@ -865,7 +860,7 @@ namespace riichi_display
             // 
             this.tenpai1.AutoSize = true;
             this.tenpai1.Location = new System.Drawing.Point(214, 120);
-            this.tenpai1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenpai1.Margin = new System.Windows.Forms.Padding(2);
             this.tenpai1.Name = "tenpai1";
             this.tenpai1.Size = new System.Drawing.Size(50, 22);
             this.tenpai1.TabIndex = 53;
@@ -879,7 +874,7 @@ namespace riichi_display
             // 
             this.tenpai0.AutoSize = true;
             this.tenpai0.Location = new System.Drawing.Point(107, 120);
-            this.tenpai0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenpai0.Margin = new System.Windows.Forms.Padding(2);
             this.tenpai0.Name = "tenpai0";
             this.tenpai0.Size = new System.Drawing.Size(50, 22);
             this.tenpai0.TabIndex = 52;
@@ -893,7 +888,7 @@ namespace riichi_display
             // 
             this.tenpai3.AutoSize = true;
             this.tenpai3.Location = new System.Drawing.Point(433, 120);
-            this.tenpai3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenpai3.Margin = new System.Windows.Forms.Padding(2);
             this.tenpai3.Name = "tenpai3";
             this.tenpai3.Size = new System.Drawing.Size(50, 22);
             this.tenpai3.TabIndex = 55;
@@ -918,13 +913,12 @@ namespace riichi_display
             this.gameStatusLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.gameStatusLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.gameStatusLock.Location = new System.Drawing.Point(222, 261);
-            this.gameStatusLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gameStatusLock.Margin = new System.Windows.Forms.Padding(2);
             this.gameStatusLock.Name = "gameStatusLock";
             this.gameStatusLock.Size = new System.Drawing.Size(18, 16);
             this.gameStatusLock.TabIndex = 48;
             this.gameStatusLock.UseMnemonic = false;
             this.gameStatusLock.UseVisualStyleBackColor = true;
-            this.gameStatusLock.Click += new System.EventHandler(this.gameStatusLock_Click);
             // 
             // pointLock
             // 
@@ -932,13 +926,12 @@ namespace riichi_display
             this.pointLock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.pointLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pointLock.Location = new System.Drawing.Point(515, 94);
-            this.pointLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pointLock.Margin = new System.Windows.Forms.Padding(2);
             this.pointLock.Name = "pointLock";
             this.pointLock.Size = new System.Drawing.Size(18, 16);
             this.pointLock.TabIndex = 16;
             this.pointLock.UseMnemonic = false;
             this.pointLock.UseVisualStyleBackColor = true;
-            this.pointLock.Click += new System.EventHandler(this.pointlock_Click);
             // 
             // teamlock
             // 
@@ -946,7 +939,7 @@ namespace riichi_display
             this.teamlock.BackgroundImage = global::riichi_display.Properties.Resources._lock;
             this.teamlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.teamlock.Location = new System.Drawing.Point(515, 46);
-            this.teamlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teamlock.Margin = new System.Windows.Forms.Padding(2);
             this.teamlock.MaximumSize = new System.Drawing.Size(23, 20);
             this.teamlock.Name = "teamlock";
             this.teamlock.Size = new System.Drawing.Size(18, 16);
@@ -954,7 +947,6 @@ namespace riichi_display
             this.teamlock.UseMnemonic = false;
             this.teamlock.UseVisualStyleBackColor = true;
             this.teamlock.Visible = false;
-            this.teamlock.Click += new System.EventHandler(this.teamlock_Click);
             // 
             // namelock
             // 
@@ -962,13 +954,12 @@ namespace riichi_display
             this.namelock.BackgroundImage = global::riichi_display.Properties.Resources.unlock;
             this.namelock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.namelock.Location = new System.Drawing.Point(515, 70);
-            this.namelock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.namelock.Margin = new System.Windows.Forms.Padding(2);
             this.namelock.Name = "namelock";
             this.namelock.Size = new System.Drawing.Size(18, 16);
             this.namelock.TabIndex = 4;
             this.namelock.UseMnemonic = false;
             this.namelock.UseVisualStyleBackColor = true;
-            this.namelock.Click += new System.EventHandler(this.namelock_Click);
             // 
             // status
             // 
@@ -991,18 +982,32 @@ namespace riichi_display
             "西三局",
             "西四局"});
             this.status.Location = new System.Drawing.Point(155, 259);
-            this.status.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.status.Margin = new System.Windows.Forms.Padding(2);
             this.status.MaxLength = 20;
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(59, 20);
             this.status.TabIndex = 57;
+            this.status.Tag = "status";
             this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
+            // 
+            // tenpaiLabel
+            // 
+            this.tenpaiLabel.AutoSize = true;
+            this.tenpaiLabel.Location = new System.Drawing.Point(19, 125);
+            this.tenpaiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tenpaiLabel.Name = "tenpaiLabel";
+            this.tenpaiLabel.Size = new System.Drawing.Size(53, 12);
+            this.tenpaiLabel.TabIndex = 58;
+            this.tenpaiLabel.Tag = "tenpai";
+            this.tenpaiLabel.Text = "听牌状态";
+            this.tenpaiLabel.Visible = false;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 292);
+            this.Controls.Add(this.tenpaiLabel);
             this.Controls.Add(this.status);
             this.Controls.Add(this.winner);
             this.Controls.Add(this.tenpai2);
@@ -1063,7 +1068,7 @@ namespace riichi_display
             this.Controls.Add(this.name1);
             this.Controls.Add(this.name0);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "雀庄直播计分显示系统 By Shin Z";
@@ -1133,6 +1138,7 @@ namespace riichi_display
         private System.Windows.Forms.Button tenpai3;
         private System.Windows.Forms.Label winner;
         private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.Label tenpaiLabel;
     }
 }
 
