@@ -74,6 +74,7 @@ namespace riichi_display
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
 
             handler = new PointHandler();
+            handler.StatusUpdateEvent += (s, e) => { kyutaku.Text = handler.getKyutaku().ToString(); combo.Text = handler.getCombo().ToString(); };
 
             statusForm = new status();
             handler.StatusUpdateEvent += statusForm.StatusUpdate;
@@ -382,14 +383,22 @@ namespace riichi_display
             int n = determinePlayer(button.Name); // Get index of the player
 
             // Player goes into Riichi, lose 1000 points
-            players[n].Riichi = true;
-            players[n].Point -= 1000;
+            players[n].Riichi = !players[n].Riichi;
+            players[n].Point += players[n].Riichi ? -1000 : 1000;
 
-            // Add a point to the "kyu" pot
-            handler.AddKyutaku();
+            // Add a point to the "kyutaku" pot
+            if (players[n].Riichi)
+            {
+                handler.AddKyutaku();
+            }
+            else
+            {
+                handler.setKyutaku(handler.getKyutaku() - 1);
+            }
 
-            // Disable the Riichi button after click
-            button.Enabled = false;
+            button.Text = players[n].Riichi ? "取消立直" : "立直";
+            //// Disable the Riichi button after click
+            //button.Enabled = false;
 
             // Print out player status
             Console.WriteLine(players[n].ToString());
@@ -517,6 +526,7 @@ namespace riichi_display
                     if (button.Text == "不听")
                         button.PerformClick();
                 }
+                player.Winner = false; // clear up winner to prevent bugs
             }
 
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // Send form update event
@@ -766,10 +776,13 @@ namespace riichi_display
                 UpdateControl(this, player, "addup", player.Addup);
 
                 string controlName = "riichi" + player.Index;
-                var control = this.Controls.Find(controlName, true).FirstOrDefault();
+                Button control = this.Controls.Find(controlName, true).FirstOrDefault() as Button;
                 if (control != null)
                 {
-                    control.Enabled = !player.Riichi;
+                    if (!player.Riichi && control.Text == "取消立直")
+                    {
+                        control.Text = "立直";
+                    }
                 }
 
             }
@@ -803,21 +816,28 @@ namespace riichi_display
                         control.Text = "不听";
                     }
                 }
-                else if (control.Name == "playerList")
+                else
                 {
-                    control.Text = "";
-                    control.Enabled = true;
-                }
-                else if (control.Name == "pointGain")
-                {
-                    control.Text = "0";
-                }
-                else if (control.Name == "winner")
-                    control.Text = "";
-                else if (control.Name == "draw" && isDraw)
-                {
-                    Button button = control as Button;
-                    button.PerformClick();
+                    switch (control.Name)
+                    {
+                        case "playerList":
+                            control.Text = "";
+                            control.Enabled = true;
+                            break;
+                        case "pointGain":
+                            control.Text = "0";
+                            break;
+                        case "winner":
+                            control.Text = "";
+                            break;
+                        case "draw":
+                            if (isDraw)
+                            {
+                                Button button = control as Button;
+                                button.PerformClick();
+                            }
+                            break;
+                    }
                 }
             }
             foreach (Player player in players) // clear the last round data

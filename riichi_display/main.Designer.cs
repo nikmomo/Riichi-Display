@@ -276,10 +276,10 @@ namespace riichi_display
             // riichi2
             // 
             this.riichi2.AutoSize = true;
-            this.riichi2.Location = new System.Drawing.Point(325, 146);
+            this.riichi2.Location = new System.Drawing.Point(311, 146);
             this.riichi2.Margin = new System.Windows.Forms.Padding(2);
             this.riichi2.Name = "riichi2";
-            this.riichi2.Size = new System.Drawing.Size(50, 22);
+            this.riichi2.Size = new System.Drawing.Size(78, 22);
             this.riichi2.TabIndex = 26;
             this.riichi2.Tag = "riichi";
             this.riichi2.Text = "立直";
@@ -397,10 +397,10 @@ namespace riichi_display
             // riichi1
             // 
             this.riichi1.AutoSize = true;
-            this.riichi1.Location = new System.Drawing.Point(214, 146);
+            this.riichi1.Location = new System.Drawing.Point(201, 146);
             this.riichi1.Margin = new System.Windows.Forms.Padding(2);
             this.riichi1.Name = "riichi1";
-            this.riichi1.Size = new System.Drawing.Size(50, 22);
+            this.riichi1.Size = new System.Drawing.Size(78, 22);
             this.riichi1.TabIndex = 25;
             this.riichi1.Tag = "riichi";
             this.riichi1.Text = "立直";
@@ -423,10 +423,10 @@ namespace riichi_display
             // riichi3
             // 
             this.riichi3.AutoSize = true;
-            this.riichi3.Location = new System.Drawing.Point(433, 146);
+            this.riichi3.Location = new System.Drawing.Point(420, 146);
             this.riichi3.Margin = new System.Windows.Forms.Padding(2);
             this.riichi3.Name = "riichi3";
-            this.riichi3.Size = new System.Drawing.Size(50, 22);
+            this.riichi3.Size = new System.Drawing.Size(77, 22);
             this.riichi3.TabIndex = 27;
             this.riichi3.Tag = "riichi";
             this.riichi3.Text = "立直";
@@ -490,10 +490,10 @@ namespace riichi_display
             // riichi0
             // 
             this.riichi0.AutoSize = true;
-            this.riichi0.Location = new System.Drawing.Point(107, 146);
+            this.riichi0.Location = new System.Drawing.Point(93, 146);
             this.riichi0.Margin = new System.Windows.Forms.Padding(2);
             this.riichi0.Name = "riichi0";
-            this.riichi0.Size = new System.Drawing.Size(50, 22);
+            this.riichi0.Size = new System.Drawing.Size(78, 22);
             this.riichi0.TabIndex = 24;
             this.riichi0.Tag = "riichi";
             this.riichi0.Text = "立直";
