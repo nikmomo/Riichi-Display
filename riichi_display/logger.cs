@@ -7,20 +7,47 @@ using System.Threading.Tasks;
 
 namespace riichi_display
 {
+    public enum ActionType
+    {
+        NONE,
+        EDIT,
+        RESET,
+        RIICHI,
+        DRAW,
+        TSUMO,
+        RON
+    }
+
+    public enum EditType
+    {
+        TEAM,
+        NAME,
+        POINT
+    }
+
     public class Logger
     {
         private string logFile; // Log file path
+        private ActionType Action { set; get; } // Setting the action such that the program can react based on different actions
 
+        // TODO: 同时handle所有的logging 还是很难的一件事情，需要好好想想在设置完action之后，怎么去log based on different action
         public Logger(string logFile)
         {
             this.logFile = logFile;
         }
 
-        public void Log(string message)
+        public void LogEditValue(EditType edit, int index, string value)
         {
-            string logMessage = FormatMessage(message);
-            WriteLog(logMessage);
+            string editValue = edit.ToString();
+            string logMsg = "[ Player Index: " + index + " ]" + "[" + editValue + "]" + value;
+            WriteLog(FormatMessage(logMsg));
+            Action = ActionType.NONE;
         }
+        //public void Log(string message)
+        //{
+        //    string logMessage = FormatMessage(message);
+        //    WriteLog(logMessage);
+        //}
 
         private string FormatMessage(string message)
         {
