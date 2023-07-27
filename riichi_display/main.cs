@@ -526,7 +526,6 @@ namespace riichi_display
                     if (button.Text == "不听")
                         button.PerformClick();
                 }
-                player.Winner = false; // clear up winner to prevent bugs
             }
 
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // Send form update event

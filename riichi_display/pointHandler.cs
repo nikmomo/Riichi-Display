@@ -82,7 +82,7 @@ namespace riichi_display
             var result = point / 3;
             if (result % 100 != 0)
                 result += 100;
-            finalAddup = (ToThousand(result) + Combo * 100) * 3;
+            finalAddup = (ToThousand(result) + Combo * 100) * 3 + Kyutaku * 1000;
             return ToThousand(result) + Combo * 100;
         }
 
