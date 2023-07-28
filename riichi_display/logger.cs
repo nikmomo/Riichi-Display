@@ -5,15 +5,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace riichi_display
 {
     public enum ActionType
     {
         NONE,
-        EDIT,
         RESET,
-        RIICHI,
         DRAW,
         TSUMO,
         RON
@@ -23,24 +22,38 @@ namespace riichi_display
     {
         TEAM,
         NAME,
-        POINT
+        POINT,
+        KYUTAKU,
+        COMBO,
+        DEALER,
+        ROUND
     }
 
     public class Logger
     {
         private string logFile; // Log file path
-        private ActionType Action { set; get; } // Setting the action such that the program can react based on different actions
+        public ActionType Action { set; get; } // Setting the action such that the program can react based on different actions
 
         public Logger(string logFile)
         {
             this.logFile = logFile;
         }
         
+        public void LogStatus(string round, int kyutaku, int combo)
+        {
+            string logMsg = "[" + round + "]" + "[Kyutaku: " + kyutaku + "]" + "[Combo: " + combo + "]";
+            using (StreamWriter writer = File.AppendText(logFile))
+            {
+                writer.WriteLine(logMsg);
+            }
+        }
+
         public void LogRiichi(Player player)
         {
-            string actionValue = Action.ToString();
-            string logMsg = "[Action:" + actionValue + "]";
+            string riichiStatus = player.Riichi ? "RIICHI" : "RIICHI CANCELLED";
+            string logMsg = "[Action:" + riichiStatus + "]";
             logMsg += "[" + player.Name + ":" + player.Point + "]";
+            WriteLog(FormatMessage(logMsg));
         }
 
         public void LogSubmission(Player[] players)
@@ -50,36 +63,33 @@ namespace riichi_display
 
             foreach (Player player in players)
             {
-                logMsg += "[" + player.Name + ":" + player.Point + ":" + player.Addup + "]";
+                string addupSymbol = player.Addup > 0 ? "+" : "";
+                logMsg += "[" + player.Name + ":" + player.Point + ":" + addupSymbol + player.Addup + "]";
             }
-
             WriteLog(FormatMessage(logMsg));
         }
 
         public void LogReset()
         {
-            WriteLog(FormatMessage("[Game Reset / New Game]"));
+            WriteLog("[Game Reset / New Game]");
         }
 
         public void LogEditValue(EditType edit, int index, string value)
         {
             string editValue = edit.ToString();
-            string logMsg = "[Index: " + index + "]" + "[" + editValue + "]" + value;
+            string logMsg = "[Action:" + editValue + "]" + "[Player Index: " + index + ": " + value + "]";
             WriteLog(FormatMessage(logMsg));
         }
 
 
         private string FormatMessage(string message)
         {
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            return $"{timestamp} - {message}";
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            return $"{timestamp}-{message}";
         }
 
         private void WriteLog(string message)
         {
-            // This is just an example. Writing directly to a file like this can be slow
-            // if you're logging a lot of messages. You might want to consider using a
-            // buffer and/or a separate thread for writing the log entries to disk.
             using (StreamWriter writer = File.AppendText(logFile))
             {
                 writer.WriteLine(message);

@@ -27,7 +27,7 @@ namespace riichi_display
 { 
     public partial class mainForm : Form
     {
-        private readonly string LOGPATH = "gamelog-" + DateTime.Now.ToString() + ".txt"; // set the log path
+        private readonly string LOGPATH = "gamelog-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt"; // set the log path
 
         // Declaration of forms used in the main form
         private display displayForm;
@@ -37,6 +37,7 @@ namespace riichi_display
 
         private PointHandler handler;
         private Player[] players;
+        private Logger log;
 
         // Declare events to handle various actions in the application
         private event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
@@ -55,6 +56,7 @@ namespace riichi_display
         {
             InitializeComponent();
 
+            log = new Logger(LOGPATH);
             // Initialize form properties and event handlers
             PointCalculateEvent += PointUpdate;
             FormDisplayUpdateEvent += FormUpdate;
@@ -110,7 +112,7 @@ namespace riichi_display
                     control.KeyDown += new KeyEventHandler(enterLoseFocus);
                 if (control.Tag != null)
                 {
-                    if (control is System.Windows.Forms.TextBox)
+                    if (control is System.Windows.Forms.TextBox && control.Tag.ToString() != "status")
                         control.LostFocus += new EventHandler(textBox_LoseFocus);
                     switch (control.Tag.ToString())
                     {
@@ -240,6 +242,12 @@ namespace riichi_display
                 default:
                     throw new Exception($"Invalid tag: {textBox.Tag}");
             }
+            string value = textBox.Tag.ToString().ToUpper();
+
+            if (Enum.TryParse(value, out EditType editType))
+            {
+                log.LogEditValue(editType, n, textBox.Text);
+            }
             Console.WriteLine(players[n].ToString());
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent(textBox.Tag.ToString())); // send display update event
         }
@@ -276,6 +284,7 @@ namespace riichi_display
                     control.Text = "子";
                 }
             }
+            log.LogEditValue(EditType.DEALER, n, "IS DEALER"); // mark the manual changes of dealer
             Console.WriteLine(players[n].ToString());
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
         }
@@ -293,18 +302,6 @@ namespace riichi_display
             setting.Show();
         }
 
-        // Event handler for clicking on a display button
-        private void showDisplay_Click(object sender, EventArgs e)
-        {
-            if (displayForm.IsDisposed)
-            {
-                displayForm = new display();
-            }
-            displayForm.Show();
-            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
-        }
-
-
         private bool windControl = false; // Ton when it's false, Nan otherwise.
 
         // Event handler for changing wind control
@@ -319,9 +316,9 @@ namespace riichi_display
         // Event handler for text change in name textboxes
         private void name_changed(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            int n = determinePlayer(textBox.Name); // Get index of the player
-            players[n].Name = textBox.Text;
+            //System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            //int n = determinePlayer(textBox.Name); // Get index of the player
+            //players[n].Name = textBox.Text;
             // Clear the combobox items
             playerList.Items.Clear();
 
@@ -331,7 +328,7 @@ namespace riichi_display
             {
                 playerList.Items.Add(player.Name);
             }
-            Console.WriteLine(players[n].ToString());
+            //Console.WriteLine(players[n].ToString());
         }
 
         // Event handler for ron/tsumo button click
@@ -353,11 +350,13 @@ namespace riichi_display
 
             if (isTsumo)
             {
+                log.Action = ActionType.TSUMO;
                 playerList.Text = "三家";
                 playerList.Enabled = false;
             }
             else
             {
+                log.Action = ActionType.RON;
                 playerList.Enabled = true;
             }
 
@@ -406,6 +405,7 @@ namespace riichi_display
             Console.WriteLine(players[n].ToString());
 
             // Invoke the relevant events
+            log.LogRiichi(players[n]);
             RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // Send riichi update
             AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent(n, -1000));
             DisplayWindowUpdateEvent?.Invoke(sender, new DisplayWindowUpdateEvent(button.Tag.ToString())); // Send display update event
@@ -418,6 +418,8 @@ namespace riichi_display
 
             long oyaIndex = 0;
             bool oyaWin = false;
+
+            log.LogStatus(status.Text, handler.getKyutaku(), handler.getCombo()); // Log the status before the round ends
 
             // Loop through all players
             foreach (Player player in players)
@@ -442,8 +444,10 @@ namespace riichi_display
                     ToNextRoundIdicator();
                 }
 
-                Console.WriteLine(player.ToString());
+                //Console.WriteLine(player.ToString());
             }
+
+            log.LogSubmission(players); // Log the submission
 
             // Increment the combo count depending on the game result
             if (isDraw)
@@ -482,7 +486,7 @@ namespace riichi_display
         private void reset_Click(object sender, EventArgs e)
         {
             NextRound();
-
+            
             // Reset all players and the handler
             foreach (Player player in players)
                 player.Reset();
@@ -492,6 +496,7 @@ namespace riichi_display
             oya0.PerformClick();
             ToNextRoundIdicator(0);
 
+            log.LogReset();
             WindChangeEvent?.Invoke(sender, new WindChangeEvent(42));
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // Send form update event
@@ -540,6 +545,7 @@ namespace riichi_display
             }
             // Enable the submit button
             submit.Enabled = true;
+            log.Action = ActionType.DRAW;
         }
 
         // Event handler for clicking on a tenpai button

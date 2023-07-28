@@ -88,7 +88,7 @@
     <Compile Include="doraControl.Designer.cs">
       <DependentUpon>doraControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="logger.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PointHandler.cs" />
     <Compile Include="CustomEvents.cs" />
