@@ -32,6 +32,7 @@ namespace riichi_display
     {
         // Initialize a timer with a 5-second interval
         private readonly Timer timer = new Timer { Interval = 5000 };
+        private Timer refreshTimer;
 
         public display()
         {
@@ -46,6 +47,16 @@ namespace riichi_display
                 // Dispose the timer
                 timer.Dispose();
             };
+
+            refreshTimer = new Timer();
+            refreshTimer.Interval = 1000; // 1 second
+            refreshTimer.Tick += Timer_Tick;
+            refreshTimer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.Invalidate();
         }
 
         public void RiichiSwitch(object sender, RiichiDisplayEvent e)
@@ -103,5 +114,6 @@ namespace riichi_display
             addup2.Visible = false;
             addup3.Visible = false;
         }
+
     }
 }

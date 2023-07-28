@@ -34,11 +34,17 @@ namespace riichi_display
         // Declare an Image array to store the list of Dora indicators
         Image[] doraList;
 
+        private Timer refreshTimer;
         // Default constructor for the 'status' class
         public status()
         {
             // Call the InitializeComponent method from the designer file
             InitializeComponent();
+
+            refreshTimer = new Timer();
+            refreshTimer.Interval = 1000; // 1 second
+            refreshTimer.Tick += Timer_Tick;
+            refreshTimer.Start();
 
             // Initialize doraList with image resources
             doraList = new Image[]{
@@ -78,6 +84,11 @@ namespace riichi_display
             Properties.Resources.zg,
             Properties.Resources.zr
             };
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.Invalidate();
         }
 
         // Method to update the status of Kyutaku and Combo 
@@ -121,5 +132,6 @@ namespace riichi_display
                 control.BackgroundImage = doraList[e.Index];
             }
         }
+
     }
 }

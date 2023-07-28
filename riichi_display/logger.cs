@@ -77,7 +77,7 @@ namespace riichi_display
         public void LogEditValue(EditType edit, int index, string value)
         {
             string editValue = edit.ToString();
-            string logMsg = "[Action:" + editValue + "]" + "[Player Index: " + index + ": " + value + "]";
+            string logMsg = "[Action:" + editValue + "]" + "[Player Index" + index + ": " + value + "]";
             WriteLog(FormatMessage(logMsg));
         }
 
