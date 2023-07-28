@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,24 +31,43 @@ namespace riichi_display
         private string logFile; // Log file path
         private ActionType Action { set; get; } // Setting the action such that the program can react based on different actions
 
-        // TODO: 同时handle所有的logging 还是很难的一件事情，需要好好想想在设置完action之后，怎么去log based on different action
         public Logger(string logFile)
         {
             this.logFile = logFile;
+        }
+        
+        public void LogRiichi(Player player)
+        {
+            string actionValue = Action.ToString();
+            string logMsg = "[Action:" + actionValue + "]";
+            logMsg += "[" + player.Name + ":" + player.Point + "]";
+        }
+
+        public void LogSubmission(Player[] players)
+        {
+            string actionValue = Action.ToString();
+            string logMsg = "[Action:" + actionValue + "]";
+
+            foreach (Player player in players)
+            {
+                logMsg += "[" + player.Name + ":" + player.Point + ":" + player.Addup + "]";
+            }
+
+            WriteLog(FormatMessage(logMsg));
+        }
+
+        public void LogReset()
+        {
+            WriteLog(FormatMessage("[Game Reset / New Game]"));
         }
 
         public void LogEditValue(EditType edit, int index, string value)
         {
             string editValue = edit.ToString();
-            string logMsg = "[ Player Index: " + index + " ]" + "[" + editValue + "]" + value;
+            string logMsg = "[Index: " + index + "]" + "[" + editValue + "]" + value;
             WriteLog(FormatMessage(logMsg));
-            Action = ActionType.NONE;
         }
-        //public void Log(string message)
-        //{
-        //    string logMessage = FormatMessage(message);
-        //    WriteLog(logMessage);
-        //}
+
 
         private string FormatMessage(string message)
         {
@@ -64,6 +84,7 @@ namespace riichi_display
             {
                 writer.WriteLine(message);
             }
+            Action = ActionType.NONE;
         }
     }
 }

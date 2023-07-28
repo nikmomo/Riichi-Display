@@ -25,7 +25,7 @@ namespace riichi_display
 {
     // The Player class represents a single player in the game.
     // It includes properties for storing the player's information and game status.
-    internal class Player
+    public class Player
     {
         // Player's name
         public string Name { get; set; } = "NoName";

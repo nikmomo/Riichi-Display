@@ -24,17 +24,19 @@ using System.Windows.Forms;
 using Button = System.Windows.Forms.Button;
 
 namespace riichi_display
-{
+{ 
     public partial class mainForm : Form
     {
+        private readonly string LOGPATH = "gamelog-" + DateTime.Now.ToString() + ".txt"; // set the log path
+
         // Declaration of forms used in the main form
         private display displayForm;
         private setting setting;
         private status statusForm;
         private doraControl doraControl;
 
-        PointHandler handler;
-        Player[] players;
+        private PointHandler handler;
+        private Player[] players;
 
         // Declare events to handle various actions in the application
         private event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
