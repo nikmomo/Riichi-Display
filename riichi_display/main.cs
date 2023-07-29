@@ -158,6 +158,8 @@ namespace riichi_display
             gameStatusLock.Click += (sender, e) => Lock_Clicked(sender, e, "status");
 
             status.SelectedIndex = 0;
+            han.SelectedIndex = 0;
+            fu.SelectedIndex = 2;
         }
 
         // Event handler for textbox focus

@@ -46,7 +46,6 @@ namespace riichi_display
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            this.label7 = new System.Windows.Forms.Label();
             this.pointGain = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addup3 = new System.Windows.Forms.TextBox();
@@ -106,23 +105,19 @@ namespace riichi_display
             this.namelock = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
             this.tenpaiLabel = new System.Windows.Forms.Label();
+            this.han = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.fu = new System.Windows.Forms.ComboBox();
+            this.labelfu = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(393, 205);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 12);
-            this.label7.TabIndex = 51;
-            this.label7.Text = "（确认最终得点无误后按提交）";
             // 
             // pointGain
             // 
             this.pointGain.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.pointGain.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.pointGain.BackColor = System.Drawing.SystemColors.Window;
+            this.pointGain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.pointGain.Items.AddRange(new object[] {
             "1000",
             "1300",
@@ -151,7 +146,7 @@ namespace riichi_display
             "48000",
             "64000",
             "96000"});
-            this.pointGain.Location = new System.Drawing.Point(323, 200);
+            this.pointGain.Location = new System.Drawing.Point(438, 202);
             this.pointGain.Margin = new System.Windows.Forms.Padding(2);
             this.pointGain.MaxLength = 20;
             this.pointGain.Name = "pointGain";
@@ -162,12 +157,12 @@ namespace riichi_display
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(176, 204);
+            this.label2.Location = new System.Drawing.Point(399, 205);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 12);
+            this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 48;
-            this.label2.Text = "得点 (不包含场供/连庄)：";
+            this.label2.Text = "得点:";
             // 
             // addup3
             // 
@@ -1002,11 +997,100 @@ namespace riichi_display
             this.tenpaiLabel.Text = "听牌状态";
             this.tenpaiLabel.Visible = false;
             // 
+            // han
+            // 
+            this.han.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.han.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.han.BackColor = System.Drawing.SystemColors.Window;
+            this.han.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.han.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "满贯",
+            "跳满",
+            "倍满",
+            "三倍满",
+            "役满",
+            "双倍役满",
+            "三倍役满",
+            "四倍役满",
+            "五倍役满"});
+            this.han.Location = new System.Drawing.Point(238, 202);
+            this.han.Margin = new System.Windows.Forms.Padding(2);
+            this.han.MaxLength = 20;
+            this.han.Name = "han";
+            this.han.Size = new System.Drawing.Size(51, 20);
+            this.han.TabIndex = 59;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(293, 205);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 12);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "翻";
+            // 
+            // fu
+            // 
+            this.fu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.fu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.fu.BackColor = System.Drawing.SystemColors.Window;
+            this.fu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fu.Items.AddRange(new object[] {
+            "20",
+            "25",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120"});
+            this.fu.Location = new System.Drawing.Point(311, 202);
+            this.fu.Margin = new System.Windows.Forms.Padding(2);
+            this.fu.MaxLength = 20;
+            this.fu.Name = "fu";
+            this.fu.Size = new System.Drawing.Size(50, 20);
+            this.fu.TabIndex = 61;
+            // 
+            // labelfu
+            // 
+            this.labelfu.AutoSize = true;
+            this.labelfu.Location = new System.Drawing.Point(365, 205);
+            this.labelfu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelfu.Name = "labelfu";
+            this.labelfu.Size = new System.Drawing.Size(17, 12);
+            this.labelfu.TabIndex = 62;
+            this.labelfu.Text = "符";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(175, 205);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "点数计算:";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 292);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelfu);
+            this.Controls.Add(this.fu);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.han);
             this.Controls.Add(this.tenpaiLabel);
             this.Controls.Add(this.status);
             this.Controls.Add(this.winner);
@@ -1019,7 +1103,6 @@ namespace riichi_display
             this.Controls.Add(this.riichisticks);
             this.Controls.Add(this.combo);
             this.Controls.Add(this.kyutaku);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.pointGain);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.addup3);
@@ -1131,7 +1214,6 @@ namespace riichi_display
         private System.Windows.Forms.ComboBox pointGain;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button tenpai2;
         private System.Windows.Forms.Button tenpai1;
         private System.Windows.Forms.Button tenpai0;
@@ -1139,6 +1221,11 @@ namespace riichi_display
         private System.Windows.Forms.Label winner;
         private System.Windows.Forms.ComboBox status;
         private System.Windows.Forms.Label tenpaiLabel;
+        private System.Windows.Forms.ComboBox han;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox fu;
+        private System.Windows.Forms.Label labelfu;
+        private System.Windows.Forms.Label label8;
     }
 }
 
