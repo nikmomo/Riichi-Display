@@ -75,30 +75,63 @@ namespace riichi_display
         // Reset combo and kyutaku to zero.
         public void Reset() { Combo = 0; Kyutaku = 0; finalAddup = 0; tenpai = 0; }
 
+        public int CalculatePoint(int hanIndex, int fuIndex, bool isDealer)
+        {
+            int oya = 0;
+            int ko = 0;
+            
+            double result = 0;
+
+            // Calculate point based on the formula
+            if (hanIndex < 4)
+            {
+                int[] fuList = { 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
+                int baseRate = isDealer ? 6 : 4; // set the base rate for the formula, oya is 6, ko is 4
+                result = baseRate * fuList[fuIndex] * Math.Pow(2, hanIndex + 2);
+            }
+            else
+            {
+                result = hanIndex == 4 ? 8000 : // handling the 5+ han
+                         hanIndex == 5 ? 12000 :
+                         hanIndex == 6 ? 16000 :
+                         hanIndex == 7 ? 24000 :
+                         hanIndex == 8 ? 32000 :
+                         hanIndex == 9 ? 64000 :
+                         hanIndex == 10 ? 96000 :
+                         hanIndex == 11 ? 128000 :
+                         hanIndex == 12 ? 160000 :
+                         hanIndex == 13 ? 192000 : 0;
+                result *= isDealer ? 1.5 : 1; // If it's dealer, * 1.5
+            }
+
+            return ToThousand(roundUp((int)result));
+        }
+
         // Calculate the total point when oyatsumo, return the point that requires to pay by everyone
         // point - The base point.
         public int Oyatsumo(int point)
         {
-            var result = point / 3;
-            if (result % 100 != 0)
-                result += 100;
-            finalAddup = (ToThousand(result) + Combo * 100) * 3 + Kyutaku * 1000;
-            return ToThousand(result) + Combo * 100;
+            var result = ToThousand(roundUp(point / 3));
+            finalAddup = (result + Combo * 100) * 3 + Kyutaku * 1000;
+            return result + Combo * 100;
         }
 
         // Calculate the total points for both oya and ko when kotsumo.
         // point - The base point.
         public (int oya, int ko) Kotsumo(int point)
         {
-            var oyaResult = point / 2;
-            var koResult = oyaResult / 2;
-            if (oyaResult % 100 != 0)
-                oyaResult += 100;
-            if (koResult % 100 != 0)
-                koResult += 100;
-            finalAddup = ToThousand(oyaResult) + (Combo * 300) + 
-                ToThousand(koResult) * 2 + Kyutaku * 1000;
-            return (ToThousand(oyaResult) + Combo * 100, ToThousand(koResult) + Combo * 100);
+            var oyaResult = ToThousand(roundUp(point / 2));
+            var koResult = ToThousand(roundUp(point / 4));
+            finalAddup = oyaResult + (Combo * 300) + 
+               koResult * 2 + Kyutaku * 1000;
+            return (oyaResult + Combo * 100, koResult + Combo * 100);
+        }
+
+        // Round up to the next 100
+        private int roundUp(int value) 
+        {
+            int result = value % 100 != 0 ? value + 100 : value;
+            return result;
         }
 
         // Increase combo by one.

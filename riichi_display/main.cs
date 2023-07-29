@@ -158,7 +158,6 @@ namespace riichi_display
             gameStatusLock.Click += (sender, e) => Lock_Clicked(sender, e, "status");
 
             status.SelectedIndex = 0;
-            han.SelectedIndex = 0;
             fu.SelectedIndex = 2;
         }
 
@@ -904,6 +903,21 @@ namespace riichi_display
             }
         }
 
+        private void han_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool oyawinner = false;
+            foreach (Player player in players)
+            {
+                oyawinner = player.Oya && player.Winner;
+                if (oyawinner) // If found out oya is winner, break
+                    break;
+            }
+            ActiveControl = pointGain;
+            doubleEnter = true;
+            pointGain.Text = handler.CalculatePoint(han.SelectedIndex, fu.SelectedIndex, oyawinner).ToString();
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
+            FormUpdate(sender, new FormDisplayUpdateEvent());
+        }
     }
 
 }
