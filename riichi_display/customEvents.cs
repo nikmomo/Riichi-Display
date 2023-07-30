@@ -45,7 +45,13 @@ namespace riichi_display
     }
 
     // Event to trigger point calculation
-    public class PointCalculateEvent : EventArgs { }
+    public class PointCalculateEvent : EventArgs 
+    {
+        public PointCalculateEvent() { Value = ""; }
+        public PointCalculateEvent(string value) { Value = value; }
+        // Tag property to differentiate display types
+        public string Value { get; private set; }
+    }
 
     // Event for updating main form display
     public class FormDisplayUpdateEvent : DisplayUpdateEvent { }

@@ -58,7 +58,7 @@ namespace riichi_display
 
             log = new Logger(LOGPATH);
             // Initialize form properties and event handlers
-            PointCalculateEvent += PointUpdate;
+            PointCalculateEvent += han_SelectedIndexChanged; // Subscribe han_selectedIndexChanged instead of PointUpdate because easier to manage
             FormDisplayUpdateEvent += FormUpdate;
             DisplayUpdateEvent += DisplayUpdate;
             WindChangeEvent += windChgeControl;
@@ -142,10 +142,10 @@ namespace riichi_display
             submit.Click += submit_Click;
             submit.Click += doraControl.reset_Click;
 
-            pointGain.LostFocus += PointGain_LostFocus;
+            //pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
             pointGain.KeyDown += pointGain_KeyDown;
-            pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged; // PointGain using same method because requires same functionality
+            //pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged; // PointGain using same method because requires same functionality
 
             playerList.SelectedIndexChanged += playerList_SelectedIndexChanged;
 
@@ -158,6 +158,7 @@ namespace riichi_display
             gameStatusLock.Click += (sender, e) => Lock_Clicked(sender, e, "status");
 
             status.SelectedIndex = 0;
+            han.SelectedIndex = 0;
             fu.SelectedIndex = 2;
         }
 
@@ -660,6 +661,7 @@ namespace riichi_display
             FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent());
         }
 
+        bool justEdit = false;
         // Handles the key press event for pointGain input, ensuring only digit input of a certain length is allowed
         private void pointGain_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -668,7 +670,11 @@ namespace riichi_display
             {
                 e.Handled = true; // Reject the input
             }
-
+            if (e.KeyChar != '\r' && char.IsDigit(e.KeyChar))
+            {
+                justEdit = true;
+                doubleEnter = false;
+            }
             // Check if the input exceeds a maximum length
             if (!char.IsControl(e.KeyChar) && pointGain.Text.Length >= 7 && e.KeyChar != '\r')
             {
@@ -684,7 +690,8 @@ namespace riichi_display
                 if (!doubleEnter)
                 {
                     doubleEnter = true;
-                    playerList_SelectedIndexChanged(sender, e);
+                    PointCalculateEvent?.Invoke(sender, new PointCalculateEvent(pointGain.Text)); // send point update event
+                    log.LogPoint(pointGain.Text);
                     Console.WriteLine("Waiting Next Enter");
                 }
                 else
@@ -797,12 +804,10 @@ namespace riichi_display
         }
 
         // When PointGain control loses focus, set doubleEnter to false, send point update event and update the form
-        private void PointGain_LostFocus(object sender, EventArgs e)
-        {
-            doubleEnter = false;
-            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
-            FormUpdate(sender, new FormDisplayUpdateEvent());
-        }
+        //private void PointGain_LostFocus(object sender, EventArgs e)
+        //{
+        //     PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
+        //}
 
         // Prepares for the next round by resetting fields and controls
         private void NextRound()
@@ -854,6 +859,9 @@ namespace riichi_display
             }
             handler.Tenpai = 0;
             submit.Enabled = false;
+            fu.Enabled = true;
+            han.SelectedIndex = 0;
+            fu.SelectedIndex = 2;
         }
 
         // Resets the addup values of all players and sends a point update event
@@ -863,7 +871,7 @@ namespace riichi_display
             {
                 player.Addup = 0;
             }
-            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
+            //PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
         }
 
         // Adjusts the status selection to the next round
@@ -905,19 +913,26 @@ namespace riichi_display
 
         private void han_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool oyawinner = false;
+            bool oyaWinner = false;
+            bool hasWinner = false;
+            fu.Enabled = han.SelectedIndex >= 4 ? false : true;
             foreach (Player player in players)
             {
-                oyawinner = player.Oya && player.Winner;
-                if (oyawinner) // If found out oya is winner, break
-                    break;
+                if (player.Winner) hasWinner = true; // Check if there is a winner in game
+                oyaWinner = player.Oya && player.Winner;
+                if (oyaWinner) break;// If found out oya is winner, break
             }
+            if (!hasWinner) { return;  }
             ActiveControl = pointGain;
-            doubleEnter = true;
-            pointGain.Text = handler.CalculatePoint(han.SelectedIndex, fu.SelectedIndex, oyawinner).ToString();
-            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
-            FormUpdate(sender, new FormDisplayUpdateEvent());
+            doubleEnter = true; // wait for the next enter
+
+            log.LogHanFu(han.Text, fu.Text);
+            // If user edit manually, the priority is higher
+            pointGain.Text = justEdit ? pointGain.Text : handler.CalculatePoint(han.SelectedIndex, fu.SelectedIndex, oyaWinner).ToString();
+            justEdit = false;
+            PointUpdate(sender, new PointCalculateEvent()); // send point update event
         }
+
     }
 
 }

@@ -33,6 +33,9 @@ namespace riichi_display
     {
         private string logFile; // Log file path
         public ActionType Action { set; get; } // Setting the action such that the program can react based on different actions
+        private string han = ""; // Han and fu record
+        private string fu = "";
+        private string point = ""; // use for manual input
 
         public Logger(string logFile)
         {
@@ -56,10 +59,33 @@ namespace riichi_display
             WriteLog(FormatMessage(logMsg));
         }
 
+        public void LogHanFu(string hanValue, string fuValue)
+        {
+            han = hanValue;
+            fu = fuValue;
+        }
+        private void ClearHanFu() { han = ""; fu = ""; }
+
+        public void LogPoint(string pointValue) 
+        { 
+            point = pointValue;
+            ClearHanFu();
+        }
+
         public void LogSubmission(Player[] players)
         {
             string actionValue = Action.ToString();
             string logMsg = "[Action:" + actionValue + "]";
+            if (han != "" || fu != "")
+            {
+                logMsg += "[" + han + "翻" + fu + "符]";
+                ClearHanFu();
+            }
+            else if (point != "")
+            {
+                logMsg += "[" + point + "points]";
+                point = "";
+            }
 
             foreach (Player player in players)
             {

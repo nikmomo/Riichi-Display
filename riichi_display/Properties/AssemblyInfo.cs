@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("riichi_display")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dell")]
+[assembly: AssemblyCompany("Private")]
 [assembly: AssemblyProduct("riichi_display")]
-[assembly: AssemblyCopyright("Copyright © Dell 2023")]
+[assembly: AssemblyCopyright("Shin Zhang")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.4")]
+[assembly: AssemblyVersion("2.5")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
