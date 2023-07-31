@@ -43,7 +43,7 @@ namespace riichi_display
         }
 
         // Public properties for kyutaku and combo.
-        private int Kyutaku {
+        public int Kyutaku {
             get { return kyutaku; }
             set
             {
@@ -51,7 +51,7 @@ namespace riichi_display
                 StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo)); // status display update event
             }
         }
-        private int Combo { 
+        public int Combo { 
             get { return combo; } 
             set { 
                 combo = value;
@@ -78,6 +78,8 @@ namespace riichi_display
         public int CalculatePoint(int hanIndex, int fuIndex, bool isDealer)
         {
             double result = 0;
+            if (fuIndex > 11 || fuIndex < 0) // If fu is out of range then just return
+                return 0;
             // Calculate point based on the formula
             if (hanIndex < 4 ) 
             {
@@ -169,5 +171,22 @@ namespace riichi_display
             Kyutaku = 0;
         }
 
+        public void SendStatusUpdateEvent()
+        {
+            StatusUpdateEvent?.Invoke(this, new StatusUpdateEvent(Kyutaku, Combo));
+        }
+
+        public (int, int) GetTenpaiAddup()
+        {
+            // Determine the point exchange based on the number of players in Tenpai
+            var receive = (Tenpai == 1) ? 3000 :
+                          (Tenpai == 2) ? 1500 :
+                          (Tenpai == 3) ? 1000 : 0;
+            var pay = (Tenpai == 1) ? 1000 :
+                      (Tenpai == 2) ? 1500 :
+                      (Tenpai == 3) ? 3000 : 0;
+            Console.WriteLine("Receive:" + receive + ", Pay: " + pay + ", tenapi: " + Tenpai);
+            return (receive, pay);
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace riichi_display
         private PointHandler handler;
         private Player[] players;
         private Logger log;
+        private SettingSL sl;
 
         // Declare events to handle various actions in the application
         private event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
@@ -55,6 +56,7 @@ namespace riichi_display
         public mainForm()
         {
             InitializeComponent();
+            this.FormClosing += new FormClosingEventHandler(SavePlayerWhenClosing);
 
             log = new Logger(LOGPATH);
             // Initialize form properties and event handlers
@@ -77,11 +79,7 @@ namespace riichi_display
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
 
-            handler = new PointHandler();
-            handler.StatusUpdateEvent += (s, e) => { kyutaku.Text = handler.getKyutaku().ToString(); combo.Text = handler.getCombo().ToString(); };
-
             statusForm = new status();
-            handler.StatusUpdateEvent += statusForm.StatusUpdate;
             RoundUpdateEvent += statusForm.RoundUpdate;
             statusForm.Show();
 
@@ -89,17 +87,19 @@ namespace riichi_display
             doraControl.DoraUpdateEvent += statusForm.DoraUpdate;
             doraControl.Show();
 
-            // Initialize an array of 4 Player objects
-            players = new Player[4];
-            for (int i = 0; i < players.Length; i++)
-            {
-                players[i] = new Player { Index = i, Name = "PLAYER" + (i + 1).ToString() };
-                if (i == 0)
-                    players[i].Oya = true; // Assign dealer status to first player
-            }
+            sl = new SettingSL();
+            players = sl.LoadPlayer();
+            handler = sl.LoadHandler();
+            status.SelectedIndex = sl.LoadRoundIndex();
+
+            handler.StatusUpdateEvent += (s, e) => { kyutaku.Text = handler.getKyutaku().ToString(); combo.Text = handler.getCombo().ToString(); };
+            handler.StatusUpdateEvent += statusForm.StatusUpdate; // Subscribe the status when updated
+            handler.SendStatusUpdateEvent();
 
             // Set up properties and event handlers for form controls
             PropertySetup();
+    
+            DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
         }
 
         // Method to set up properties and event handlers for form controls
@@ -157,7 +157,6 @@ namespace riichi_display
             pointLock.Click += (sender, e) => Lock_Clicked(sender, e, "point");
             gameStatusLock.Click += (sender, e) => Lock_Clicked(sender, e, "status");
 
-            status.SelectedIndex = 0;
             han.SelectedIndex = 0;
             fu.SelectedIndex = 2;
         }
@@ -273,21 +272,12 @@ namespace riichi_display
                 if (i != n)
                     players[i].Oya = false; // Set other players as non-dealer
                 else
-                    players[i].Oya = true; // Set current player as dealer
-            }
-            button.BackColor = Color.DarkOrange;
-            button.Text = "親";
-            // Reset other buttons to non-dealer state
-            foreach (Control control in this.Controls)
-            {
-                if (control.Tag != null && control.Tag.ToString() == "seat" && control != button)
                 {
-                    control.BackColor = Color.White;
-                    control.Text = "子";
+                    players[i].Oya = true; // Set current player as dealer
+                    log.LogEditValue(EditType.DEALER, n, "IS DEALER"); // mark the manual changes of dealer
                 }
             }
-            log.LogEditValue(EditType.DEALER, n, "IS DEALER"); // mark the manual changes of dealer
-            Console.WriteLine(players[n].ToString());
+            //Console.WriteLine(players[n].ToString());
             DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
         }
 
@@ -318,9 +308,9 @@ namespace riichi_display
         // Event handler for text change in name textboxes
         private void name_changed(object sender, EventArgs e)
         {
-            //System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            //int n = determinePlayer(textBox.Name); // Get index of the player
-            //players[n].Name = textBox.Text;
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            int n = determinePlayer(textBox.Name); // Get index of the player
+            players[n].Name = textBox.Text;
             // Clear the combobox items
             playerList.Items.Clear();
 
@@ -399,7 +389,10 @@ namespace riichi_display
                 handler.setKyutaku(handler.getKyutaku() - 1);
             }
 
-            button.Text = players[n].Riichi ? "取消立直" : "立直";
+            var tenpaiButton = this.Controls.Find("tenpai" + n, true).FirstOrDefault() as System.Windows.Forms.Button;
+            tenpaiButton.PerformClick();
+
+            //button.Text = players[n].Riichi ? "取消立直" : "立直";
             //// Disable the Riichi button after click
             //button.Enabled = false;
 
@@ -408,9 +401,12 @@ namespace riichi_display
 
             // Invoke the relevant events
             log.LogRiichi(players[n]);
-            RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // Send riichi update
+
+            DisplayUpdateEvent?.Invoke(sender, new DisplayUpdateEvent()); // Send display update event
+            //FormDisplayUpdateEvent?.Invoke(sender, new FormDisplayUpdateEvent()); // Send form update event
+            //RiichiDisplayEvent?.Invoke(sender, new RiichiDisplayEvent(n, players[n].Riichi)); // Send riichi update
             AddupDisplayEvent?.Invoke(this, new AddupDisplayEvent(n, -1000));
-            DisplayWindowUpdateEvent?.Invoke(sender, new DisplayWindowUpdateEvent(button.Tag.ToString())); // Send display update event
+            //DisplayWindowUpdateEvent?.Invoke(sender, new DisplayWindowUpdateEvent(button.Tag.ToString())); // Send display update event
         }
 
         // Event handler for clicking on the submit button
@@ -508,7 +504,7 @@ namespace riichi_display
         private void draw_Click(object sender, EventArgs e)
         {
             isDraw = !isDraw;
-
+            
             // Toggle visibility and availability of related controls
             tenpai0.Visible = isDraw;
             tenpai1.Visible = isDraw;
@@ -524,6 +520,12 @@ namespace riichi_display
             ron2.Enabled = !isDraw;
             ron3.Enabled = !isDraw;
             winner.Visible = !isDraw;
+
+            if (!isDraw) // Lock submit if draw is cancelled to prevent potential bugs
+            {
+                submit.Enabled = false;
+            }
+
 
             // Read the current tenpai status
             foreach (Player player in players)
@@ -562,22 +564,14 @@ namespace riichi_display
             // Handle text and point change
             if (players[n].Tenpai)
             {
-                button.Text = "听牌";
                 handler.Tenpai++;
             }
             else
             {
-                button.Text = "不听";
                 handler.Tenpai--;
             }
 
-            // Determine the point exchange based on the number of players in Tenpai
-            var receive = (handler.Tenpai == 1) ? 3000 :
-                          (handler.Tenpai == 2) ? 1500 :
-                          (handler.Tenpai == 3) ? 1000 : 0;
-            var pay = (handler.Tenpai == 1) ? 1000 :
-                      (handler.Tenpai == 2) ? 1500 :
-                      (handler.Tenpai == 3) ? 3000 : 0;
+            (int receive, int pay) = handler.GetTenpaiAddup();
 
             // Apply the point exchange to all players
             foreach (Player player in players)
@@ -789,25 +783,40 @@ namespace riichi_display
             {
                 UpdateControl(this, player, "point", player.Point);
                 UpdateControl(this, player, "addup", player.Addup);
+                UpdateControl(this, player, "name", player.Name);
+                UpdateControl(this, player, "team", player.Team);
 
-                string controlName = "riichi" + player.Index;
-                Button control = this.Controls.Find(controlName, true).FirstOrDefault() as Button;
+                Button control = this.Controls.Find("riichi" + player.Index, true).FirstOrDefault() as Button;
                 if (control != null)
                 {
-                    if (!player.Riichi && control.Text == "取消立直")
-                    {
-                        control.Text = "立直";
-                    }
+                    control.Text = player.Riichi ? "取消立直" : "立直";
+
                 }
 
+                control = this.Controls.Find("oya" + player.Index, true).FirstOrDefault() as Button;
+                if (player.Oya)
+                {
+                    control.BackColor = Color.DarkOrange;
+                    control.Text = "親";
+                }
+                else // Reset other buttons to non-dealer state
+                {
+                    control.BackColor = Color.White;
+                    control.Text = "子";
+                }
+
+                control = this.Controls.Find("tenpai" + player.Index, true).FirstOrDefault() as Button;
+                if (player.Tenpai)
+                {
+                    control.Text = "听牌";
+                }
+                else
+                {
+                    control.Text = "不听";
+                }
             }
         }
 
-        // When PointGain control loses focus, set doubleEnter to false, send point update event and update the form
-        //private void PointGain_LostFocus(object sender, EventArgs e)
-        //{
-        //     PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
-        //}
 
         // Prepares for the next round by resetting fields and controls
         private void NextRound()
@@ -871,7 +880,7 @@ namespace riichi_display
             {
                 player.Addup = 0;
             }
-            //PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
+            PointCalculateEvent?.Invoke(sender, new PointCalculateEvent()); // send point update event
         }
 
         // Adjusts the status selection to the next round
@@ -933,6 +942,11 @@ namespace riichi_display
             PointUpdate(sender, new PointCalculateEvent()); // send point update event
         }
 
-    }
+        private void SavePlayerWhenClosing(object sender, FormClosingEventArgs e)
+        {
+            sl.SaveState(players, handler, status.SelectedIndex);
+        }
 
+        // TODO: Test round index editing storage
+    }
 }
