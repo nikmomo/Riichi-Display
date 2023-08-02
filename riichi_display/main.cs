@@ -226,6 +226,7 @@ namespace riichi_display
         {
             // Event handler for text box losing focus. It updates player details based on the text box that lost focus.
             System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            if (textBox.Tag.ToString() == "status") return; // exclude the status because they don't need to update player info
             int n = determinePlayer(textBox.Name); // index of the player
             switch (textBox.Tag) // update player based on the tag
             {
