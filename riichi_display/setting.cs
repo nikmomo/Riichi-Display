@@ -31,9 +31,19 @@ namespace riichi_display
     {
         public event EventHandler<TeamControlEvent> teamCtrlEvent;
         public event EventHandler<WindChangeEvent> WindChgeEvent;
+
+        private settingHandler Set;
+        // TODO: Memorize the setting toggles, right now it's a bit conflicts with the toggles in main,
+        //       thinkig to set the setting handler in main.cs instead of here
+        private class settingHandler // Use for memorize the setting
+        {
+            bool teamEnabled { get; set; }
+            bool windEnabled { get; set; }
+        }
         public setting()//mainForm form, display displayform)
         {
             InitializeComponent();
+            Set = new settingHandler();
         }
 
         private void hideTeam_Click(object sender, EventArgs e)

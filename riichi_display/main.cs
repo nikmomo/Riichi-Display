@@ -94,11 +94,11 @@ namespace riichi_display
 
             handler.StatusUpdateEvent += (s, e) => { kyutaku.Text = handler.getKyutaku().ToString(); combo.Text = handler.getCombo().ToString(); };
             handler.StatusUpdateEvent += statusForm.StatusUpdate; // Subscribe the status when updated
-            handler.SendStatusUpdateEvent();
-
+            
             // Set up properties and event handlers for form controls
             PropertySetup();
-    
+
+            handler.SendStatusUpdateEvent();
             DisplayUpdateEvent?.Invoke(this, new DisplayUpdateEvent()); // send display update event
         }
 

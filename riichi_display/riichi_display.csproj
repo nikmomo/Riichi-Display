@@ -7,7 +7,7 @@
     <ProjectGuid>{CF74EC53-8A16-4936-9246-9ED7779D7647}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>riichi_display</RootNamespace>
-    <AssemblyName>Riichi Display</AssemblyName>
+    <AssemblyName>Riichi Livestream Display System</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
