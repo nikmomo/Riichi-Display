@@ -86,7 +86,7 @@ namespace riichi_display
                 int[] fuList = { 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
                 int baseRate = isDealer ? 6 : 4; // set the base rate for the formula, oya is 6, ko is 4
                 result = baseRate * fuList[fuIndex] * Math.Pow(2, hanIndex + 3); // +3 because hanIndex starts from 0, +1 to the correct han +2 is in formula
-                result = result > 8000 ? 8000 : result; // when they are larger than 8000, it equals to mangan
+                result = (result > 8000 && !isDealer) ? 8000 : result; // when they are larger than 8000 and non-dealer, it equals to mangan
             }
             else
             {

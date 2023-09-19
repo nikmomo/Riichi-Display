@@ -27,7 +27,8 @@ namespace riichi_display
 { 
     public partial class mainForm : Form
     {
-        private readonly string LOGPATH = "gamelog-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt"; // set the log path
+        private readonly string LOGPATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+                                          "/RiichiLogs/gamelog-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt"; // set the log path
 
         // Declaration of forms used in the main form
         private display displayForm;
@@ -78,6 +79,7 @@ namespace riichi_display
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
+            
 
             statusForm = new status();
             RoundUpdateEvent += statusForm.RoundUpdate;
@@ -91,6 +93,7 @@ namespace riichi_display
             players = sl.LoadPlayer();
             handler = sl.LoadHandler();
             status.SelectedIndex = sl.LoadRoundIndex();
+            setting.newShortCut.Click += sl.CreateShortCut;
 
             handler.StatusUpdateEvent += (s, e) => { kyutaku.Text = handler.getKyutaku().ToString(); combo.Text = handler.getCombo().ToString(); };
             handler.StatusUpdateEvent += statusForm.StatusUpdate; // Subscribe the status when updated
@@ -291,6 +294,7 @@ namespace riichi_display
                 setting.teamCtrlEvent += changeTeamControl;
                 setting.WindChgeEvent += windChgeControl;
                 setting.windIndicator.Click += (s, p) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
+                setting.newShortCut.Click += sl.CreateShortCut;
             }
             setting.Show();
         }

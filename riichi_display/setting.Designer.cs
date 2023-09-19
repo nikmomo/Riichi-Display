@@ -49,15 +49,17 @@ namespace riichi_display
             this.hideTeam = new System.Windows.Forms.Button();
             this.windSwitch = new System.Windows.Forms.Button();
             this.windIndicator = new System.Windows.Forms.Button();
+            this.openFolder = new System.Windows.Forms.Button();
+            this.newShortCut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hideTeam
             // 
             this.hideTeam.AutoSize = true;
-            this.hideTeam.Location = new System.Drawing.Point(11, 53);
-            this.hideTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hideTeam.Location = new System.Drawing.Point(133, 22);
+            this.hideTeam.Margin = new System.Windows.Forms.Padding(2);
             this.hideTeam.Name = "hideTeam";
-            this.hideTeam.Size = new System.Drawing.Size(117, 22);
+            this.hideTeam.Size = new System.Drawing.Size(118, 24);
             this.hideTeam.TabIndex = 48;
             this.hideTeam.Text = "关闭/启用团队名称";
             this.hideTeam.UseMnemonic = false;
@@ -67,10 +69,10 @@ namespace riichi_display
             // windSwitch
             // 
             this.windSwitch.AutoSize = true;
-            this.windSwitch.Location = new System.Drawing.Point(132, 20);
-            this.windSwitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.windSwitch.Location = new System.Drawing.Point(11, 78);
+            this.windSwitch.Margin = new System.Windows.Forms.Padding(2);
             this.windSwitch.Name = "windSwitch";
-            this.windSwitch.Size = new System.Drawing.Size(101, 22);
+            this.windSwitch.Size = new System.Drawing.Size(118, 24);
             this.windSwitch.TabIndex = 49;
             this.windSwitch.Text = "场风切换";
             this.windSwitch.UseMnemonic = false;
@@ -80,25 +82,52 @@ namespace riichi_display
             // windIndicator
             // 
             this.windIndicator.AutoSize = true;
-            this.windIndicator.Location = new System.Drawing.Point(11, 20);
+            this.windIndicator.Location = new System.Drawing.Point(11, 22);
             this.windIndicator.Margin = new System.Windows.Forms.Padding(2);
             this.windIndicator.Name = "windIndicator";
-            this.windIndicator.Size = new System.Drawing.Size(117, 22);
+            this.windIndicator.Size = new System.Drawing.Size(118, 24);
             this.windIndicator.TabIndex = 50;
             this.windIndicator.Text = "关闭/启用场风指示";
             this.windIndicator.UseMnemonic = false;
             this.windIndicator.UseVisualStyleBackColor = true;
             // 
+            // openFolder
+            // 
+            this.openFolder.AutoSize = true;
+            this.openFolder.Location = new System.Drawing.Point(11, 50);
+            this.openFolder.Margin = new System.Windows.Forms.Padding(2);
+            this.openFolder.Name = "openFolder";
+            this.openFolder.Size = new System.Drawing.Size(118, 24);
+            this.openFolder.TabIndex = 51;
+            this.openFolder.Text = "打开Gamelog文件夹";
+            this.openFolder.UseMnemonic = false;
+            this.openFolder.UseVisualStyleBackColor = true;
+            this.openFolder.Click += new System.EventHandler(this.openFolder_Click);
+            // 
+            // newShortCut
+            // 
+            this.newShortCut.AutoSize = true;
+            this.newShortCut.Location = new System.Drawing.Point(133, 50);
+            this.newShortCut.Margin = new System.Windows.Forms.Padding(2);
+            this.newShortCut.Name = "newShortCut";
+            this.newShortCut.Size = new System.Drawing.Size(118, 24);
+            this.newShortCut.TabIndex = 52;
+            this.newShortCut.Text = "创建桌面快捷方式";
+            this.newShortCut.UseMnemonic = false;
+            this.newShortCut.UseVisualStyleBackColor = true;
+            // 
             // setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 88);
+            this.ClientSize = new System.Drawing.Size(268, 129);
+            this.Controls.Add(this.newShortCut);
+            this.Controls.Add(this.openFolder);
             this.Controls.Add(this.windIndicator);
             this.Controls.Add(this.windSwitch);
             this.Controls.Add(this.hideTeam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "setting";
             this.Text = "setting";
             this.ResumeLayout(false);
@@ -111,5 +140,7 @@ namespace riichi_display
         private System.Windows.Forms.Button hideTeam;
         private System.Windows.Forms.Button windSwitch;
         public System.Windows.Forms.Button windIndicator;
+        private System.Windows.Forms.Button openFolder;
+        public System.Windows.Forms.Button newShortCut;
     }
 }

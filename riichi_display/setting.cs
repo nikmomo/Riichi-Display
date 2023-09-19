@@ -16,6 +16,8 @@ along with Riichi Mahjong Livestreaming Display System.  If not, see <https://ww
 */
 
 using System;
+using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +56,12 @@ namespace riichi_display
         private void button1_Click(object sender, EventArgs e)
         {
             WindChgeEvent?.Invoke(this, new WindChangeEvent());
+        }
+
+        private void openFolder_Click(object sender, EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            Process.Start("explorer.exe", Path.Combine(path, "RiichiLogs"));
         }
     }
 }

@@ -44,11 +44,8 @@ namespace riichi_display
         
         public void LogStatus(string round, int kyutaku, int combo)
         {
-            string logMsg = "[" + round + "]" + "[Kyutaku: " + kyutaku + "]" + "[Combo: " + combo + "]";
-            using (StreamWriter writer = File.AppendText(logFile))
-            {
-                writer.WriteLine(logMsg);
-            }
+            string logMsg = "[" + round + "]" + "[场供: " + kyutaku + "]" + "[本场: " + combo + "]";
+            WriteLog(FormatMessage(logMsg));
         }
 
         public void LogRiichi(Player player)
@@ -97,7 +94,7 @@ namespace riichi_display
 
         public void LogReset()
         {
-            WriteLog("[Game Reset / New Game]");
+            WriteLog(FormatMessage("[Game Reset / New Game]"));
         }
 
         public void LogEditValue(EditType edit, int index, string value)
@@ -116,6 +113,11 @@ namespace riichi_display
 
         private void WriteLog(string message)
         {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/RiichiLogs";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
             using (StreamWriter writer = File.AppendText(logFile))
             {
                 writer.WriteLine(message);
