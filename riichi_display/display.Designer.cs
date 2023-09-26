@@ -80,11 +80,11 @@ namespace riichi_display
             this.team0.BackColor = System.Drawing.Color.Transparent;
             this.team0.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team0.Location = new System.Drawing.Point(130, 162);
+            this.team0.Location = new System.Drawing.Point(130, 176);
             this.team0.Margin = new System.Windows.Forms.Padding(0);
             this.team0.Name = "team0";
             this.team0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team0.Size = new System.Drawing.Size(175, 39);
+            this.team0.Size = new System.Drawing.Size(175, 42);
             this.team0.TabIndex = 0;
             this.team0.Tag = "team";
             this.team0.Text = "Team1";
@@ -95,11 +95,11 @@ namespace riichi_display
             this.name0.BackColor = System.Drawing.Color.Transparent;
             this.name0.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name0.ForeColor = System.Drawing.Color.DarkOrange;
-            this.name0.Location = new System.Drawing.Point(111, 66);
+            this.name0.Location = new System.Drawing.Point(111, 72);
             this.name0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name0.Name = "name0";
             this.name0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.name0.Size = new System.Drawing.Size(212, 49);
+            this.name0.Size = new System.Drawing.Size(212, 53);
             this.name0.TabIndex = 1;
             this.name0.Tag = "name";
             this.name0.Text = "PLAYER1";
@@ -110,12 +110,13 @@ namespace riichi_display
             this.point0.BackColor = System.Drawing.Color.Transparent;
             this.point0.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.point0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.point0.Location = new System.Drawing.Point(90, 101);
+            this.point0.Location = new System.Drawing.Point(90, 109);
             this.point0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.point0.Name = "point0";
             this.point0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.point0.Size = new System.Drawing.Size(233, 64);
+            this.point0.Size = new System.Drawing.Size(233, 69);
             this.point0.TabIndex = 2;
+            this.point0.Tag = "point";
             this.point0.Text = "25000";
             this.point0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -124,11 +125,11 @@ namespace riichi_display
             this.team1.BackColor = System.Drawing.Color.Transparent;
             this.team1.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team1.Location = new System.Drawing.Point(445, 164);
+            this.team1.Location = new System.Drawing.Point(445, 178);
             this.team1.Margin = new System.Windows.Forms.Padding(0);
             this.team1.Name = "team1";
             this.team1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team1.Size = new System.Drawing.Size(175, 37);
+            this.team1.Size = new System.Drawing.Size(175, 40);
             this.team1.TabIndex = 3;
             this.team1.Tag = "team";
             this.team1.Text = "Team2";
@@ -139,11 +140,11 @@ namespace riichi_display
             this.name1.BackColor = System.Drawing.Color.Transparent;
             this.name1.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.name1.Location = new System.Drawing.Point(427, 66);
+            this.name1.Location = new System.Drawing.Point(427, 72);
             this.name1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name1.Name = "name1";
             this.name1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.name1.Size = new System.Drawing.Size(212, 49);
+            this.name1.Size = new System.Drawing.Size(212, 53);
             this.name1.TabIndex = 4;
             this.name1.Tag = "name";
             this.name1.Text = "PLAYER2";
@@ -154,13 +155,14 @@ namespace riichi_display
             this.point1.BackColor = System.Drawing.Color.Transparent;
             this.point1.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.point1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.point1.Location = new System.Drawing.Point(406, 101);
+            this.point1.Location = new System.Drawing.Point(406, 109);
             this.point1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.point1.Name = "point1";
             this.point1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.point1.Size = new System.Drawing.Size(233, 64);
+            this.point1.Size = new System.Drawing.Size(233, 69);
             this.point1.TabIndex = 5;
-            this.point1.Text = "25000";
+            this.point1.Tag = "point";
+            this.point1.Text = "-25000";
             this.point1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // team2
@@ -168,11 +170,11 @@ namespace riichi_display
             this.team2.BackColor = System.Drawing.Color.Transparent;
             this.team2.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team2.Location = new System.Drawing.Point(773, 164);
+            this.team2.Location = new System.Drawing.Point(773, 178);
             this.team2.Margin = new System.Windows.Forms.Padding(0);
             this.team2.Name = "team2";
             this.team2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team2.Size = new System.Drawing.Size(175, 37);
+            this.team2.Size = new System.Drawing.Size(175, 40);
             this.team2.TabIndex = 6;
             this.team2.Tag = "team";
             this.team2.Text = "Team3";
@@ -183,11 +185,11 @@ namespace riichi_display
             this.name2.BackColor = System.Drawing.Color.Transparent;
             this.name2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.name2.Location = new System.Drawing.Point(756, 66);
+            this.name2.Location = new System.Drawing.Point(756, 72);
             this.name2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name2.Name = "name2";
             this.name2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.name2.Size = new System.Drawing.Size(212, 49);
+            this.name2.Size = new System.Drawing.Size(212, 53);
             this.name2.TabIndex = 7;
             this.name2.Tag = "name";
             this.name2.Text = "PLAYER3";
@@ -198,12 +200,13 @@ namespace riichi_display
             this.point2.BackColor = System.Drawing.Color.Transparent;
             this.point2.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.point2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.point2.Location = new System.Drawing.Point(735, 101);
+            this.point2.Location = new System.Drawing.Point(735, 109);
             this.point2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.point2.Name = "point2";
             this.point2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.point2.Size = new System.Drawing.Size(233, 64);
+            this.point2.Size = new System.Drawing.Size(233, 69);
             this.point2.TabIndex = 8;
+            this.point2.Tag = "point";
             this.point2.Text = "25000";
             this.point2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -212,11 +215,11 @@ namespace riichi_display
             this.team3.BackColor = System.Drawing.Color.Transparent;
             this.team3.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.team3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.team3.Location = new System.Drawing.Point(1079, 164);
+            this.team3.Location = new System.Drawing.Point(1079, 178);
             this.team3.Margin = new System.Windows.Forms.Padding(0);
             this.team3.Name = "team3";
             this.team3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team3.Size = new System.Drawing.Size(175, 37);
+            this.team3.Size = new System.Drawing.Size(175, 40);
             this.team3.TabIndex = 9;
             this.team3.Tag = "team";
             this.team3.Text = "Team4";
@@ -227,11 +230,11 @@ namespace riichi_display
             this.name3.BackColor = System.Drawing.Color.Transparent;
             this.name3.Font = new System.Drawing.Font("Microsoft YaHei UI", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.name3.Location = new System.Drawing.Point(1060, 66);
+            this.name3.Location = new System.Drawing.Point(1060, 72);
             this.name3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name3.Name = "name3";
             this.name3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.name3.Size = new System.Drawing.Size(212, 49);
+            this.name3.Size = new System.Drawing.Size(212, 53);
             this.name3.TabIndex = 10;
             this.name3.Tag = "name";
             this.name3.Text = "PLAYER4";
@@ -242,12 +245,13 @@ namespace riichi_display
             this.point3.BackColor = System.Drawing.Color.Transparent;
             this.point3.Font = new System.Drawing.Font("Microsoft YaHei UI", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.point3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.point3.Location = new System.Drawing.Point(1039, 101);
+            this.point3.Location = new System.Drawing.Point(1039, 109);
             this.point3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.point3.Name = "point3";
             this.point3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.point3.Size = new System.Drawing.Size(233, 64);
+            this.point3.Size = new System.Drawing.Size(233, 69);
             this.point3.TabIndex = 11;
+            this.point3.Tag = "point";
             this.point3.Text = "25000";
             this.point3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -256,12 +260,13 @@ namespace riichi_display
             this.addup0.BackColor = System.Drawing.Color.Transparent;
             this.addup0.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup0.Location = new System.Drawing.Point(140, 32);
+            this.addup0.Location = new System.Drawing.Point(140, 35);
             this.addup0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup0.Name = "addup0";
             this.addup0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup0.Size = new System.Drawing.Size(183, 38);
+            this.addup0.Size = new System.Drawing.Size(183, 41);
             this.addup0.TabIndex = 14;
+            this.addup0.Tag = "addup";
             this.addup0.Text = "+0";
             this.addup0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup0.Visible = false;
@@ -271,12 +276,13 @@ namespace riichi_display
             this.addup1.BackColor = System.Drawing.Color.Transparent;
             this.addup1.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup1.Location = new System.Drawing.Point(457, 32);
+            this.addup1.Location = new System.Drawing.Point(457, 35);
             this.addup1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup1.Name = "addup1";
             this.addup1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup1.Size = new System.Drawing.Size(183, 37);
+            this.addup1.Size = new System.Drawing.Size(183, 40);
             this.addup1.TabIndex = 15;
+            this.addup1.Tag = "addup";
             this.addup1.Text = "+0";
             this.addup1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup1.Visible = false;
@@ -286,12 +292,13 @@ namespace riichi_display
             this.addup2.BackColor = System.Drawing.Color.Transparent;
             this.addup2.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup2.Location = new System.Drawing.Point(785, 32);
+            this.addup2.Location = new System.Drawing.Point(785, 35);
             this.addup2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup2.Name = "addup2";
             this.addup2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup2.Size = new System.Drawing.Size(183, 37);
+            this.addup2.Size = new System.Drawing.Size(183, 40);
             this.addup2.TabIndex = 16;
+            this.addup2.Tag = "addup";
             this.addup2.Text = "+0";
             this.addup2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup2.Visible = false;
@@ -301,12 +308,13 @@ namespace riichi_display
             this.addup3.BackColor = System.Drawing.Color.Transparent;
             this.addup3.Font = new System.Drawing.Font("Microsoft YaHei UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addup3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addup3.Location = new System.Drawing.Point(1090, 32);
+            this.addup3.Location = new System.Drawing.Point(1090, 35);
             this.addup3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addup3.Name = "addup3";
             this.addup3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addup3.Size = new System.Drawing.Size(183, 37);
+            this.addup3.Size = new System.Drawing.Size(183, 40);
             this.addup3.TabIndex = 17;
+            this.addup3.Tag = "addup";
             this.addup3.Text = "+0";
             this.addup3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addup3.Visible = false;
@@ -316,10 +324,10 @@ namespace riichi_display
             this.riichi1.BackColor = System.Drawing.Color.Transparent;
             this.riichi1.BackgroundImage = global::riichi_display.Properties.Resources.riichiStick_90degree;
             this.riichi1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.riichi1.Location = new System.Drawing.Point(428, 78);
+            this.riichi1.Location = new System.Drawing.Point(643, 85);
             this.riichi1.Margin = new System.Windows.Forms.Padding(2);
             this.riichi1.Name = "riichi1";
-            this.riichi1.Size = new System.Drawing.Size(13, 77);
+            this.riichi1.Size = new System.Drawing.Size(13, 83);
             this.riichi1.TabIndex = 18;
             this.riichi1.TabStop = false;
             this.riichi1.Tag = "riichi";
@@ -330,10 +338,10 @@ namespace riichi_display
             this.wind.BackColor = System.Drawing.Color.Transparent;
             this.wind.BackgroundImage = global::riichi_display.Properties.Resources.ton;
             this.wind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.wind.Location = new System.Drawing.Point(37, 130);
+            this.wind.Location = new System.Drawing.Point(37, 141);
             this.wind.Margin = new System.Windows.Forms.Padding(2);
             this.wind.Name = "wind";
-            this.wind.Size = new System.Drawing.Size(72, 26);
+            this.wind.Size = new System.Drawing.Size(72, 28);
             this.wind.TabIndex = 13;
             this.wind.TabStop = false;
             // 
@@ -342,10 +350,10 @@ namespace riichi_display
             this.riichi0.BackColor = System.Drawing.Color.Transparent;
             this.riichi0.BackgroundImage = global::riichi_display.Properties.Resources.riichiStick_90degree;
             this.riichi0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.riichi0.Location = new System.Drawing.Point(113, 78);
+            this.riichi0.Location = new System.Drawing.Point(327, 85);
             this.riichi0.Margin = new System.Windows.Forms.Padding(2);
             this.riichi0.Name = "riichi0";
-            this.riichi0.Size = new System.Drawing.Size(13, 77);
+            this.riichi0.Size = new System.Drawing.Size(13, 83);
             this.riichi0.TabIndex = 19;
             this.riichi0.TabStop = false;
             this.riichi0.Tag = "riichi";
@@ -356,10 +364,10 @@ namespace riichi_display
             this.riichi2.BackColor = System.Drawing.Color.Transparent;
             this.riichi2.BackgroundImage = global::riichi_display.Properties.Resources.riichiStick_90degree;
             this.riichi2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.riichi2.Location = new System.Drawing.Point(757, 78);
+            this.riichi2.Location = new System.Drawing.Point(972, 85);
             this.riichi2.Margin = new System.Windows.Forms.Padding(2);
             this.riichi2.Name = "riichi2";
-            this.riichi2.Size = new System.Drawing.Size(13, 77);
+            this.riichi2.Size = new System.Drawing.Size(13, 83);
             this.riichi2.TabIndex = 21;
             this.riichi2.TabStop = false;
             this.riichi2.Tag = "riichi";
@@ -370,10 +378,10 @@ namespace riichi_display
             this.riichi3.BackColor = System.Drawing.Color.Transparent;
             this.riichi3.BackgroundImage = global::riichi_display.Properties.Resources.riichiStick_90degree;
             this.riichi3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.riichi3.Location = new System.Drawing.Point(1061, 78);
+            this.riichi3.Location = new System.Drawing.Point(1276, 85);
             this.riichi3.Margin = new System.Windows.Forms.Padding(2);
             this.riichi3.Name = "riichi3";
-            this.riichi3.Size = new System.Drawing.Size(13, 77);
+            this.riichi3.Size = new System.Drawing.Size(13, 83);
             this.riichi3.TabIndex = 20;
             this.riichi3.TabStop = false;
             this.riichi3.Tag = "riichi";
@@ -382,20 +390,20 @@ namespace riichi_display
             // nonuse
             // 
             this.nonuse.AutoSize = true;
-            this.nonuse.Location = new System.Drawing.Point(1255, 113);
+            this.nonuse.Location = new System.Drawing.Point(1255, 122);
             this.nonuse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nonuse.Name = "nonuse";
-            this.nonuse.Size = new System.Drawing.Size(0, 12);
+            this.nonuse.Size = new System.Drawing.Size(0, 13);
             this.nonuse.TabIndex = 22;
             // 
             // display
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1306, 217);
+            this.ClientSize = new System.Drawing.Size(1306, 260);
             this.ControlBox = false;
             this.Controls.Add(this.addup1);
             this.Controls.Add(this.addup2);
@@ -421,7 +429,7 @@ namespace riichi_display
             this.Controls.Add(this.point0);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(1280, 256);
+            this.MinimumSize = new System.Drawing.Size(1280, 274);
             this.Name = "display";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "显示系统";

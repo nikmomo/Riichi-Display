@@ -33,10 +33,11 @@ namespace riichi_display
         // Initialize a timer with a 5-second interval
         private readonly Timer timer = new Timer { Interval = 5000 };
 
+        private displayStatus stat = new displayStatus();
         public display()
         {
             InitializeComponent();
-
+            
             // Define an event handler for the timer's Tick event
             timer.Tick += (s, e) =>
             {
@@ -47,7 +48,6 @@ namespace riichi_display
                 timer.Dispose();
             };
         }
-
 
         public void RiichiSwitch(object sender, RiichiDisplayEvent e)
         {
@@ -105,5 +105,64 @@ namespace riichi_display
             addup3.Visible = false;
         }
 
+        public void OnFontUpdate(object sender, FontUpdateEvent e)
+        {
+            UpdateFont(e.Type, e.Font);
+        }
+
+        private void UpdateFont(FontType type, Font font)
+        {
+            string tagToFind = null;
+            switch (type)
+            {
+                case FontType.NAME:
+                    tagToFind = "name";
+                    stat.fontName = font;
+                    break;
+                case FontType.TEAM:
+                    tagToFind = "team";
+                    stat.fontTeam = font;
+                    break;
+                case FontType.POINT:
+                    tagToFind = "point";
+                    stat.fontPoint = font;
+                    break;
+                case FontType.ADDUP:
+                    tagToFind = "addup";
+                    stat.fontAddup = font;
+                    break;
+                default:
+                    return;
+
+            }
+            foreach (Control control in Controls)
+            {
+                if (control.Tag != null && control.Tag.ToString() == tagToFind)
+                {
+                    control.Font = font;
+                }
+            }
+        }
+
+        public displayStatus OnClose()
+        {
+            stat.windIndicatorVisual = wind.Visible;
+            stat.teamVisual = team0.Visible;
+            return stat;
+        }
+
+        public void OnStart(displayStatus memory)
+        {
+            stat = memory;
+            OnFontUpdate(this, new FontUpdateEvent(FontType.NAME, stat.fontName));
+            OnFontUpdate(this, new FontUpdateEvent(FontType.TEAM, stat.fontTeam));
+            OnFontUpdate(this, new FontUpdateEvent(FontType.POINT, stat.fontPoint));
+            OnFontUpdate(this, new FontUpdateEvent(FontType.ADDUP, stat.fontAddup));
+            wind.Visible = stat.windIndicatorVisual;
+            team0.Visible = stat.teamVisual;
+            team1.Visible = stat.teamVisual;
+            team2.Visible = stat.teamVisual;
+            team3.Visible = stat.teamVisual;
+        }
     }
 }

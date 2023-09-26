@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace riichi_display
 {
@@ -145,5 +146,25 @@ namespace riichi_display
 
         // Index of player for whom the Dora indicator is displayed
         public int Index { get; private set; }
+    }
+    public enum FontType
+    {
+        NAME,
+        TEAM,
+        POINT,
+        ADDUP,
+        NONE
+    };
+    // Font Update Event that updaing the fonts 
+    public class FontUpdateEvent : EventArgs
+    {
+        public FontUpdateEvent(FontType type, Font font)
+        {
+            Type = type;
+            Font = font;
+        }
+        // contain the font type
+        public FontType Type { get; private set; }
+        public Font Font { get; private set; }
     }
 }

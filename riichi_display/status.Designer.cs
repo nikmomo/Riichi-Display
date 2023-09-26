@@ -70,9 +70,9 @@ namespace riichi_display
             // 
             baopai.AutoSize = true;
             baopai.BackColor = System.Drawing.Color.Transparent;
-            baopai.Font = new System.Drawing.Font("微软雅黑", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            baopai.Font = new System.Drawing.Font("Microsoft YaHei", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             baopai.ForeColor = System.Drawing.Color.White;
-            baopai.Location = new System.Drawing.Point(468, 22);
+            baopai.Location = new System.Drawing.Point(468, 24);
             baopai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             baopai.Name = "baopai";
             baopai.Size = new System.Drawing.Size(55, 92);
@@ -83,9 +83,9 @@ namespace riichi_display
             // 
             this.round.AutoSize = true;
             this.round.BackColor = System.Drawing.Color.Transparent;
-            this.round.Font = new System.Drawing.Font("微软雅黑", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.round.Font = new System.Drawing.Font("Microsoft YaHei", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.round.ForeColor = System.Drawing.SystemColors.Control;
-            this.round.Location = new System.Drawing.Point(11, 12);
+            this.round.Location = new System.Drawing.Point(11, 13);
             this.round.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.round.Name = "round";
             this.round.Size = new System.Drawing.Size(285, 106);
@@ -96,9 +96,9 @@ namespace riichi_display
             // 
             this.kyutaku.AutoSize = true;
             this.kyutaku.BackColor = System.Drawing.Color.Transparent;
-            this.kyutaku.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kyutaku.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kyutaku.ForeColor = System.Drawing.Color.White;
-            this.kyutaku.Location = new System.Drawing.Point(418, 31);
+            this.kyutaku.Location = new System.Drawing.Point(418, 34);
             this.kyutaku.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.kyutaku.Name = "kyutaku";
             this.kyutaku.Size = new System.Drawing.Size(32, 36);
@@ -109,9 +109,9 @@ namespace riichi_display
             // 
             this.combo.AutoSize = true;
             this.combo.BackColor = System.Drawing.Color.Transparent;
-            this.combo.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.combo.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.combo.ForeColor = System.Drawing.Color.White;
-            this.combo.Location = new System.Drawing.Point(418, 71);
+            this.combo.Location = new System.Drawing.Point(418, 77);
             this.combo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.combo.Name = "combo";
             this.combo.Size = new System.Drawing.Size(32, 36);
@@ -123,10 +123,10 @@ namespace riichi_display
             this.dora0.BackColor = System.Drawing.Color.Transparent;
             this.dora0.BackgroundImage = global::riichi_display.Properties.Resources.questionmark;
             this.dora0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dora0.Location = new System.Drawing.Point(527, 18);
+            this.dora0.Location = new System.Drawing.Point(527, 20);
             this.dora0.Margin = new System.Windows.Forms.Padding(2);
             this.dora0.Name = "dora0";
-            this.dora0.Size = new System.Drawing.Size(76, 97);
+            this.dora0.Size = new System.Drawing.Size(76, 105);
             this.dora0.TabIndex = 8;
             this.dora0.TabStop = false;
             this.dora0.Tag = "dora";
@@ -137,10 +137,10 @@ namespace riichi_display
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::riichi_display.Properties.Resources.combo_short;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(293, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(293, 79);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(121, 37);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -149,10 +149,10 @@ namespace riichi_display
             this.changgong.BackColor = System.Drawing.Color.Transparent;
             this.changgong.BackgroundImage = global::riichi_display.Properties.Resources.riichiStick_short;
             this.changgong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.changgong.Location = new System.Drawing.Point(293, 33);
+            this.changgong.Location = new System.Drawing.Point(293, 36);
             this.changgong.Margin = new System.Windows.Forms.Padding(2);
             this.changgong.Name = "changgong";
-            this.changgong.Size = new System.Drawing.Size(121, 34);
+            this.changgong.Size = new System.Drawing.Size(121, 37);
             this.changgong.TabIndex = 5;
             this.changgong.TabStop = false;
             // 
@@ -161,10 +161,10 @@ namespace riichi_display
             this.dora1.BackColor = System.Drawing.Color.Transparent;
             this.dora1.BackgroundImage = global::riichi_display.Properties.Resources.questionmark;
             this.dora1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dora1.Location = new System.Drawing.Point(607, 17);
+            this.dora1.Location = new System.Drawing.Point(607, 20);
             this.dora1.Margin = new System.Windows.Forms.Padding(2);
             this.dora1.Name = "dora1";
-            this.dora1.Size = new System.Drawing.Size(76, 97);
+            this.dora1.Size = new System.Drawing.Size(76, 105);
             this.dora1.TabIndex = 9;
             this.dora1.TabStop = false;
             this.dora1.Tag = "dora";
@@ -175,10 +175,10 @@ namespace riichi_display
             this.dora2.BackColor = System.Drawing.Color.Transparent;
             this.dora2.BackgroundImage = global::riichi_display.Properties.Resources.questionmark;
             this.dora2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dora2.Location = new System.Drawing.Point(687, 18);
+            this.dora2.Location = new System.Drawing.Point(687, 20);
             this.dora2.Margin = new System.Windows.Forms.Padding(2);
             this.dora2.Name = "dora2";
-            this.dora2.Size = new System.Drawing.Size(76, 97);
+            this.dora2.Size = new System.Drawing.Size(76, 105);
             this.dora2.TabIndex = 10;
             this.dora2.TabStop = false;
             this.dora2.Tag = "dora";
@@ -189,10 +189,10 @@ namespace riichi_display
             this.dora3.BackColor = System.Drawing.Color.Transparent;
             this.dora3.BackgroundImage = global::riichi_display.Properties.Resources.questionmark;
             this.dora3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dora3.Location = new System.Drawing.Point(767, 18);
+            this.dora3.Location = new System.Drawing.Point(767, 20);
             this.dora3.Margin = new System.Windows.Forms.Padding(2);
             this.dora3.Name = "dora3";
-            this.dora3.Size = new System.Drawing.Size(76, 97);
+            this.dora3.Size = new System.Drawing.Size(76, 105);
             this.dora3.TabIndex = 11;
             this.dora3.TabStop = false;
             this.dora3.Tag = "dora";
@@ -203,10 +203,10 @@ namespace riichi_display
             this.dora4.BackColor = System.Drawing.Color.Transparent;
             this.dora4.BackgroundImage = global::riichi_display.Properties.Resources.questionmark;
             this.dora4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dora4.Location = new System.Drawing.Point(847, 18);
+            this.dora4.Location = new System.Drawing.Point(847, 20);
             this.dora4.Margin = new System.Windows.Forms.Padding(2);
             this.dora4.Name = "dora4";
-            this.dora4.Size = new System.Drawing.Size(76, 97);
+            this.dora4.Size = new System.Drawing.Size(76, 105);
             this.dora4.TabIndex = 12;
             this.dora4.TabStop = false;
             this.dora4.Tag = "dora";
@@ -214,11 +214,11 @@ namespace riichi_display
             // 
             // status
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(940, 127);
+            this.ClientSize = new System.Drawing.Size(940, 138);
             this.ControlBox = false;
             this.Controls.Add(this.dora4);
             this.Controls.Add(this.dora3);

@@ -79,7 +79,7 @@ namespace riichi_display
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
-            
+            setting.OnFontUpdate += displayForm.OnFontUpdate;
 
             statusForm = new status();
             RoundUpdateEvent += statusForm.RoundUpdate;
@@ -92,6 +92,8 @@ namespace riichi_display
             sl = new SettingSL();
             players = sl.LoadPlayer();
             handler = sl.LoadHandler();
+            displayForm.OnStart(sl.LoadDisplay());
+            setting.OnStart(sl.LoadDisplay());
             status.SelectedIndex = sl.LoadRoundIndex();
             setting.newShortCut.Click += sl.CreateShortCut;
 
@@ -949,7 +951,8 @@ namespace riichi_display
 
         private void SavePlayerWhenClosing(object sender, FormClosingEventArgs e)
         {
-            sl.SaveState(players, handler, status.SelectedIndex);
+            displayStatus disStatus = displayForm.OnClose();
+            sl.SaveState(players, handler, status.SelectedIndex, disStatus);
         }
 
         // TODO: Test round index editing storage

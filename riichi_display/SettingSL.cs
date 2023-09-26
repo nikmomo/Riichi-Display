@@ -6,9 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using IWshRuntimeLibrary;
+using System.Drawing;
 
 namespace riichi_display
 {
+    public class displayStatus
+    {
+        public bool windIndicatorVisual { get; set; }
+        public bool teamVisual { get; set; }
+        public Font fontName { get; set; }
+        public Font fontTeam { get; set; }
+        public Font fontPoint { get; set; }
+        public Font fontAddup { get; set; }
+    }
     public class SettingSL
     {
         const int playerCount = 4;
@@ -19,12 +29,15 @@ namespace riichi_display
             public PointHandler Handler { get; set; }
             public setting set { get; set; }
 
+            public displayStatus disStatus { get; set; }
+
             public int RoundIndex { get; set; }
 
             public ApplicationState()
             {
                 RoundIndex = 0;
                 Handler = new PointHandler();
+                disStatus = new displayStatus();
             }
         }
 
@@ -50,6 +63,13 @@ namespace riichi_display
                 }
                 appState = new ApplicationState();
                 appState.Players = players;
+
+                appState.disStatus.fontName = new Font("Microsoft YaHei UI", 28, FontStyle.Bold | FontStyle.Italic);
+                appState.disStatus.fontPoint = new Font("Microsoft YaHei UI", 42, FontStyle.Bold | FontStyle.Italic);
+                appState.disStatus.fontAddup = new Font("Microsoft YaHei UI", 26, FontStyle.Bold);
+                appState.disStatus.fontTeam = new Font("Microsoft YaHei UI", 22);
+                appState.disStatus.windIndicatorVisual = false;
+                appState.disStatus.teamVisual = false;
                 return;
             }
 
@@ -76,16 +96,22 @@ namespace riichi_display
             return appState.Handler;
         }
 
+        public displayStatus LoadDisplay()
+        {
+            return appState.disStatus;
+        }
+
         public int LoadRoundIndex()
         {
             return appState.RoundIndex;
         }
 
-        public void SaveState(Player[] players, PointHandler handler, int roundIndex)
+        public void SaveState(Player[] players, PointHandler handler, int roundIndex, displayStatus displayStatus)
         {
             appState.Players = players;
             appState.Handler = handler;
             appState.RoundIndex = roundIndex;
+            appState.disStatus = displayStatus;
 
             // Serialize the players array to JSON
             string json = JsonConvert.SerializeObject(appState);

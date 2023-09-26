@@ -33,19 +33,21 @@ namespace riichi_display
     {
         public event EventHandler<TeamControlEvent> teamCtrlEvent;
         public event EventHandler<WindChangeEvent> WindChgeEvent;
+        public event EventHandler<FontUpdateEvent> OnFontUpdate;
 
-        private settingHandler Set;
-        // TODO: Memorize the setting toggles, right now it's a bit conflicts with the toggles in main,
-        //       thinkig to set the setting handler in main.cs instead of here
-        private class settingHandler // Use for memorize the setting
-        {
-            bool teamEnabled { get; set; }
-            bool windEnabled { get; set; }
-        }
+        private FontType selectedType = FontType.NONE;
+        private Font fontName { get; set; }
+        private Font fontTeam { get; set; }
+        private Font fontPoint { get; set; }
+        private Font fontAddup { get; set; }
+
         public setting()//mainForm form, display displayform)
         {
             InitializeComponent();
-            Set = new settingHandler();
+            nameFont.Click += fontSetting_Clicked;
+            pointFont.Click += fontSetting_Clicked;
+            addupFont.Click += fontSetting_Clicked;
+            teamFont.Click += fontSetting_Clicked;
         }
 
         private void hideTeam_Click(object sender, EventArgs e)
@@ -62,6 +64,69 @@ namespace riichi_display
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             Process.Start("explorer.exe", Path.Combine(path, "RiichiLogs"));
+        }
+
+        // When any font button is clicked, handle the font setting
+        private void fontSetting_Clicked(object sender, EventArgs e)
+        {
+            FontDialog fontEdit = new FontDialog();
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            switch (button.Name)
+            {
+                case "nameFont":
+                    selectedType = FontType.NAME;
+                    fontEdit.Font = fontName;
+                    break;
+                case "pointFont":
+                    selectedType = FontType.POINT;
+                    fontEdit.Font = fontPoint;
+                    break;
+                case "addupFont":
+                    selectedType = FontType.ADDUP;
+                    fontEdit.Font = fontAddup;
+                    break;
+                case "teamFont":
+                    selectedType = FontType.TEAM;
+                    fontEdit.Font = fontTeam;
+                    break;
+                default:
+                    selectedType = FontType.NONE;
+                    break;
+            }
+
+            // Send the updated font
+            if (fontEdit.ShowDialog() == DialogResult.OK)
+            {
+                OnFontUpdate?.Invoke(this, new FontUpdateEvent(selectedType, fontEdit.Font));
+            }
+            switch (button.Name)
+            {
+                case "nameFont":
+                    fontName = fontEdit.Font;
+                    break;
+                case "pointFont":
+                    fontPoint = fontEdit.Font;
+                    break;
+                case "addupFont":
+                    fontAddup = fontEdit.Font;
+                    break;
+                case "teamFont":
+                    fontTeam = fontEdit.Font;
+                    break;
+                default:
+                    selectedType = FontType.NONE;
+                    break;
+            }
+
+        }
+
+        public void OnStart(displayStatus memory)
+        {
+            fontName = memory.fontName;
+            fontTeam = memory.fontTeam;
+            fontPoint = memory.fontPoint;
+            fontAddup = memory.fontAddup;
+
         }
     }
 }
