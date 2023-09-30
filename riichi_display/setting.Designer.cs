@@ -67,10 +67,9 @@ namespace riichi_display
             // hideTeam
             // 
             this.hideTeam.AutoSize = true;
-            this.hideTeam.Location = new System.Drawing.Point(21, 51);
-            this.hideTeam.Margin = new System.Windows.Forms.Padding(2);
+            this.hideTeam.Location = new System.Drawing.Point(32, 79);
             this.hideTeam.Name = "hideTeam";
-            this.hideTeam.Size = new System.Drawing.Size(118, 24);
+            this.hideTeam.Size = new System.Drawing.Size(177, 37);
             this.hideTeam.TabIndex = 48;
             this.hideTeam.Text = "关闭/启用团队名称";
             this.hideTeam.UseMnemonic = false;
@@ -80,10 +79,9 @@ namespace riichi_display
             // windSwitch
             // 
             this.windSwitch.AutoSize = true;
-            this.windSwitch.Location = new System.Drawing.Point(21, 79);
-            this.windSwitch.Margin = new System.Windows.Forms.Padding(2);
+            this.windSwitch.Location = new System.Drawing.Point(32, 122);
             this.windSwitch.Name = "windSwitch";
-            this.windSwitch.Size = new System.Drawing.Size(118, 24);
+            this.windSwitch.Size = new System.Drawing.Size(177, 37);
             this.windSwitch.TabIndex = 49;
             this.windSwitch.Text = "场风切换";
             this.windSwitch.UseMnemonic = false;
@@ -93,10 +91,9 @@ namespace riichi_display
             // windIndicator
             // 
             this.windIndicator.AutoSize = true;
-            this.windIndicator.Location = new System.Drawing.Point(21, 23);
-            this.windIndicator.Margin = new System.Windows.Forms.Padding(2);
+            this.windIndicator.Location = new System.Drawing.Point(32, 35);
             this.windIndicator.Name = "windIndicator";
-            this.windIndicator.Size = new System.Drawing.Size(118, 24);
+            this.windIndicator.Size = new System.Drawing.Size(177, 38);
             this.windIndicator.TabIndex = 50;
             this.windIndicator.Text = "关闭/启用场风指示";
             this.windIndicator.UseMnemonic = false;
@@ -105,10 +102,10 @@ namespace riichi_display
             // openFolder
             // 
             this.openFolder.AutoSize = true;
-            this.openFolder.Location = new System.Drawing.Point(27, 51);
-            this.openFolder.Margin = new System.Windows.Forms.Padding(2);
+            this.openFolder.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openFolder.Location = new System.Drawing.Point(30, 79);
             this.openFolder.Name = "openFolder";
-            this.openFolder.Size = new System.Drawing.Size(118, 24);
+            this.openFolder.Size = new System.Drawing.Size(193, 37);
             this.openFolder.TabIndex = 51;
             this.openFolder.Text = "打开Gamelog文件夹";
             this.openFolder.UseMnemonic = false;
@@ -118,10 +115,10 @@ namespace riichi_display
             // newShortCut
             // 
             this.newShortCut.AutoSize = true;
-            this.newShortCut.Location = new System.Drawing.Point(27, 23);
-            this.newShortCut.Margin = new System.Windows.Forms.Padding(2);
+            this.newShortCut.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newShortCut.Location = new System.Drawing.Point(30, 36);
             this.newShortCut.Name = "newShortCut";
-            this.newShortCut.Size = new System.Drawing.Size(118, 24);
+            this.newShortCut.Size = new System.Drawing.Size(193, 37);
             this.newShortCut.TabIndex = 52;
             this.newShortCut.Text = "创建桌面快捷方式";
             this.newShortCut.UseMnemonic = false;
@@ -130,10 +127,10 @@ namespace riichi_display
             // nameFont
             // 
             this.nameFont.AutoSize = true;
-            this.nameFont.Location = new System.Drawing.Point(209, 35);
-            this.nameFont.Margin = new System.Windows.Forms.Padding(2);
+            this.nameFont.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameFont.Location = new System.Drawing.Point(314, 54);
             this.nameFont.Name = "nameFont";
-            this.nameFont.Size = new System.Drawing.Size(118, 24);
+            this.nameFont.Size = new System.Drawing.Size(177, 37);
             this.nameFont.TabIndex = 53;
             this.nameFont.Text = "名称字体设置";
             this.nameFont.UseMnemonic = false;
@@ -142,10 +139,10 @@ namespace riichi_display
             // pointFont
             // 
             this.pointFont.AutoSize = true;
-            this.pointFont.Location = new System.Drawing.Point(209, 63);
-            this.pointFont.Margin = new System.Windows.Forms.Padding(2);
+            this.pointFont.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pointFont.Location = new System.Drawing.Point(314, 97);
             this.pointFont.Name = "pointFont";
-            this.pointFont.Size = new System.Drawing.Size(118, 24);
+            this.pointFont.Size = new System.Drawing.Size(177, 37);
             this.pointFont.TabIndex = 54;
             this.pointFont.Text = "点数字体设置";
             this.pointFont.UseMnemonic = false;
@@ -154,10 +151,10 @@ namespace riichi_display
             // addupFont
             // 
             this.addupFont.AutoSize = true;
-            this.addupFont.Location = new System.Drawing.Point(209, 91);
-            this.addupFont.Margin = new System.Windows.Forms.Padding(2);
+            this.addupFont.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addupFont.Location = new System.Drawing.Point(314, 140);
             this.addupFont.Name = "addupFont";
-            this.addupFont.Size = new System.Drawing.Size(118, 24);
+            this.addupFont.Size = new System.Drawing.Size(177, 37);
             this.addupFont.TabIndex = 55;
             this.addupFont.Text = "得点字体设置";
             this.addupFont.UseMnemonic = false;
@@ -166,10 +163,10 @@ namespace riichi_display
             // teamFont
             // 
             this.teamFont.AutoSize = true;
-            this.teamFont.Location = new System.Drawing.Point(209, 119);
-            this.teamFont.Margin = new System.Windows.Forms.Padding(2);
+            this.teamFont.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamFont.Location = new System.Drawing.Point(314, 183);
             this.teamFont.Name = "teamFont";
-            this.teamFont.Size = new System.Drawing.Size(118, 24);
+            this.teamFont.Size = new System.Drawing.Size(177, 37);
             this.teamFont.TabIndex = 56;
             this.teamFont.Text = "团队字体设置";
             this.teamFont.UseMnemonic = false;
@@ -177,9 +174,12 @@ namespace riichi_display
             // 
             // fontBox
             // 
-            this.fontBox.Location = new System.Drawing.Point(185, 12);
+            this.fontBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fontBox.Location = new System.Drawing.Point(278, 18);
+            this.fontBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fontBox.Name = "fontBox";
-            this.fontBox.Size = new System.Drawing.Size(167, 146);
+            this.fontBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fontBox.Size = new System.Drawing.Size(250, 225);
             this.fontBox.TabIndex = 57;
             this.fontBox.TabStop = false;
             this.fontBox.Text = "字体设置";
@@ -189,9 +189,12 @@ namespace riichi_display
             this.groupBox1.Controls.Add(this.clearGamelog);
             this.groupBox1.Controls.Add(this.newShortCut);
             this.groupBox1.Controls.Add(this.openFolder);
-            this.groupBox1.Location = new System.Drawing.Point(358, 12);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(537, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(167, 146);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(250, 225);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件管理";
@@ -199,15 +202,15 @@ namespace riichi_display
             // clearGamelog
             // 
             this.clearGamelog.AutoSize = true;
-            this.clearGamelog.Location = new System.Drawing.Point(27, 79);
-            this.clearGamelog.Margin = new System.Windows.Forms.Padding(2);
+            this.clearGamelog.Location = new System.Drawing.Point(30, 122);
             this.clearGamelog.Name = "clearGamelog";
-            this.clearGamelog.Size = new System.Drawing.Size(138, 24);
+            this.clearGamelog.Size = new System.Drawing.Size(200, 37);
             this.clearGamelog.TabIndex = 53;
             this.clearGamelog.Text = "清理Gamelog记录TODO";
             this.clearGamelog.UseMnemonic = false;
             this.clearGamelog.UseVisualStyleBackColor = true;
             this.clearGamelog.Visible = false;
+            this.clearGamelog.Click += new System.EventHandler(this.clearGamelog_Click);
             // 
             // groupBox2
             // 
@@ -215,9 +218,12 @@ namespace riichi_display
             this.groupBox2.Controls.Add(this.hideTeam);
             this.groupBox2.Controls.Add(this.windSwitch);
             this.groupBox2.Controls.Add(this.windIndicator);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(18, 18);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(167, 146);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(250, 225);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "显示设置";
@@ -225,10 +231,9 @@ namespace riichi_display
             // riichiDisplay
             // 
             this.riichiDisplay.AutoSize = true;
-            this.riichiDisplay.Location = new System.Drawing.Point(21, 107);
-            this.riichiDisplay.Margin = new System.Windows.Forms.Padding(2);
+            this.riichiDisplay.Location = new System.Drawing.Point(32, 165);
             this.riichiDisplay.Name = "riichiDisplay";
-            this.riichiDisplay.Size = new System.Drawing.Size(120, 24);
+            this.riichiDisplay.Size = new System.Drawing.Size(177, 37);
             this.riichiDisplay.TabIndex = 51;
             this.riichiDisplay.Text = "立直显示切换TODO";
             this.riichiDisplay.UseMnemonic = false;
@@ -237,9 +242,9 @@ namespace riichi_display
             // 
             // setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 169);
+            this.ClientSize = new System.Drawing.Size(806, 260);
             this.Controls.Add(this.teamFont);
             this.Controls.Add(this.addupFont);
             this.Controls.Add(this.pointFont);
@@ -248,9 +253,8 @@ namespace riichi_display
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "setting";
-            this.Text = "setting";
+            this.Text = "设置";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

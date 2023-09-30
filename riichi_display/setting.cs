@@ -41,8 +41,12 @@ namespace riichi_display
         private Font fontPoint { get; set; }
         private Font fontAddup { get; set; }
 
-        public setting()//mainForm form, display displayform)
+        private readonly string PATH;
+
+        public setting(string logFolder)//mainForm form, display displayform)
         {
+            PATH = logFolder;
+
             InitializeComponent();
             nameFont.Click += fontSetting_Clicked;
             pointFont.Click += fontSetting_Clicked;
@@ -62,8 +66,7 @@ namespace riichi_display
 
         private void openFolder_Click(object sender, EventArgs e)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            Process.Start("explorer.exe", Path.Combine(path, "RiichiLogs"));
+            Process.Start("explorer.exe", PATH);
         }
 
         // When any font button is clicked, handle the font setting
@@ -127,6 +130,28 @@ namespace riichi_display
             fontPoint = memory.fontPoint;
             fontAddup = memory.fontAddup;
 
+        }
+
+        private void clearGamelog_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                // Check if directory exists
+                if (Directory.Exists(PATH))
+                {
+                    // Delete the directory
+                    Directory.Delete(PATH, true); // true -> recursively delete subdirectories & files
+                }
+                else
+                {
+                    MessageBox.Show("Folder not found.");
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error deleting folder: " + ex.Message);
+            }
         }
     }
 }

@@ -21,14 +21,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 using Button = System.Windows.Forms.Button;
 
 namespace riichi_display
 { 
     public partial class mainForm : Form
     {
-        private readonly string LOGPATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
-                                          "/RiichiLogs/gamelog-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt"; // set the log path
+        private readonly string LOGFOLDERPATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RiichiLogs");
+        private readonly string LOGPATH;
 
         // Declaration of forms used in the main form
         private display displayForm;
@@ -56,6 +57,8 @@ namespace riichi_display
 
         public mainForm()
         {
+            LOGPATH = LOGFOLDERPATH + "/gamelog-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt"; // set the log path
+
             InitializeComponent();
             this.FormClosing += new FormClosingEventHandler(SavePlayerWhenClosing);
 
@@ -75,7 +78,7 @@ namespace riichi_display
             displayForm.Show();
 
             // Initialize the settings form and subscribe to its events
-            setting = new setting();
+            setting = new setting(LOGFOLDERPATH);
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
@@ -292,7 +295,7 @@ namespace riichi_display
         {
             if (setting.IsDisposed)
             {
-                setting = new setting();
+                setting = new setting(LOGFOLDERPATH);
                 setting.teamCtrlEvent += changeTeamControl;
                 setting.WindChgeEvent += windChgeControl;
                 setting.windIndicator.Click += (s, p) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
