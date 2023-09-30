@@ -34,6 +34,7 @@ namespace riichi_display
         private readonly Timer timer = new Timer { Interval = 5000 };
 
         private displayStatus stat = new displayStatus();
+        //private bool riichiPosition = true; // Track if riichi stick is horinzontal or not, true as yes
         public display()
         {
             InitializeComponent();
@@ -144,10 +145,44 @@ namespace riichi_display
             }
         }
 
+
+        //public void OnRiichiPoistionUpdate(object sender, EventArgs e)
+        //{
+        //    riichiPosition = !riichiPosition;
+        //    UpdateRiichiPosition();
+        //}
+
+        //private void UpdateRiichiPosition()
+        //{
+        //    int xGap = 474;
+        //    int yPos = riichiPosition ? 98 : 131;
+        //    foreach (Control control in Controls)
+        //    {
+        //        if (control.Tag != null && control.Tag.ToString() == "riichi")
+        //        {
+        //            int index = getIndexOfControl(control.Name);
+        //            if (riichiPosition)
+        //            {
+        //                control.Location = new Point(226 + index * xGap, yPos);
+        //                control.Size = new Size(163, 18);
+        //                control.BackgroundImage = riichi_display.Properties.Resources.riichiStick;
+        //            }
+        //            else
+        //            {
+        //                control.Location = new Point(445 + index * xGap, yPos);
+        //                control.Size = new Size(20, 128);
+        //                control.BackgroundImage = riichi_display.Properties.Resources.riichiStick_90degree;
+        //            }
+        //        }
+        //    }
+        //}
+
+
         public displayStatus OnClose()
         {
             stat.windIndicatorVisual = wind.Visible;
             stat.teamVisual = team0.Visible;
+            //stat.RiichiPostion = riichiPosition;
             return stat;
         }
 
@@ -163,6 +198,17 @@ namespace riichi_display
             team1.Visible = stat.teamVisual;
             team2.Visible = stat.teamVisual;
             team3.Visible = stat.teamVisual;
+            //riichiPosition = stat.RiichiPostion;
+            //UpdateRiichiPosition();
+        }
+
+        private int getIndexOfControl(string name)
+        {
+            // Determine the player index based on the name
+            int index = int.Parse(name[name.Length - 1].ToString());
+            if (index > 3)
+                throw new Exception("Invalid Index @getIndexOfControl!");
+            return index;
         }
     }
 }

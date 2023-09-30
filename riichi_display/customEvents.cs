@@ -167,4 +167,5 @@ namespace riichi_display
         public FontType Type { get; private set; }
         public Font Font { get; private set; }
     }
+
 }

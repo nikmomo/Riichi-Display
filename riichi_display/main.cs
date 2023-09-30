@@ -83,6 +83,7 @@ namespace riichi_display
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
             setting.OnFontUpdate += displayForm.OnFontUpdate;
+            //setting.riichiDisplay.Click += displayForm.OnRiichiPoistionUpdate;
 
             statusForm = new status();
             RoundUpdateEvent += statusForm.RoundUpdate;
@@ -153,6 +154,7 @@ namespace riichi_display
             //pointGain.LostFocus += PointGain_LostFocus;
             pointGain.KeyPress += pointGain_KeyPress;
             pointGain.KeyDown += pointGain_KeyDown;
+            pointGain.SelectedIndexChanged += point_SelectedIndexChanged;
             //pointGain.SelectedIndexChanged += playerList_SelectedIndexChanged; // PointGain using same method because requires same functionality
 
             playerList.SelectedIndexChanged += playerList_SelectedIndexChanged;
@@ -949,6 +951,16 @@ namespace riichi_display
             // If user edit manually, the priority is higher
             pointGain.Text = justEdit ? pointGain.Text : handler.CalculatePoint(han.SelectedIndex, fu.SelectedIndex, oyaWinner).ToString();
             justEdit = false;
+            PointUpdate(sender, new PointCalculateEvent()); // send point update event
+        }
+
+        private void point_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox box  = sender as System.Windows.Forms.ComboBox;
+            doubleEnter = true; // wait for the next enter
+
+            log.LogPoint(box.Text);
+            //justEdit = false;
             PointUpdate(sender, new PointCalculateEvent()); // send point update event
         }
 

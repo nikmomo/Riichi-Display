@@ -122,7 +122,7 @@ namespace riichi_display
             {
                 writer.WriteLine(message);
             }
-            Action = ActionType.NONE;
+            //Action = ActionType.NONE;
         }
     }
 }

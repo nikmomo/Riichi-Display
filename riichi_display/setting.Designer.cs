@@ -59,7 +59,6 @@ namespace riichi_display
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clearGamelog = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.riichiDisplay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -204,17 +203,15 @@ namespace riichi_display
             this.clearGamelog.AutoSize = true;
             this.clearGamelog.Location = new System.Drawing.Point(30, 122);
             this.clearGamelog.Name = "clearGamelog";
-            this.clearGamelog.Size = new System.Drawing.Size(200, 37);
+            this.clearGamelog.Size = new System.Drawing.Size(193, 37);
             this.clearGamelog.TabIndex = 53;
-            this.clearGamelog.Text = "清理Gamelog记录TODO";
+            this.clearGamelog.Text = "清理Gamelog记录";
             this.clearGamelog.UseMnemonic = false;
             this.clearGamelog.UseVisualStyleBackColor = true;
-            this.clearGamelog.Visible = false;
             this.clearGamelog.Click += new System.EventHandler(this.clearGamelog_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.riichiDisplay);
             this.groupBox2.Controls.Add(this.hideTeam);
             this.groupBox2.Controls.Add(this.windSwitch);
             this.groupBox2.Controls.Add(this.windIndicator);
@@ -227,18 +224,6 @@ namespace riichi_display
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "显示设置";
-            // 
-            // riichiDisplay
-            // 
-            this.riichiDisplay.AutoSize = true;
-            this.riichiDisplay.Location = new System.Drawing.Point(32, 165);
-            this.riichiDisplay.Name = "riichiDisplay";
-            this.riichiDisplay.Size = new System.Drawing.Size(177, 37);
-            this.riichiDisplay.TabIndex = 51;
-            this.riichiDisplay.Text = "立直显示切换TODO";
-            this.riichiDisplay.UseMnemonic = false;
-            this.riichiDisplay.UseVisualStyleBackColor = true;
-            this.riichiDisplay.Visible = false;
             // 
             // setting
             // 
@@ -279,6 +264,5 @@ namespace riichi_display
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button clearGamelog;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button riichiDisplay;
     }
 }
