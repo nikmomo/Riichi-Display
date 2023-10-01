@@ -9,11 +9,11 @@ The language of this program is Simplified Chinese.
   
 Examples:  
 <!-- ![郑州洛神雀庄效果图](materials/show2.png) -->
-*Zhengzhou luoshen mahjong club*  
+[*Zhengzhou luoshen mahjong club*](https://www.bilibili.com/video/BV12V4y1i7h6)  
 <img src="materials/show2.png" alt="郑州洛神雀庄效果图" width="400"/>
   
 <!-- ![浪速雀庄效果图](materials/show1.png) -->
-*Langsu mahjong club*
+[*Langsu mahjong club*](https://www.bilibili.com/video/BV1Q34y1T7yt) 
 <img src="materials/show1.png" alt="浪速雀庄效果图" width="400"/>
 
 ## 🚀 Getting Started
