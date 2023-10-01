@@ -17,7 +17,8 @@ Examples:
 <img src="materials/show1.png" alt="浪速雀庄效果图" width="400"/>
 
 *Control Panel*  
-![Control Panel](materials/show3.png)
+<!-- ![Control Panel](materials/show3.png) -->
+<img src="materials/show3.png" alt="Control Panel" width="400"/>
 
 ## 🚀 Getting Started
 To get started with the project, clone the repository and ensure you have Visual Studio 2019 or later installed.  
