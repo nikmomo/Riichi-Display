@@ -1,7 +1,9 @@
 riichi_display/.vs/
 riichi_display/bin/
 riichi_display/obj
-materials
+materials/*.ico
+materials/mahjong
+*.psd
 riichi_display/main_old.cs
 Publish
 riichi_display_test/bin
