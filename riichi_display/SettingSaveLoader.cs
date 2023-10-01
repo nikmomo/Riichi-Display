@@ -1,4 +1,21 @@
-﻿using System;
+﻿/*
+This file is part of Riichi Livestream Display System.
+
+Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Riichi Mahjong Livestreaming Display System is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Riichi Mahjong Livestreaming Display System.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,10 +26,10 @@ using IWshRuntimeLibrary;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 
 namespace riichi_display
 {
+    // A class to store all display status
     public class displayStatus
     {
         public bool windIndicatorVisual { get; set; }
@@ -21,17 +38,19 @@ namespace riichi_display
         public Font fontTeam { get; set; }
         public Font fontPoint { get; set; }
         public Font fontAddup { get; set; }
-        //public bool RiichiPostion { get; set; }
+        
     }
-    public class SettingSL
+    public class SettingSaveLoader
     {
         const int playerCount = 4;
         private ApplicationState appState;
+
+        // A class to store all application status
         private class ApplicationState
         {
             public Player[] Players { get; set; }
             public PointHandler Handler { get; set; }
-            public setting set { get; set; }
+            public settingForm set { get; set; }
 
             public displayStatus disStatus { get; set; }
 
@@ -45,12 +64,15 @@ namespace riichi_display
             }
         }
 
-        string fileName = "setting.json";
+        private const string fileName = "setting.json";
 
-        public SettingSL()
+        // Default constructor
+        public SettingSaveLoader()
         {
             LoadJSON();
         }
+
+        // Load json file or generate a new one
         private void LoadJSON()
         {
             Player[] players = new Player[playerCount];
@@ -89,27 +111,32 @@ namespace riichi_display
                 appState.Players = players;
             }
         }
-
+        
+        // Returning player information
         public Player[] LoadPlayer()
         {
             return appState.Players;
         }
 
+        // Returning the pointHandler
         public PointHandler LoadHandler()
         {
             return appState.Handler;
         }
 
+        // Returning the display status
         public displayStatus LoadDisplay()
         {
             return appState.disStatus;
         }
 
+        // Returning round index
         public int LoadRoundIndex()
         {
             return appState.RoundIndex;
         }
 
+        // Save all state and store to the json file
         public void SaveState(Player[] players, PointHandler handler, int roundIndex, displayStatus displayStatus)
         {
             appState.Players = players;
@@ -139,17 +166,7 @@ namespace riichi_display
         **/
         public void CreateShortCut(object sender, EventArgs e)
         {
-            //string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            //string shortcutLocation = Path.Combine(desktopPath, "Riichi Display.lnk");
             string targetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Riichi Livestream Display System.exe"); // Change to your application path
-
-            //WshShell wsh = new WshShell();
-            //IWshShortcut shortcut = wsh.CreateShortcut(shortcutLocation) as IWshShortcut;
-            //shortcut.TargetPath = targetPath;
-            //shortcut.Description = "意易失，吾亦逝　－－田烁豪耳　1919年8月10日";
-            //shortcut.IconLocation = targetPath; // Can set to your app icon path
-            //shortcut.WorkingDirectory = Path.GetDirectoryName(targetPath);
-            //shortcut.Save();
 
             IShellLink link = (IShellLink)new ShellLink();
 
@@ -164,6 +181,8 @@ namespace riichi_display
         }
     }
 }
+
+// For generating the shortcut
 
 [ComImport]
 [Guid("00021401-0000-0000-C000-000000000046")]

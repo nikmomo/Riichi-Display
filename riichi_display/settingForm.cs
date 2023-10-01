@@ -1,5 +1,5 @@
 ﻿/*
-This file is part of Riichi Mahjong Livestreaming Display System.
+This file is part of Riichi Livestream Display System.
 
 Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ using System.Windows.Forms;
 
 namespace riichi_display
 {
-    public partial class setting : Form
+    public partial class settingForm : Form
     {
         public event EventHandler<TeamControlEvent> teamCtrlEvent;
         public event EventHandler<WindChangeEvent> WindChgeEvent;
@@ -43,7 +43,7 @@ namespace riichi_display
 
         private readonly string PATH;
 
-        public setting(string logFolder)//mainForm form, display displayform)
+        public settingForm(string logFolder)//mainForm form, display displayform)
         {
             PATH = logFolder;
 

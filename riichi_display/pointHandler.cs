@@ -1,5 +1,5 @@
 ﻿/*
-This file is part of Riichi Mahjong Livestreaming Display System.
+This file is part of Riichi Livestream Display System.
 
 Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

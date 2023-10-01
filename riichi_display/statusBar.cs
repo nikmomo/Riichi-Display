@@ -1,5 +1,5 @@
 ﻿/*
-This file is part of Riichi Mahjong Livestreaming Display System.
+This file is part of Riichi Livestream Display System.
 
 Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -29,13 +29,13 @@ using System.Windows.Forms;
 namespace riichi_display
 {
     // Define a partial class 'status' which extends 'Form'
-    public partial class status : Form
+    public partial class statusBar : Form
     {
         // Declare an Image array to store the list of Dora indicators
         Image[] doraList;
 
         // Default constructor for the 'status' class
-        public status()
+        public statusBar()
         {
             // Call the InitializeComponent method from the designer file
             InitializeComponent();

@@ -6,6 +6,13 @@ The **Riichi Livestream Display System** is a Windows Forms application designed
 The language of this program is Simplified Chinese.  
 本程序的语言为简体中文。  
 このプログラムの言語は簡体字中国語です。  
+  
+Examples:  
+![郑州洛神雀庄效果图](material/show2.png)
+*Zhengzhou luoshen mahjong club*
+
+![浪速雀庄效果图](material/show1.png)
+*Langsu mahjong club*
 
 ## 🚀 Getting Started
 To get started with the project, clone the repository and ensure you have Visual Studio 2019 or later installed.  

@@ -1,5 +1,5 @@
 ﻿/*
-This file is part of Riichi Mahjong Livestreaming Display System.
+This file is part of Riichi Livestream Display System.
 
 Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,15 +32,15 @@ namespace riichi_display
         private readonly string LOGPATH;
 
         // Declaration of forms used in the main form
-        private display displayForm;
-        private setting setting;
-        private status statusForm;
+        private displayForm displayForm;
+        private settingForm setting;
+        private statusBar statusForm;
         private doraControl doraControl;
 
         private PointHandler handler;
         private Player[] players;
         private Logger log;
-        private SettingSL sl;
+        private SettingSaveLoader sl;
 
         // Declare events to handle various actions in the application
         private event EventHandler<DisplayUpdateEvent> DisplayUpdateEvent;
@@ -71,21 +71,21 @@ namespace riichi_display
             ActiveControl = null; // Remove focus from any form control
 
             // Initialize and show the display form
-            displayForm = new display();
+            displayForm = new displayForm();
             DisplayWindowUpdateEvent += DisplayWindowUpdate;
             RiichiDisplayEvent += displayForm.RiichiSwitch;
             AddupDisplayEvent += displayForm.AddupUpdate;
             displayForm.Show();
 
             // Initialize the settings form and subscribe to its events
-            setting = new setting(LOGFOLDERPATH);
+            setting = new settingForm(LOGFOLDERPATH);
             setting.teamCtrlEvent += changeTeamControl;
             setting.WindChgeEvent += windChgeControl;
             setting.windIndicator.Click += (s, e) => { displayForm.wind.Visible = !displayForm.wind.Visible; };
             setting.OnFontUpdate += displayForm.OnFontUpdate;
             //setting.riichiDisplay.Click += displayForm.OnRiichiPoistionUpdate;
 
-            statusForm = new status();
+            statusForm = new statusBar();
             RoundUpdateEvent += statusForm.RoundUpdate;
             statusForm.Show();
 
@@ -93,7 +93,7 @@ namespace riichi_display
             doraControl.DoraUpdateEvent += statusForm.DoraUpdate;
             doraControl.Show();
 
-            sl = new SettingSL();
+            sl = new SettingSaveLoader();
             players = sl.LoadPlayer();
             handler = sl.LoadHandler();
             displayForm.OnStart(sl.LoadDisplay());
@@ -297,7 +297,7 @@ namespace riichi_display
         {
             if (setting.IsDisposed)
             {
-                setting = new setting(LOGFOLDERPATH);
+                setting = new settingForm(LOGFOLDERPATH);
                 setting.teamCtrlEvent += changeTeamControl;
                 setting.WindChgeEvent += windChgeControl;
                 setting.windIndicator.Click += (s, p) => { displayForm.wind.Visible = !displayForm.wind.Visible; };

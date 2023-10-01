@@ -17,7 +17,7 @@ along with Riichi Mahjong Livestreaming Display System.  If not, see <https://ww
 
 namespace riichi_display
 {
-    partial class display
+    partial class displayForm
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@ namespace riichi_display
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(display));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(displayForm));
             this.team0 = new System.Windows.Forms.Label();
             this.name0 = new System.Windows.Forms.Label();
             this.point0 = new System.Windows.Forms.Label();

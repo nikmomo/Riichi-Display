@@ -131,11 +131,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="PointHandler.cs" />
     <Compile Include="CustomEvents.cs" />
-    <Compile Include="display.cs">
+    <Compile Include="displayForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="display.Designer.cs">
-      <DependentUpon>display.cs</DependentUpon>
+    <Compile Include="displayForm.Designer.cs">
+      <DependentUpon>displayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
@@ -145,22 +145,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="setting.cs">
+    <Compile Include="settingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="setting.Designer.cs">
-      <DependentUpon>setting.cs</DependentUpon>
+    <Compile Include="settingForm.Designer.cs">
+      <DependentUpon>settingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SettingSL.cs" />
-    <Compile Include="status.cs">
+    <Compile Include="SettingSaveLoader.cs" />
+    <Compile Include="statusBar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="status.Designer.cs">
-      <DependentUpon>status.cs</DependentUpon>
+    <Compile Include="statusBar.Designer.cs">
+      <DependentUpon>statusBar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="display.resx">
-      <DependentUpon>display.cs</DependentUpon>
+    <EmbeddedResource Include="displayForm.resx">
+      <DependentUpon>displayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="doraControl.resx">
       <DependentUpon>doraControl.cs</DependentUpon>
@@ -178,11 +178,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="setting.resx">
-      <DependentUpon>setting.cs</DependentUpon>
+    <EmbeddedResource Include="settingForm.resx">
+      <DependentUpon>settingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="status.resx">
-      <DependentUpon>status.cs</DependentUpon>
+    <EmbeddedResource Include="statusBar.resx">
+      <DependentUpon>statusBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

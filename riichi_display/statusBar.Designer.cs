@@ -17,7 +17,7 @@ along with Riichi Mahjong Livestreaming Display System.  If not, see <https://ww
 
 namespace riichi_display
 {
-    partial class status
+    partial class statusBar
     {
         /// <summary>
         /// Required designer variable.

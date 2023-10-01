@@ -1,5 +1,5 @@
 ﻿/*
-This file is part of Riichi Mahjong Livestreaming Display System.
+This file is part of Riichi Livestream Display System.
 
 Riichi Mahjong Livestreaming Display System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -28,14 +28,14 @@ using System.Windows.Forms;
 
 namespace riichi_display
 {
-    public partial class display : Form
+    public partial class displayForm : Form
     {
         // Initialize a timer with a 5-second interval
         private readonly Timer timer = new Timer { Interval = 5000 };
 
         private displayStatus stat = new displayStatus();
         //private bool riichiPosition = true; // Track if riichi stick is horinzontal or not, true as yes
-        public display()
+        public displayForm()
         {
             InitializeComponent();
             
