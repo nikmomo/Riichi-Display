@@ -63,13 +63,14 @@ Follow the standard process in Visual Studio to build and publish the applicatio
 
 ## 🛑 Known Issues
 - Winform has bad performance on animation.  
-- Adding shortcut feature might requires administrator permission.  
+- Adding shortcut feature might requires administrator permission.
+- Does not use multi-threading to run the program, there might caused some delays when launching.  
 
 ## 📚 Contributing
 If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.  
 
 ## 🔒 License
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.  
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE.md) file for details.  
 
 ## 📞 Contact
 For more information, questions, or feedback, please reach out to Shin Z (nikmomo) or post a issue in this repository.  
