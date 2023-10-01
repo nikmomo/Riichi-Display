@@ -8,10 +8,12 @@ The language of this program is Simplified Chinese.
 このプログラムの言語は簡体字中国語です。  
   
 Examples:  
-![郑州洛神雀庄效果图](materials/show2.png)
-*Zhengzhou luoshen mahjong club*
-
-![浪速雀庄效果图](materials/show1.png)
+<!-- ![郑州洛神雀庄效果图](materials/show2.png) -->
+<img src="materials/show2.png" alt="郑州洛神雀庄效果图" width="600"/>
+*Zhengzhou luoshen mahjong club*  
+  
+<!-- ![浪速雀庄效果图](materials/show1.png) -->
+<img src="materials/show1.png" alt="浪速雀庄效果图" width="600"/>
 *Langsu mahjong club*
 
 ## 🚀 Getting Started
