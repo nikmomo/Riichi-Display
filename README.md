@@ -13,7 +13,7 @@ Examples:
 <img src="materials/show2.png" alt="郑州洛神雀庄效果图" width="400"/>
   
 <!-- ![浪速雀庄效果图](materials/show1.png) -->
-[*Langsu mahjong club*](https://www.bilibili.com/video/BV1Q34y1T7yt) 
+[*Langsu mahjong club*](https://www.bilibili.com/video/BV1Q34y1T7yt)  
 <img src="materials/show1.png" alt="浪速雀庄效果图" width="400"/>
 
 ## 🚀 Getting Started
