@@ -9,12 +9,12 @@ The language of this program is Simplified Chinese.
   
 Examples:  
 <!-- ![郑州洛神雀庄效果图](materials/show2.png) -->
-<img src="materials/show2.png" alt="郑州洛神雀庄效果图" width="400"/>
 *Zhengzhou luoshen mahjong club*  
+<img src="materials/show2.png" alt="郑州洛神雀庄效果图" width="400"/>
   
 <!-- ![浪速雀庄效果图](materials/show1.png) -->
-<img src="materials/show1.png" alt="浪速雀庄效果图" width="400"/>
 *Langsu mahjong club*
+<img src="materials/show1.png" alt="浪速雀庄效果图" width="400"/>
 
 ## 🚀 Getting Started
 To get started with the project, clone the repository and ensure you have Visual Studio 2019 or later installed.  
