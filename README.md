@@ -1,11 +1,11 @@
 # Riichi Livestream Display System 🀄
 
 ## Overview
-The **Riichi Livestream Display System** is a Windows Forms application designed to manage and display player information, scores, and other relevant details during a Riichi Mahjong livestream. It allows users to interactively update player details, manage scoring, and ensure that the livestream audience stays informed about the ongoing game details by simple point entry only.
+The **Riichi Livestream Display System** is a Windows Forms application designed to manage and display player information, scores, and other relevant details during a Riichi Mahjong livestream. It allows users to interactively update player details, manage scoring, and ensure that the livestream audience stays informed about the ongoing game details by simple point entry only.  
 
-The language of this program is Simplified Chinese.
-本程序的语言为简体中文。
-このプログラムの言語は簡体字中国語です。
+The language of this program is Simplified Chinese.  
+本程序的语言为简体中文。  
+このプログラムの言語は簡体字中国語です。  
 
 ## 🚀 Getting Started
 To get started with the project, clone the repository and ensure you have Visual Studio 2019 or later installed.
