@@ -1,6 +1,3 @@
-# Riichi Mahjong Livestreaming Display System
-This project is design for update and display the points on livestream.
-
 # Riichi Livestream Display System 🀄
 
 ## Overview
