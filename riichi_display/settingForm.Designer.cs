@@ -59,6 +59,7 @@ namespace riichi_display
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clearGamelog = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.clearSetting = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -185,6 +186,7 @@ namespace riichi_display
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.clearSetting);
             this.groupBox1.Controls.Add(this.clearGamelog);
             this.groupBox1.Controls.Add(this.newShortCut);
             this.groupBox1.Controls.Add(this.openFolder);
@@ -225,7 +227,19 @@ namespace riichi_display
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "显示设置";
             // 
-            // setting
+            // clearSetting
+            // 
+            this.clearSetting.AutoSize = true;
+            this.clearSetting.Location = new System.Drawing.Point(30, 165);
+            this.clearSetting.Name = "clearSetting";
+            this.clearSetting.Size = new System.Drawing.Size(193, 37);
+            this.clearSetting.TabIndex = 54;
+            this.clearSetting.Text = "修复字体不更新问题";
+            this.clearSetting.UseMnemonic = false;
+            this.clearSetting.UseVisualStyleBackColor = true;
+            this.clearSetting.Click += new System.EventHandler(this.clearSetting_Click);
+            // 
+            // settingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +252,7 @@ namespace riichi_display
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "setting";
+            this.Name = "settingForm";
             this.Text = "设置";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -264,5 +278,6 @@ namespace riichi_display
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button clearGamelog;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button clearSetting;
     }
 }

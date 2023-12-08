@@ -119,6 +119,9 @@
       <HintPath>packages\WampSharp.23.5.1\lib\net461\WampSharp.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\Sensor-Data-Segmentation\SensorDataSegmentation\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="doraControl.cs">

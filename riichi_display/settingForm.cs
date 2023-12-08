@@ -153,5 +153,27 @@ namespace riichi_display
                 MessageBox.Show("Error deleting folder: " + ex.Message);
             }
         }
+
+        private void clearSetting_Click(object sender, EventArgs e)
+        {
+            const string fileName = "setting.json";
+            try
+            {
+                // Check if directory exists
+                if (System.IO.File.Exists(fileName))
+                {
+                    // Delete the directory
+                    System.IO.File.Delete(fileName);
+                }
+                else
+                {
+                    MessageBox.Show("Setting file not found.");
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error deleting file: " + ex.Message);
+            }
+        }
     }
 }
