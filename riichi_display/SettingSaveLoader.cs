@@ -63,12 +63,13 @@ namespace riichi_display
                 disStatus = new displayStatus();
             }
         }
-
-        private const string fileName = "setting.json";
+        private string fileName;
 
         // Default constructor
         public SettingSaveLoader()
         {
+            fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "setting.json");
+            //Console.WriteLine(fileName);
             LoadJSON();
         }
 
@@ -166,7 +167,8 @@ namespace riichi_display
         **/
         public void CreateShortCut(object sender, EventArgs e)
         {
-            string targetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Riichi Livestream Display System.exe"); // Change to your application path
+            //string targetPath = "Riichi Livestream Display System.exe";
+            string targetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Riichi Livestream Display System.exe");
 
             IShellLink link = (IShellLink)new ShellLink();
 

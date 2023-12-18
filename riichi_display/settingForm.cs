@@ -156,7 +156,7 @@ namespace riichi_display
 
         private void clearSetting_Click(object sender, EventArgs e)
         {
-            const string fileName = "setting.json";
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "setting.json");
             try
             {
                 // Check if directory exists
