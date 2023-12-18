@@ -6,7 +6,9 @@ The **Riichi Livestream Display System** is a Windows Forms application designed
 The language of this program is Simplified Chinese.  
 本程序的语言为简体中文。  
 このプログラムの言語は簡体字中国語です。  
-  
+
+[**See release for download**](https://github.com/nikmomo/Riichi-Display/releases)  
+
 Examples:  
 <!-- ![郑州洛神雀庄效果图](materials/show2.png) -->
 [*Zhengzhou luoshen mahjong club*](https://www.bilibili.com/video/BV12V4y1i7h6)  
