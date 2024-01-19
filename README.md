@@ -27,7 +27,7 @@ To get started with the project, clone the repository and ensure you have Visual
 
 ```
 bash
-git clone https://github.com/nikmomo/riichi_mahjong_point_display_livestream
+git clone https://github.com/nikmomo/Riichi-Display
 ```
 
 ## 🛠 Setup & Installation
