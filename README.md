@@ -61,7 +61,11 @@ Output: Ensure the display is broadcasted as an overlay or separate window in yo
 Reset Game: Reset the game by clicking "重置游戏".  
 
 ## 📦 Building and Publishing
-Follow the standard process in Visual Studio to build and publish the application. Ensure you have set the correct build configuration and publish settings for deploying the application.  
+1. Download latest version of `Visual Studio (VS)`, author used `Visual Studio 2022`
+2. After VS is downloaded, configure the VS, and select & install `.NET Desktop Dev` workload
+3. Open the `.sln` file in the repository
+4. Build the solution
+5. Run / Publish the solution   
 
 ## 🛑 Known Issues
 - Winform has bad performance on animation.  
